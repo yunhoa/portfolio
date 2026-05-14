@@ -1,3 +1,5 @@
+import Reveal from './Reveal.jsx';
+
 const profileItems = [
   { label: '이름', value: '조윤호' },
   { label: '생년월일', value: '2000.04.27' },
@@ -29,51 +31,59 @@ const careers = [
 function Profile() {
   return (
     <section id="profile" className="section-shell">
-      <p className="section-eyebrow">Profile</p>
-      <h2 className="section-title">기본 정보</h2>
-      <p className="section-description">
-        포트폴리오에서 바로 확인할 수 있도록 학력과 경력을 간단히 정리했습니다.
-      </p>
+      <Reveal>
+        <p className="section-eyebrow">Profile</p>
+        <h2 className="section-title">기본 정보</h2>
+        <p className="section-description">
+          포트폴리오에서 바로 확인할 수 있도록 학력과 경력을 간단히 정리했습니다.
+        </p>
+      </Reveal>
 
       <div className="mt-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="panel p-5">
-          <h3 className="text-lg font-semibold text-slate-950">개인 정보</h3>
-          <dl className="mt-5 grid gap-3">
-            {profileItems.map((item) => (
-              <div key={item.label} className="grid grid-cols-[5rem_1fr] gap-3 text-sm">
-                <dt className="font-semibold text-slate-500">{item.label}</dt>
-                <dd className="text-slate-800">{item.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
+        <Reveal delay={80}>
+          <div className="panel h-full p-5 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+            <h3 className="text-lg font-semibold text-slate-950">개인 정보</h3>
+            <dl className="mt-5 grid gap-3">
+              {profileItems.map((item) => (
+                <div key={item.label} className="grid grid-cols-[5rem_1fr] gap-3 text-sm">
+                  <dt className="font-semibold text-slate-500">{item.label}</dt>
+                  <dd className="text-slate-800">{item.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+        </Reveal>
 
         <div className="grid gap-5">
-          <div className="panel p-5">
-            <h3 className="text-lg font-semibold text-slate-950">학력</h3>
-            <div className="mt-4 space-y-4">
-              {education.map((item) => (
-                <div key={item.title} className="border-l-2 border-cyan-300 pl-4">
-                  <p className="text-sm font-semibold text-cyan-700">{item.period}</p>
-                  <p className="mt-1 font-semibold text-slate-950">{item.title}</p>
-                  <p className="mt-1 text-sm text-slate-600">{item.meta}</p>
-                </div>
-              ))}
+          <Reveal delay={140}>
+            <div className="panel p-5 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+              <h3 className="text-lg font-semibold text-slate-950">학력</h3>
+              <div className="mt-4 space-y-4">
+                {education.map((item) => (
+                  <div key={item.title} className="border-l-2 border-cyan-300 pl-4">
+                    <p className="text-sm font-semibold text-cyan-700">{item.period}</p>
+                    <p className="mt-1 font-semibold text-slate-950">{item.title}</p>
+                    <p className="mt-1 text-sm text-slate-600">{item.meta}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </Reveal>
 
-          <div className="panel p-5">
-            <h3 className="text-lg font-semibold text-slate-950">경력</h3>
-            <div className="mt-4 space-y-4">
-              {careers.map((item) => (
-                <div key={`${item.period}-${item.title}`} className="border-l-2 border-cyan-300 pl-4">
-                  <p className="text-sm font-semibold text-cyan-700">{item.period}</p>
-                  <p className="mt-1 font-semibold text-slate-950">{item.title}</p>
-                  <p className="mt-1 text-sm text-slate-600">{item.meta}</p>
-                </div>
-              ))}
+          <Reveal delay={200}>
+            <div className="panel p-5 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+              <h3 className="text-lg font-semibold text-slate-950">경력</h3>
+              <div className="mt-4 space-y-4">
+                {careers.map((item) => (
+                  <div key={`${item.period}-${item.title}`} className="border-l-2 border-cyan-300 pl-4">
+                    <p className="text-sm font-semibold text-cyan-700">{item.period}</p>
+                    <p className="mt-1 font-semibold text-slate-950">{item.title}</p>
+                    <p className="mt-1 text-sm text-slate-600">{item.meta}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

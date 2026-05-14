@@ -44,7 +44,7 @@ body {
   }
 
   .panel {
-    @apply rounded-lg border border-slate-200 bg-white shadow-[0_18px_55px_rgba(15,23,42,0.08)];
+    @apply rounded-lg border border-slate-200 bg-white shadow-[0_18px_55px_rgba(15,23,42,0.08)] transition duration-300;
   }
 
   .badge {
