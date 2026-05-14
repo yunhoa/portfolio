@@ -44,15 +44,28 @@ function ProjectMeta({ project }) {
   );
 }
 
+function ProjectBadges({ project }) {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold text-white">{project.category}</span>
+      {project.tags.map((tag) => (
+        <span key={tag} className="rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-800">
+          {tag}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function Projects() {
   return (
     <section id="projects" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">Projects</p>
-        <h2 className="section-title">직접 해본 프로젝트</h2>
+        <h2 className="section-title">문제를 어떻게 풀었는지 보이는 프로젝트</h2>
         <p className="section-description">
-          회사 프로젝트, 개인 사이드 프로젝트, 캡스톤 프로젝트를 구분해서 정리했습니다. 무엇을
-          만들었는지보다 왜 만들었고 어떤 부분을 직접 맡았는지에 맞췄습니다.
+          기술 이름보다 프로젝트에서 맡은 부분과 해결한 흐름이 먼저 보이도록 정리했습니다. 회사 프로젝트,
+          개인 자동화, 홈랩, 캡스톤을 구분해 볼 수 있습니다.
         </p>
       </Reveal>
 
@@ -61,12 +74,24 @@ function Projects() {
           <Reveal key={project.title} delay={Math.min(index * 90, 220)}>
             <article className="panel overflow-hidden hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
               <div className="border-b border-slate-200 p-5 sm:p-6">
-                <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
+                <div className="grid gap-5 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
                   <div>
-                    <p className="text-sm font-semibold text-cyan-700">{project.category}</p>
+                    <ProjectBadges project={project} />
+                    <p className="mt-4 text-sm font-semibold text-cyan-700">{project.domain}</p>
                     <h3 className="mt-2 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
                     <ProjectMeta project={project} />
-                    <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-base">{project.description}</p>
+                    <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-base">{project.summary}</p>
+
+                    <div className="mt-5 rounded-lg border border-cyan-200 bg-cyan-50 p-4">
+                      <h4 className="text-sm font-semibold text-cyan-900">핵심 기여</h4>
+                      <ul className="mt-3 grid gap-2 text-sm text-cyan-950 sm:grid-cols-3">
+                        {project.highlights.map((item) => (
+                          <li key={item} className="rounded-md bg-white/70 px-3 py-2">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
                   {(project.images || project.image) && (
@@ -87,6 +112,12 @@ function Projects() {
 
               <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-2">
                 <div className="space-y-5">
+                  {project.background && (
+                    <div>
+                      <h4 className="text-sm font-semibold text-cyan-700">배경</h4>
+                      <p className="mt-3 text-sm leading-6 text-slate-600">{project.background}</p>
+                    </div>
+                  )}
                   {project.problem && (
                     <div>
                       <h4 className="text-sm font-semibold text-cyan-700">문제</h4>
@@ -95,24 +126,17 @@ function Projects() {
                   )}
                   {project.solution && (
                     <div>
-                      <h4 className="text-sm font-semibold text-cyan-700">해결</h4>
+                      <h4 className="text-sm font-semibold text-cyan-700">문제 해결 포인트</h4>
                       <p className="mt-3 text-sm leading-6 text-slate-600">{project.solution}</p>
                     </div>
                   )}
-                  {project.background && (
-                    <div>
-                      <h4 className="text-sm font-semibold text-cyan-700">개발 배경</h4>
-                      <p className="mt-3 text-sm leading-6 text-slate-600">{project.background}</p>
-                    </div>
-                  )}
-                  <DetailList title="주요 역할" items={project.role} />
-                  <DetailList title="주요 기능" items={project.features} />
-                  <DetailList title="주요 구현" items={project.implementations} />
                 </div>
 
                 <div className="space-y-5">
+                  <DetailList title="내가 맡은 부분" items={project.role} />
+                  <DetailList title="구현한 기능" items={project.features} />
+                  <DetailList title="구현한 내용" items={project.implementations} />
                   <DetailList title="결과" items={project.outcomes} />
-                  <DetailList title="배운 점" items={project.learnings} />
                   <div>
                     <h4 className="text-sm font-semibold text-cyan-700">사용한 기술</h4>
                     <div className="mt-3 flex flex-wrap gap-2">
