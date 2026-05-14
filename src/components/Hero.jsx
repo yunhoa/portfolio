@@ -4,6 +4,7 @@ const keywords = [
   'Three.js',
   'WebGL',
   'Digital Twin',
+  'Spring Boot',
   'FastAPI',
   'React',
   'LangChain',

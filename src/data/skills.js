@@ -5,7 +5,17 @@ export const skillGroups = [
   },
   {
     category: 'Backend',
-    items: ['FastAPI', 'Python', 'Node.js', 'REST API', 'SQLAlchemy'],
+    items: [
+      'Java',
+      'Spring Boot',
+      'Spring WebFlux',
+      'JPA',
+      'FastAPI',
+      'Python',
+      'Node.js',
+      'REST API',
+      'SQLAlchemy',
+    ],
   },
   {
     category: 'AI / RAG',
@@ -26,7 +36,7 @@ export const skillGroups = [
   },
   {
     category: 'Frontend',
-    items: ['React', 'Vite', 'JavaScript', 'Tailwind CSS'],
+    items: ['React', 'Vite', 'JavaScript', 'Tailwind CSS', 'Thymeleaf'],
   },
   {
     category: 'Automation',
