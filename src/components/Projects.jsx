@@ -1,4 +1,6 @@
+import { useState } from 'react';
 import { projects } from '../data/projects.js';
+import ImageModal from './ImageModal.jsx';
 import Reveal from './Reveal.jsx';
 
 function DetailList({ title, items }) {
@@ -49,7 +51,10 @@ function ProjectBadges({ project }) {
     <div className="flex flex-wrap items-center gap-2">
       <span className="rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold text-white">{project.category}</span>
       {project.tags.map((tag) => (
-        <span key={tag} className="rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-800">
+        <span
+          key={tag}
+          className="rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-800"
+        >
           {tag}
         </span>
       ))}
@@ -58,6 +63,8 @@ function ProjectBadges({ project }) {
 }
 
 function Projects() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <section id="projects" className="section-shell">
       <Reveal>
@@ -96,15 +103,27 @@ function Projects() {
 
                   {(project.images || project.image) && (
                     <div className="grid gap-3">
-                      {(project.images || [project.image]).map((image, imageIndex) => (
-                        <img
-                          key={image}
-                          src={image}
-                          alt={`${project.title} 화면 ${imageIndex + 1}`}
-                          className="aspect-[16/9] w-full rounded-lg border border-slate-200 bg-slate-100 object-cover"
-                          loading="lazy"
-                        />
-                      ))}
+                      {(project.images || [project.image]).map((image, imageIndex) => {
+                        const alt = `${project.title} 화면 ${imageIndex + 1}`;
+                        return (
+                          <button
+                            type="button"
+                            key={image}
+                            onClick={() => setSelectedImage({ src: image, alt })}
+                            className="group relative overflow-hidden rounded-lg border border-slate-200 bg-slate-100 text-left"
+                          >
+                            <img
+                              src={image}
+                              alt={alt}
+                              className="aspect-[16/9] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                              loading="lazy"
+                            />
+                            <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
+                              확대 보기
+                            </span>
+                          </button>
+                        );
+                      })}
                     </div>
                   )}
                 </div>
@@ -156,6 +175,12 @@ function Projects() {
           </Reveal>
         ))}
       </div>
+
+      <ImageModal
+        image={selectedImage?.src}
+        alt={selectedImage?.alt}
+        onClose={() => setSelectedImage(null)}
+      />
     </section>
   );
 }
