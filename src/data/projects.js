@@ -1,8 +1,12 @@
-const safetyWatchImage = new URL('../../안전워치스마트검색.png', import.meta.url).href;
-const slackMeetingImage = new URL('../../슬랙회의실예약.png', import.meta.url).href;
-const slackVacationImage = new URL('../../슬랙휴가자봇.png', import.meta.url).href;
-const seoulDateCourseImage = new URL('../../대학교캡스톤_서울에서뭐하고놀지.png', import.meta.url).href;
-const proxmoxServerImage = new URL('../../프록시모스서버.png', import.meta.url).href;
+import safetyWatchImage from '../assets/safety-watch.png';
+import seatPlanImage from '../assets/seat-plan.png';
+import yoloDetectImage from '../assets/yolo-detect.png';
+import yoloDetect2Image from '../assets/yolo-detect-2.png';
+import smIndustryImage from '../assets/sm-industrial.png';
+import slackMeetingImage from '../assets/slack-meeting.png';
+import slackVacationImage from '../assets/slack-vacation.png';
+import seoulDateCourseImage from '../assets/seoul-date-course.png';
+import proxmoxServerImage from '../assets/proxmox-server.png';
 
 export const projects = [
   {
@@ -49,6 +53,75 @@ export const projects = [
       'SQLAlchemy',
       'REST API',
     ],
+  },
+  {
+    title: 'AI 기반 좌석배치도 공간 객체화 PoC',
+    category: '회사 프로젝트',
+    domain: 'Computer Vision / Spatial AI',
+    tags: ['Backend', 'Computer Vision', 'YOLO', 'OpenCV', 'Spatial AI'],
+    image: seatPlanImage,
+    images: [seatPlanImage, yoloDetectImage, yoloDetect2Image],
+    summary:
+      'PDF와 이미지 형태의 좌석배치도를 분석해 좌석 및 공간 정보를 구조화 데이터(JSON)로 변환하는 PoC 프로젝트입니다.',
+    highlights: [
+      'YOLO 기반 좌석 / 영역 탐지',
+      'Polygon 및 중심 좌표(POI) 생성',
+      '거리 기반 Pair 로직 구현',
+    ],
+    role: [
+      'PDF → 이미지 변환 및 도면 여백 제거',
+      'YOLO 기반 좌석 / 영역 탐지 로직 적용',
+      '좌석 중복 제거 및 POI 생성 로직 구현',
+      '거리 기반 좌석 Pair 매칭 알고리즘 구현',
+      '사다리꼴(Trapezoid) 생성 로직 구현',
+      'OpenCV 기반 시각화 및 후처리 구현',
+    ],
+    problem:
+      '좌석배치도는 PDF, 이미지 등 다양한 형태로 관리되어 좌석 정보를 서비스에서 바로 활용하기 어려웠습니다. 단순 객체 검출만으로는 좌석 간 배치 관계나 방향성을 표현하기에도 한계가 있었습니다.',
+    solution:
+      'YOLO로 좌석과 영역을 탐지하고, OpenCV 후처리로 좌석 Polygon과 중심 좌표를 생성했습니다. 이후 거리 기반 Pairing 로직으로 마주보는 좌석 구조를 분석하고, JSON 형태의 공간 객체 데이터로 변환했습니다.',
+    outcomes: [
+      '좌석배치도 기반 공간 객체 데이터 자동 생성',
+      '좌석 위치, Polygon, 중심 좌표 JSON 구조화',
+      '좌석 간 배치 관계 및 방향성 표현',
+      '향후 BIM / 실내 공간 서비스 연계 가능성 검토',
+    ],
+    tech: ['FastAPI', 'Python', 'YOLO(Ultralytics)', 'OpenCV', 'NumPy', 'PyMuPDF', 'JSON', 'Computer Vision'],
+  },
+  {
+    title: '3D 산단 디지털 플랫폼 유지관리',
+    category: '회사 프로젝트',
+    domain: 'Backend / Platform Maintenance',
+    tags: ['Backend', 'SM / 운영', 'Platform Maintenance'],
+    image: smIndustryImage,
+    summary:
+      '3D 기반 산업단지 디지털 플랫폼 운영 및 유지보수를 수행하며, 관리자 시스템 기능 개선, 외부 API 연동, 통계 시스템 운영, 데이터 관리 및 장애 대응 업무를 진행한 프로젝트입니다.',
+    highlights: [
+      'Spring Boot 관리자 기능 유지보수',
+      'Google Analytics Data API 연동 검토',
+      'Apache Proxy 기반 내부망 API 구조 검토',
+    ],
+    role: [
+      'Spring Boot 기반 관리자 시스템 유지보수',
+      '관리자 페이지 신규 기능 및 화면 개선',
+      'Google Analytics Data API 연동 검토',
+      'Apache Proxy 기반 내부망 API 연계 구조 검토',
+      'PostgreSQL 데이터 조회 및 운영 데이터 관리',
+      'SQL 작성 및 데이터 정리',
+      '외부 API 연동 및 장애 원인 분석',
+      '운영 환경 배포 지원',
+    ],
+    problem:
+      '플랫폼 운영 환경이 내부망 기반으로 구성되어 외부 API 접근에 제약이 있었습니다. 관리자 페이지, 통계 기능, 데이터 관리 기능이 함께 운영되어 기능 변경이나 장애 대응 시 시스템 간 영향도를 고려해야 했습니다.',
+    solution:
+      '내부망에서 외부 API 사용이 어려운 문제를 해결하기 위해 DMZ 환경의 Apache Proxy 구조를 검토했습니다. 관리자 시스템은 UI를 유지하고 API만 중계하는 방향으로 접근해 변경 범위를 줄였습니다. 운영 중 발생한 기능 수정과 데이터 이슈는 Spring Boot 관리자 시스템과 PostgreSQL을 통해 대응했습니다.',
+    outcomes: [
+      '내부망 환경에서도 Google Analytics 연동 가능한 구조 정리',
+      'API와 UI 분리 구조 검토로 유지보수 범위 축소',
+      '운영 중 발생한 데이터 및 기능 이슈 대응',
+      '관리자 시스템 운영 편의성 개선',
+    ],
+    tech: ['Spring Boot', 'Java', 'PostgreSQL', 'Apache HTTP Server', 'Google Analytics Data API', 'JavaScript', 'Thymeleaf', 'REST API', 'SQL', 'Git'],
   },
   {
     title: 'Slack 기반 업무 자동화 봇',

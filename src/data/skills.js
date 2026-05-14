@@ -14,8 +14,13 @@ export const skillGroups = [
       'Python',
       'Node.js',
       'REST API',
+      'Google Analytics Data API',
       'SQLAlchemy',
     ],
+  },
+  {
+    category: 'Computer Vision',
+    items: ['YOLO', 'OpenCV', 'NumPy', 'PyMuPDF', 'Spatial AI'],
   },
   {
     category: 'AI / RAG',
@@ -49,6 +54,7 @@ export const skillGroups = [
       'pfSense',
       'Ubuntu',
       'Linux',
+      'Apache HTTP Server',
       'SSH',
       'NAT',
       'Port Forwarding',

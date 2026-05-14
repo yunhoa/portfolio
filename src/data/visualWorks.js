@@ -1,6 +1,6 @@
-const medicalTwinImage = new URL('../../메디컬트윈.png', import.meta.url).href;
-const semiconductorImage = new URL('../../반도체제조.png', import.meta.url).href;
-const mySafetyImage = new URL('../../mysafety실제 앱 화면.png', import.meta.url).href;
+import medicalTwinImage from '../assets/medical-twin.png';
+import semiconductorImage from '../assets/semiconductor.png';
+import mySafetyImage from '../assets/mysafety-screen.png';
 
 export const visualWorks = [
   {

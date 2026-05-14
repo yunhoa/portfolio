@@ -1,6 +1,6 @@
 # 조윤호 개발자 포트폴리오
 
-3D 웹 화면, 백엔드 API, RAG 검색 실험, 업무 자동화 경험을 정리한 단일 페이지 포트폴리오입니다.
+3D 웹 화면, 백엔드 API, RAG 검색, 업무 자동화, 인프라 경험을 정리한 단일 페이지 포트폴리오입니다.
 
 ## 기술 스택
 
@@ -19,6 +19,8 @@
 ├── postcss.config.js
 ├── tailwind.config.js
 ├── vite.config.js
+├── scripts
+│   └── build.mjs
 ├── README.md
 └── src
     ├── App.jsx
@@ -33,6 +35,7 @@
     │   ├── SceneBackground.jsx
     │   ├── VisualWork.jsx
     │   └── Skills.jsx
+    ├── assets
     └── data
         ├── projects.js
         ├── skills.js
@@ -62,4 +65,11 @@ npm run build
 - 연락처 링크: `src/components/Contact.jsx`
 - 섹션 구성: `src/App.jsx`
 
-현재 GitHub, Email, Blog/Notion, 이력서 다운로드 링크는 `TODO`로 표시되어 있습니다.
+## 프로젝트 목록
+
+1. Safety Watch 스마트검색 RAG 기반 AI 플랫폼
+2. AI 기반 좌석배치도 공간 객체화 PoC
+3. 3D 산단 디지털 플랫폼 유지관리
+4. Slack 기반 업무 자동화 봇
+5. Proxmox 기반 홈서버 및 네트워크 인프라 구축
+6. 서울 데이트코스 추천 웹 서비스
