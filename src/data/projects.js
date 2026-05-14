@@ -2,6 +2,7 @@ const safetyWatchImage = new URL('../../안전워치스마트검색.png', import
 const slackMeetingImage = new URL('../../슬랙회의실예약.png', import.meta.url).href;
 const slackVacationImage = new URL('../../슬랙휴가자봇.png', import.meta.url).href;
 const seoulDateCourseImage = new URL('../../대학교캡스톤_서울에서뭐하고놀지.png', import.meta.url).href;
+const proxmoxServerImage = new URL('../../프록시모스서버.png', import.meta.url).href;
 
 export const projects = [
   {
@@ -79,6 +80,7 @@ export const projects = [
   {
     title: 'Proxmox 기반 홈서버 및 네트워크 인프라 구축',
     category: '개인 홈랩 / 인프라',
+    image: proxmoxServerImage,
     description:
       '백엔드 서비스를 올리는 환경을 직접 이해하고 싶어서 Proxmox VE 기반 홈서버를 구성했습니다. pfSense를 라우터와 방화벽으로 사용하면서 NAT, 포트포워딩, DDNS 연결을 테스트했습니다.',
     implementations: [
