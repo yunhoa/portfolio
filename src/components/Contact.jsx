@@ -1,14 +1,15 @@
 const contacts = [
-  { label: 'GitHub', value: 'TODO: GitHub 링크 추가', href: '#' },
-  { label: 'Email', value: 'TODO: 이메일 주소 추가', href: 'mailto:TODO' },
-  { label: 'Notion / Blog', value: 'TODO: Notion 또는 Blog 링크 추가', href: '#' },
+  { label: 'GitHub', value: 'github.com/yunhoa', href: 'https://github.com/yunhoa' },
+  { label: 'Email', value: 'govlxnep@naver.com', href: 'mailto:govlxnep@naver.com' },
+  { label: 'Phone', value: '010-7535-6501', href: 'tel:01075356501' },
+  { label: 'Notion / Blog', value: 'TODO: 링크 추가', href: '#' },
 ];
 
 function Contact() {
   return (
     <section id="contact" className="section-shell pb-20">
       <div className="panel p-5 sm:p-8">
-        <p className="section-eyebrow">Direction & Contact</p>
+        <p className="section-eyebrow">Contact</p>
         <div className="mt-4 grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <h2 className="text-2xl font-semibold tracking-normal text-slate-950 sm:text-3xl">

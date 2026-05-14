@@ -1,4 +1,5 @@
 const navItems = [
+  { label: 'Profile', href: '#profile' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: '3D Work', href: '#visual-work' },
@@ -13,7 +14,7 @@ function Header() {
         <a href="#top" className="text-base font-semibold text-slate-950">
           조윤호
         </a>
-        <div className="hidden items-center gap-1 sm:flex">
+        <div className="hidden items-center gap-1 md:flex">
           {navItems.map((item) => (
             <a
               key={item.href}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from './components/Header.jsx';
 import IntroGate from './components/IntroGate.jsx';
 import Hero from './components/Hero.jsx';
+import Profile from './components/Profile.jsx';
 import About from './components/About.jsx';
 import Skills from './components/Skills.jsx';
 import VisualWork from './components/VisualWork.jsx';
@@ -17,6 +18,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Profile />
         <About />
         <Skills />
         <VisualWork />

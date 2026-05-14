@@ -11,7 +11,7 @@ function About() {
           },
           {
             title: 'Backend & Data',
-            body: 'FastAPI, PostgreSQL, PGVector를 사용해 검색 API와 데이터 저장 구조를 만들어봤습니다. 데이터를 바로 쓰기 어려울 때 전처리와 변환 작업도 직접 했습니다.',
+            body: 'Spring Boot, FastAPI, PostgreSQL, PGVector를 사용해 API와 검색 구조를 만들어봤습니다. 데이터를 바로 쓰기 어려울 때 전처리와 변환 작업도 직접 했습니다.',
           },
           {
             title: 'Automation & Infra',
