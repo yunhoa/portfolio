@@ -10,11 +10,12 @@ function Contact() {
           <div className="mt-4 grid gap-6">
             <div>
               <h2 className="text-2xl font-semibold tracking-normal text-slate-950 sm:text-3xl">
-                필요하면 이메일로 연락 주세요.
+                더 이야기해보고 싶다면 이메일로 연락 주세요.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                프론트, 백엔드, AI, 공간 데이터, 운영 자동화까지 넓게 다뤄왔고, 필요한 영역은 혼자
-                계속 공부하면서 끝까지 맡아서 정리하는 편입니다.
+                포트폴리오에 적은 프로젝트와 작업 경험에 대해 더 이야기할 수 있습니다. 프론트,
+                백엔드, AI, 공간 데이터, 운영 자동화까지 넓게 다뤄왔고, 필요한 영역은 혼자 계속
+                공부하면서 맡은 일을 끝까지 정리하는 편입니다.
               </p>
             </div>
 
@@ -30,7 +31,7 @@ function Contact() {
                     <p className="text-sm font-semibold text-cyan-700">Learning Record</p>
                     <p className="mt-2 text-sm leading-6 text-slate-700">
                       혼자 강의도 계속 찾아보고, 필요한 기술은 따로 사서 보면서 채워가고 있습니다.
-                      맡은 일을 끝까지 정리할 수 있게 기본기를 계속 쌓는 중입니다.
+                      필요할 때 먼저 떠오르는 개발자가 되려고 기본기를 계속 쌓는 중입니다.
                     </p>
                   </div>
                 </div>
