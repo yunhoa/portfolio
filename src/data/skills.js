@@ -29,7 +29,7 @@ export const skillGroups = [
   },
   {
     category: 'Computer Vision',
-    items: ['YOLO', 'OpenCV', 'NumPy', 'PyMuPDF', 'Spatial AI'],
+    items: ['SAM', 'LaMa', 'Rembg', 'PaddleOCR', 'YOLO', 'OpenCV', 'NumPy', 'PyMuPDF', 'Spatial AI'],
   },
   {
     category: 'AI / RAG',
@@ -58,7 +58,7 @@ export const skillGroups = [
   },
   {
     category: 'Mobile / Operations',
-    items: ['Apache Cordova', 'Android', 'Background Geolocation', 'Google Play Console', 'Firebase'],
+    items: ['React Native', 'Apache Cordova', 'Android', 'Background Geolocation', 'Google Play Console', 'Firebase'],
   },
   {
     category: 'Infra',
