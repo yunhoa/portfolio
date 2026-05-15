@@ -32,7 +32,7 @@ const careers = [
 const publications = [
   {
     title: '스마트 플랜트 가상환경 구축을 위한 모바일–서버 연동형 AI 기반 메타정보 자동 생성 프레임워크',
-    meta: '논문 · 1저자',
+    meta: '스마트플랜트 R&D 연계 논문 · 1저자',
     href: paperPdf,
   },
 ];

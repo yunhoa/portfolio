@@ -35,7 +35,11 @@ function ProjectMeta({ project }) {
   }
 
   return (
-    <dl className="mt-4 grid gap-2 text-sm text-slate-600 sm:grid-cols-3">
+    <dl
+      className={`mt-4 grid gap-2 text-sm text-slate-600 ${
+        metaItems.length > 1 ? 'sm:grid-cols-3' : ''
+      }`}
+    >
       {metaItems.map(([label, value]) => (
         <div key={label} className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2">
           <dt className="text-xs font-semibold text-slate-500">{label}</dt>
@@ -88,6 +92,21 @@ function Projects() {
                     <h3 className="mt-2 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
                     <ProjectMeta project={project} />
                     <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-base">{project.summary}</p>
+                    {project.links && (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {project.links.map((link) => (
+                          <a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="rounded-md border border-cyan-200 bg-white px-3 py-1.5 text-sm font-semibold text-cyan-800 transition hover:bg-cyan-50"
+                          >
+                            {link.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
 
                     <div className="mt-5 rounded-lg border border-cyan-200 bg-cyan-50 p-4">
                       <h4 className="text-sm font-semibold text-cyan-900">핵심 기여</h4>
@@ -105,17 +124,24 @@ function Projects() {
                     <div className="grid gap-3">
                       {(project.images || [project.image]).map((image, imageIndex) => {
                         const alt = `${project.title} 화면 ${imageIndex + 1}`;
+                        const shouldContain = project.imageFit === 'contain';
                         return (
                           <button
                             type="button"
                             key={image}
                             onClick={() => setSelectedImage({ src: image, alt })}
-                            className="group relative overflow-hidden rounded-lg border border-slate-200 bg-slate-100 text-left"
+                            className={`group relative overflow-hidden rounded-lg border border-slate-200 text-left ${
+                              shouldContain ? 'bg-slate-950' : 'bg-slate-100'
+                            }`}
                           >
                             <img
                               src={image}
                               alt={alt}
-                              className="aspect-[16/9] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                              className={`aspect-[16/9] w-full transition duration-300 ${
+                                shouldContain
+                                  ? 'object-contain p-3 group-hover:opacity-95'
+                                  : 'object-cover group-hover:scale-[1.03]'
+                              }`}
                               loading="lazy"
                             />
                             <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">

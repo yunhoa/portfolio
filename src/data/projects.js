@@ -1,6 +1,7 @@
 import safetyWatchImage from '../assets/safety-watch.png';
 import plantMainImage from '../assets/plant-main.svg';
 import plantLoginImage from '../assets/plant-login.svg';
+import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 import seatPlanImage from '../assets/seat-plan.png';
 import yoloDetectImage from '../assets/yolo-detect.png';
 import yoloDetect2Image from '../assets/yolo-detect-2.png';
@@ -63,15 +64,18 @@ export const projects = [
     tags: ['Backend', 'AI', 'Computer Vision', 'FastAPI', 'Smart Plant'],
     image: plantMainImage,
     images: [plantMainImage, plantLoginImage],
-    organization:
-      'R&D / RD-25-020-C · 플랜트 산업 가상 자율제조를 위한 LoD4 수준 온디바이스 AI 기반 제조현장 3차원 모델 자동제작 기술개발 및 실증',
+    imageFit: 'contain',
+    organization: 'R&D / RD-25-020-C',
     summary:
       '스마트플랜트 제조현장의 3D 가상환경 구축을 자동화하기 위해, 설비 이미지에서 객체 이미지와 메타정보를 생성하는 모바일-서버 연동형 AI 프레임워크를 구현한 프로젝트입니다.',
     highlights: [
       'FastAPI 기반 AI 추론 서버 API 구성',
       'SAM 기반 인터랙티브 객체 분할 구현',
-      'OCR 기반 설비 메타정보 자동 생성',
+      '관련 논문 1저자 작성',
     ],
+    links: [{ label: '논문 PDF 보기', href: paperPdf }],
+    background:
+      '플랜트 산업 가상 자율제조를 위한 LoD4 수준 온디바이스 AI 기반 제조현장 3차원 모델 자동제작 기술개발 및 실증 과제에서 진행한 R&D 프로젝트입니다.',
     role: [
       'FastAPI 기반 AI 추론 서버 API 개발 및 React Native 앱 연동',
       '이미지 업로드, UUID 기반 결과 캐시, 처리 히스토리 관리 구조 구현',
@@ -80,6 +84,7 @@ export const projects = [
       'Rembg 기반 배경제거와 LaMa 기반 인페인팅 기능 연동',
       'OpenCV 기반 설비 이미지 기울기 자동 보정 구현',
       'PaddleOCR 기반 설비 태그 ID 인식 및 메타정보 연계 구조 구현',
+      '프로젝트 내용을 바탕으로 스마트플랜트 AI 메타정보 자동생성 프레임워크 논문 1저자 작성',
     ],
     problem:
       '기존 플랜트 가상환경 구축은 도면 수집, 3D 스캐닝, 전문가 수작업에 의존해 초기 구축 비용과 시간이 컸습니다. 실제 현장 이미지는 설비, 구조물, 배관이 함께 있어 관심 설비만 분리하기 어렵고, AI 처리 결과를 수정하거나 되돌리는 흐름도 필요했습니다.',
@@ -90,6 +95,7 @@ export const projects = [
       '클릭 기반 인터랙티브 설비 객체 선택 및 편집 구조 구현',
       '단계별 AI 처리 결과를 수정하고 복원할 수 있는 캐시/히스토리 구조 구성',
       '스마트플랜트 디지털 트윈용 3D 모델 생성 전처리 기반 마련',
+      'R&D 구현 내용을 논문 형태로 정리',
     ],
     tech: [
       'FastAPI',
