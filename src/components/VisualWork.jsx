@@ -9,103 +9,109 @@ function VisualWork() {
   return (
     <section id="visual-work" className="section-shell">
       <Reveal>
-        <p className="section-eyebrow">Digital Twin / Service Work</p>
-        <h2 className="section-title">화면과 데이터 연동이 함께 들어간 작업</h2>
+        <p className="section-eyebrow">Spatial / Digital Twin</p>
+        <h2 className="section-title">3D 공간 데이터 구축</h2>
         <p className="section-description">
-          단순 화면 시안이 아니라 3D 화면, API 데이터, 실시간 상태값을 연결하면서 작업한 결과물입니다.
-          이미지로 구조를 먼저 보고, 맡은 구현 범위를 함께 확인할 수 있게 정리했습니다.
+          3D 화면을 만드는 데서 끝내지 않고 실제 공간 좌표, API 데이터, 실시간 상태값을 연결한 작업입니다.
+          이미지와 구현 범위를 함께 볼 수 있도록 정리했습니다.
         </p>
       </Reveal>
 
-      <div className="mt-8 grid gap-5 lg:grid-cols-3">
+      <div className="mt-8 space-y-5">
         {visualWorks.map((work, index) => (
           <Reveal key={work.title} delay={index * 100}>
-            <article className="panel h-full overflow-hidden hover:-translate-y-1 hover:shadow-xl">
-              <button
-                type="button"
-                onClick={() => setSelectedImage({ src: work.image, alt: `${work.title} 화면` })}
-                className="group relative block w-full overflow-hidden text-left"
-              >
-                <img
-                  src={work.image}
-                  alt={`${work.title} 화면`}
-                  className="aspect-[16/10] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-                />
-                <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
-                  확대 보기
-                </span>
-              </button>
-              <div className="p-5">
-                <p className="text-sm font-semibold text-cyan-700">{work.label}</p>
-                <h3 className="mt-2 text-lg font-semibold text-slate-950">{work.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600">{work.summary}</p>
-                {work.highlights && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {work.highlights.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-md border border-cyan-200 bg-cyan-50 px-2.5 py-1 text-xs font-medium text-cyan-900"
-                      >
-                        {item}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                {work.details && (
-                  <div className="mt-5">
-                    <h4 className="text-sm font-semibold text-slate-950">담당 구현</h4>
-                    <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
-                      {work.details.map((item) => (
-                        <li key={item} className="flex gap-2">
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {(work.problem || work.improvement) && (
-                  <div className="mt-5 rounded-lg border border-slate-200 bg-slate-50 p-4">
-                    {work.problem && (
-                      <div>
-                        <h4 className="text-sm font-semibold text-slate-950">문제</h4>
-                        <p className="mt-2 text-sm leading-6 text-slate-600">{work.problem}</p>
-                      </div>
-                    )}
-                    {work.improvement && (
-                      <div className={work.problem ? 'mt-4' : ''}>
-                        <h4 className="text-sm font-semibold text-cyan-800">개선</h4>
-                        <p className="mt-2 text-sm leading-6 text-slate-600">{work.improvement}</p>
-                      </div>
-                    )}
-                  </div>
-                )}
-                {work.tech && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {work.tech.map((tech) => (
-                      <span key={tech} className="rounded-md bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                )}
-                {work.secondaryImage && (
-                  <button
-                    type="button"
-                    onClick={() => setSelectedImage({ src: work.secondaryImage, alt: `${work.title} 보조 화면` })}
-                    className="group relative mt-4 block w-full overflow-hidden rounded-md border border-slate-200 text-left"
-                  >
-                    <img
-                      src={work.secondaryImage}
-                      alt={`${work.title} 보조 화면`}
-                      className="aspect-[16/9] w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-                      loading="lazy"
-                    />
-                    <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
-                      확대 보기
+            <article className="panel overflow-hidden hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+              <div className="grid gap-0 lg:grid-cols-[0.88fr_1.12fr]">
+                <button
+                  type="button"
+                  onClick={() => setSelectedImage({ src: work.image, alt: `${work.title} 화면` })}
+                  className="group relative block min-h-full overflow-hidden bg-slate-100 text-left"
+                >
+                  <img
+                    src={work.image}
+                    alt={`${work.title} 화면`}
+                    className="aspect-[16/10] h-full w-full object-cover transition duration-300 group-hover:scale-[1.03] lg:aspect-auto"
+                  />
+                  <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
+                    확대 보기
+                  </span>
+                </button>
+
+                <div className="p-5 sm:p-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold text-white">
+                      3D 공간 구축
                     </span>
-                  </button>
-                )}
+                    <span className="rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-800">
+                      {work.label}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 text-xl font-semibold text-slate-950">{work.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-base">{work.summary}</p>
+
+                  {work.highlights && (
+                    <div className="mt-4 grid gap-2 sm:grid-cols-3">
+                      {work.highlights.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-md border border-cyan-200 bg-cyan-50 px-3 py-2 text-sm font-medium text-cyan-950"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
+                  {work.details && (
+                    <div className="mt-5">
+                      <h4 className="text-sm font-semibold text-cyan-700">담당 구현</h4>
+                      <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-600 md:grid-cols-2">
+                        {work.details.map((item) => (
+                          <li key={item} className="flex gap-2">
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {(work.problem || work.improvement || work.outcome) && (
+                    <div className="mt-5 grid gap-3 md:grid-cols-3">
+                      {work.problem && (
+                        <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+                          <h4 className="text-sm font-semibold text-slate-950">문제</h4>
+                          <p className="mt-2 text-sm leading-6 text-slate-600">{work.problem}</p>
+                        </div>
+                      )}
+                      {work.improvement && (
+                        <div className="rounded-lg border border-cyan-200 bg-cyan-50 p-4">
+                          <h4 className="text-sm font-semibold text-cyan-900">개선</h4>
+                          <p className="mt-2 text-sm leading-6 text-cyan-950">{work.improvement}</p>
+                        </div>
+                      )}
+                      {work.outcome && (
+                        <div className="rounded-lg border border-slate-200 bg-white p-4">
+                          <h4 className="text-sm font-semibold text-slate-950">결과</h4>
+                          <p className="mt-2 text-sm leading-6 text-slate-600">{work.outcome}</p>
+                        </div>
+                      )}
+                    </div>
+                  )}
+
+                  {work.tech && (
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      {work.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </article>
           </Reveal>
