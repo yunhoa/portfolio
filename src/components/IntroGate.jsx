@@ -297,7 +297,7 @@ function IntroGate({ onEnter }) {
           isOpening ? '-translate-y-3 scale-[0.98] opacity-0' : 'translate-y-0 scale-100 opacity-100'
         }`}
       >
-        <div className="max-w-2xl">
+        <div className="max-w-xl">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200 sm:text-sm">
             Yoonho Portfolio
           </p>
@@ -306,14 +306,14 @@ function IntroGate({ onEnter }) {
             <br />
             한 곳에 모았습니다.
           </h1>
-          <p className="mt-4 max-w-xl text-base leading-7 text-slate-300">
-            백엔드 API, RAG 검색, 공간 데이터 처리, 운영 자동화 경험을 정리했습니다.
+          <p className="mt-4 max-w-lg text-base leading-7 text-slate-300">
+            백엔드, AI, 공간 데이터, 운영 자동화까지 다뤄왔습니다.
           </p>
         </div>
         <button
           type="button"
           onClick={enterPortfolio}
-          className="mt-7 rounded-md border border-cyan-200/40 bg-cyan-200 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+          className="mt-8 rounded-md border border-cyan-200/40 bg-cyan-200 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
         >
           작업물 보기
         </button>

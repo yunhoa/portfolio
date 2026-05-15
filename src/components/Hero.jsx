@@ -56,11 +56,11 @@ function Hero() {
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-normal text-white sm:text-5xl lg:text-6xl">
               조윤호
             </h1>
-            <p className="mt-6 max-w-3xl break-words text-xl leading-8 text-slate-200 sm:text-2xl">
-              프론트부터 백엔드, AI/RAG, 공간 데이터, 운영 자동화까지 넓게 다뤄왔고 필요한 문제를
-              맡기면 끝까지 정리하는 개발자입니다.
+            <p className="mt-6 max-w-2xl break-words text-xl leading-8 text-slate-200 sm:text-2xl">
+              프론트부터 백엔드, AI/RAG, 공간 데이터, 운영 자동화까지 넓게 다뤄왔습니다.
+              <span className="block">필요한 문제를 맡기면 끝까지 정리하는 개발자입니다.</span>
             </p>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
+            <p className="mt-4 max-w-xl text-base leading-7 text-slate-300">
               회사 프로젝트에서는 RAG 검색 API, 좌석배치도 객체화, 디지털 트윈, 플랫폼 유지보수를
               다뤘고 개인 프로젝트로는 Slack 자동화와 홈서버 인프라를 구성했습니다.
             </p>
