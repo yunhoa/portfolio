@@ -51,17 +51,18 @@ function Hero() {
         <div className="grid min-w-0 items-center gap-8 lg:grid-cols-[1.02fr_0.98fr]">
           <div className="min-w-0">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-cyan-200">
-              Backend · AI/RAG · Spatial Data · Operations
+              Frontend · Backend · AI/RAG · Spatial Data · Operations
             </p>
             <h1 className="mt-5 max-w-4xl text-4xl font-semibold tracking-normal text-white sm:text-5xl lg:text-6xl">
               조윤호
             </h1>
             <p className="mt-6 max-w-3xl break-words text-xl leading-8 text-slate-200 sm:text-2xl">
-              백엔드 API를 중심으로 검색 구조, 공간 데이터, 운영 자동화까지 다뤄온 개발자입니다.
+              프론트부터 백엔드, AI/RAG, 공간 데이터, 운영 자동화까지 넓게 다뤄왔고 필요한 문제를
+              맡기면 끝까지 정리하는 개발자입니다.
             </p>
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-300">
-              회사 프로젝트에서는 RAG 검색 API, 좌석배치도 객체화, 플랫폼 유지보수를 다뤘고 개인
-              프로젝트로는 Slack 자동화와 홈서버 인프라를 구성했습니다.
+              회사 프로젝트에서는 RAG 검색 API, 좌석배치도 객체화, 디지털 트윈, 플랫폼 유지보수를
+              다뤘고 개인 프로젝트로는 Slack 자동화와 홈서버 인프라를 구성했습니다.
             </p>
             <div className="mt-8 flex min-w-0 flex-wrap gap-2">
               {keywords.map((keyword) => (
@@ -77,7 +78,7 @@ function Hero() {
 
           <div className="min-w-0 rounded-lg border border-white/15 bg-white/10 p-5 shadow-glow backdrop-blur sm:p-6">
             <p className="text-sm font-semibold text-cyan-200">Focus Area</p>
-            <h2 className="mt-2 text-xl font-semibold text-white">프로젝트에서 이어진 경험</h2>
+            <h2 className="mt-2 text-xl font-semibold text-white">넓게 다뤄본 영역</h2>
             <div className="mt-5 grid gap-3">
               {strengths.map((item) => (
                 <div key={item.title} className="rounded-lg border border-white/10 bg-slate-950/45 p-4">
