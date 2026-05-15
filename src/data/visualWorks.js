@@ -49,12 +49,37 @@ export const visualWorks = [
     tech: ['React', 'JavaScript', 'Three.js', 'Zustand', 'REST API', 'JSON', 'InfluxDB'],
   },
   {
-    title: 'MySafety 모바일 안전 서비스',
-    label: 'Mobile / Safety Service',
+    title: 'MySafety 작업자 안전 지원 모바일 플랫폼',
+    label: '한화토탈에너지스 / Mobile Operations',
     image: mySafetyImage,
     summary:
-      '안전 관련 정보를 모바일에서 확인할 수 있도록 기능 흐름과 화면 구조를 정리한 서비스 작업입니다.',
-    highlights: ['모바일 화면 구조 정리', '안전 정보 표시', '서비스 흐름 구성'],
-    outcome: '안전 관련 기능을 모바일 사용 흐름에 맞춰 확인할 수 있도록 화면 구조를 정리했습니다.',
+      '공장 작업자의 안전 관리와 비상 대응을 지원하기 위한 모바일 앱 구축 및 운영 프로젝트입니다. 공지사항, 작업자 위치, 대피소 정보, 백그라운드 위치 수집 기능을 다뤘습니다.',
+    highlights: ['Cordova 기반 모바일 앱 개발', '백그라운드 위치 수집 처리', 'Google Play 배포 및 운영'],
+    details: [
+      'Apache Cordova 기반 하이브리드 모바일 앱 UI 및 기능 개발',
+      '실시간 공지사항 및 안전 정보 조회 기능 구현',
+      '지도 기반 대피소 위치 및 현장 정보 시각화',
+      '작업자 실시간 위치 추적 및 위치 데이터 처리 기능 개발',
+      'Background Geolocation 기반 백그라운드 위치 수집 및 권한 처리',
+      'REST API 연동 및 Android 플랫폼 유지보수',
+      'Google Play 배포와 운영 관리',
+    ],
+    problem:
+      '운영 환경에서 사용자 증가로 공지사항과 안전 정보 조회 요청이 집중되며 화면 진입 응답과 렌더링이 늦어졌습니다. Android 버전과 제조사 정책 차이로 일부 단말에서 백그라운드 위치 수집이 정상 동작하지 않는 이슈도 있었습니다.',
+    improvement:
+      'API 호출을 비동기 처리 구조로 정리하고 불필요한 중복 요청을 줄였습니다. Android Background Location 정책과 제조사별 동작 차이를 확인해 권한 처리, Cordova 플러그인 버전, OS별 호환성을 조정했습니다.',
+    outcome:
+      '실제 산업 현장 운영 앱을 유지보수했고, Google Play 등록 및 운영을 경험했습니다. 앱은 다운로드 1만+와 사용자 평점 4.6을 유지했습니다.',
+    tech: [
+      'Apache Cordova',
+      'JavaScript',
+      'HTML / CSS',
+      'REST API',
+      'JSON',
+      'Android',
+      'Google Play Console',
+      'Background Geolocation',
+      'Firebase',
+    ],
   },
 ];
