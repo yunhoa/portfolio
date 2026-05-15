@@ -21,8 +21,8 @@ function App() {
         <Profile />
         <About />
         <Skills />
-        <VisualWork />
         <Projects />
+        <VisualWork />
         <Contact />
       </main>
     </div>

@@ -20,10 +20,12 @@ function About() {
     <section id="about" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">About</p>
-        <h2 className="section-title">API, 데이터 처리, 운영 흐름을 같이 봅니다</h2>
+        <h2 className="section-title">API, 화면, 데이터, 운영 흐름을 같이 봅니다</h2>
         <p className="section-description">
-          회사 프로젝트에서는 RAG 검색 API, Computer Vision 기반 좌석배치도 객체화, 3D 플랫폼
-          유지보수를 다뤘습니다. 개인 프로젝트로는 Slack 업무 자동화 봇과 홈서버를 구성했습니다.
+          저는 백엔드 API를 중심으로 기능이 실제 사용자 화면과 운영 환경에서 동작하기까지의 흐름을
+          함께 보는 개발자입니다. 회사 프로젝트에서는 RAG 검색 API, Computer Vision 기반
+          좌석배치도 객체화, 3D 디지털 트윈, 모바일 운영 플랫폼, 플랫폼 유지보수를 경험했고,
+          개인 프로젝트로는 Slack 자동화 봇과 홈서버를 구성했습니다.
           화면에 보이는 기능뿐 아니라 데이터가 들어오고 가공되고 운영 환경에서 쓰이는 흐름까지
           확인하려고 합니다.
         </p>

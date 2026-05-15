@@ -3,8 +3,6 @@ import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 
 const profileItems = [
   { label: '이름', value: '조윤호' },
-  { label: '생년월일', value: '2000.04.27' },
-  { label: '전화', value: '010-7535-6501' },
   { label: '이메일', value: 'govlxnep@naver.com' },
 ];
 
@@ -44,14 +42,14 @@ function Profile() {
         <p className="section-eyebrow">Profile</p>
         <h2 className="section-title">기본 정보</h2>
         <p className="section-description">
-          포트폴리오에서 바로 확인할 수 있도록 학력과 경력을 간단히 정리했습니다.
+          포트폴리오에서 바로 확인할 수 있도록 이름, 이메일, 학력, 경력, 논문을 간단히 정리했습니다.
         </p>
       </Reveal>
 
       <div className="mt-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal delay={80}>
           <div className="panel h-full p-5 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
-            <h3 className="text-lg font-semibold text-slate-950">개인 정보</h3>
+            <h3 className="text-lg font-semibold text-slate-950">연락처</h3>
             <dl className="mt-5 grid gap-3">
               {profileItems.map((item) => (
                 <div key={item.label} className="grid grid-cols-[5rem_1fr] gap-3 text-sm">

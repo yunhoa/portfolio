@@ -12,8 +12,7 @@ function VisualWork() {
         <p className="section-eyebrow">Spatial Digital Twin / Field Operations</p>
         <h2 className="section-title">공간 디지털 트윈 및 현장 운영 플랫폼</h2>
         <p className="section-description">
-          병원·제조 공간을 3D로 연결하고, 현장 작업자가 쓰는 모바일 운영 서비스까지 다룬 프로젝트입니다.
-          화면 결과물과 실제 구현 범위를 함께 볼 수 있도록 정리했습니다.
+          병원·제조 공간을 3D로 연결하고, 현장 작업자가 쓰는 모바일 운영 서비스까지 다룬 작업입니다.
         </p>
       </Reveal>
 
