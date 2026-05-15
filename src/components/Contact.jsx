@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import Reveal from './Reveal.jsx';
+import ImageModal from './ImageModal.jsx';
 import inflearnHistoryImage from '../assets/inflearn-history.png';
 
 function Contact() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <section id="contact" className="section-shell pb-20">
       <Reveal>
@@ -22,11 +26,17 @@ function Contact() {
             <div className="grid gap-4 lg:grid-cols-[1fr_0.9fr] lg:items-start">
               <div className="rounded-lg border border-cyan-200 bg-cyan-50 p-4 transition hover:border-cyan-300 hover:bg-white hover:shadow-xl">
                 <div className="grid gap-4 sm:grid-cols-[0.72fr_1.28fr] sm:items-center">
-                  <img
-                    src={inflearnHistoryImage}
-                    alt="인프런 강의 내역"
-                    className="h-28 w-full rounded-md border border-slate-200 bg-slate-950 object-cover sm:h-32"
-                  />
+                  <button
+                    type="button"
+                    onClick={() => setSelectedImage({ src: inflearnHistoryImage, alt: '인프런 강의 내역' })}
+                    className="group overflow-hidden rounded-md border border-slate-200 bg-slate-950 text-left"
+                  >
+                    <img
+                      src={inflearnHistoryImage}
+                      alt="인프런 강의 내역"
+                      className="h-28 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-32"
+                    />
+                  </button>
                   <div>
                     <p className="text-sm font-semibold text-cyan-700">Learning Record</p>
                     <p className="mt-2 text-sm leading-6 text-slate-700">
@@ -48,6 +58,12 @@ function Contact() {
           </div>
         </div>
       </Reveal>
+
+      <ImageModal
+        image={selectedImage?.src}
+        alt={selectedImage?.alt}
+        onClose={() => setSelectedImage(null)}
+      />
     </section>
   );
 }
