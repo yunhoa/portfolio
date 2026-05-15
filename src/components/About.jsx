@@ -2,16 +2,16 @@ import Reveal from './Reveal.jsx';
 
 const aboutItems = [
   {
-    title: '회사 프로젝트',
-    body: 'Safety Watch 프로젝트에서 도메인 문서 전처리, 임베딩, PGVector 저장, FastAPI 검색 API, Ollama/LangChain 연동 흐름을 구성했습니다.',
+    title: '검색 API와 RAG',
+    body: 'Safety Watch에서 도메인 문서 전처리, 청킹, 임베딩, PGVector 저장, FastAPI 검색 API, Ollama/LangChain 연동 흐름을 구성했습니다.',
   },
   {
-    title: '개인 프로젝트',
-    body: '반복 확인 업무를 줄이기 위해 Slack Bot을 만들고, 백엔드 서비스 운영 흐름을 이해하기 위해 Proxmox와 pfSense 홈랩을 구성했습니다.',
+    title: '공간 데이터와 Computer Vision',
+    body: '좌석배치도 PoC에서는 PDF와 이미지를 입력으로 받아 YOLO 탐지, OpenCV 후처리, Polygon/POI 생성, JSON 구조화를 연결했습니다.',
   },
   {
-    title: '개발 관점',
-    body: '화면만 분리해서 보지 않고 데이터가 어디서 오고, 어떻게 가공되고, 사용자가 어떤 흐름으로 쓰는지까지 같이 확인합니다.',
+    title: '운영과 자동화',
+    body: '3D 산단 플랫폼 유지보수에서는 관리자 기능, 통계 API 연동, PostgreSQL 데이터 대응을 맡았고, 반복 업무는 Slack Bot으로 줄였습니다.',
   },
 ];
 
@@ -20,11 +20,12 @@ function About() {
     <section id="about" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">About</p>
-        <h2 className="section-title">화면, API, 데이터 흐름을 같이 다룹니다</h2>
+        <h2 className="section-title">API, 데이터 처리, 운영 흐름을 같이 봅니다</h2>
         <p className="section-description">
-          회사 프로젝트에서는 3D 화면, 백엔드 API, RAG 검색 구조를 다뤘고, 개인 프로젝트로는 Slack 업무
-          자동화 봇과 홈서버를 구성했습니다. 기능을 만드는 데서 끝내지 않고 실제 사용 흐름과 운영
-          환경까지 확인하려고 합니다.
+          회사 프로젝트에서는 RAG 검색 API, Computer Vision 기반 좌석배치도 객체화, 3D 플랫폼
+          유지보수를 다뤘습니다. 개인 프로젝트로는 Slack 업무 자동화 봇과 홈서버를 구성했습니다.
+          화면에 보이는 기능뿐 아니라 데이터가 들어오고 가공되고 운영 환경에서 쓰이는 흐름까지
+          확인하려고 합니다.
         </p>
       </Reveal>
 

@@ -49,6 +49,13 @@ function IntroGate({ onEnter }) {
       emissive: 0x0891b2,
       emissiveIntensity: 1.2,
     });
+    const portalMaterial = new THREE.MeshBasicMaterial({
+      color: 0x7dd3fc,
+      transparent: true,
+      opacity: 0,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
     const steel = new THREE.MeshStandardMaterial({
       color: 0x334155,
       metalness: 0.62,
@@ -64,11 +71,13 @@ function IntroGate({ onEnter }) {
     const screen = new THREE.Mesh(new THREE.BoxGeometry(2.9, 1.55, 0.12), dark);
     const screenGlow = new THREE.Mesh(new THREE.PlaneGeometry(2.65, 1.25), glass);
     screenGlow.position.z = 0.07;
+    const portal = new THREE.Mesh(new THREE.PlaneGeometry(2.22, 1.02), portalMaterial);
+    portal.position.z = 0.18;
     const stand = new THREE.Mesh(new THREE.BoxGeometry(0.18, 0.75, 0.14), steel);
     stand.position.y = -1.04;
     const base = new THREE.Mesh(new THREE.BoxGeometry(1.1, 0.12, 0.55), steel);
     base.position.y = -1.42;
-    monitor.add(screen, screenGlow, stand, base);
+    monitor.add(screen, screenGlow, portal, stand, base);
     monitor.position.set(0, 0.18, 0.04);
     world.add(monitor);
 
@@ -107,9 +116,9 @@ function IntroGate({ onEnter }) {
     world.add(server);
 
     const panels = [
-      ['3D', -1.85, 0.92, -0.15],
-      ['API', 1.85, 0.78, -0.05],
-      ['RAG', 1.58, -0.42, 0.16],
+      ['API', -1.85, 0.92, -0.15],
+      ['RAG', 1.85, 0.78, -0.05],
+      ['OPS', 1.58, -0.42, 0.16],
     ].map(([label, x, y, z]) => {
       const panel = new THREE.Group();
       const card = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.42, 0.035), glass);
@@ -133,6 +142,21 @@ function IntroGate({ onEnter }) {
     orbit.position.set(0, 0.04, 0.28);
     world.add(orbit);
 
+    const tunnelRings = [];
+    for (let i = 0; i < 5; i += 1) {
+      const ringMaterial = new THREE.MeshBasicMaterial({
+        color: i % 2 === 0 ? 0x67e8f9 : 0x38bdf8,
+        transparent: true,
+        opacity: 0,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      });
+      const ring = new THREE.Mesh(new THREE.TorusGeometry(1.18 + i * 0.18, 0.01, 8, 80), ringMaterial);
+      ring.position.set(0, 0.18, 0.24 + i * 0.18);
+      monitor.add(ring);
+      tunnelRings.push(ring);
+    }
+
     const grid = new THREE.GridHelper(6.5, 26, 0x67e8f9, 0x155e75);
     grid.position.y = -1.28;
     grid.position.z = -0.2;
@@ -150,18 +174,20 @@ function IntroGate({ onEnter }) {
 
     const clock = new THREE.Clock();
     let animationFrame = 0;
-    const responsive = { baseY: 0, scale: 1 };
+    const responsive = { baseY: 0, scale: 1, cameraY: 1.15, cameraZ: 6.4 };
 
     const handleResize = () => {
       const width = mount.clientWidth;
       const height = mount.clientHeight;
       camera.aspect = width / height;
       if (width < 640) {
-        camera.position.set(0, 1.2, 7.5);
+        responsive.cameraY = 1.2;
+        responsive.cameraZ = 7.5;
         responsive.baseY = -0.35;
         responsive.scale = 0.78;
       } else {
-        camera.position.set(0, 1.15, 6.4);
+        responsive.cameraY = 1.15;
+        responsive.cameraZ = 6.4;
         responsive.baseY = 0.05;
         responsive.scale = 0.98;
       }
@@ -177,12 +203,20 @@ function IntroGate({ onEnter }) {
       const next = current + (target - current) * 0.075;
       mount.dataset.progress = String(next);
 
-      world.rotation.y = Math.sin(elapsed * 0.28) * 0.09 + next * 0.45;
-      world.position.z = -next * 1.6;
-      world.position.y = responsive.baseY + next * 0.16;
-      world.scale.setScalar(responsive.scale);
-      monitor.scale.setScalar(1 + next * 0.18);
-      screenGlow.scale.set(1 + Math.sin(elapsed * 1.4) * 0.012, 1, 1);
+      camera.position.z = responsive.cameraZ - next * (responsive.cameraZ - 2.05);
+      camera.position.y = responsive.cameraY - next * (responsive.cameraY - 0.32);
+      camera.fov = 42 - next * 12;
+      camera.lookAt(0, 0.08, 0);
+      camera.updateProjectionMatrix();
+
+      world.rotation.y = Math.sin(elapsed * 0.28) * 0.09 * (1 - next);
+      world.position.z = next * 0.82;
+      world.position.y = responsive.baseY - next * 0.12;
+      world.scale.setScalar(responsive.scale * (1 + next * 0.18));
+      monitor.scale.setScalar(1 + next * 1.12);
+      screenGlow.scale.set(1 + Math.sin(elapsed * 1.4) * 0.012 + next * 0.2, 1 + next * 0.14, 1);
+      portal.scale.setScalar(0.72 + next * 1.85);
+      portal.material.opacity = next * 0.88;
       cursor.material.opacity = 0.35 + Math.sin(elapsed * 7) * 0.35;
       cursor.visible = Math.sin(elapsed * 7) > -0.35;
       orbit.rotation.z = elapsed * 0.25;
@@ -194,6 +228,12 @@ function IntroGate({ onEnter }) {
       panels.forEach((panel, index) => {
         panel.position.y += Math.sin(elapsed * 0.9 + index) * 0.0018;
         panel.rotation.y = Math.sin(elapsed * 0.5 + index) * 0.08;
+        panel.scale.setScalar(1 - next * 0.28);
+      });
+      tunnelRings.forEach((ring, index) => {
+        ring.rotation.z = elapsed * (0.16 + index * 0.04);
+        ring.scale.setScalar(0.68 + next * (1.55 + index * 0.22));
+        ring.material.opacity = next * (0.44 - index * 0.045);
       });
 
       renderer.render(scene, camera);
@@ -211,6 +251,7 @@ function IntroGate({ onEnter }) {
         desk,
         screen,
         screenGlow,
+        portal,
         stand,
         base,
         cursor,
@@ -218,10 +259,13 @@ function IntroGate({ onEnter }) {
         ...keyboard.children,
         ...server.children,
         ...panels.flatMap((panel) => panel.children),
+        ...tunnelRings,
         ...orbitNodes,
         grid,
       ].forEach((mesh) => mesh.geometry.dispose());
-      [dark, glass, glow, steel, grid.material].forEach((material) => material.dispose());
+      [dark, glass, glow, portalMaterial, steel, grid.material, ...tunnelRings.map((ring) => ring.material)].forEach(
+        (material) => material.dispose(),
+      );
       renderer.dispose();
       document.body.style.overflow = originalOverflow;
       mount.removeChild(renderer.domElement);
@@ -236,19 +280,23 @@ function IntroGate({ onEnter }) {
     if (mountRef.current) {
       mountRef.current.dataset.opening = 'true';
     }
-    window.setTimeout(onEnter, 850);
+    window.setTimeout(onEnter, 1050);
   };
 
   return (
     <div
-      className={`fixed inset-0 z-[100] overflow-hidden bg-slate-950 text-white transition-opacity duration-700 ${
+      className={`fixed inset-0 z-[100] overflow-hidden bg-slate-950 text-white transition-opacity duration-1000 ${
         isOpening ? 'opacity-0' : 'opacity-100'
       }`}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.2),transparent_32rem),linear-gradient(180deg,rgba(2,6,23,0.16),rgba(2,6,23,0.9))]" />
       <div ref={mountRef} className="absolute inset-0" data-opening="false" data-progress="0" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col items-start justify-start px-5 pt-16 text-left sm:px-8 sm:pt-24">
+      <div
+        className={`relative z-10 mx-auto flex min-h-screen w-full max-w-6xl flex-col items-start justify-start px-5 pt-16 text-left transition duration-500 sm:px-8 sm:pt-24 ${
+          isOpening ? '-translate-y-3 scale-[0.98] opacity-0' : 'translate-y-0 scale-100 opacity-100'
+        }`}
+      >
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200 sm:text-sm">
             Yoonho Portfolio
@@ -259,7 +307,7 @@ function IntroGate({ onEnter }) {
             한 곳에 모았습니다.
           </h1>
           <p className="mt-4 max-w-xl text-base leading-7 text-slate-300">
-            3D 화면, 백엔드 API, RAG 검색, 업무 자동화를 직접 만들면서 배운 내용을 정리했습니다.
+            백엔드 API, RAG 검색, 공간 데이터 처리, 운영 자동화 경험을 정리했습니다.
           </p>
         </div>
         <button
