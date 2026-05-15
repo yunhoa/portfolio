@@ -6,6 +6,7 @@ export const visualWorks = [
   {
     title: '디지털 트윈 기반 병원 운영 플랫폼',
     label: 'R&D / RD-25-021-C',
+    badge: '디지털 트윈 구축',
     image: medicalTwinImage,
     summary:
       '병원 공간 데이터, GLB 기반 3D 모델, 운영 정보, 서비스 로봇 위치 API를 연계해 실제 병원 내 로봇 위치와 운영 상태를 모니터링할 수 있게 만든 디지털 트윈 플랫폼입니다.',
@@ -41,6 +42,7 @@ export const visualWorks = [
   {
     title: '반도체 제조 디지털 트윈 플랫폼',
     label: 'Fab Digital Twin / Manufacturing',
+    badge: '디지털 트윈 구축',
     image: semiconductorImage,
     summary:
       '반도체 제조 현장의 공간 정보와 설비·센서 데이터를 디지털 트윈 환경에서 통합 시각화하기 위한 지도 기반 플랫폼 구축 프로젝트입니다.',
@@ -68,6 +70,7 @@ export const visualWorks = [
   {
     title: 'MySafety 작업자 안전 지원 모바일 플랫폼',
     label: '한화토탈에너지스 / Mobile Operations',
+    badge: '모바일 운영 플랫폼',
     image: mySafetyImage,
     summary:
       '공장 작업자의 안전 관리와 비상 대응을 지원하기 위한 모바일 앱 구축 및 운영 프로젝트입니다. 공지사항, 작업자 위치, 대피소 정보, 백그라운드 위치 수집 기능을 다뤘습니다.',

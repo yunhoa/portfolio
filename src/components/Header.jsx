@@ -2,7 +2,7 @@ const navItems = [
   { label: 'Profile', href: '#profile' },
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
-  { label: '3D Work', href: '#visual-work' },
+  { label: 'Platforms', href: '#visual-work' },
   { label: 'Projects', href: '#projects' },
   { label: 'Contact', href: '#contact' },
 ];

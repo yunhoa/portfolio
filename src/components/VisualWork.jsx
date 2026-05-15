@@ -9,11 +9,11 @@ function VisualWork() {
   return (
     <section id="visual-work" className="section-shell">
       <Reveal>
-        <p className="section-eyebrow">Platform / Digital Twin</p>
-        <h2 className="section-title">현장 데이터 플랫폼 구축</h2>
+        <p className="section-eyebrow">Spatial Digital Twin / Field Operations</p>
+        <h2 className="section-title">공간 디지털 트윈 및 현장 운영 플랫폼</h2>
         <p className="section-description">
-          디지털 트윈, 제조 설비 데이터, 모바일 안전 앱처럼 실제 현장 데이터를 화면과 서비스 기능으로
-          연결한 작업입니다. 이미지와 구현 범위를 함께 볼 수 있도록 정리했습니다.
+          병원·제조 공간을 3D로 연결하고, 현장 작업자가 쓰는 모바일 운영 서비스까지 다룬 프로젝트입니다.
+          화면 결과물과 실제 구현 범위를 함께 볼 수 있도록 정리했습니다.
         </p>
       </Reveal>
 
@@ -40,7 +40,7 @@ function VisualWork() {
                 <div className="p-5 sm:p-6">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold text-white">
-                      현장 데이터 구축
+                      {work.badge}
                     </span>
                     <span className="rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-800">
                       {work.label}

@@ -1,4 +1,5 @@
 import Reveal from './Reveal.jsx';
+import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 
 const profileItems = [
   { label: '이름', value: '조윤호' },
@@ -25,6 +26,14 @@ const careers = [
     period: '2020.08 - 2023.04',
     title: '㈜ATC',
     meta: '사원 · 생산직 2교대',
+  },
+];
+
+const publications = [
+  {
+    title: '스마트 플랜트 가상환경 구축을 위한 모바일–서버 연동형 AI 기반 메타정보 자동 생성 프레임워크',
+    meta: '논문 · 1저자',
+    href: paperPdf,
   },
 ];
 
@@ -79,6 +88,28 @@ function Profile() {
                     <p className="text-sm font-semibold text-cyan-700">{item.period}</p>
                     <p className="mt-1 font-semibold text-slate-950">{item.title}</p>
                     <p className="mt-1 text-sm text-slate-600">{item.meta}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={260}>
+            <div className="panel p-5 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+              <h3 className="text-lg font-semibold text-slate-950">논문</h3>
+              <div className="mt-4 space-y-4">
+                {publications.map((item) => (
+                  <div key={item.title} className="border-l-2 border-cyan-300 pl-4">
+                    <p className="text-sm font-semibold text-cyan-700">{item.meta}</p>
+                    <p className="mt-1 font-semibold leading-6 text-slate-950">{item.title}</p>
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-flex rounded-md border border-cyan-200 bg-cyan-50 px-3 py-1.5 text-sm font-semibold text-cyan-800 transition hover:bg-white"
+                    >
+                      PDF 보기
+                    </a>
                   </div>
                 ))}
               </div>
