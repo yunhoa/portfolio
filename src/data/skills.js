@@ -1,7 +1,16 @@
 export const skillGroups = [
   {
     category: '3D / Visualization',
-    items: ['Three.js', 'WebGL', 'Digital Twin', 'BIM/IFC', 'Data Visualization', 'Interactive UI'],
+    items: [
+      'Three.js',
+      'React Three Fiber',
+      'WebGL',
+      'Digital Twin',
+      'GLB',
+      'Homography',
+      'Coordinate Transform',
+      'Data Visualization',
+    ],
   },
   {
     category: 'Backend',
@@ -37,15 +46,19 @@ export const skillGroups = [
   },
   {
     category: 'Database',
-    items: ['PostgreSQL', 'PGVector'],
+    items: ['PostgreSQL', 'PGVector', 'InfluxDB'],
   },
   {
     category: 'Frontend',
-    items: ['React', 'Vite', 'JavaScript', 'Tailwind CSS', 'Thymeleaf'],
+    items: ['React', 'Vite', 'JavaScript', 'Tailwind CSS', 'Thymeleaf', 'Zustand'],
   },
   {
     category: 'Automation',
     items: ['Slack Bolt', 'Slack API', 'node-cron', 'Slash Command'],
+  },
+  {
+    category: 'Mobile / Operations',
+    items: ['Apache Cordova', 'Android', 'Background Geolocation', 'Google Play Console', 'Firebase'],
   },
   {
     category: 'Infra',

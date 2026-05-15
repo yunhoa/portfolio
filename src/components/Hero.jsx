@@ -8,6 +8,8 @@ const keywords = [
   'PGVector',
   'LangChain',
   'LangGraph',
+  'Digital Twin',
+  'React Three Fiber',
   'YOLO',
   'OpenCV',
   'Computer Vision',
@@ -28,7 +30,7 @@ const strengths = [
   },
   {
     title: 'Spatial Data',
-    body: '좌석배치도, 3D 화면, 공간 객체 데이터를 서비스 구조로 연결',
+    body: '디지털 트윈, 좌표 정합, 공간 객체 데이터를 서비스 구조로 연결',
   },
   {
     title: 'Computer Vision',

@@ -25,12 +25,12 @@ function VisualWork() {
                 <button
                   type="button"
                   onClick={() => setSelectedImage({ src: work.image, alt: `${work.title} 화면` })}
-                  className="group relative block min-h-full overflow-hidden bg-slate-100 text-left"
+                  className="group relative block min-h-full overflow-hidden bg-slate-950 text-left lg:min-h-[360px]"
                 >
                   <img
                     src={work.image}
                     alt={`${work.title} 화면`}
-                    className="aspect-[16/10] h-full w-full object-cover transition duration-300 group-hover:scale-[1.03] lg:aspect-auto"
+                    className="aspect-[16/10] h-full max-h-[560px] w-full object-contain p-3 transition duration-300 group-hover:opacity-95 lg:aspect-auto"
                   />
                   <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
                     확대 보기
