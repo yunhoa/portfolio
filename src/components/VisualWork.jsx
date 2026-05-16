@@ -23,14 +23,27 @@ function VisualWork() {
               <div className="grid gap-0 lg:grid-cols-[0.88fr_1.12fr]">
                 <button
                   type="button"
-                  onClick={() => setSelectedImage({ src: work.image, alt: `${work.title} 화면` })}
+                  onClick={() =>
+                    setSelectedImage({
+                      src: work.image,
+                      alt: `${work.title} 화면`,
+                      isBlurred: work.imagePrivacy === 'blur',
+                    })
+                  }
                   className="group relative block min-h-full overflow-hidden bg-slate-950 text-left lg:min-h-[360px]"
                 >
                   <img
                     src={work.image}
                     alt={`${work.title} 화면`}
-                    className="aspect-[16/10] h-full max-h-[560px] w-full object-contain p-3 transition duration-300 group-hover:opacity-95 lg:aspect-auto"
+                    className={`aspect-[16/10] h-full max-h-[560px] w-full object-contain p-3 transition duration-300 group-hover:opacity-95 lg:aspect-auto ${
+                      work.imagePrivacy === 'blur' ? 'blur-sm' : ''
+                    }`}
                   />
+                  {work.imagePrivacy === 'blur' && (
+                    <span className="absolute left-3 top-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white">
+                      블러 처리
+                    </span>
+                  )}
                   <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
                     확대 보기
                   </span>
@@ -120,6 +133,7 @@ function VisualWork() {
       <ImageModal
         image={selectedImage?.src}
         alt={selectedImage?.alt}
+        isBlurred={selectedImage?.isBlurred}
         onClose={() => setSelectedImage(null)}
       />
     </section>

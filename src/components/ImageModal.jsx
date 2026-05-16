@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function ImageModal({ image, alt, onClose }) {
+function ImageModal({ image, alt, isBlurred = false, onClose }) {
   useEffect(() => {
     if (!image) {
       return undefined;
@@ -46,8 +46,15 @@ function ImageModal({ image, alt, onClose }) {
         <img
           src={image}
           alt={alt}
-          className="max-h-[82vh] w-full rounded-lg border border-white/15 bg-white object-contain shadow-2xl"
+          className={`max-h-[82vh] w-full rounded-lg border border-white/15 bg-white object-contain shadow-2xl ${
+            isBlurred ? 'blur-md' : ''
+          }`}
         />
+        {isBlurred && (
+          <span className="absolute bottom-4 left-4 rounded-md bg-slate-950/80 px-3 py-1.5 text-xs font-semibold text-white">
+            내부 정보 보호를 위해 일부 화면을 블러 처리했습니다.
+          </span>
+        )}
       </div>
     </div>
   );

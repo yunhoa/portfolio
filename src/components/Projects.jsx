@@ -126,11 +126,12 @@ function Projects() {
                       {(project.images || [project.image]).map((image, imageIndex) => {
                         const alt = `${project.title} 화면 ${imageIndex + 1}`;
                         const shouldContain = project.imageFit === 'contain';
+                        const isBlurred = project.imagePrivacy === 'blur';
                         return (
                           <button
                             type="button"
                             key={image}
-                            onClick={() => setSelectedImage({ src: image, alt })}
+                            onClick={() => setSelectedImage({ src: image, alt, isBlurred })}
                             className={`group relative overflow-hidden rounded-lg border border-slate-200 text-left ${
                               shouldContain ? 'bg-slate-950' : 'bg-slate-100'
                             }`}
@@ -140,11 +141,16 @@ function Projects() {
                               alt={alt}
                               className={`aspect-[16/9] w-full transition duration-300 ${
                                 shouldContain
-                                  ? 'object-contain p-3 group-hover:opacity-95'
-                                  : 'object-cover group-hover:scale-[1.03]'
+                                  ? `object-contain p-3 group-hover:opacity-95 ${isBlurred ? 'blur-sm' : ''}`
+                                  : `object-cover group-hover:scale-[1.03] ${isBlurred ? 'blur-sm' : ''}`
                               }`}
                               loading="lazy"
                             />
+                            {isBlurred && (
+                              <span className="absolute left-3 top-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white">
+                                블러 처리
+                              </span>
+                            )}
                             <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
                               확대 보기
                             </span>
@@ -206,6 +212,7 @@ function Projects() {
       <ImageModal
         image={selectedImage?.src}
         alt={selectedImage?.alt}
+        isBlurred={selectedImage?.isBlurred}
         onClose={() => setSelectedImage(null)}
       />
     </section>

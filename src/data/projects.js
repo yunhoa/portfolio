@@ -18,6 +18,7 @@ export const projects = [
     domain: 'AI Search / Backend',
     tags: ['Backend', 'AI Search', 'RAG', 'VectorDB'],
     image: safetyWatchImage,
+    imagePrivacy: 'blur',
     summary:
       '건설·안전 도메인 문서를 검색하고 자연어 질문에 답하기 위한 RAG 기반 스마트검색 API 흐름을 구성한 프로젝트입니다.',
     highlights: [
@@ -65,6 +66,7 @@ export const projects = [
     image: plantMainImage,
     images: [plantMainImage, plantLoginImage],
     imageFit: 'contain',
+    imagePrivacy: 'blur',
     organization: 'R&D / RD-25-020-C',
     summary:
       '스마트플랜트 제조현장의 3D 가상환경 구축을 자동화하기 위해, 설비 이미지에서 객체 이미지와 메타정보를 생성하는 모바일-서버 연동형 AI 프레임워크를 구현한 프로젝트입니다.',
@@ -119,6 +121,7 @@ export const projects = [
     tags: ['Backend', 'Computer Vision', 'YOLO', 'OpenCV', 'Spatial AI'],
     image: seatPlanImage,
     images: [seatPlanImage, yoloDetectImage, yoloDetect2Image],
+    imagePrivacy: 'blur',
     summary:
       'PDF와 이미지 형태의 좌석배치도를 분석해 좌석 및 공간 정보를 구조화 데이터(JSON)로 변환하는 PoC 프로젝트입니다.',
     highlights: [
@@ -188,6 +191,7 @@ export const projects = [
     tags: ['Automation', 'Slack Bot', 'Node.js'],
     image: slackMeetingImage,
     images: [slackMeetingImage, slackVacationImage],
+    imagePrivacy: 'blur',
     summary:
       '업무 중 반복 확인하던 회의 일정, 회의실 예약, 휴가자 정보를 Slack 안에서 처리하도록 만든 자동화 프로젝트입니다.',
     highlights: ['회의 알림 자동화', '휴가자 조회 자동화', '중복 알림 방지 처리'],

@@ -8,6 +8,7 @@ export const visualWorks = [
     label: 'R&D / RD-25-021-C',
     badge: '디지털 트윈 구축',
     image: medicalTwinImage,
+    imagePrivacy: 'blur',
     summary:
       '병원 공간 데이터, GLB 기반 3D 모델, 운영 정보, 서비스 로봇 위치 API를 연계해 실제 병원 내 로봇 위치와 운영 상태를 모니터링할 수 있게 만든 디지털 트윈 플랫폼입니다.',
     highlights: ['서비스 로봇 API 연동', '원지도-GLB 좌표 정합', '층별·로봇 유형별 위치 보정'],
@@ -44,6 +45,7 @@ export const visualWorks = [
     label: 'Fab Digital Twin / Manufacturing',
     badge: '디지털 트윈 구축',
     image: semiconductorImage,
+    imagePrivacy: 'blur',
     summary:
       '반도체 제조 현장의 공간 정보와 설비·센서 데이터를 디지털 트윈 환경에서 통합 시각화하기 위한 지도 기반 플랫폼 구축 프로젝트입니다.',
     highlights: [
