@@ -40,7 +40,7 @@ function Contact() {
                   <div>
                     <p className="text-sm font-semibold text-cyan-700">Learning Record</p>
                     <p className="mt-2 text-sm leading-6 text-slate-700">
-                      혼자 강의도 계속 찾아보고, 필요한 기술은 따로 사서 보면서 채워가고 있습니다.
+                      혼자 강의도 계속 찾아보고, 필요한 기술은 따로 구매해서 보면서 채워가고 있습니다.
                       필요할 때 먼저 떠오르는 개발자가 되려고 기본기를 계속 쌓는 중입니다.
                     </p>
                   </div>

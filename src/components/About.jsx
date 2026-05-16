@@ -20,7 +20,7 @@ function About() {
     <section id="about" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">About</p>
-        <h2 className="section-title">API, 화면, 데이터, 운영 흐름을 같이 봅니다</h2>
+        <h2 className="section-title">API, 화면, 데이터, 운영 흐름을 연결합니다</h2>
         <p className="section-description">
           저는 백엔드 API를 중심으로 기능이 실제 사용자 화면과 운영 환경에서 동작하기까지의 흐름을
           함께 보는 개발자입니다. 회사 프로젝트에서는 RAG 검색 API, Computer Vision 기반
