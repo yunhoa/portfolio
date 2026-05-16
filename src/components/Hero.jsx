@@ -78,7 +78,7 @@ function Hero() {
 
           <div className="min-w-0 rounded-lg border border-white/15 bg-white/10 p-5 shadow-glow backdrop-blur sm:p-6">
             <p className="text-sm font-semibold text-cyan-200">Focus Area</p>
-            <h2 className="mt-2 text-xl font-semibold text-white">Backend를 중심으로 연결해 온 영역</h2>
+            <h2 className="mt-2 text-xl font-semibold text-white">문제를 끝까지 연결하는 개발 영역</h2>
             <div className="mt-5 grid gap-3">
               {strengths.map((item) => (
                 <div key={item.title} className="rounded-lg border border-white/10 bg-slate-950/45 p-4">

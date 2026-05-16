@@ -40,8 +40,9 @@ function Contact() {
                   <div>
                     <p className="text-sm font-semibold text-cyan-700">Learning Record</p>
                     <p className="mt-2 text-sm leading-6 text-slate-700">
-                      혼자 강의도 계속 찾아보고, 필요한 기술은 따로 구매해서 보면서 채워가고 있습니다.
-                      필요할 때 먼저 떠오르는 개발자가 되려고 기본기를 계속 쌓는 중입니다.
+                      업무에 필요한 기술은 따로 학습하고, 프로젝트에 적용해 왔습니다.
+                      필요한 문제를 맡았을 때 바로 이어서 작업할 수 있는 개발자가 되기 위해 기본기를
+                      계속 쌓고 있습니다.
                     </p>
                   </div>
                 </div>

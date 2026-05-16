@@ -18,7 +18,7 @@ const careers = [
   {
     period: '2025.01.01 - 재직 중',
     title: '올포랜드',
-    meta: '개발 업무',
+    meta: '백엔드/API 및 플랫폼 유지보수',
   },
   {
     period: '2020.08 - 2023.04',

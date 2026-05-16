@@ -1,19 +1,6 @@
 export const skillGroups = [
   {
-    category: '3D / Visualization',
-    items: [
-      'Three.js',
-      'React Three Fiber',
-      'WebGL',
-      'Digital Twin',
-      'GLB',
-      'Homography',
-      'Coordinate Transform',
-      'Data Visualization',
-    ],
-  },
-  {
-    category: 'Backend',
+    category: 'Backend / 실무',
     items: [
       'Java',
       'Spring Boot',
@@ -23,16 +10,16 @@ export const skillGroups = [
       'Python',
       'Node.js',
       'REST API',
-      'Google Analytics Data API',
       'SQLAlchemy',
+      'Google Analytics Data API',
     ],
   },
   {
-    category: 'Computer Vision',
-    items: ['SAM', 'LaMa', 'Rembg', 'PaddleOCR', 'YOLO', 'OpenCV', 'NumPy', 'PyMuPDF', 'Spatial AI'],
+    category: 'Frontend / 실무',
+    items: ['React', 'Vite', 'JavaScript', 'Tailwind CSS', 'Thymeleaf', 'Zustand'],
   },
   {
-    category: 'AI / RAG',
+    category: 'AI / RAG / 프로젝트',
     items: [
       'LangChain',
       'LangGraph',
@@ -45,15 +32,28 @@ export const skillGroups = [
     ],
   },
   {
-    category: 'Database',
+    category: '3D / Visualization / 프로젝트',
+    items: [
+      'Three.js',
+      'React Three Fiber',
+      'WebGL',
+      'Digital Twin',
+      'GLB',
+      'Homography',
+      'Coordinate Transform',
+      'Data Visualization',
+    ],
+  },
+  {
+    category: 'Computer Vision / 프로젝트',
+    items: ['SAM', 'LaMa', 'Rembg', 'PaddleOCR', 'YOLO', 'OpenCV', 'NumPy', 'PyMuPDF', 'Spatial AI'],
+  },
+  {
+    category: 'Database / 실무',
     items: ['PostgreSQL', 'PGVector', 'InfluxDB'],
   },
   {
-    category: 'Frontend',
-    items: ['React', 'Vite', 'JavaScript', 'Tailwind CSS', 'Thymeleaf', 'Zustand'],
-  },
-  {
-    category: 'Automation',
+    category: 'Automation / 운영',
     items: ['Slack Bolt', 'Slack API', 'node-cron', 'Slash Command'],
   },
   {
@@ -61,7 +61,7 @@ export const skillGroups = [
     items: ['React Native', 'Apache Cordova', 'Android', 'Background Geolocation', 'Google Play Console', 'Firebase'],
   },
   {
-    category: 'Infra',
+    category: 'Infra / 홈랩',
     items: [
       'Proxmox VE',
       'pfSense',

@@ -6,9 +6,9 @@ function Skills() {
     <section id="skills" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">Skills</p>
-        <h2 className="section-title">프로젝트에서 써 본 기술</h2>
+        <h2 className="section-title">주력, 실무, 프로젝트 경험으로 나눠 본 기술</h2>
         <p className="section-description">
-          단순히 이름만 나열하기보다 어떤 작업에서 사용했는지 떠올릴 수 있도록 분야별로 정리했습니다.
+          단순 나열보다 실제로 어디에 썼는지 떠올릴 수 있도록 분야와 활용 범위를 나눠 정리했습니다.
         </p>
       </Reveal>
 

@@ -28,6 +28,7 @@ function ProjectMeta({ project }) {
     project.organization && ['기관', project.organization],
     project.period && ['기간', project.period],
     project.contribution && ['기여도', project.contribution],
+    project.teamSize && ['팀 규모', project.teamSize],
   ].filter(Boolean);
 
   if (!metaItems.length) {
@@ -75,8 +76,8 @@ function Projects() {
         <p className="section-eyebrow">Projects</p>
         <h2 className="section-title">문제를 어떻게 풀었는지 보이는 프로젝트</h2>
         <p className="section-description">
-          기술 이름보다 프로젝트에서 맡은 부분과 해결한 흐름이 먼저 보이도록 정리했습니다. 회사 프로젝트,
-          개인 자동화, 홈랩, 캡스톤을 구분해 볼 수 있습니다.
+          기술 이름보다 맡은 부분과 해결한 흐름이 먼저 보이도록 정리했습니다. 회사 프로젝트, 개인 자동화,
+          홈랩, 캡스톤이 각각 어떤 문제를 다뤘는지 바로 보이게 구성했습니다.
         </p>
       </Reveal>
 
