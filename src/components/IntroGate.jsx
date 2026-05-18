@@ -290,6 +290,7 @@ function IntroGate({ onEnter }) {
       }`}
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12),transparent_32rem),linear-gradient(180deg,rgba(2,6,23,0.18),rgba(2,6,23,0.92))]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(2,6,23,0.96)_0%,rgba(2,6,23,0.86)_34%,rgba(2,6,23,0.45)_58%,rgba(2,6,23,0.06)_100%)]" />
       <div ref={mountRef} className="absolute inset-0" data-opening="false" data-progress="0" aria-hidden="true" />
 
       <div
@@ -297,7 +298,7 @@ function IntroGate({ onEnter }) {
           isOpening ? '-translate-y-3 scale-[0.98] opacity-0' : 'translate-y-0 scale-100 opacity-100'
         }`}
       >
-        <div className="max-w-xl">
+        <div className="max-w-lg drop-shadow-[0_8px_28px_rgba(0,0,0,0.85)]">
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300 sm:text-sm">
             Yoonho Portfolio
           </p>
@@ -306,7 +307,7 @@ function IntroGate({ onEnter }) {
             <br />
             한 곳에 모았습니다.
           </h1>
-          <p className="mt-4 max-w-lg text-base leading-7 text-slate-300">
+          <p className="mt-4 max-w-md text-base leading-7 text-slate-200">
             백엔드 API를 중심으로 화면, AI 검색, 공간 데이터, 운영 흐름을 함께 다룬 작업들입니다.
           </p>
         </div>
