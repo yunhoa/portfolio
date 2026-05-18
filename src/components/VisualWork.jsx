@@ -19,7 +19,7 @@ function VisualWork() {
       <div className="mt-8 space-y-5">
         {visualWorks.map((work, index) => (
           <Reveal key={work.title} delay={index * 100}>
-            <article className="panel overflow-hidden hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+            <article className="panel overflow-hidden hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl">
               <div className="grid gap-0 lg:grid-cols-[0.88fr_1.12fr]">
                 <button
                   type="button"
@@ -54,7 +54,7 @@ function VisualWork() {
                     <span className="rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold text-white">
                       {work.badge}
                     </span>
-                    <span className="rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-800">
+                    <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">
                       {work.label}
                     </span>
                   </div>
@@ -66,7 +66,7 @@ function VisualWork() {
                       {work.highlights.map((item) => (
                         <span
                           key={item}
-                          className="rounded-md border border-cyan-200 bg-cyan-50 px-3 py-2 text-sm font-medium text-cyan-950"
+                          className="rounded-md border border-blue-100 bg-blue-50/70 px-3 py-2 text-sm font-medium text-slate-800"
                         >
                           {item}
                         </span>
@@ -76,11 +76,11 @@ function VisualWork() {
 
                   {work.details && (
                     <div className="mt-5">
-                      <h4 className="text-sm font-semibold text-cyan-700">담당 구현</h4>
+                      <h4 className="text-sm font-semibold text-blue-700">담당 구현</h4>
                       <ul className="mt-3 grid gap-2 text-sm leading-6 text-slate-600 md:grid-cols-2">
                         {work.details.map((item) => (
                           <li key={item} className="flex gap-2">
-                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-300" />
+                            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -97,9 +97,9 @@ function VisualWork() {
                         </div>
                       )}
                       {work.improvement && (
-                        <div className="rounded-lg border border-cyan-200 bg-cyan-50 p-4">
-                          <h4 className="text-sm font-semibold text-cyan-900">개선</h4>
-                          <p className="mt-2 text-sm leading-6 text-cyan-950">{work.improvement}</p>
+                        <div className="rounded-lg border border-blue-100 bg-blue-50/70 p-4">
+                          <h4 className="text-sm font-semibold text-blue-900">개선</h4>
+                          <p className="mt-2 text-sm leading-6 text-slate-700">{work.improvement}</p>
                         </div>
                       )}
                       {work.outcome && (

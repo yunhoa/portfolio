@@ -27,7 +27,7 @@ function Header() {
         </div>
         <a
           href="#contact"
-          className="shrink-0 rounded-md border border-cyan-300 px-2.5 py-2 text-sm font-semibold text-cyan-800 transition hover:border-cyan-500 hover:bg-cyan-50 sm:px-3"
+          className="shrink-0 rounded-md border border-blue-200 px-2.5 py-2 text-sm font-semibold text-blue-800 transition hover:border-blue-400 hover:bg-blue-50 sm:px-3"
         >
           Contact
         </a>

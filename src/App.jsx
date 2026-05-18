@@ -13,7 +13,7 @@ function App() {
   const [hasEntered, setHasEntered] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#eef6ff] text-slate-900">
+    <div className="min-h-screen bg-[#f4f7fb] text-slate-900">
       {!hasEntered && <IntroGate onEnter={() => setHasEntered(true)} />}
       <Header />
       <main>

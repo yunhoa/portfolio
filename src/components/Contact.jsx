@@ -14,17 +14,17 @@ function Contact() {
           <div className="mt-4 grid gap-6">
             <div>
               <h2 className="text-2xl font-semibold tracking-normal text-slate-950 sm:text-3xl">
-                더 이야기해보고 싶다면 이메일로 연락 주세요.
+                프로젝트와 작업 방식에 대해 더 이야기할 수 있습니다.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                포트폴리오에 적은 프로젝트와 작업 경험에 대해 더 이야기할 수 있습니다. 프론트,
-                백엔드, AI, 공간 데이터, 운영 자동화까지 넓게 다뤄왔고, 필요한 영역은 혼자 계속
-                공부하면서 맡은 일을 끝까지 정리하는 편입니다.
+                백엔드 API를 중심으로 작업해 왔지만, 필요하면 화면, AI/RAG, 공간 데이터, 운영 자동화까지
+                직접 확인하며 이어 붙이는 편입니다. 맡은 일이 실제로 쓰이는 흐름까지 정리하는 개발자가
+                되고 싶고, 부족한 부분은 강의와 문서를 보며 계속 채워가고 있습니다.
               </p>
             </div>
 
             <div className="grid gap-4 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-              <div className="rounded-lg border border-cyan-200 bg-cyan-50 p-4 transition hover:border-cyan-300 hover:bg-white hover:shadow-xl">
+              <div className="rounded-lg border border-blue-100 bg-blue-50/70 p-4 transition hover:border-blue-300 hover:bg-white hover:shadow-xl">
                 <div className="grid gap-4 sm:grid-cols-[0.72fr_1.28fr] sm:items-center">
                   <button
                     type="button"
@@ -38,11 +38,10 @@ function Contact() {
                     />
                   </button>
                   <div>
-                    <p className="text-sm font-semibold text-cyan-700">Learning Record</p>
+                    <p className="text-sm font-semibold text-blue-700">Learning Record</p>
                     <p className="mt-2 text-sm leading-6 text-slate-700">
-                      업무에 필요한 기술은 따로 학습하고, 프로젝트에 적용해 왔습니다.
-                      필요한 문제를 맡았을 때 바로 이어서 작업할 수 있는 개발자가 되기 위해 기본기를
-                      계속 쌓고 있습니다.
+                      업무에 필요한 기술은 따로 학습하고 프로젝트에 적용해 왔습니다.
+                      새로운 요구가 생겼을 때 혼자 막히지 않도록 기본기를 계속 쌓고 있습니다.
                     </p>
                   </div>
                 </div>
@@ -50,9 +49,9 @@ function Contact() {
 
               <a
                 href="mailto:govlxnep@naver.com"
-                className="rounded-lg border border-cyan-200 bg-white p-5 transition hover:-translate-y-1 hover:border-cyan-300 hover:bg-cyan-50 hover:shadow-xl"
+                className="rounded-lg border border-blue-200 bg-white p-5 transition hover:-translate-y-1 hover:border-blue-300 hover:bg-blue-50 hover:shadow-xl"
               >
-                <p className="text-sm font-semibold text-cyan-700">Email</p>
+                <p className="text-sm font-semibold text-blue-700">Email</p>
                 <p className="mt-2 break-all text-lg font-semibold text-slate-950">govlxnep@naver.com</p>
               </a>
             </div>

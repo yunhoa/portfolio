@@ -289,7 +289,7 @@ function IntroGate({ onEnter }) {
         isOpening ? 'opacity-0' : 'opacity-100'
       }`}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(34,211,238,0.2),transparent_32rem),linear-gradient(180deg,rgba(2,6,23,0.16),rgba(2,6,23,0.9))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.12),transparent_32rem),linear-gradient(180deg,rgba(2,6,23,0.18),rgba(2,6,23,0.92))]" />
       <div ref={mountRef} className="absolute inset-0" data-opening="false" data-progress="0" aria-hidden="true" />
 
       <div
@@ -298,7 +298,7 @@ function IntroGate({ onEnter }) {
         }`}
       >
         <div className="max-w-xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-cyan-200 sm:text-sm">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300 sm:text-sm">
             Yoonho Portfolio
           </p>
           <h1 className="mt-3 text-4xl font-semibold leading-tight tracking-normal sm:text-6xl">
@@ -307,13 +307,13 @@ function IntroGate({ onEnter }) {
             한 곳에 모았습니다.
           </h1>
           <p className="mt-4 max-w-lg text-base leading-7 text-slate-300">
-            백엔드, AI, 공간 데이터, 운영 자동화까지 다뤄왔습니다.
+            백엔드 API를 중심으로 화면, AI 검색, 공간 데이터, 운영 흐름을 함께 다룬 작업들입니다.
           </p>
         </div>
         <button
           type="button"
           onClick={enterPortfolio}
-          className="mt-8 rounded-md border border-cyan-200/40 bg-cyan-200 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-cyan-200 focus:ring-offset-2 focus:ring-offset-slate-950"
+          className="mt-8 rounded-md border border-blue-200/50 bg-blue-100 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-blue-200 focus:ring-offset-2 focus:ring-offset-slate-950"
         >
           작업물 보기
         </button>

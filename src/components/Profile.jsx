@@ -48,7 +48,7 @@ function Profile() {
 
       <div className="mt-8 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
         <Reveal delay={80}>
-          <div className="panel h-full p-5 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+          <div className="panel h-full p-5 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl">
             <h3 className="text-lg font-semibold text-slate-950">연락처</h3>
             <dl className="mt-5 grid gap-3">
               {profileItems.map((item) => (
@@ -63,12 +63,12 @@ function Profile() {
 
         <div className="grid gap-5">
           <Reveal delay={140}>
-            <div className="panel p-5 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+            <div className="panel p-5 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl">
               <h3 className="text-lg font-semibold text-slate-950">학력</h3>
               <div className="mt-4 space-y-4">
                 {education.map((item) => (
-                  <div key={item.title} className="border-l-2 border-cyan-300 pl-4">
-                    <p className="text-sm font-semibold text-cyan-700">{item.period}</p>
+                  <div key={item.title} className="border-l-2 border-blue-300 pl-4">
+                    <p className="text-sm font-semibold text-blue-700">{item.period}</p>
                     <p className="mt-1 font-semibold text-slate-950">{item.title}</p>
                     <p className="mt-1 text-sm text-slate-600">{item.meta}</p>
                   </div>
@@ -78,12 +78,12 @@ function Profile() {
           </Reveal>
 
           <Reveal delay={200}>
-            <div className="panel p-5 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+            <div className="panel p-5 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl">
               <h3 className="text-lg font-semibold text-slate-950">경력</h3>
               <div className="mt-4 space-y-4">
                 {careers.map((item) => (
-                  <div key={`${item.period}-${item.title}`} className="border-l-2 border-cyan-300 pl-4">
-                    <p className="text-sm font-semibold text-cyan-700">{item.period}</p>
+                  <div key={`${item.period}-${item.title}`} className="border-l-2 border-blue-300 pl-4">
+                    <p className="text-sm font-semibold text-blue-700">{item.period}</p>
                     <p className="mt-1 font-semibold text-slate-950">{item.title}</p>
                     <p className="mt-1 text-sm text-slate-600">{item.meta}</p>
                   </div>
@@ -93,18 +93,18 @@ function Profile() {
           </Reveal>
 
           <Reveal delay={260}>
-            <div className="panel p-5 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+            <div className="panel p-5 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl">
               <h3 className="text-lg font-semibold text-slate-950">논문</h3>
               <div className="mt-4 space-y-4">
                 {publications.map((item) => (
-                  <div key={item.title} className="border-l-2 border-cyan-300 pl-4">
-                    <p className="text-sm font-semibold text-cyan-700">{item.meta}</p>
+                  <div key={item.title} className="border-l-2 border-blue-300 pl-4">
+                    <p className="text-sm font-semibold text-blue-700">{item.meta}</p>
                     <p className="mt-1 font-semibold leading-6 text-slate-950">{item.title}</p>
                     <a
                       href={item.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="mt-3 inline-flex rounded-md border border-cyan-200 bg-cyan-50 px-3 py-1.5 text-sm font-semibold text-cyan-800 transition hover:bg-white"
+                      className="mt-3 inline-flex rounded-md border border-blue-200 bg-blue-50 px-3 py-1.5 text-sm font-semibold text-blue-800 transition hover:bg-white"
                     >
                       PDF 보기
                     </a>

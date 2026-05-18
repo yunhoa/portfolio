@@ -15,7 +15,7 @@ function Skills() {
       <div className="mt-8 grid gap-4 md:grid-cols-2">
         {skillGroups.map((group, index) => (
           <Reveal key={group.category} delay={(index % 2) * 80}>
-            <article className="panel h-full p-5 hover:-translate-y-1 hover:border-cyan-300 hover:shadow-xl">
+            <article className="panel h-full p-5 hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl">
               <h3 className="text-lg font-semibold text-slate-950">{group.category}</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {group.items.map((skill) => (
