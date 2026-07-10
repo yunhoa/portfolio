@@ -68,6 +68,8 @@ function ProjectBadges({ project }) {
 }
 
 function ProjectPreviewGallery() {
+  const previewProjects = projects.filter((project) => project.image);
+
   return (
     <Reveal delay={80}>
       <div className="mt-8 overflow-hidden rounded-lg border border-slate-200 bg-white px-4 py-6 shadow-[0_18px_55px_rgba(15,23,42,0.07)] sm:px-6">
@@ -82,10 +84,10 @@ function ProjectPreviewGallery() {
         </div>
 
         <div className="project-circular-gallery mt-6 flex min-h-[350px] gap-5 overflow-x-auto overflow-y-hidden px-2 pb-6 pt-5">
-          {projects.map((project, index) => (
+          {previewProjects.map((project, index) => (
             <a
               key={project.title}
-              href={`#project-${index + 1}`}
+              href={`#project-${projects.indexOf(project) + 1}`}
               className="project-circular-gallery-item group relative flex h-80 w-56 shrink-0 snap-center flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-50 text-left shadow-[0_18px_35px_rgba(15,23,42,0.10)] transition duration-300 hover:z-20 hover:-translate-y-4 hover:border-blue-300 hover:bg-white"
               style={{
                 transform: `rotateY(${(index - (projects.length - 1) / 2) * -6}deg) translateY(${Math.abs(index - (projects.length - 1) / 2) * 3}px)`,
@@ -101,7 +103,7 @@ function ProjectPreviewGallery() {
                   loading="lazy"
                 />
                 <span className="absolute left-3 top-3 rounded-md bg-white/90 px-2 py-1 text-xs font-semibold text-slate-700 shadow-sm">
-                  {String(index + 1).padStart(2, '0')}
+                  {String(projects.indexOf(project) + 1).padStart(2, '0')}
                 </span>
               </div>
               <div className="flex flex-1 flex-col justify-between p-4">

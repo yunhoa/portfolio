@@ -185,6 +185,32 @@ export const projects = [
     tech: ['Spring Boot', 'Java', 'PostgreSQL', 'Apache HTTP Server', 'Google Analytics Data API', 'JavaScript', 'Thymeleaf', 'REST API', 'SQL', 'Git'],
   },
   {
+    title: '한화오션 안전혁신과제',
+    category: '회사 프로젝트',
+    domain: 'Backend / Performance Test',
+    tags: ['Backend', 'JMeter', '전자정부프레임워크', 'Performance Test'],
+    summary:
+      'B2B 안전관리 서비스에서 동영상 요청 흐름을 대상으로 JMeter 부하테스트 환경을 구성하고 테스트를 수행한 프로젝트입니다.',
+    highlights: ['JMeter 테스트 환경 구성', '동영상 요청 시나리오 설정', '응답 시간 및 오류 여부 확인'],
+    role: [
+      '전자정부프레임워크 기반 서비스 구조 확인',
+      'JMeter HTTP Request 설정값 구성',
+      '동영상 요청 흐름에 대한 부하테스트 시나리오 작성',
+      '동시 요청 조건에서 테스트 수행',
+      '응답 시간, 오류 여부, 요청 처리 상태 확인',
+    ],
+    problem:
+      '동영상 요청이 포함된 서비스에서 실제 사용 조건을 고려한 요청 처리 상태와 오류 여부를 확인할 필요가 있었습니다.',
+    solution:
+      'JMeter에서 HTTP Request, 요청 파라미터, 동시 요청 조건을 설정하고 동영상 요청 흐름에 대한 테스트를 수행했습니다. 테스트 결과는 응답 시간, 오류 여부, 요청 처리 상태 기준으로 정리했습니다.',
+    outcomes: [
+      'JMeter 기반 동영상 요청 부하테스트 환경 구성',
+      '동시 요청 조건에서 응답 시간과 오류 여부 확인',
+      '테스트 결과를 운영 검토에 활용할 수 있도록 정리',
+    ],
+    tech: ['전자정부프레임워크', 'JMeter', 'HTTP Request', 'Performance Test'],
+  },
+  {
     title: 'Slack 기반 업무 자동화 봇',
     category: '개인 프로젝트',
     domain: 'Work Automation',
