@@ -18,8 +18,8 @@ function Contact() {
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
                 백엔드 API를 중심으로 작업해 왔지만, 필요하면 화면, AI/RAG, 공간 데이터, 운영 자동화까지
-                직접 확인하며 이어 붙이는 편입니다. 맡은 일이 실제로 쓰이는 흐름까지 정리하는 개발자가
-                되고 싶고, 부족한 부분은 강의와 문서를 보며 계속 채워가고 있습니다.
+                직접 확인합니다. 맡은 기능이 실제로 쓰이는지 확인하고, 모르는 부분은 강의와 문서, 기존 코드로
+                보완해가고 있습니다.
               </p>
             </div>
 
@@ -41,7 +41,7 @@ function Contact() {
                     <p className="text-sm font-semibold text-blue-700">Learning Record</p>
                     <p className="mt-2 text-sm leading-6 text-slate-700">
                       업무에 필요한 기술은 따로 학습하고 프로젝트에 적용해 왔습니다.
-                      새로운 요구가 생겼을 때 혼자 막히지 않도록 기본기를 계속 쌓고 있습니다.
+                      새로운 요구가 생겼을 때 기존 코드와 문서를 따라가며 해결할 수 있도록 기본기를 쌓고 있습니다.
                     </p>
                   </div>
                 </div>

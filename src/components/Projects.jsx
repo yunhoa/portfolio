@@ -76,7 +76,7 @@ function ProjectPreviewGallery() {
         <div className="flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-slate-500">Project Preview</p>
-            <p className="mt-1 text-sm text-slate-600">프로젝트 흐름을 먼저 훑어보고, 필요한 항목은 상세 카드에서 확인할 수 있습니다.</p>
+            <p className="mt-1 text-sm text-slate-600">이미지가 있는 프로젝트를 먼저 훑어볼 수 있습니다. 자세한 내용은 아래 카드에 정리했습니다.</p>
           </div>
           <span className="hidden rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-500 sm:inline-flex">
             {projects.length} projects
@@ -131,10 +131,9 @@ function Projects() {
     <section id="projects" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">Projects</p>
-        <h2 className="section-title">맡은 문제와 처리 흐름이 보이는 프로젝트</h2>
+        <h2 className="section-title">문제를 어떻게 처리했는지 보이는 프로젝트</h2>
         <p className="section-description">
-          사용한 기술보다 어떤 데이터를 받았고, 어떻게 처리했고, 화면이나 운영 흐름에 어떻게 연결했는지
-          먼저 보이도록 정리했습니다.
+          기술 이름보다 어떤 데이터를 받았고, 어떻게 처리했고, 결과가 어디에 쓰였는지 중심으로 정리했습니다.
         </p>
       </Reveal>
 
@@ -172,7 +171,7 @@ function Projects() {
                     )}
 
                     <div className="mt-5 rounded-lg border border-blue-100 bg-blue-50/70 p-4">
-                      <h4 className="text-sm font-semibold text-blue-900">핵심 기여</h4>
+                      <h4 className="text-sm font-semibold text-blue-900">핵심 작업</h4>
                       <ul className="mt-3 grid gap-2 text-sm text-slate-800 sm:grid-cols-3">
                         {project.highlights.map((item) => (
                           <li key={item} className="rounded-md bg-white/70 px-3 py-2">

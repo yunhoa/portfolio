@@ -10,9 +10,9 @@ function VisualWork() {
     <section id="visual-work" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">Spatial Digital Twin / Field Operations</p>
-        <h2 className="section-title">공간 디지털 트윈 및 현장 운영 플랫폼</h2>
+        <h2 className="section-title">3D 공간 화면과 현장 운영 서비스</h2>
         <p className="section-description">
-          병원·제조 공간을 3D로 연결하고, 현장 작업자가 쓰는 모바일 운영 서비스까지 다룬 프로젝트입니다.
+          병원·제조 현장의 데이터를 3D 화면에 표시하고, 현장 작업자가 쓰는 모바일 운영 서비스도 함께 다뤘습니다.
         </p>
       </Reveal>
 
