@@ -294,11 +294,6 @@ function Projects() {
                               }`}
                               loading="lazy"
                             />
-                            {isBlurred && (
-                              <span className="absolute left-3 top-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white">
-                                블러 처리
-                              </span>
-                            )}
                             <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
                               확대 보기
                             </span>

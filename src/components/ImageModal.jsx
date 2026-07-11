@@ -53,11 +53,6 @@ function ImageModal({ image, alt, isBlurred = false, imagePrivacy = '', onClose 
             shouldBlur ? blurClass : ''
           }`}
         />
-        {shouldBlur && (
-          <span className="absolute bottom-4 left-4 rounded-md bg-slate-950/80 px-3 py-1.5 text-xs font-semibold text-white">
-            내부 정보 보호를 위해 일부 화면을 블러 처리했습니다.
-          </span>
-        )}
       </div>
     </div>
   );
