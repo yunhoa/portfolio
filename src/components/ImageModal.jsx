@@ -27,8 +27,20 @@ function ImageModal({ image, alt, isBlurred = false, imagePrivacy = '', onClose 
     return null;
   }
 
-  const shouldBlur = isBlurred || imagePrivacy === 'blur' || imagePrivacy === 'soft-blur';
-  const blurClass = imagePrivacy === 'soft-blur' ? 'blur-[2px]' : 'blur-md';
+  const shouldBlur =
+    isBlurred ||
+    imagePrivacy === 'micro-blur' ||
+    imagePrivacy === 'soft-blur' ||
+    imagePrivacy === 'medium-blur' ||
+    imagePrivacy === 'blur';
+  const blurClass =
+    imagePrivacy === 'micro-blur'
+      ? 'blur-[1px]'
+      : imagePrivacy === 'soft-blur'
+        ? 'blur-[2px]'
+        : imagePrivacy === 'medium-blur'
+          ? 'blur-[3px]'
+          : 'blur-md';
 
   return (
     <div

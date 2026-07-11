@@ -24,8 +24,16 @@ const visualProjects = visualWorks.map((work) => ({
 const allProjects = [...visualProjects, ...projects];
 
 function getBlurClass(imagePrivacy) {
+  if (imagePrivacy === 'micro-blur') {
+    return 'blur-[0.8px]';
+  }
+
   if (imagePrivacy === 'soft-blur') {
     return 'blur-[1.5px]';
+  }
+
+  if (imagePrivacy === 'medium-blur') {
+    return 'blur-[2.5px]';
   }
 
   if (imagePrivacy === 'blur') {
@@ -36,7 +44,7 @@ function getBlurClass(imagePrivacy) {
 }
 
 function isImageBlurred(imagePrivacy) {
-  return imagePrivacy === 'blur' || imagePrivacy === 'soft-blur';
+  return ['micro-blur', 'soft-blur', 'medium-blur', 'blur'].includes(imagePrivacy);
 }
 
 function DetailList({ title, items }) {
