@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function ImageModal({ image, alt, isBlurred = false, onClose }) {
+function ImageModal({ image, alt, isBlurred = false, imagePrivacy = '', onClose }) {
   useEffect(() => {
     if (!image) {
       return undefined;
@@ -27,6 +27,9 @@ function ImageModal({ image, alt, isBlurred = false, onClose }) {
     return null;
   }
 
+  const shouldBlur = isBlurred || imagePrivacy === 'blur' || imagePrivacy === 'soft-blur';
+  const blurClass = imagePrivacy === 'soft-blur' ? 'blur-[2px]' : 'blur-md';
+
   return (
     <div
       className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/88 p-4 backdrop-blur-sm"
@@ -47,10 +50,10 @@ function ImageModal({ image, alt, isBlurred = false, onClose }) {
           src={image}
           alt={alt}
           className={`max-h-[82vh] w-full rounded-lg border border-white/15 bg-white object-contain shadow-2xl ${
-            isBlurred ? 'blur-md' : ''
+            shouldBlur ? blurClass : ''
           }`}
         />
-        {isBlurred && (
+        {shouldBlur && (
           <span className="absolute bottom-4 left-4 rounded-md bg-slate-950/80 px-3 py-1.5 text-xs font-semibold text-white">
             내부 정보 보호를 위해 일부 화면을 블러 처리했습니다.
           </span>

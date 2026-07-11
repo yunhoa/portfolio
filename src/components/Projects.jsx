@@ -23,6 +23,22 @@ const visualProjects = visualWorks.map((work) => ({
 
 const allProjects = [...visualProjects, ...projects];
 
+function getBlurClass(imagePrivacy) {
+  if (imagePrivacy === 'soft-blur') {
+    return 'blur-[1.5px]';
+  }
+
+  if (imagePrivacy === 'blur') {
+    return 'blur-sm';
+  }
+
+  return '';
+}
+
+function isImageBlurred(imagePrivacy) {
+  return imagePrivacy === 'blur' || imagePrivacy === 'soft-blur';
+}
+
 function DetailList({ title, items }) {
   if (!items?.length) {
     return null;
@@ -117,9 +133,9 @@ function ProjectPreviewGallery({ items }) {
                 <img
                   src={project.image}
                   alt={`${project.title} 대표 이미지`}
-                  className={`h-full w-full object-cover transition duration-300 group-hover:scale-105 ${
-                    project.imagePrivacy === 'blur' ? 'blur-sm' : ''
-                  }`}
+                  className={`h-full w-full object-cover transition duration-300 group-hover:scale-105 ${getBlurClass(
+                    project.imagePrivacy,
+                  )}`}
                   loading="lazy"
                 />
                 <span className="absolute left-3 top-3 rounded-md bg-white/90 px-2 py-1 text-xs font-semibold text-slate-700 shadow-sm">
@@ -250,12 +266,20 @@ function Projects() {
                       {(project.images || [project.image]).map((image, imageIndex) => {
                         const alt = `${project.title} 화면 ${imageIndex + 1}`;
                         const shouldContain = project.imageFit === 'contain';
-                        const isBlurred = project.imagePrivacy === 'blur';
+                        const isBlurred = isImageBlurred(project.imagePrivacy);
+                        const blurClass = getBlurClass(project.imagePrivacy);
                         return (
                           <button
                             type="button"
                             key={image}
-                            onClick={() => setSelectedImage({ src: image, alt, isBlurred })}
+                            onClick={() =>
+                              setSelectedImage({
+                                src: image,
+                                alt,
+                                isBlurred,
+                                imagePrivacy: project.imagePrivacy,
+                              })
+                            }
                             className={`group relative overflow-hidden rounded-lg border border-slate-200 text-left ${
                               shouldContain ? 'bg-slate-950' : 'bg-slate-100'
                             }`}
@@ -265,8 +289,8 @@ function Projects() {
                               alt={alt}
                               className={`aspect-[16/9] w-full transition duration-300 ${
                                 shouldContain
-                                  ? `object-contain p-3 group-hover:opacity-95 ${isBlurred ? 'blur-sm' : ''}`
-                                  : `object-cover group-hover:scale-[1.03] ${isBlurred ? 'blur-sm' : ''}`
+                                  ? `object-contain p-3 group-hover:opacity-95 ${blurClass}`
+                                  : `object-cover group-hover:scale-[1.03] ${blurClass}`
                               }`}
                               loading="lazy"
                             />
@@ -342,6 +366,7 @@ function Projects() {
         image={selectedImage?.src}
         alt={selectedImage?.alt}
         isBlurred={selectedImage?.isBlurred}
+        imagePrivacy={selectedImage?.imagePrivacy}
         onClose={() => setSelectedImage(null)}
       />
     </section>

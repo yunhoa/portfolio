@@ -226,7 +226,7 @@ export const projects = [
     tags: ['Automation', 'Slack Bot', 'Node.js'],
     image: slackMeetingImage,
     images: [slackMeetingImage, slackVacationImage],
-    imagePrivacy: 'blur',
+    imagePrivacy: 'soft-blur',
     summary:
       '업무 중 반복 확인하던 회의 일정, 회의실 예약, 휴가자 정보를 Slack에서 확인하도록 만든 자동화 프로젝트입니다.',
     highlights: ['회의 알림 자동화', '휴가자 조회 자동화', '중복 알림 방지 처리'],
@@ -258,6 +258,7 @@ export const projects = [
     domain: 'Work Tool / Schedule Management',
     tags: ['React', 'Timeline UI', 'Work Automation'],
     image: b2bTimelineImage,
+    imagePrivacy: 'soft-blur',
     summary:
       '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
     highlights: ['주간 체류 일정 타임라인', '인원별 이동/체류 상태 표시', '날짜 범위 조회와 상태 필터'],
