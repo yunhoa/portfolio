@@ -1,7 +1,27 @@
 import { useState } from 'react';
 import { projects } from '../data/projects.js';
+import { visualWorks } from '../data/visualWorks.js';
 import ImageModal from './ImageModal.jsx';
 import Reveal from './Reveal.jsx';
+
+const visualProjects = visualWorks.map((work) => ({
+  title: work.title,
+  category: '회사 프로젝트',
+  group: 'visual',
+  domain: work.label,
+  tags: [work.badge],
+  image: work.image,
+  imagePrivacy: work.imagePrivacy,
+  summary: work.summary,
+  highlights: work.highlights,
+  role: work.details,
+  problem: work.problem,
+  solution: work.improvement,
+  outcomes: work.outcome ? [work.outcome] : [],
+  tech: work.tech,
+}));
+
+const allProjects = [...visualProjects, ...projects];
 
 function DetailList({ title, items }) {
   if (!items?.length) {
@@ -67,8 +87,8 @@ function ProjectBadges({ project }) {
   );
 }
 
-function ProjectPreviewGallery() {
-  const previewProjects = projects.filter((project) => project.image);
+function ProjectPreviewGallery({ items }) {
+  const previewProjects = items.filter((project) => project.image);
 
   return (
     <Reveal delay={80}>
@@ -76,10 +96,10 @@ function ProjectPreviewGallery() {
         <div className="flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-slate-500">Project Preview</p>
-            <p className="mt-1 text-sm text-slate-600">이미지가 있는 프로젝트를 먼저 훑어볼 수 있습니다. 자세한 내용은 아래 카드에 정리했습니다.</p>
+            <p className="mt-1 text-sm text-slate-600">화면으로 먼저 확인할 수 있는 작업을 모았습니다.</p>
           </div>
           <span className="hidden rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-500 sm:inline-flex">
-            {projects.length} projects
+            {items.length} projects
           </span>
         </div>
 
@@ -87,10 +107,10 @@ function ProjectPreviewGallery() {
           {previewProjects.map((project, index) => (
             <a
               key={project.title}
-              href={`#project-${projects.indexOf(project) + 1}`}
+              href={`#project-${items.indexOf(project) + 1}`}
               className="project-circular-gallery-item group relative flex h-80 w-56 shrink-0 snap-center flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-50 text-left shadow-[0_18px_35px_rgba(15,23,42,0.10)] transition duration-300 hover:z-20 hover:-translate-y-4 hover:border-blue-300 hover:bg-white"
               style={{
-                transform: `rotateY(${(index - (projects.length - 1) / 2) * -6}deg) translateY(${Math.abs(index - (projects.length - 1) / 2) * 3}px)`,
+                transform: `rotateY(${(index - (previewProjects.length - 1) / 2) * -6}deg) translateY(${Math.abs(index - (previewProjects.length - 1) / 2) * 3}px)`,
               }}
             >
               <div className="relative h-36 overflow-hidden bg-slate-100">
@@ -103,7 +123,7 @@ function ProjectPreviewGallery() {
                   loading="lazy"
                 />
                 <span className="absolute left-3 top-3 rounded-md bg-white/90 px-2 py-1 text-xs font-semibold text-slate-700 shadow-sm">
-                  {String(projects.indexOf(project) + 1).padStart(2, '0')}
+                  {String(items.indexOf(project) + 1).padStart(2, '0')}
                 </span>
               </div>
               <div className="flex flex-1 flex-col justify-between p-4">
@@ -124,6 +144,29 @@ function ProjectPreviewGallery() {
   );
 }
 
+const projectGroups = [
+  {
+    key: 'visual',
+    title: '3D 공간 화면과 현장 운영 서비스',
+    description: '3D 화면, 좌표 정합, 실시간 데이터, 모바일 운영처럼 화면에서 결과가 바로 보이는 작업입니다.',
+  },
+  {
+    key: 'featured',
+    title: 'Featured Projects',
+    description: '백엔드 API, AI 처리, 검색 구조, 데이터 가공 흐름을 중심으로 맡았던 프로젝트입니다.',
+  },
+  {
+    key: 'other',
+    title: 'Other Projects',
+    description: '운영 중인 서비스에서 기능 수정, 데이터 확인, 외부 연동, 성능 테스트를 맡았던 작업입니다.',
+  },
+  {
+    key: 'personal',
+    title: 'Personal Projects',
+    description: '업무 중 불편했던 흐름을 직접 도구로 만들거나, 따로 학습하면서 구현한 프로젝트입니다.',
+  },
+];
+
 function Projects() {
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -137,15 +180,35 @@ function Projects() {
         </p>
       </Reveal>
 
-      <ProjectPreviewGallery />
+      <ProjectPreviewGallery items={allProjects} />
 
-      <div className="mt-8 space-y-6">
-        {projects.map((project, index) => (
-          <Reveal key={project.title} delay={Math.min(index * 90, 220)}>
-            <article
-              id={`project-${index + 1}`}
-              className="panel scroll-mt-24 overflow-hidden hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl"
-            >
+      <div className="mt-8 space-y-10">
+        {projectGroups.map((group) => {
+          const groupedProjects = allProjects.filter((project) => (project.group || 'featured') === group.key);
+
+          if (!groupedProjects.length) {
+            return null;
+          }
+
+          return (
+            <div key={group.key} className="space-y-4">
+              <Reveal>
+                <div className="border-l-2 border-blue-300 pl-4">
+                  <h3 className="text-2xl font-semibold text-slate-950">{group.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">{group.description}</p>
+                </div>
+              </Reveal>
+
+              <div className="space-y-6">
+                {groupedProjects.map((project, groupIndex) => {
+                  const projectIndex = allProjects.indexOf(project);
+
+                  return (
+                    <Reveal key={project.title} delay={Math.min(groupIndex * 90, 220)}>
+                      <article
+                        id={`project-${projectIndex + 1}`}
+                        className="panel scroll-mt-24 overflow-hidden hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl"
+                      >
               <div className="border-b border-slate-200 p-5 sm:p-6">
                 <div className="grid gap-5 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
                   <div>
@@ -265,9 +328,14 @@ function Projects() {
                   </div>
                 </div>
               </div>
-            </article>
-          </Reveal>
-        ))}
+                      </article>
+                    </Reveal>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
       </div>
 
       <ImageModal

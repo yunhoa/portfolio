@@ -8,6 +8,7 @@ import yoloDetect2Image from '../assets/yolo-detect-2.png';
 import smIndustryImage from '../assets/sm-industrial.png';
 import slackMeetingImage from '../assets/slack-meeting.png';
 import slackVacationImage from '../assets/slack-vacation.png';
+import b2bTimelineImage from '../assets/b2b-timeline.png';
 import seoulDateCourseImage from '../assets/seoul-date-course.png';
 import proxmoxServerImage from '../assets/proxmox-server.png';
 
@@ -15,6 +16,7 @@ export const projects = [
   {
     title: 'Safety Watch 스마트검색 RAG 기반 AI 플랫폼',
     category: '회사 프로젝트',
+    group: 'featured',
     domain: 'AI Search / Backend',
     tags: ['Backend', 'AI Search', 'RAG', 'VectorDB'],
     image: safetyWatchImage,
@@ -61,6 +63,7 @@ export const projects = [
   {
     title: '스마트플랜트 설비 이미지 전처리 및 메타정보 생성 프레임워크',
     category: '회사 프로젝트',
+    group: 'featured',
     domain: 'AI / Computer Vision / Smart Plant',
     tags: ['Backend', 'AI', 'Computer Vision', 'FastAPI', 'Smart Plant'],
     image: plantMainImage,
@@ -117,6 +120,7 @@ export const projects = [
   {
     title: '좌석배치도 공간 객체화 PoC',
     category: '회사 프로젝트',
+    group: 'featured',
     domain: 'Computer Vision / Spatial AI',
     tags: ['Backend', 'Computer Vision', 'YOLO', 'OpenCV', 'Spatial AI'],
     image: seatPlanImage,
@@ -152,6 +156,7 @@ export const projects = [
   {
     title: '3D 산단 디지털 플랫폼 유지관리',
     category: '회사 프로젝트',
+    group: 'other',
     domain: 'Backend / Platform Maintenance',
     tags: ['Backend', 'SM / 운영', 'Platform Maintenance'],
     image: smIndustryImage,
@@ -187,6 +192,7 @@ export const projects = [
   {
     title: '한화오션 안전혁신과제',
     category: '회사 프로젝트',
+    group: 'other',
     domain: 'Backend / Performance Test',
     tags: ['Backend', '전자정부프레임워크', 'JMeter', 'Performance Test'],
     summary:
@@ -215,6 +221,7 @@ export const projects = [
   {
     title: 'Slack 기반 업무 자동화 봇',
     category: '개인 프로젝트',
+    group: 'personal',
     domain: 'Work Automation',
     tags: ['Automation', 'Slack Bot', 'Node.js'],
     image: slackMeetingImage,
@@ -245,8 +252,39 @@ export const projects = [
     tech: ['Node.js', 'JavaScript', 'Slack Bolt', 'Slack API', 'node-cron', 'REST API', 'JSON'],
   },
   {
+    title: 'B2B 상주 인원 일정 관리 타임라인',
+    category: '개인 프로젝트',
+    group: 'personal',
+    domain: 'Work Tool / Schedule Management',
+    tags: ['React', 'Timeline UI', 'Work Automation'],
+    image: b2bTimelineImage,
+    summary:
+      '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
+    highlights: ['주간 체류 일정 타임라인', '인원별 이동/체류 상태 표시', '날짜 범위 조회와 상태 필터'],
+    background:
+      '거제도 상주 업무 중 이번 주에 누가 내려가고 올라오는지, 누가 현장에 체류 중인지, 누가 서울 근무인지 확인하는 일이 반복됐습니다. 구두 확인이나 메신저 확인만으로는 전체 일정을 한눈에 보기 어려웠습니다.',
+    role: [
+      '인원별 이동, 체류, 휴가, 서울 근무 상태를 구분하는 화면 구성',
+      '조회 기간 기준의 주간 타임라인 UI 구현',
+      '일자별 현장 이동, 현장 체류, 서울 근무 인원 요약 영역 구성',
+      '상태별 색상과 라벨을 사용한 일정 표시',
+      '현장 상주 인원 확인을 위한 필터 및 카드형 요약 구성',
+    ],
+    problem:
+      '상주 인원이 여러 명이고 이동 일정이 겹치다 보니, 이번 주 현장 체류 인원과 이동 예정자를 빠르게 확인하기 어려웠습니다. 일정이 바뀔 때마다 전체 인원 상태를 다시 확인해야 했습니다.',
+    solution:
+      '인원별 일정을 타임라인 형태로 정리하고, 현장 이동, 체류, 서울 근무, 휴가 상태를 색상과 라벨로 구분했습니다. 상단에는 기간 내 이동 건수, 체류 인원, 서울 복귀, 전체 인원 같은 요약 정보를 두어 현재 상황을 먼저 확인할 수 있게 했습니다.',
+    outcomes: [
+      '상주 인원 이동/체류 일정을 한 화면에서 확인',
+      '현장 체류, 서울 근무, 휴가 상태를 인원별로 구분',
+      '주간 단위 일정 확인과 인원 요약 확인 시간 감소',
+    ],
+    tech: ['React', 'JavaScript', 'Timeline UI', 'State Management', 'Responsive UI'],
+  },
+  {
     title: 'Proxmox 기반 홈서버 및 네트워크 인프라 구축',
     category: '개인 홈랩',
+    group: 'personal',
     domain: 'Infra / Network',
     tags: ['Infra', 'Network', 'Home Lab'],
     image: proxmoxServerImage,
@@ -285,6 +323,7 @@ export const projects = [
   {
     title: '서울 데이트코스 추천 웹 서비스',
     category: '캡스톤 프로젝트',
+    group: 'personal',
     domain: 'Web Service / Public API',
     tags: ['Spring Boot', 'React', 'Public API'],
     image: seoulDateCourseImage,

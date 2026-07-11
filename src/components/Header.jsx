@@ -3,7 +3,6 @@ const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Platforms', href: '#visual-work' },
   { label: 'Contact', href: '#contact' },
 ];
 

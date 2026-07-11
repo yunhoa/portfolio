@@ -3,7 +3,6 @@ import Hero from './components/Hero.jsx';
 import Profile from './components/Profile.jsx';
 import About from './components/About.jsx';
 import Skills from './components/Skills.jsx';
-import VisualWork from './components/VisualWork.jsx';
 import Projects from './components/Projects.jsx';
 import Contact from './components/Contact.jsx';
 
@@ -17,7 +16,6 @@ function App() {
         <About />
         <Skills />
         <Projects />
-        <VisualWork />
         <Contact />
       </main>
     </div>
