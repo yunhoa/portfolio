@@ -1,33 +1,15 @@
-const keywords = [
-  'FastAPI',
-  'Spring Boot',
-  'React',
-  'PostgreSQL',
-  'PGVector',
-  'LangChain',
-  'Three.js',
-  'Computer Vision',
-  'JMeter',
-  'Apache Cordova',
-];
+import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 
-const summaryItems = [
-  {
-    label: 'Backend / API',
-    text: 'FastAPI와 Spring Boot로 검색, 조회, 관리자 기능 API를 다뤘습니다.',
-  },
-  {
-    label: 'Data / Search',
-    text: '문서 임베딩, PGVector 저장, RAG 검색 API까지 이어지는 작업을 맡았습니다.',
-  },
-  {
-    label: 'Frontend / 3D',
-    text: 'React, Three.js 화면에서 API 데이터와 3D 위치 표시를 맞췄습니다.',
-  },
-  {
-    label: 'Operations',
-    text: '관리자 시스템 유지보수, 외부 API, JMeter 테스트, 운영 이슈를 다뤘습니다.',
-  },
+const coreKeywords = ['Java', 'Spring Boot', 'FastAPI', 'Python', 'PostgreSQL', 'REST API'];
+
+const extendedKeywords = [
+  'LangChain / RAG',
+  'PGVector',
+  'Computer Vision',
+  'React',
+  'Three.js',
+  'Apache Cordova',
+  'JMeter',
 ];
 
 function Hero() {
@@ -36,34 +18,80 @@ function Hero() {
       <div className="section-shell pt-14 lg:pt-20">
         <div className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-end">
           <div>
-            <p className="section-eyebrow">Backend / API Developer</p>
+            <p className="section-eyebrow">Backend Developer · Java / Spring Boot</p>
             <h1 className="mt-4 text-4xl font-semibold tracking-normal text-slate-950 sm:text-5xl">조윤호</h1>
             <p className="mt-5 max-w-2xl text-xl leading-8 text-slate-800">
-              백엔드 API와 데이터 처리를 중심으로, 3D 화면 연동과 운영 유지보수까지 함께 맡아온 개발자입니다.
+              API 설계부터 화면 연동, 배포, 운영까지 서비스가 돌아가는 전 구간을 직접 다뤄왔습니다.
             </p>
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-              FastAPI와 Spring Boot로 API를 만들고, React와 Three.js 화면에서 데이터가 실제로 보이는 지점까지
-              확인했습니다. PostgreSQL, PGVector, JMeter, Cordova 기반 운영 이슈도 다뤘습니다.
+              Spring Boot 기반으로 작업해온 Java 개발자입니다. 실무에서는 FastAPI도 함께 다뤘고,
+              RAG 검색이나 Computer Vision, 3D 화면처럼 처음 접하는 기술이 필요한 프로젝트가 오면
+              학습부터 실제 동작하는 기능까지 직접 만들어 왔습니다.
             </p>
-            <div className="mt-7 flex flex-wrap gap-2">
-              {keywords.map((keyword) => (
-                <span key={keyword} className="badge">
-                  {keyword}
-                </span>
-              ))}
+            <div className="mt-7 space-y-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Core</span>
+                {coreKeywords.map((keyword) => (
+                  <span key={keyword} className="badge border-blue-200 bg-blue-50 text-blue-800">
+                    {keyword}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-slate-400">Extended</span>
+                {extendedKeywords.map((keyword) => (
+                  <span key={keyword} className="badge">
+                    {keyword}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
           <div className="panel p-5 sm:p-6">
-            <h2 className="text-lg font-semibold text-slate-950">작업 요약</h2>
-            <div className="mt-4 grid gap-3">
-              {summaryItems.map((item) => (
-                <div key={item.label} className="border-l-2 border-blue-300 pl-4">
-                  <p className="text-sm font-semibold text-slate-950">{item.label}</p>
-                  <p className="mt-1 text-sm leading-6 text-slate-600">{item.text}</p>
-                </div>
-              ))}
-            </div>
+            <h2 className="text-lg font-semibold text-slate-950">기본 정보</h2>
+            <dl className="mt-4 grid gap-4 text-sm">
+              <div className="border-l-2 border-blue-300 pl-4">
+                <dt className="text-xs font-semibold text-slate-500">Email</dt>
+                <dd className="mt-1">
+                  <a href="mailto:govlxnep@naver.com" className="font-semibold text-blue-800 hover:underline">
+                    govlxnep@naver.com
+                  </a>
+                </dd>
+              </div>
+              <div className="border-l-2 border-blue-300 pl-4">
+                <dt className="text-xs font-semibold text-slate-500">학력</dt>
+                <dd className="mt-1 leading-6 text-slate-800">
+                  경민대학교 컴퓨터소프트웨어
+                  <span className="text-slate-500"> · 2019.03 – 2025.02 · 3.94 / 4.5</span>
+                </dd>
+              </div>
+              <div className="border-l-2 border-blue-300 pl-4">
+                <dt className="text-xs font-semibold text-slate-500">경력</dt>
+                <dd className="mt-1 leading-6 text-slate-800">
+                  올포랜드
+                  <span className="text-slate-500"> · 2025.01 – 재직 중 · 백엔드/API 및 플랫폼 유지보수</span>
+                </dd>
+                <dd className="mt-1 leading-6 text-slate-800">
+                  ㈜ATC
+                  <span className="text-slate-500"> · 2020.08 – 2023.04 · 생산직 2교대</span>
+                </dd>
+              </div>
+              <div className="border-l-2 border-blue-300 pl-4">
+                <dt className="text-xs font-semibold text-slate-500">논문 · 1저자</dt>
+                <dd className="mt-1 leading-6 text-slate-800">
+                  스마트 플랜트 가상환경 구축을 위한 모바일–서버 연동형 AI 기반 메타정보 자동 생성 프레임워크
+                  <a
+                    href={paperPdf}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="ml-2 inline-flex rounded-md border border-blue-200 bg-blue-50 px-2 py-0.5 text-xs font-semibold text-blue-800 transition hover:bg-white"
+                  >
+                    PDF
+                  </a>
+                </dd>
+              </div>
+            </dl>
           </div>
         </div>
       </div>

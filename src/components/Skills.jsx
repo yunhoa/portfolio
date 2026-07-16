@@ -7,9 +7,6 @@ function Skills() {
       <Reveal>
         <p className="section-eyebrow">Skills</p>
         <h2 className="section-title">프로젝트에서 사용한 기술</h2>
-        <p className="section-description">
-          백엔드, 화면, 검색, 3D, 운영에서 실제로 사용한 기술을 분야별로 나눴습니다.
-        </p>
       </Reveal>
 
       <div className="mt-8 grid gap-4 md:grid-cols-2">

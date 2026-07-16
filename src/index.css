@@ -19,6 +19,8 @@ body {
   min-width: 320px;
   overflow-x: hidden;
   background: #f4f7fb;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 ::selection {

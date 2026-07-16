@@ -6,3 +6,17 @@ dist-new/
 *.log
 screenshot-*.png
 .DS_Store
+
+# 개인 문서 (이력서/자소서/분석 자료 — 저장소에 올리지 않음)
+*.hwp
+*.pdf
+/*.html
+!/index.html
+/img.png
+/images.jpg
+/b2b.png
+/sm산단.png
+/욜로기반탐지*.png
+/인프런강의내역.png
+/회사좌석배치도.png
+/씨엠월드*.html

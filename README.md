@@ -8,7 +8,6 @@
 - Vite
 - JavaScript
 - Tailwind CSS
-- Three.js
 
 ## 파일 구조
 
@@ -20,7 +19,8 @@
 ├── tailwind.config.js
 ├── vite.config.js
 ├── scripts
-│   └── build.mjs
+│   ├── build.mjs
+│   └── build-worker.mjs
 ├── README.md
 └── src
     ├── App.jsx
@@ -31,9 +31,9 @@
     │   ├── Contact.jsx
     │   ├── Header.jsx
     │   ├── Hero.jsx
+    │   ├── ImageModal.jsx
     │   ├── Projects.jsx
-    │   ├── SceneBackground.jsx
-    │   ├── VisualWork.jsx
+    │   ├── Reveal.jsx
     │   └── Skills.jsx
     ├── assets
     └── data
@@ -73,9 +73,11 @@ npm run build
 2. 스마트플랜트 설비 이미지 전처리 및 메타정보 생성 프레임워크
 3. 좌석배치도 공간 객체화 PoC
 4. 3D 산단 디지털 플랫폼 유지관리
-5. Slack 기반 업무 자동화 봇
-6. Proxmox 기반 홈서버 및 네트워크 인프라 구축
-7. 서울 데이트코스 추천 웹 서비스
+5. 한화오션 안전혁신과제
+6. Slack 기반 업무 자동화 봇
+7. B2B 상주 인원 일정 관리 타임라인
+8. Proxmox 기반 홈서버 및 네트워크 인프라 구축
+9. 서울 데이트코스 추천 웹 서비스
 
 ### Platforms
 

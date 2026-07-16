@@ -21,7 +21,11 @@ const visualProjects = visualWorks.map((work) => ({
   tech: work.tech,
 }));
 
-const allProjects = [...visualProjects, ...projects];
+const groupOrder = ['backend', 'ai', 'visual', 'personal'];
+
+const allProjects = [...projects, ...visualProjects].sort(
+  (a, b) => groupOrder.indexOf(a.group) - groupOrder.indexOf(b.group),
+);
 
 function getBlurClass(imagePrivacy) {
   if (imagePrivacy === 'micro-blur') {
@@ -120,7 +124,6 @@ function ProjectPreviewGallery({ items }) {
         <div className="flex items-center justify-between gap-4">
           <div>
             <p className="text-sm font-semibold text-slate-500">Project Preview</p>
-            <p className="mt-1 text-sm text-slate-600">화면으로 먼저 확인할 수 있는 작업을 모았습니다.</p>
           </div>
           <span className="hidden rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-500 sm:inline-flex">
             {items.length} projects
@@ -168,26 +171,69 @@ function ProjectPreviewGallery({ items }) {
   );
 }
 
+function ProjectDetail({ project }) {
+  return (
+    <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-2">
+      <div className="space-y-5">
+        {project.background && (
+          <div>
+            <h4 className="text-sm font-semibold text-blue-700">배경</h4>
+            <p className="mt-3 text-sm leading-6 text-slate-600">{project.background}</p>
+          </div>
+        )}
+        {project.problem && (
+          <div>
+            <h4 className="text-sm font-semibold text-blue-700">문제</h4>
+            <p className="mt-3 text-sm leading-6 text-slate-600">{project.problem}</p>
+          </div>
+        )}
+        {project.solution && (
+          <div>
+            <h4 className="text-sm font-semibold text-blue-700">문제 해결 포인트</h4>
+            <p className="mt-3 text-sm leading-6 text-slate-600">{project.solution}</p>
+          </div>
+        )}
+      </div>
+
+      <div className="space-y-5">
+        <DetailList title="내가 맡은 부분" items={project.role} />
+        <DetailList title="구현한 기능" items={project.features} />
+        <DetailList title="구현한 내용" items={project.implementations} />
+        <DetailList title="결과" items={project.outcomes} />
+        <div>
+          <h4 className="text-sm font-semibold text-blue-700">사용한 기술</h4>
+          <div className="mt-3 flex flex-wrap gap-2">
+            {project.tech.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const projectGroups = [
   {
+    key: 'backend',
+    title: 'Java / Spring Boot 백엔드',
+  },
+  {
+    key: 'ai',
+    title: 'AI / 검색 / Computer Vision',
+  },
+  {
     key: 'visual',
-    title: '3D 공간 화면과 현장 운영 서비스',
-    description: '3D 화면, 좌표 정합, 실시간 데이터, 모바일 운영처럼 화면에서 결과가 바로 보이는 작업입니다.',
-  },
-  {
-    key: 'featured',
-    title: 'Featured Projects',
-    description: '백엔드 API, AI 처리, 검색 구조, 데이터 가공 흐름을 중심으로 맡았던 프로젝트입니다.',
-  },
-  {
-    key: 'other',
-    title: 'Other Projects',
-    description: '운영 중인 서비스에서 기능 수정, 데이터 확인, 외부 연동, 성능 테스트를 맡았던 작업입니다.',
+    title: '3D 화면 / 현장 운영',
   },
   {
     key: 'personal',
-    title: 'Personal Projects',
-    description: '업무 중 불편했던 흐름을 직접 도구로 만들거나, 따로 학습하면서 구현한 프로젝트입니다.',
+    title: '개인 프로젝트',
   },
 ];
 
@@ -198,17 +244,14 @@ function Projects() {
     <section id="projects" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">Projects</p>
-        <h2 className="section-title">문제를 어떻게 처리했는지 보이는 프로젝트</h2>
-        <p className="section-description">
-          기술 이름보다 어떤 데이터를 받았고, 어떻게 처리했고, 결과가 어디에 쓰였는지 중심으로 정리했습니다.
-        </p>
+        <h2 className="section-title">프로젝트</h2>
       </Reveal>
 
       <ProjectPreviewGallery items={allProjects} />
 
       <div className="mt-8 space-y-10">
         {projectGroups.map((group) => {
-          const groupedProjects = allProjects.filter((project) => (project.group || 'featured') === group.key);
+          const groupedProjects = allProjects.filter((project) => project.group === group.key);
 
           if (!groupedProjects.length) {
             return null;
@@ -219,7 +262,6 @@ function Projects() {
               <Reveal>
                 <div className="border-l-2 border-blue-300 pl-4">
                   <h3 className="text-2xl font-semibold text-slate-950">{group.title}</h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">{group.description}</p>
                 </div>
               </Reveal>
 
@@ -313,48 +355,7 @@ function Projects() {
                 </div>
               </div>
 
-              <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-2">
-                <div className="space-y-5">
-                  {project.background && (
-                    <div>
-                      <h4 className="text-sm font-semibold text-blue-700">배경</h4>
-                      <p className="mt-3 text-sm leading-6 text-slate-600">{project.background}</p>
-                    </div>
-                  )}
-                  {project.problem && (
-                    <div>
-                      <h4 className="text-sm font-semibold text-blue-700">문제</h4>
-                      <p className="mt-3 text-sm leading-6 text-slate-600">{project.problem}</p>
-                    </div>
-                  )}
-                  {project.solution && (
-                    <div>
-                      <h4 className="text-sm font-semibold text-blue-700">문제 해결 포인트</h4>
-                      <p className="mt-3 text-sm leading-6 text-slate-600">{project.solution}</p>
-                    </div>
-                  )}
-                </div>
-
-                <div className="space-y-5">
-                  <DetailList title="내가 맡은 부분" items={project.role} />
-                  <DetailList title="구현한 기능" items={project.features} />
-                  <DetailList title="구현한 내용" items={project.implementations} />
-                  <DetailList title="결과" items={project.outcomes} />
-                  <div>
-                    <h4 className="text-sm font-semibold text-blue-700">사용한 기술</h4>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ProjectDetail project={project} />
                       </article>
                     </Reveal>
                   );

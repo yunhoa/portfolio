@@ -14,12 +14,12 @@ function Contact() {
           <div className="mt-4 grid gap-6">
             <div>
               <h2 className="text-2xl font-semibold tracking-normal text-slate-950 sm:text-3xl">
-                프로젝트와 작업 방식에 대해 더 이야기할 수 있습니다.
+                프로젝트 이야기가 더 궁금하시다면 편하게 연락 주세요.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                백엔드 API를 중심으로 작업해 왔지만, 필요하면 화면, AI/RAG, 공간 데이터, 운영 자동화까지
-                직접 확인합니다. 맡은 기능이 실제로 쓰이는지 확인하고, 모르는 부분은 강의와 문서, 기존 코드로
-                보완해가고 있습니다.
+                백엔드가 중심이지만 화면, AI, 인프라까지 필요한 구간이면 직접 맡아 만들어 왔습니다.
+                위에 정리한 프로젝트들은 전부 제가 직접 겪은 과정이라, 어떤 것이든 왜 그렇게
+                만들었는지까지 설명드릴 수 있습니다.
               </p>
             </div>
 
@@ -40,8 +40,8 @@ function Contact() {
                   <div>
                     <p className="text-sm font-semibold text-blue-700">Learning Record</p>
                     <p className="mt-2 text-sm leading-6 text-slate-700">
-                      업무에 필요한 기술은 따로 학습하고 프로젝트에 적용해 왔습니다.
-                      새로운 요구가 생겼을 때 기존 코드와 문서를 따라가며 해결할 수 있도록 기본기를 쌓고 있습니다.
+                      필요한 기술이 생기면 강의로 기본을 잡고 바로 프로젝트에 적용하는 방식으로 익혀왔습니다.
+                      수강 내역을 보시면 프로젝트 이력과 시기가 거의 겹칩니다.
                     </p>
                   </div>
                 </div>
