@@ -7,6 +7,9 @@ dist-new/
 screenshot-*.png
 .DS_Store
 
+# 작업 기록 위키 (내부 전략 메모 — public 저장소에 올리지 않음)
+wiki/
+
 # 개인 문서 (이력서/자소서/분석 자료 — 저장소에 올리지 않음)
 *.hwp
 *.pdf
