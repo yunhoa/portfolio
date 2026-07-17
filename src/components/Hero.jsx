@@ -73,8 +73,8 @@ function Hero() {
                   <span className="text-slate-500"> · 2025.01 – 재직 중 · 백엔드/API 및 플랫폼 유지보수</span>
                 </dd>
                 <dd className="mt-1 leading-6 text-slate-800">
-                  ㈜ATC
-                  <span className="text-slate-500"> · 2020.08 – 2023.04 · 생산직 2교대</span>
+                  ㈜ATC (방위산업체)
+                  <span className="text-slate-500"> · 2020.08 – 2023.04 (2년 9개월) · 생산직 2교대</span>
                 </dd>
               </div>
               <div className="border-l-2 border-blue-300 pl-4">
