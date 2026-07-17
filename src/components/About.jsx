@@ -5,7 +5,7 @@ function About() {
     <section id="about" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">About</p>
-        <h2 className="section-title">맡은 기술이 매번 달랐고, 매번 돌아가는 것까지 만들었습니다</h2>
+        <h2 className="section-title">맡은 기술이 매번 달랐고, 매번 서비스에 쓰이는 결과물로 완성했습니다</h2>
         <p className="section-description">
           입사 후 1년 반 동안 프로젝트마다 서로 다른 기술과 도메인을 맡았습니다. RAG 검색, Computer Vision,
           3D 디지털 트윈, 모바일 운영, 부하테스트까지 대부분 처음 접하는 영역이었지만, 그때마다 필요한
