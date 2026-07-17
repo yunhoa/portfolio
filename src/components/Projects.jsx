@@ -115,62 +115,6 @@ function ProjectBadges({ project }) {
   );
 }
 
-function ProjectPreviewGallery({ items }) {
-  const previewProjects = items.filter((project) => project.image);
-
-  return (
-    <Reveal delay={80}>
-      <div className="mt-8 overflow-hidden rounded-lg border border-slate-200 bg-white px-4 py-6 shadow-[0_18px_55px_rgba(15,23,42,0.07)] sm:px-6">
-        <div className="flex items-center justify-between gap-4">
-          <div>
-            <p className="text-sm font-semibold text-slate-500">Project Preview</p>
-          </div>
-          <span className="hidden rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-500 sm:inline-flex">
-            {items.length} projects
-          </span>
-        </div>
-
-        <div className="project-circular-gallery mt-6 flex min-h-[350px] gap-5 overflow-x-auto overflow-y-hidden px-2 pb-6 pt-5">
-          {previewProjects.map((project, index) => (
-            <a
-              key={project.title}
-              href={`#project-${items.indexOf(project) + 1}`}
-              className="project-circular-gallery-item group relative flex h-80 w-56 shrink-0 snap-center flex-col overflow-hidden rounded-lg border border-slate-200 bg-slate-50 text-left shadow-[0_18px_35px_rgba(15,23,42,0.10)] transition duration-300 hover:z-20 hover:-translate-y-4 hover:border-blue-300 hover:bg-white"
-              style={{
-                transform: `rotateY(${(index - (previewProjects.length - 1) / 2) * -6}deg) translateY(${Math.abs(index - (previewProjects.length - 1) / 2) * 3}px)`,
-              }}
-            >
-              <div className="relative h-36 overflow-hidden bg-slate-100">
-                <img
-                  src={project.image}
-                  alt={`${project.title} 대표 이미지`}
-                  className={`h-full w-full object-cover transition duration-300 group-hover:scale-105 ${getBlurClass(
-                    project.imagePrivacy,
-                  )}`}
-                  loading="lazy"
-                />
-                <span className="absolute left-3 top-3 rounded-md bg-white/90 px-2 py-1 text-xs font-semibold text-slate-700 shadow-sm">
-                  {String(items.indexOf(project) + 1).padStart(2, '0')}
-                </span>
-              </div>
-              <div className="flex flex-1 flex-col justify-between p-4">
-                <div>
-                  <p className="text-xs font-semibold text-blue-700">{project.category}</p>
-                  <h3 className="mt-2 line-clamp-3 text-base font-semibold leading-6 text-slate-950">{project.title}</h3>
-                </div>
-                <p className="mt-4 rounded-md border border-slate-200 bg-white px-2 py-1 text-[11px] font-semibold text-slate-500">
-                  {project.domain}
-                </p>
-              </div>
-              <span className="pointer-events-none absolute inset-0 rounded-lg ring-1 ring-inset ring-white/70" />
-            </a>
-          ))}
-        </div>
-      </div>
-    </Reveal>
-  );
-}
-
 function ProjectDetail({ project }) {
   return (
     <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-2">
@@ -246,8 +190,6 @@ function Projects() {
         <p className="section-eyebrow">Projects</p>
         <h2 className="section-title">프로젝트</h2>
       </Reveal>
-
-      <ProjectPreviewGallery items={allProjects} />
 
       <div className="mt-8 space-y-10">
         {projectGroups.map((group) => {

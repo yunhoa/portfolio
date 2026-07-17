@@ -53,18 +53,4 @@ body {
     @apply inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-sm font-medium text-slate-700;
   }
 
-  .project-circular-gallery {
-    perspective: 1200px;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(148, 163, 184, 0.75) rgba(226, 232, 240, 0.9);
-  }
-
-  .project-circular-gallery-item {
-    transform-style: preserve-3d;
-  }
-
-  .project-circular-gallery-item:hover {
-    transform: translateY(-1rem) rotateY(0deg) scale(1.04) !important;
-  }
 }
