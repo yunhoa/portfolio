@@ -27,30 +27,6 @@ const allProjects = [...projects, ...visualProjects].sort(
   (a, b) => groupOrder.indexOf(a.group) - groupOrder.indexOf(b.group),
 );
 
-function getBlurClass(imagePrivacy) {
-  if (imagePrivacy === 'micro-blur') {
-    return 'blur-[0.8px]';
-  }
-
-  if (imagePrivacy === 'soft-blur') {
-    return 'blur-[1.5px]';
-  }
-
-  if (imagePrivacy === 'medium-blur') {
-    return 'blur-[2.5px]';
-  }
-
-  if (imagePrivacy === 'blur') {
-    return 'blur-sm';
-  }
-
-  return '';
-}
-
-function isImageBlurred(imagePrivacy) {
-  return ['micro-blur', 'soft-blur', 'medium-blur', 'blur'].includes(imagePrivacy);
-}
-
 function DetailList({ title, items }) {
   if (!items?.length) {
     return null;
@@ -258,20 +234,11 @@ function Projects() {
                       {(project.images || [project.image]).map((image, imageIndex) => {
                         const alt = `${project.title} 화면 ${imageIndex + 1}`;
                         const shouldContain = project.imageFit === 'contain';
-                        const isBlurred = isImageBlurred(project.imagePrivacy);
-                        const blurClass = getBlurClass(project.imagePrivacy);
                         return (
                           <button
                             type="button"
                             key={image}
-                            onClick={() =>
-                              setSelectedImage({
-                                src: image,
-                                alt,
-                                isBlurred,
-                                imagePrivacy: project.imagePrivacy,
-                              })
-                            }
+                            onClick={() => setSelectedImage({ src: image, alt })}
                             className={`group relative overflow-hidden rounded-lg border border-slate-200 text-left ${
                               shouldContain ? 'bg-slate-950' : 'bg-slate-100'
                             }`}
@@ -281,11 +248,16 @@ function Projects() {
                               alt={alt}
                               className={`aspect-[16/9] w-full transition duration-300 ${
                                 shouldContain
-                                  ? `object-contain p-3 group-hover:opacity-95 ${blurClass}`
-                                  : `object-cover group-hover:scale-[1.03] ${blurClass}`
+                                  ? 'object-contain p-3 group-hover:opacity-95'
+                                  : 'object-cover group-hover:scale-[1.03]'
                               }`}
                               loading="lazy"
                             />
+                            {project.imagePrivacy && (
+                              <span className="absolute left-3 top-3 rounded-md bg-slate-950/70 px-2 py-1 text-[11px] font-medium text-white/90">
+                                보안상 흐림 처리
+                              </span>
+                            )}
                             <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
                               확대 보기
                             </span>
@@ -311,8 +283,6 @@ function Projects() {
       <ImageModal
         image={selectedImage?.src}
         alt={selectedImage?.alt}
-        isBlurred={selectedImage?.isBlurred}
-        imagePrivacy={selectedImage?.imagePrivacy}
         onClose={() => setSelectedImage(null)}
       />
     </section>

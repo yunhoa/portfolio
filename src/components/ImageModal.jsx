@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function ImageModal({ image, alt, isBlurred = false, imagePrivacy = '', onClose }) {
+function ImageModal({ image, alt, onClose }) {
   useEffect(() => {
     if (!image) {
       return undefined;
@@ -27,21 +27,6 @@ function ImageModal({ image, alt, isBlurred = false, imagePrivacy = '', onClose 
     return null;
   }
 
-  const shouldBlur =
-    isBlurred ||
-    imagePrivacy === 'micro-blur' ||
-    imagePrivacy === 'soft-blur' ||
-    imagePrivacy === 'medium-blur' ||
-    imagePrivacy === 'blur';
-  const blurClass =
-    imagePrivacy === 'micro-blur'
-      ? 'blur-[1px]'
-      : imagePrivacy === 'soft-blur'
-        ? 'blur-[2px]'
-        : imagePrivacy === 'medium-blur'
-          ? 'blur-[3px]'
-          : 'blur-md';
-
   return (
     <div
       className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/88 p-4 backdrop-blur-sm"
@@ -61,9 +46,7 @@ function ImageModal({ image, alt, isBlurred = false, imagePrivacy = '', onClose 
         <img
           src={image}
           alt={alt}
-          className={`max-h-[82vh] w-full rounded-lg border border-white/15 bg-white object-contain shadow-2xl ${
-            shouldBlur ? blurClass : ''
-          }`}
+          className="max-h-[82vh] w-full rounded-lg border border-white/15 bg-white object-contain shadow-2xl"
         />
       </div>
     </div>
