@@ -253,11 +253,6 @@ function Projects() {
                               }`}
                               loading="lazy"
                             />
-                            {project.imagePrivacy && (
-                              <span className="absolute left-3 top-3 rounded-md bg-slate-950/70 px-2 py-1 text-[11px] font-medium text-white/90">
-                                보안상 흐림 처리
-                              </span>
-                            )}
                             <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
                               확대 보기
                             </span>
