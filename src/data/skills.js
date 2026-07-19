@@ -23,7 +23,7 @@ export const skillGroups = [
   },
   {
     category: 'Computer Vision',
-    items: ['SAM', 'YOLO', 'OpenCV', 'PaddleOCR', 'LaMa', 'Rembg', 'NumPy', 'PyMuPDF'],
+    items: ['SAM', 'OpenCV', 'PaddleOCR', 'LaMa', 'Rembg'],
   },
   {
     category: 'Frontend / Mobile',

@@ -97,38 +97,6 @@ export const projects = [
     ],
   },
   {
-    title: '좌석배치도 공간 객체화 PoC',
-    category: '회사 프로젝트',
-    group: 'ai',
-    domain: 'Computer Vision / Spatial AI',
-    tags: ['Backend', 'Computer Vision', 'YOLO', 'OpenCV', 'Spatial AI'],
-    summary:
-      'PDF와 이미지 형태의 좌석배치도에서 좌석과 공간 정보를 찾아 JSON으로 정리한 PoC입니다.',
-    highlights: [
-      'YOLO 기반 좌석 / 영역 탐지',
-      'Polygon 및 중심 좌표(POI) 생성',
-      '거리 기반 Pair 로직 구현',
-    ],
-    role: [
-      'PDF → 이미지 변환 및 도면 여백 제거',
-      'YOLO 기반 좌석 / 영역 탐지 로직 적용',
-      '좌석 중복 제거 및 POI 생성 로직 구현',
-      '거리 기반 좌석 Pair 매칭 알고리즘 구현',
-      '사다리꼴(Trapezoid) 생성 로직 구현',
-      'OpenCV 기반 시각화 및 후처리 구현',
-    ],
-    problem:
-      '좌석배치도는 PDF, 이미지 등 다양한 형태로 관리되어 좌석 정보를 서비스에서 바로 활용하기 어려웠습니다. 단순 객체 검출만으로는 좌석 간 배치 관계나 방향성을 표현하기에도 한계가 있었습니다.',
-    solution:
-      '도면마다 그리는 방식이 달라 규칙 기반 파싱은 일찍 접었고, 좌석 탐지는 YOLO로 처리했습니다. 다만 탐지 박스만으로는 좌석이 어느 방향을 보는지 알 수 없어서, OpenCV 후처리로 중심 좌표를 뽑은 뒤 거리 기반으로 마주보는 좌석을 Pair로 묶는 로직을 따로 만들었습니다. 최종 결과는 Polygon과 POI를 담은 JSON으로 정리해 다른 서비스에서 바로 읽을 수 있게 했습니다.',
-    outcomes: [
-      'PDF·이미지로만 존재하던 좌석배치도를 서비스에서 쓸 수 있는 JSON 공간 데이터로 변환',
-      '객체 탐지만으로는 안 나오는 좌석 간 마주봄 관계까지 데이터로 표현',
-      'BIM·실내 공간 서비스에 연결할 수 있는 데이터 형태로 PoC 완료',
-    ],
-    tech: ['FastAPI', 'Python', 'YOLO(Ultralytics)', 'OpenCV', 'NumPy', 'PyMuPDF', 'JSON', 'Computer Vision'],
-  },
-  {
     title: '3D 산단 디지털 플랫폼 유지관리',
     category: '회사 프로젝트',
     group: 'backend',
