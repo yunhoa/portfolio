@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { projects } from '../data/projects.js';
 import { visualWorks } from '../data/visualWorks.js';
-import ImageModal from './ImageModal.jsx';
 import Reveal from './Reveal.jsx';
 
 const visualProjects = visualWorks.map((work) => ({
@@ -10,8 +8,6 @@ const visualProjects = visualWorks.map((work) => ({
   group: 'visual',
   domain: work.label,
   tags: [work.badge],
-  image: work.image,
-  imagePrivacy: work.imagePrivacy,
   summary: work.summary,
   highlights: work.highlights,
   role: work.details,
@@ -158,8 +154,6 @@ const projectGroups = [
 ];
 
 function Projects() {
-  const [selectedImage, setSelectedImage] = useState(null);
-
   return (
     <section id="projects" className="section-shell">
       <Reveal>
@@ -194,73 +188,36 @@ function Projects() {
                         className="panel scroll-mt-24 overflow-hidden hover:-translate-y-1 hover:border-blue-300 hover:shadow-xl"
                       >
               <div className="border-b border-slate-200 p-5 sm:p-6">
-                <div className="grid gap-5 lg:grid-cols-[1.12fr_0.88fr] lg:items-start">
-                  <div>
-                    <ProjectBadges project={project} />
-                    <p className="mt-4 text-sm font-semibold text-blue-700">{project.domain}</p>
-                    <h3 className="mt-2 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
-                    <ProjectMeta project={project} />
-                    <p className="mt-4 text-sm leading-6 text-slate-600 sm:text-base">{project.summary}</p>
-                    {project.links && (
-                      <div className="mt-4 flex flex-wrap gap-2">
-                        {project.links.map((link) => (
-                          <a
-                            key={link.href}
-                            href={link.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="rounded-md border border-blue-200 bg-white px-3 py-1.5 text-sm font-semibold text-blue-800 transition hover:bg-blue-50"
-                          >
-                            {link.label}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-
-                    <div className="mt-5 rounded-lg border border-blue-100 bg-blue-50/70 p-4">
-                      <h4 className="text-sm font-semibold text-blue-900">핵심 작업</h4>
-                      <ul className="mt-3 grid gap-2 text-sm text-slate-800 sm:grid-cols-3">
-                        {project.highlights.map((item) => (
-                          <li key={item} className="rounded-md bg-white/70 px-3 py-2">
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                <ProjectBadges project={project} />
+                <p className="mt-4 text-sm font-semibold text-blue-700">{project.domain}</p>
+                <h3 className="mt-2 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
+                <ProjectMeta project={project} />
+                <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-600 sm:text-base">{project.summary}</p>
+                {project.links && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="rounded-md border border-blue-200 bg-white px-3 py-1.5 text-sm font-semibold text-blue-800 transition hover:bg-blue-50"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
                   </div>
+                )}
 
-                  {(project.images || project.image) && (
-                    <div className="grid gap-3">
-                      {(project.images || [project.image]).map((image, imageIndex) => {
-                        const alt = `${project.title} 화면 ${imageIndex + 1}`;
-                        const shouldContain = project.imageFit === 'contain';
-                        return (
-                          <button
-                            type="button"
-                            key={image}
-                            onClick={() => setSelectedImage({ src: image, alt })}
-                            className={`group relative overflow-hidden rounded-lg border border-slate-200 text-left ${
-                              shouldContain ? 'bg-slate-950' : 'bg-slate-100'
-                            }`}
-                          >
-                            <img
-                              src={image}
-                              alt={alt}
-                              className={`aspect-[16/9] w-full transition duration-300 ${
-                                shouldContain
-                                  ? 'object-contain p-3 group-hover:opacity-95'
-                                  : 'object-cover group-hover:scale-[1.03]'
-                              }`}
-                              loading="lazy"
-                            />
-                            <span className="absolute bottom-3 right-3 rounded-md bg-slate-950/75 px-2.5 py-1 text-xs font-semibold text-white opacity-0 transition group-hover:opacity-100">
-                              확대 보기
-                            </span>
-                          </button>
-                        );
-                      })}
-                    </div>
-                  )}
+                <div className="mt-5 rounded-lg border border-blue-100 bg-blue-50/70 p-4">
+                  <h4 className="text-sm font-semibold text-blue-900">핵심 작업</h4>
+                  <ul className="mt-3 grid gap-2 text-sm text-slate-800 sm:grid-cols-3">
+                    {project.highlights.map((item) => (
+                      <li key={item} className="rounded-md bg-white/70 px-3 py-2">
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
@@ -275,11 +232,6 @@ function Projects() {
         })}
       </div>
 
-      <ImageModal
-        image={selectedImage?.src}
-        alt={selectedImage?.alt}
-        onClose={() => setSelectedImage(null)}
-      />
     </section>
   );
 }

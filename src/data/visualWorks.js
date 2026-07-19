@@ -1,14 +1,8 @@
-import medicalTwinImage from '../assets/medical-twin.png';
-import semiconductorImage from '../assets/semiconductor.png';
-import mySafetyImage from '../assets/mysafety-screen.png';
-
 export const visualWorks = [
   {
     title: '디지털 트윈 기반 병원 운영 플랫폼',
     label: 'R&D / RD-25-021-C',
     badge: '3D 공간 화면',
-    image: medicalTwinImage,
-    imagePrivacy: 'blur',
     summary:
       '병원 공간 데이터, GLB 3D 모델, 운영 정보, 서비스 로봇 위치 API를 연결해 로봇 위치와 상태를 화면에서 확인할 수 있게 만든 작업입니다.',
     highlights: ['서비스 로봇 API 연동', '원지도-GLB 좌표 정합', '층별·로봇 유형별 위치 보정'],
@@ -44,8 +38,6 @@ export const visualWorks = [
     title: '반도체 제조 디지털 트윈 플랫폼',
     label: 'Fab Digital Twin / Manufacturing',
     badge: '3D 제조 화면',
-    image: semiconductorImage,
-    imagePrivacy: 'blur',
     summary:
       '반도체 제조 현장의 공간 정보와 설비·센서 데이터를 3D 화면에서 함께 확인하도록 만든 지도 기반 플랫폼 작업입니다.',
     highlights: [
@@ -73,7 +65,6 @@ export const visualWorks = [
     title: 'MySafety 작업자 안전 지원 모바일 플랫폼',
     label: '한화토탈에너지스 / Mobile Operations',
     badge: '모바일 운영 플랫폼',
-    image: mySafetyImage,
     summary:
       '공장 작업자의 안전 관리와 비상 대응을 위한 모바일 앱 운영 작업입니다. 공지사항, 작업자 위치, 대피소 정보, 백그라운드 위치 수집 기능을 다뤘습니다.',
     highlights: ['Cordova 기반 모바일 앱 개발', '백그라운드 위치 수집 처리', 'Google Play 배포 및 운영'],

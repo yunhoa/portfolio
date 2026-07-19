@@ -1,16 +1,4 @@
-import safetyWatchImage from '../assets/safety-watch.png';
-import plantMainImage from '../assets/plant-main.png';
-import plantLoginImage from '../assets/plant-login.png';
 import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
-import seatPlanImage from '../assets/seat-plan.png';
-import yoloDetectImage from '../assets/yolo-detect.png';
-import yoloDetect2Image from '../assets/yolo-detect-2.png';
-import smIndustryImage from '../assets/sm-industrial.png';
-import slackMeetingImage from '../assets/slack-meeting.png';
-import slackVacationImage from '../assets/slack-vacation.png';
-import b2bTimelineImage from '../assets/b2b-timeline.png';
-import seoulDateCourseImage from '../assets/seoul-date-course.png';
-import proxmoxServerImage from '../assets/proxmox-server.png';
 
 export const projects = [
   {
@@ -19,8 +7,6 @@ export const projects = [
     group: 'ai',
     domain: 'AI Search / Backend',
     tags: ['Backend', 'AI Search', 'RAG', 'VectorDB'],
-    image: safetyWatchImage,
-    imagePrivacy: 'blur',
     summary:
       '건설·안전 문서를 검색하고 질문에 답하기 위한 RAG 기반 스마트검색 API 작업입니다.',
     highlights: [
@@ -65,10 +51,6 @@ export const projects = [
     group: 'ai',
     domain: 'AI / Computer Vision / Smart Plant',
     tags: ['Backend', 'AI', 'Computer Vision', 'FastAPI', 'Smart Plant'],
-    image: plantMainImage,
-    images: [plantMainImage, plantLoginImage],
-    imageFit: 'contain',
-    imagePrivacy: 'blur',
     organization: 'R&D / RD-25-020-C',
     summary:
       '스마트플랜트 제조현장의 3D 가상환경 작업을 위해, 설비 이미지에서 객체 이미지와 메타정보를 만드는 모바일-서버 처리 기능을 구현했습니다.',
@@ -120,9 +102,6 @@ export const projects = [
     group: 'ai',
     domain: 'Computer Vision / Spatial AI',
     tags: ['Backend', 'Computer Vision', 'YOLO', 'OpenCV', 'Spatial AI'],
-    image: seatPlanImage,
-    images: [seatPlanImage, yoloDetectImage, yoloDetect2Image],
-    imagePrivacy: 'blur',
     summary:
       'PDF와 이미지 형태의 좌석배치도에서 좌석과 공간 정보를 찾아 JSON으로 정리한 PoC입니다.',
     highlights: [
@@ -155,7 +134,6 @@ export const projects = [
     group: 'backend',
     domain: 'Backend / Platform Maintenance',
     tags: ['Backend', 'SM / 운영', 'Platform Maintenance'],
-    image: smIndustryImage,
     summary:
       '3D 산업단지 디지털 플랫폼을 운영하면서 관리자 기능 수정, 외부 API 연동, 통계 기능, 데이터 이슈 대응을 맡았습니다.',
     highlights: [
@@ -217,9 +195,6 @@ export const projects = [
     group: 'personal',
     domain: 'Work Automation',
     tags: ['Automation', 'Slack Bot', 'Node.js'],
-    image: slackMeetingImage,
-    images: [slackMeetingImage, slackVacationImage],
-    imagePrivacy: 'medium-blur',
     summary:
       '업무 중 반복 확인하던 회의 일정, 회의실 예약, 휴가자 정보를 Slack에서 확인하도록 만든 자동화 프로젝트입니다.',
     highlights: ['회의 알림 자동화', '휴가자 조회 자동화', '중복 알림 방지 처리'],
@@ -249,8 +224,6 @@ export const projects = [
     group: 'personal',
     domain: 'Work Tool / Schedule Management',
     tags: ['React', 'Timeline UI', 'Work Automation'],
-    image: b2bTimelineImage,
-    imagePrivacy: 'micro-blur',
     summary:
       '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
     highlights: ['주간 체류 일정 타임라인', '인원별 이동/체류 상태 표시', '날짜 범위 조회와 상태 필터'],
@@ -279,7 +252,6 @@ export const projects = [
     group: 'personal',
     domain: 'Infra / Network',
     tags: ['Infra', 'Network', 'Home Lab'],
-    image: proxmoxServerImage,
     summary:
       '백엔드 서비스가 외부에서 접근되기까지의 과정을 확인하기 위해 Proxmox와 pfSense로 구성한 홈랩입니다.',
     highlights: ['Proxmox VM 구성', 'pfSense 방화벽/NAT 설정', 'DuckDNS 기반 외부 접속 구성'],
@@ -318,7 +290,6 @@ export const projects = [
     group: 'personal',
     domain: 'Web Service / Public API',
     tags: ['Spring Boot', 'React', 'Public API'],
-    image: seoulDateCourseImage,
     period: '2024.04 ~ 2024.10',
     contribution: '60%',
     organization: '2024 관광데이터 활용 공모전',
