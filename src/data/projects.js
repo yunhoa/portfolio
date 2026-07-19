@@ -51,7 +51,6 @@ export const projects = [
     group: 'ai',
     domain: 'AI / Computer Vision / Smart Plant',
     tags: ['Backend', 'AI', 'Computer Vision', 'FastAPI', 'Smart Plant'],
-    organization: 'R&D / RD-25-020-C',
     summary:
       '스마트플랜트 제조현장의 3D 가상환경 작업을 위해, 설비 이미지에서 객체 이미지와 메타정보를 만드는 모바일-서버 처리 기능을 구현했습니다.',
     highlights: [
