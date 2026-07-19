@@ -1,7 +1,7 @@
 export const visualWorks = [
   {
     title: '디지털 트윈 기반 병원 운영 플랫폼',
-    label: 'R&D / RD-25-021-C',
+    label: 'R&D / Digital Twin',
     badge: '3D 공간 화면',
     summary:
       '병원 공간 데이터, GLB 3D 모델, 운영 정보, 서비스 로봇 위치 API를 연결해 로봇 위치와 상태를 화면에서 확인할 수 있게 만든 작업입니다.',
