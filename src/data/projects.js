@@ -259,7 +259,6 @@ export const projects = [
     domain: 'Web Service / Public API',
     tags: ['Spring Boot', 'React', 'Public API'],
     period: '2024.04 ~ 2024.10',
-    contribution: '60%',
     organization: '2024 관광데이터 활용 공모전',
     summary:
       '사용자 취향과 현재 위치를 기준으로 서울 데이트 장소를 추천하고 지도에서 이동 경로를 확인할 수 있게 만든 웹 서비스입니다.',
