@@ -208,17 +208,6 @@ function Projects() {
                     ))}
                   </div>
                 )}
-
-                <div className="mt-5 rounded-lg border border-blue-100 bg-blue-50/70 p-4">
-                  <h4 className="text-sm font-semibold text-blue-900">핵심 작업</h4>
-                  <ul className="mt-3 grid gap-2 text-sm text-slate-800 sm:grid-cols-3">
-                    {project.highlights.map((item) => (
-                      <li key={item} className="rounded-md bg-white/70 px-3 py-2">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
 
               <ProjectDetail project={project} />
