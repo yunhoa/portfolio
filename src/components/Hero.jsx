@@ -1,10 +1,11 @@
 import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 
-const coreKeywords = ['Java', 'Spring Boot', 'FastAPI', 'Python', 'PostgreSQL', 'REST API'];
+const coreKeywords = ['Java', 'Spring Boot', 'Spring Legacy', 'MyBatis', 'PostgreSQL', 'REST API'];
 
 const extendedKeywords = [
+  'FastAPI',
+  'Python',
   'Morpheus / MSP',
-  'MyBatis',
   'LangChain / RAG',
   'PGVector',
   'Computer Vision',
@@ -23,12 +24,13 @@ function Hero() {
             <p className="section-eyebrow">Backend Developer · Java / Spring Boot</p>
             <h1 className="mt-4 text-4xl font-semibold tracking-normal text-slate-950 sm:text-5xl">조윤호</h1>
             <p className="mt-5 max-w-2xl text-xl leading-8 text-slate-800">
-              API 설계부터 화면 연동, 배포, 운영까지 서비스가 돌아가는 전 구간을 직접 다뤄왔습니다.
+              Java / Spring 기반 백엔드 개발자입니다.
             </p>
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-              Spring Boot와 Spring 레거시 환경을 함께 다뤄온 Java 개발자입니다. 실무에서는 Morpheus/MSP 기반
-              하이브리드 웹뷰, MyBatis, FastAPI도 함께 다뤘고, RAG 검색이나 Computer Vision, 3D 화면처럼 처음 접하는 기술이 필요한 프로젝트가 오면
-              학습부터 실제 동작하는 기능까지 직접 만들어 왔습니다.
+              Spring Boot와 Spring Legacy 환경에서 기능 개발과 운영 시스템 유지보수를 맡아왔습니다. 요청이
+              Controller부터 DB까지 어떻게 처리되는지 확인하고, 필요하면 외부 API와 서버 환경까지 함께 보며
+              문제를 처리해왔습니다. 모바일 웹뷰, FastAPI, AI 모델처럼 프로젝트별로 필요한 기술도 함께
+              다뤘습니다.
             </p>
             <div className="mt-7 space-y-3">
               <div className="flex flex-wrap items-center gap-2">
