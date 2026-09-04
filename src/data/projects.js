@@ -133,13 +133,15 @@ export const projects = [
     title: '한화오션 안전혁신과제',
     category: '회사 프로젝트',
     group: 'backend',
-    domain: 'Backend / Performance Test',
-    tags: ['Backend', '전자정부프레임워크', 'JMeter', 'Performance Test'],
+    domain: 'Backend / Mobile WebView / Performance Test',
+    tags: ['Backend', 'Morpheus/MSP', 'Spring Legacy', 'MyBatis', 'JMeter'],
     summary:
-      '전자정부프레임워크 기반 B2B 안전관리 서비스 개발에 참여하고, 동영상 시청 상황을 가정한 JMeter 부하테스트 환경을 구성했습니다.',
-    highlights: ['전자정부프레임워크 기반 개발', '100명/150명 동시 시청 시나리오', '2분간 동영상 요청 테스트'],
+      '2026년 6월 15일부터 한화오션 안전혁신과제에 투입되어 Morpheus/MSP 기반 하이브리드 웹뷰 화면과 Spring 레거시 백엔드 기능을 함께 개발하고 있습니다.',
+    highlights: ['2026.06.15 ~ 2026.12 예정', 'Morpheus/MSP 기반 모바일 웹뷰 개발', 'JMeter 동영상 부하테스트'],
     role: [
-      '전자정부프레임워크 기반 서비스 개발',
+      'Morpheus/MSP 기반 하이브리드 웹뷰 화면 개발',
+      'Spring 레거시 기반 백엔드 기능 개발 및 수정',
+      'MyBatis Mapper와 SQL을 통한 데이터 조회·처리 흐름 확인',
       '동영상 시청 요청 구조 확인',
       'JMeter Thread Group, HTTP Request, 요청 파라미터 설정',
       '100명 / 150명 사용자가 2분 동안 동시에 동영상을 시청하는 조건의 테스트 시나리오 작성',
@@ -147,14 +149,16 @@ export const projects = [
       '응답 시간, 오류 여부, 요청 처리 상태 확인',
     ],
     problem:
-      '동영상 시청 기능은 다수 사용자가 동시에 접근할 수 있어 실제 사용 조건을 가정한 요청 처리 상태와 오류 여부를 확인할 필요가 있었습니다.',
+      '모바일 하이브리드 웹뷰 화면, MSP 기반 서버 구조, Spring 레거시 백엔드, MyBatis SQL이 함께 연결된 시스템이라 화면 수정과 백엔드 변경의 영향 범위를 같이 확인해야 했습니다. 동영상 시청 기능은 다수 사용자가 동시에 접근할 수 있어 실제 사용 조건을 가정한 요청 처리 상태와 오류 여부를 확인할 필요도 있었습니다.',
     solution:
-      '단순히 요청을 반복해서 보내는 테스트로는 실제 시청 상황과 다른 결과가 나올 것 같아서, 100명·150명이 2분간 동시에 시청하는 시나리오를 JMeter Thread Group으로 구성했습니다. 요청 파라미터도 실제 시청 요청과 동일하게 맞춘 뒤, 조건별로 응답 시간과 오류 발생 여부를 비교했습니다.',
+      '화면에서 발생하는 요청이 어떤 Spring Controller와 서비스 로직, MyBatis Mapper를 거쳐 처리되는지 먼저 따라가며 수정 범위를 확인했습니다. 동영상 부하테스트는 단순히 요청을 반복해서 보내는 방식으로는 실제 시청 상황과 다른 결과가 나올 것 같아서, 100명·150명이 2분간 동시에 시청하는 시나리오를 JMeter Thread Group으로 구성했습니다. 요청 파라미터도 실제 시청 요청과 동일하게 맞춘 뒤, 조건별로 응답 시간과 오류 발생 여부를 비교했습니다.',
     outcomes: [
+      '하이브리드 웹뷰 화면과 Spring 레거시 백엔드가 연결되는 요청 흐름을 파악하며 기능 개발 수행',
+      'MyBatis Mapper와 SQL 기준으로 데이터 조회·처리 흐름 확인',
       '100명 / 150명 동시 시청 조건에서 응답 시간과 오류 발생 여부 측정',
       '측정 결과를 운영 판단에 쓸 수 있는 형태로 정리해 공유',
     ],
-    tech: ['전자정부프레임워크', 'Java', 'JMeter', 'Thread Group', 'HTTP Request', 'Performance Test'],
+    tech: ['Morpheus', 'MSP', 'Hybrid WebView', 'Spring Legacy', 'Java', 'MyBatis', 'SQL', 'JavaScript', 'JMeter', 'HTTP Request', 'Performance Test'],
   },
   {
     title: 'Slack 기반 업무 자동화 봇',

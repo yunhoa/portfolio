@@ -4,8 +4,11 @@ export const skillGroups = [
     items: [
       'Java',
       'Spring Boot',
+      'Spring MVC',
+      'Spring Legacy',
       'Spring WebFlux',
       'JPA',
+      'MyBatis',
       'FastAPI',
       'Python',
       'SQLAlchemy',
@@ -37,6 +40,9 @@ export const skillGroups = [
       'React Three Fiber',
       'React Native',
       'Apache Cordova',
+      'Morpheus',
+      'MSP',
+      'Hybrid WebView',
     ],
   },
   {

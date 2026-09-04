@@ -3,6 +3,8 @@ import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 const coreKeywords = ['Java', 'Spring Boot', 'FastAPI', 'Python', 'PostgreSQL', 'REST API'];
 
 const extendedKeywords = [
+  'Morpheus / MSP',
+  'MyBatis',
   'LangChain / RAG',
   'PGVector',
   'Computer Vision',
@@ -24,8 +26,8 @@ function Hero() {
               API 설계부터 화면 연동, 배포, 운영까지 서비스가 돌아가는 전 구간을 직접 다뤄왔습니다.
             </p>
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-              Spring Boot 기반으로 작업해온 Java 개발자입니다. 실무에서는 FastAPI도 함께 다뤘고,
-              RAG 검색이나 Computer Vision, 3D 화면처럼 처음 접하는 기술이 필요한 프로젝트가 오면
+              Spring Boot와 Spring 레거시 환경을 함께 다뤄온 Java 개발자입니다. 실무에서는 Morpheus/MSP 기반
+              하이브리드 웹뷰, MyBatis, FastAPI도 함께 다뤘고, RAG 검색이나 Computer Vision, 3D 화면처럼 처음 접하는 기술이 필요한 프로젝트가 오면
               학습부터 실제 동작하는 기능까지 직접 만들어 왔습니다.
             </p>
             <div className="mt-7 space-y-3">
@@ -70,7 +72,7 @@ function Hero() {
                 <dt className="text-xs font-semibold text-slate-500">경력</dt>
                 <dd className="mt-1 leading-6 text-slate-800">
                   올포랜드
-                  <span className="text-slate-500"> · 2025.01 – 재직 중 · 백엔드/API 및 플랫폼 유지보수</span>
+                  <span className="text-slate-500"> · 2025.01 – 재직 중 (1년 8개월) · 백엔드/API, Morpheus/MSP 모바일 웹뷰 및 플랫폼 유지보수</span>
                 </dd>
                 <dd className="mt-1 leading-6 text-slate-800">
                   ㈜ATC (방위산업체)
