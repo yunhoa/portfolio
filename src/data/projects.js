@@ -29,7 +29,7 @@ export const projects = [
     outcomes: [
       '법령·BIM·점검 문서를 대상으로 질문에 답하는 RAG 검색 API 구현',
       '외부 API 없이 사내망 안에서만 동작하는 검색 구조 적용',
-      '질문 유형별 검색 라우팅 PoC 완료, 운영 반영 여부는 별도 검토 중',
+      '질문 유형별 검색 경로 분리를 위한 라우팅 PoC 완료',
     ],
     tech: [
       'FastAPI',

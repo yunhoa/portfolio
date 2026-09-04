@@ -30,7 +30,6 @@ export const visualWorks = [
       'Access Token',
       'GLB',
       'Homography',
-      'Affine Transform',
       'Coordinate Transform',
     ],
   },
