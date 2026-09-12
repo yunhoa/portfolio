@@ -5,13 +5,13 @@ function About() {
     <section id="about" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">About</p>
-        <h2 className="section-title">Controller부터 DB까지, 운영 중인 시스템의 요청 흐름을 따라가며 일합니다</h2>
+        <h2 className="section-title">화면에서 DB와 외부 시스템까지, 문제가 생긴 지점을 좁혀갑니다</h2>
         <p className="section-description">
-          Spring Boot와 Spring Legacy 환경에서 백엔드 기능 개발과 운영 시스템 유지보수를 함께 맡아왔습니다.
-          화면에서 발생한 요청이 Controller, Service, Mapper, SQL 중 어디를
-          거쳐 처리되는지 확인하고, 필요하면 서버 설정이나 DB, 외부 API, 네트워크 구간까지 같이
-          들여다봤습니다. 프로젝트에 따라 모바일 웹뷰, React, FastAPI, AI 모델을 다뤄야 할 때도 있었는데,
-          그럴 때도 기존 백엔드 흐름 어디에 그 기능이 붙는지부터 확인하고 시작했습니다.
+          Spring Boot와 Spring Framework 기반 시스템에서 백엔드 기능 개발과 운영 유지보수를 함께 맡아왔습니다.
+          문제가 생기면 화면에서 보이는 현상만 보고 판단하지 않고, 요청/응답, Controller, Service,
+          MyBatis Mapper, SQL, DB 값, 외부 API와 네트워크 구간을 순서대로 확인합니다. 모바일 웹뷰,
+          FastAPI, RAG, 3D 화면처럼 다른 기술이 붙는 프로젝트에서도 먼저 기존 서버와 데이터 흐름 안에서
+          어디에 연결되는지부터 확인하고 작업했습니다.
         </p>
       </Reveal>
     </section>

@@ -1,18 +1,15 @@
 import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 
-const coreKeywords = ['Java', 'Spring Boot', 'Spring Legacy', 'MyBatis', 'PostgreSQL', 'REST API'];
+const coreKeywords = ['Java', 'Spring Boot', 'Spring Legacy', 'MyBatis', 'SQL', 'REST API'];
 
 const extendedKeywords = [
-  'FastAPI',
-  'Python',
-  'Morpheus / MSP',
-  'LangChain / RAG',
   'PGVector',
-  'Computer Vision',
-  'React',
-  'Three.js',
-  'Apache Cordova',
+  'PostgreSQL',
+  'FastAPI / RAG',
+  'Morpheus / MSP',
   'JMeter',
+  'Apache HTTP Server',
+  'React / Three.js',
 ];
 
 function Hero() {
@@ -21,16 +18,16 @@ function Hero() {
       <div className="section-shell pt-14 lg:pt-20">
         <div className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-end">
           <div>
-            <p className="section-eyebrow">Backend Developer · Java / Spring Boot</p>
+            <p className="section-eyebrow">Backend Developer · API / Data Flow</p>
             <h1 className="mt-4 text-4xl font-semibold tracking-normal text-slate-950 sm:text-5xl">조윤호</h1>
             <p className="mt-5 max-w-2xl text-xl leading-8 text-slate-800">
-              Java / Spring 기반 백엔드 개발자입니다.
+              Java / Spring 기반으로 API와 데이터 흐름을 따라가며 문제를 해결해온 개발자입니다.
             </p>
             <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-              Spring Boot와 Spring Legacy 환경에서 기능 개발과 운영 시스템 유지보수를 맡아왔습니다. 요청이
-              Controller부터 DB까지 어떻게 처리되는지 확인하고, 필요하면 외부 API와 서버 환경까지 함께 보며
-              문제를 처리해왔습니다. 모바일 웹뷰, FastAPI, AI 모델처럼 프로젝트별로 필요한 기술도 함께
-              다뤘습니다.
+              Spring Boot와 Spring Framework 기반 운영 시스템을 다루며 화면, 요청/응답, 서버 로직,
+              MyBatis Mapper, SQL, DB 값, 외부 API까지 흐름을 나누어 확인해왔습니다. 모바일 웹뷰,
+              FastAPI 기반 검색 API, 3D 데이터 연동처럼 프로젝트마다 다른 기술을 맡았지만 중심은
+              서버/API와 데이터 처리였습니다.
             </p>
             <div className="mt-7 space-y-3">
               <div className="flex flex-wrap items-center gap-2">

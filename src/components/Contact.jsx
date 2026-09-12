@@ -17,7 +17,7 @@ function Contact() {
                 프로젝트 이야기가 더 궁금하시다면 편하게 연락 주세요.
               </h2>
               <p className="mt-4 text-base leading-7 text-slate-600">
-                Java / Spring 백엔드를 중심으로 운영 시스템 유지보수, 모바일 연동, AI, 3D 프로젝트를 경험했습니다.
+                Java / Spring 백엔드를 중심으로 API 연동, SQL 데이터 확인, 운영 이슈 분석, 모바일 웹뷰와 RAG 검색 API 프로젝트를 경험했습니다.
               </p>
             </div>
 

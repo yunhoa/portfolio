@@ -19,8 +19,27 @@ const visualProjects = visualWorks.map((work) => ({
 
 const groupOrder = ['backend', 'ai', 'visual', 'personal'];
 
+const projectPriority = [
+  '한화오션 안전혁신과제',
+  '3D 산단 디지털 플랫폼 유지관리',
+  'Safety Watch 스마트검색 RAG 기반 AI 플랫폼',
+  '스마트플랜트 설비 이미지 전처리 및 메타정보 생성 프레임워크',
+  'MySafety 작업자 안전 지원 모바일 플랫폼',
+];
+
 const allProjects = [...projects, ...visualProjects].sort(
-  (a, b) => groupOrder.indexOf(a.group) - groupOrder.indexOf(b.group),
+  (a, b) => {
+    const groupDiff = groupOrder.indexOf(a.group) - groupOrder.indexOf(b.group);
+    if (groupDiff !== 0) {
+      return groupDiff;
+    }
+
+    const aPriority = projectPriority.indexOf(a.title);
+    const bPriority = projectPriority.indexOf(b.title);
+    const normalizedA = aPriority === -1 ? Number.MAX_SAFE_INTEGER : aPriority;
+    const normalizedB = bPriority === -1 ? Number.MAX_SAFE_INTEGER : bPriority;
+    return normalizedA - normalizedB;
+  },
 );
 
 function DetailList({ title, items }) {
@@ -137,15 +156,15 @@ function ProjectDetail({ project }) {
 const projectGroups = [
   {
     key: 'backend',
-    title: 'Java / Spring Boot 백엔드',
+    title: '서버/API · 데이터 처리',
   },
   {
     key: 'ai',
-    title: 'AI / 검색 / Computer Vision',
+    title: '검색 API · AI 처리 파이프라인',
   },
   {
     key: 'visual',
-    title: '3D 화면 / 현장 운영',
+    title: '3D 화면 · 운영 데이터 연동',
   },
   {
     key: 'personal',

@@ -10,9 +10,9 @@ export const projects = [
     summary:
       '건설·안전 관련 사내 문서를 검색하고 질문에 답하는 RAG 기반 스마트검색 API를 만드는 프로젝트입니다.',
     highlights: [
-      'FastAPI 기반 RAG 검색 API 구현',
-      'PostgreSQL PGVector 벡터 검색 적용',
-      '질문 유형별 검색 라우팅 검토 및 PoC',
+      'FastAPI 기반 검색 API 구현',
+      'PostgreSQL / PGVector 벡터 검색 적용',
+      '질문 유형별 검색 라우팅 PoC',
     ],
     role: [
       '도메인 문서 전처리 및 청킹 기준 구성',
@@ -20,16 +20,16 @@ export const projects = [
       'PostgreSQL PGVector 기반 벡터 저장 구조 구현',
       'FastAPI 기반 검색 API 엔드포인트 개발',
       'Ollama 로컬 LLM과 LangChain을 연결한 RAG 응답 처리',
-      '질문 유형별 검색 경로 분리를 위한 LangGraph 기반 라우팅 구조 검토 및 PoC',
+      '질문 유형별 검색 경로 분리를 위한 LangGraph 기반 라우팅 구조 PoC',
     ],
     problem:
       '법령, BIM/IFC 도면 정보, 점검 데이터처럼 성격이 다른 문서를 함께 다뤄야 했고, 키워드 검색만으로는 원하는 내용을 찾기 어려웠습니다. 사내 문서를 다루는 만큼 외부 API로 내용을 보낼 수 없다는 제약도 있었습니다.',
     solution:
-      'RAG를 처음 다뤄보는 상태에서 문서 청킹, 임베딩, 벡터 저장, 검색, LLM 응답까지 단계별로 붙여 나갔습니다. 문서 대부분이 한국어라 임베딩 모델은 BAAI/bge-m3를 썼고, 벡터 저장소는 이미 쓰고 있던 PostgreSQL에 PGVector를 얹어 새 DB를 늘리지 않았습니다. 사내망 밖으로 문서를 보낼 수 없어서 LLM은 Ollama로 로컬에서 돌렸습니다. 법령 질문과 일반 질문을 같은 방식으로 검색하면 결과가 섞일 것 같아서, 질문 유형별로 검색 경로를 나누는 라우팅을 LangGraph로 검토하고 PoC까지 만들었습니다.',
+      'RAG를 처음 다뤄보는 상태에서 문서 청킹, 임베딩, 벡터 저장, 검색, LLM 응답까지 단계별로 붙여 나갔습니다. 문서 대부분이 한국어라 임베딩 모델은 BAAI/bge-m3를 썼고, 벡터 저장소는 이미 쓰고 있던 PostgreSQL에 PGVector를 얹어 새 DB를 늘리지 않았습니다. 사내망 밖으로 문서를 보낼 수 없어서 LLM은 Ollama로 로컬에서 돌렸습니다. 법령 질문과 일반 질문을 같은 방식으로 검색하면 결과가 섞일 수 있어, 질문 유형별로 검색 경로를 나누는 라우팅은 LangGraph로 PoC 수준까지 검토했습니다.',
     outcomes: [
       '법령·BIM·점검 문서를 대상으로 질문에 답하는 RAG 검색 API 구현',
       '외부 API 없이 사내망 안에서만 동작하는 검색 구조 적용',
-      '질문 유형별 검색 경로 분리를 위한 라우팅 PoC 완료',
+      '질문 유형별 검색 경로 분리를 위한 라우팅 PoC 진행',
     ],
     tech: [
       'FastAPI',
@@ -105,13 +105,13 @@ export const projects = [
       '3D 산업단지 디지털 플랫폼을 운영하면서 관리자 기능 수정, 외부 API 연동, 통계 기능, 데이터 이슈 대응을 맡았습니다.',
     highlights: [
       'Spring Boot 관리자 기능 유지보수',
-      '폐쇄망에서 DMZ Apache Proxy로 GA Data API 중계 구성',
-      '외부 API 연동 및 장애 원인 확인',
+      '폐쇄망에서 DMZ Apache Proxy로 GA Data API 연동 경로 적용',
+      '외부 API 호출 실패 원인 확인',
     ],
     role: [
       'Spring Boot 기반 관리자 시스템 유지보수',
       '관리자 페이지 기능 수정 및 화면 개선',
-      '폐쇄망에서 Google Analytics Data API를 호출할 수 있도록 DMZ Apache Proxy 중계 구성',
+      '폐쇄망에서 Google Analytics Data API를 호출할 수 있도록 DMZ Apache Proxy 연동 경로 적용',
       'PostgreSQL 데이터 조회 및 운영 데이터 관리',
       'SQL 작성 및 데이터 정리',
       '외부 API 연동 및 장애 원인 확인',
@@ -120,10 +120,10 @@ export const projects = [
     problem:
       '운영 환경이 폐쇄망이라 외부 API를 바로 붙일 수 없었습니다. 관리자 페이지, 통계, 데이터 관리가 한 시스템에 묶여 있어 뭘 고치든 영향 범위를 같이 확인해야 했습니다.',
     solution:
-      '처음에는 폐쇄망 방화벽에서 Google Analytics 쪽 IP만 열어주면 될 줄 알았는데, 구글이 클라우드 기반이라 응답 IP가 고정이 아니라 여러 대역으로 계속 바뀌었습니다. IP를 하나하나 열어주는 방식으로는 풀 수 없어서, DMZ에 Apache Proxy를 두고 GA 데이터를 DMZ에서 받아온 뒤 폐쇄망 안으로 전달하는 방식으로 중계 구조를 구성했습니다. 관리자 화면까지 손대면 검증해야 할 범위가 커져서 UI는 그대로 두고 API 경로만 바꿔 변경 폭을 줄였습니다. 운영 중 들어오는 기능 수정과 데이터 이슈는 Spring Boot 코드와 PostgreSQL 데이터를 직접 확인해 원인부터 찾고 처리했습니다.',
+      '처음에는 폐쇄망 방화벽에서 Google Analytics 쪽 IP만 열어주면 될 줄 알았는데, Google API 호출 대상을 고정 IP로 관리하기 어려웠습니다. IP를 하나하나 열어주는 방식으로는 풀기 어려워 DMZ에 Apache Proxy를 두고, 내부 Spring Boot 서버가 해당 Proxy를 통해 Google Analytics Data API를 호출하도록 구성했습니다. 클라이언트가 Proxy를 직접 호출하지 않고 기존 관리자 인증을 거친 Spring Boot 서버 요청으로 처리되게 했고, UI는 그대로 두고 서버 호출 경로 중심으로 수정해 변경 범위를 줄였습니다.',
     outcomes: [
-      '고정 IP가 없는 구글 클라우드 환경에서 DMZ Proxy 중계로 폐쇄망 GA 연동 구성',
-      'UI 변경 없이 API 경로만 바꾸는 방식으로 수정 영향 범위 최소화',
+      '폐쇄망 운영 환경에서 DMZ Proxy를 통한 GA 데이터 조회 경로 적용',
+      'UI 변경 없이 서버 호출 경로 중심으로 수정해 영향 범위 축소',
       '운영 중 발생한 데이터·기능 이슈를 원인 확인부터 배포까지 처리',
     ],
     tech: ['Spring Boot', 'Java', 'PostgreSQL', 'Apache HTTP Server', 'Google Analytics Data API', 'JavaScript', 'Thymeleaf', 'REST API', 'SQL', 'Git'],
@@ -137,18 +137,17 @@ export const projects = [
     summary:
       '2026년 6월부터 한화오션 안전혁신과제에 투입되어 Morpheus/MSP 기반 모바일 웹뷰 화면과 Spring 레거시 백엔드를 함께 개발하고 있습니다.',
     highlights: [
-      'Morpheus/MSP 기반 모바일 웹뷰 개발',
-      'PLTE 네트워크 제약에 맞춘 QR 생성 API 백엔드 구현',
+      'Spring Legacy / MyBatis 기반 백엔드 기능 개발',
+      'Morpheus/MSP 모바일 웹뷰와 백엔드 연계',
       'JMeter 동시 시청 부하테스트',
     ],
     role: [
-      'Morpheus/MSP 기반 하이브리드 웹뷰 화면 개발',
-      'Spring 레거시 기반 백엔드 기능 개발 및 수정',
-      'MyBatis Mapper와 SQL 기준으로 데이터 조회·처리 흐름 확인',
+      'Spring Framework 기반 레거시 시스템의 백엔드 기능 개발과 MyBatis 연동',
+      'MyBatis Mapper 분석·수정 및 SQL 작성',
+      'Morpheus/MSP 기반 하이브리드 웹뷰 기능 개발',
       'PLTE 태블릿에서 외부 URL을 직접 호출할 수 없는 네트워크 제약 확인',
       'QR 생성 라이브러리를 백엔드에 적용해 QR 생성 API 구현',
       '생성된 QR 이미지를 Base64 형태로 클라이언트에 반환하는 처리 구현',
-      '개발 서버 / 운영 서버 환경별 배포 및 설정 확인',
       'JMeter Thread Group과 HTTP Request로 동영상 시청 부하테스트 시나리오 구성',
       '100명 / 150명 사용자가 2분간 동시에 시청하는 조건으로 테스트 수행',
       '응답 시간, 오류 여부, 요청 처리 상태 확인',
@@ -156,12 +155,12 @@ export const projects = [
     problem:
       '모바일 하이브리드 웹뷰, MSP 기반 서버, Spring 레거시 백엔드, MyBatis SQL이 함께 얽혀 있어 화면 하나를 고쳐도 영향 범위를 같이 확인해야 했습니다. PLTE 태블릿은 네트워크 정책상 외부 URL을 클라이언트에서 직접 호출할 수 없어서, 기존에 쓰던 외부 QR 생성 방식을 그대로 가져올 수 없었습니다.',
     solution:
-      '화면에서 발생한 요청이 어떤 Controller와 서비스 로직, MyBatis Mapper를 거쳐 처리되는지 먼저 따라가며 수정 범위를 확인했습니다. QR 생성은 외부 URL을 호출하거나 중계하는 방식이 아니라, QR 생성 라이브러리를 백엔드에 직접 적용해 서버에서 QR을 만들고 그 결과를 Base64 형태로 클라이언트에 반환하는 방식으로 구현했습니다. 동영상 시청 기능은 다수 사용자가 동시에 몰릴 수 있어서, 100명·150명이 2분간 동시에 시청하는 조건을 JMeter Thread Group으로 구성해 요청 파라미터를 실제 시청 요청과 맞춘 뒤 응답 시간과 오류 발생 여부를 비교했습니다.',
+      '화면에서 발생한 요청이 어떤 Controller와 서비스 로직, MyBatis Mapper를 거쳐 처리되는지 먼저 따라가며 수정 범위를 확인했습니다. QR 생성은 외부 URL을 호출하거나 중계하는 방식이 아니라, QR 생성 라이브러리를 백엔드에 직접 적용해 서버에서 QR을 만들고 그 결과를 Base64 형태로 클라이언트에 반환하는 방식으로 구현했습니다. 동영상 시청 기능은 다수 사용자가 동시에 몰릴 수 있어서, 100명·150명이 2분간 동시에 시청하는 조건을 JMeter Thread Group으로 구성해 요청 파라미터를 실제 시청 요청과 맞춘 뒤 응답 시간과 오류 발생 여부를 확인했습니다.',
     outcomes: [
-      '하이브리드 웹뷰와 Spring 레거시 백엔드가 연결되는 요청 흐름을 확인하며 기능 개발 진행',
+      'Spring 레거시 구조와 MyBatis Mapper를 분석해 모바일 기능 반영',
       'PLTE 태블릿의 외부 URL 호출 제약에 맞춰 QR 생성 API를 백엔드에 구현',
       '100명 / 150명 동시 시청 조건에서 응답 시간과 오류 발생 여부 측정',
-      '측정 결과를 운영 판단에 쓸 수 있는 형태로 정리해 공유',
+      '동시 시청 조건에서 응답 시간과 오류 발생 여부 확인',
     ],
     tech: ['Morpheus', 'MSP', 'Hybrid WebView', 'Spring Legacy', 'Java', 'MyBatis', 'SQL', 'QR Code Generation', 'JavaScript', 'JMeter', 'HTTP Request', 'Performance Test'],
   },
