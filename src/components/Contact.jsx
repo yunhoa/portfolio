@@ -13,10 +13,10 @@ function Contact() {
           <p className="section-eyebrow">Contact</p>
           <div className="mt-4 grid gap-6">
             <div>
-              <h2 className="text-2xl font-semibold tracking-normal text-slate-950 sm:text-3xl">
+              <h2 className="section-title mt-0">
                 프로젝트 이야기가 더 궁금하시다면 편하게 연락 주세요.
               </h2>
-              <p className="mt-4 text-base leading-7 text-slate-600">
+              <p className="copy mt-4">
                 Java / Spring 백엔드를 중심으로 API 연동, SQL 데이터 처리, 운영환경 문제 해결, 동영상 부하테스트,
                 모바일 웹뷰와 RAG 검색 API 프로젝트를 경험했습니다.
               </p>
@@ -38,7 +38,7 @@ function Contact() {
                   </button>
                   <div>
                     <p className="text-sm font-semibold text-blue-700">Learning Record</p>
-                    <p className="mt-2 text-sm leading-6 text-slate-700">
+                    <p className="copy mt-2 text-slate-700">
                       필요한 기술이 생기면 강의로 기본을 잡고 바로 프로젝트에 적용하는 방식으로 익혀왔습니다.
                     </p>
                   </div>

@@ -50,7 +50,7 @@ function DetailList({ title, items }) {
   return (
     <div>
       <h4 className="text-sm font-semibold text-blue-700">{title}</h4>
-      <ul className="mt-3 space-y-2 text-sm leading-6 text-slate-600">
+      <ul className="copy-list mt-3">
         {items.map((item) => (
           <li key={item} className="flex gap-2">
             <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-300" />
@@ -76,13 +76,13 @@ function ProjectMeta({ project }) {
 
   return (
     <dl
-      className={`mt-4 grid gap-2 text-sm text-slate-600 ${
+      className={`mt-4 grid gap-2 text-[0.9375rem] text-slate-600 ${
         metaItems.length > 1 ? 'sm:grid-cols-3' : ''
       }`}
     >
       {metaItems.map(([label, value]) => (
         <div key={label} className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2">
-          <dt className="text-xs font-semibold text-slate-500">{label}</dt>
+          <dt className="meta-label">{label}</dt>
           <dd className="mt-1 text-slate-900">{value}</dd>
         </div>
       ))}
@@ -115,19 +115,19 @@ function ProjectDetail({ project }) {
         {project.background && (
           <div>
             <h4 className="text-sm font-semibold text-blue-700">배경</h4>
-            <p className="mt-3 text-sm leading-6 text-slate-600">{project.background}</p>
+            <p className="copy mt-3">{project.background}</p>
           </div>
         )}
         {showProblemSections && project.problem && (
           <div>
             <h4 className="text-sm font-semibold text-blue-700">문제</h4>
-            <p className="mt-3 text-sm leading-6 text-slate-600">{project.problem}</p>
+            <p className="copy mt-3">{project.problem}</p>
           </div>
         )}
         {showProblemSections && project.solution && (
           <div>
             <h4 className="text-sm font-semibold text-blue-700">문제 해결 포인트</h4>
-            <p className="mt-3 text-sm leading-6 text-slate-600">{project.solution}</p>
+            <p className="copy mt-3">{project.solution}</p>
           </div>
         )}
       </div>
@@ -143,7 +143,7 @@ function ProjectDetail({ project }) {
             {project.tech.map((tech) => (
               <span
                 key={tech}
-                className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-xs font-medium text-slate-700"
+                className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-[0.8125rem] font-medium text-slate-700"
               >
                 {tech}
               </span>
@@ -210,10 +210,10 @@ function Projects() {
                       >
               <div className="border-b border-slate-200 p-5 sm:p-6">
                 <ProjectBadges project={project} />
-                <p className="mt-4 text-sm font-semibold text-blue-700">{project.domain}</p>
+                <p className="mt-4 text-[0.9375rem] font-semibold text-blue-700">{project.domain}</p>
                 <h3 className="mt-2 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
                 <ProjectMeta project={project} />
-                <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-600 sm:text-base">{project.summary}</p>
+                <p className="copy mt-4 max-w-3xl">{project.summary}</p>
                 {project.links && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.links.map((link) => (
