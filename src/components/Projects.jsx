@@ -22,9 +22,9 @@ const groupOrder = ['backend', 'ai', 'visual', 'personal'];
 const projectPriority = [
   '한화오션 안전혁신과제',
   '3D 산단 디지털 플랫폼 유지관리',
+  'MySafety 작업자 안전 지원 모바일 플랫폼',
   'Safety Watch 스마트검색 RAG 기반 AI 플랫폼',
   '스마트플랜트 설비 이미지 전처리 및 메타정보 생성 프레임워크',
-  'MySafety 작업자 안전 지원 모바일 플랫폼',
 ];
 
 const allProjects = [...projects, ...visualProjects].sort(
@@ -107,6 +107,8 @@ function ProjectBadges({ project }) {
 }
 
 function ProjectDetail({ project }) {
+  const showProblemSections = project.group !== 'personal';
+
   return (
     <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-2">
       <div className="space-y-5">
@@ -116,13 +118,13 @@ function ProjectDetail({ project }) {
             <p className="mt-3 text-sm leading-6 text-slate-600">{project.background}</p>
           </div>
         )}
-        {project.problem && (
+        {showProblemSections && project.problem && (
           <div>
             <h4 className="text-sm font-semibold text-blue-700">문제</h4>
             <p className="mt-3 text-sm leading-6 text-slate-600">{project.problem}</p>
           </div>
         )}
-        {project.solution && (
+        {showProblemSections && project.solution && (
           <div>
             <h4 className="text-sm font-semibold text-blue-700">문제 해결 포인트</h4>
             <p className="mt-3 text-sm leading-6 text-slate-600">{project.solution}</p>
@@ -156,7 +158,7 @@ function ProjectDetail({ project }) {
 const projectGroups = [
   {
     key: 'backend',
-    title: '서버/API · 데이터 처리',
+    title: '백엔드/API · 운영환경 문제 해결',
   },
   {
     key: 'ai',
@@ -164,7 +166,7 @@ const projectGroups = [
   },
   {
     key: 'visual',
-    title: '3D 화면 · 운영 데이터 연동',
+    title: '3D 공간 구축 · 운영 데이터 연동',
   },
   {
     key: 'personal',

@@ -102,15 +102,16 @@ export const projects = [
     domain: 'Backend / Platform Maintenance',
     tags: ['Backend', 'SM / 운영', 'Platform Maintenance'],
     summary:
-      '3D 산업단지 디지털 플랫폼을 운영하면서 관리자 기능 수정, 외부 API 연동, 통계 기능, 데이터 이슈 대응을 맡았습니다.',
+      '3D 산업단지 디지털 플랫폼을 운영하면서 관리자 기능, 추가 API, 통계 조회 화면, 외부 API 연동 이슈를 맡았습니다.',
     highlights: [
-      'Spring Boot 관리자 기능 유지보수',
+      'Spring Boot 관리자 API와 Thymeleaf 화면 개발',
       '폐쇄망에서 DMZ Apache Proxy로 GA Data API 연동 경로 적용',
-      '외부 API 호출 실패 원인 확인',
+      '운영환경 외부 API 호출 실패 원인 확인',
     ],
     role: [
       'Spring Boot 기반 관리자 시스템 유지보수',
-      '관리자 페이지 기능 수정 및 화면 개선',
+      '현업 요구사항 기반 추가 API 개발',
+      'Thymeleaf 기반 통계 조회 화면 개발',
       '폐쇄망에서 Google Analytics Data API를 호출할 수 있도록 DMZ Apache Proxy 연동 경로 적용',
       'PostgreSQL 데이터 조회 및 운영 데이터 관리',
       'SQL 작성 및 데이터 정리',
@@ -118,12 +119,12 @@ export const projects = [
       '운영 환경 배포 지원',
     ],
     problem:
-      '운영 환경이 폐쇄망이라 외부 API를 바로 붙일 수 없었습니다. 관리자 페이지, 통계, 데이터 관리가 한 시스템에 묶여 있어 뭘 고치든 영향 범위를 같이 확인해야 했습니다.',
+      '현업에서 플랫폼 이용 통계를 화면에서 보고 싶다는 요구가 있었습니다. 개발 환경에서는 Google Analytics Data API가 정상 호출됐지만, 운영 환경은 폐쇄망이라 외부 API를 바로 호출할 수 없었습니다.',
     solution:
-      '처음에는 폐쇄망 방화벽에서 Google Analytics 쪽 IP만 열어주면 될 줄 알았는데, Google API 호출 대상을 고정 IP로 관리하기 어려웠습니다. IP를 하나하나 열어주는 방식으로는 풀기 어려워 DMZ에 Apache Proxy를 두고, 내부 Spring Boot 서버가 해당 Proxy를 통해 Google Analytics Data API를 호출하도록 구성했습니다. 클라이언트가 Proxy를 직접 호출하지 않고 기존 관리자 인증을 거친 Spring Boot 서버 요청으로 처리되게 했고, UI는 그대로 두고 서버 호출 경로 중심으로 수정해 변경 범위를 줄였습니다.',
+      'Spring Boot에서 통계 조회 API를 만들고 Thymeleaf 화면에서 확인할 수 있게 구성했습니다. 운영 반영 과정에서 외부 API 호출이 실패해 애플리케이션 코드만 보지 않고 폐쇄망, 방화벽, DMZ 구간까지 나누어 확인했습니다. Google API 호출 대상을 고정 IP로 관리하기 어려워 DMZ에 Apache Proxy를 두고, 내부 Spring Boot 서버가 해당 Proxy를 통해 Google Analytics Data API를 호출하도록 구성했습니다.',
     outcomes: [
+      'Google Analytics Data API 기반 통계 조회 API와 화면 개발',
       '폐쇄망 운영 환경에서 DMZ Proxy를 통한 GA 데이터 조회 경로 적용',
-      'UI 변경 없이 서버 호출 경로 중심으로 수정해 영향 범위 축소',
       '운영 중 발생한 데이터·기능 이슈를 원인 확인부터 배포까지 처리',
     ],
     tech: ['Spring Boot', 'Java', 'PostgreSQL', 'Apache HTTP Server', 'Google Analytics Data API', 'JavaScript', 'Thymeleaf', 'REST API', 'SQL', 'Git'],
@@ -133,36 +134,64 @@ export const projects = [
     category: '회사 프로젝트',
     group: 'backend',
     domain: 'Backend / Mobile WebView',
-    tags: ['Backend', 'Morpheus/MSP', 'Spring Legacy', 'MyBatis', 'JMeter'],
+    tags: ['Backend', 'Morpheus/MSP', 'Spring Legacy', 'Range', 'JMeter'],
     summary:
-      '2026년 6월부터 한화오션 안전혁신과제에 투입되어 Morpheus/MSP 기반 모바일 웹뷰 화면과 Spring 레거시 백엔드를 함께 개발하고 있습니다.',
+      '2026년 6월부터 한화오션 안전혁신과제에 투입되어 모바일 웹뷰와 Spring 레거시 백엔드를 함께 개발하고, 동영상 Range 처리와 JMeter 부하테스트를 구성했습니다.',
     highlights: [
       'Spring Legacy / MyBatis 기반 백엔드 기능 개발',
       'Morpheus/MSP 모바일 웹뷰와 백엔드 연계',
-      'JMeter 동시 시청 부하테스트',
+      'Range 기반 영상 응답과 JMeter 부하테스트',
     ],
     role: [
       'Spring Framework 기반 레거시 시스템의 백엔드 기능 개발과 MyBatis 연동',
-      'MyBatis Mapper 분석·수정 및 SQL 작성',
+      'MyBatis 연동 및 SQL 작성',
       'Morpheus/MSP 기반 하이브리드 웹뷰 기능 개발',
-      'PLTE 태블릿에서 외부 URL을 직접 호출할 수 없는 네트워크 제약 확인',
-      'QR 생성 라이브러리를 백엔드에 적용해 QR 생성 API 구현',
-      '생성된 QR 이미지를 Base64 형태로 클라이언트에 반환하는 처리 구현',
-      'JMeter Thread Group과 HTTP Request로 동영상 시청 부하테스트 시나리오 구성',
-      '100명 / 150명 사용자가 2분간 동시에 시청하는 조건으로 테스트 수행',
-      '응답 시간, 오류 여부, 요청 처리 상태 확인',
+      '동영상 업로드/재생 기능 개발',
+      'Spring Controller 기반 영상 Range 처리 구현',
+      'JMeter 기반 동영상 스트리밍 부하테스트 환경 및 시나리오 구성',
+      '동시 사용자 50명 / 100명 / 150명 조건에서 응답시간, 오류 여부, Throughput(TPS) 확인',
     ],
     problem:
-      '모바일 하이브리드 웹뷰, MSP 기반 서버, Spring 레거시 백엔드, MyBatis SQL이 함께 얽혀 있어 화면 하나를 고쳐도 영향 범위를 같이 확인해야 했습니다. PLTE 태블릿은 네트워크 정책상 외부 URL을 클라이언트에서 직접 호출할 수 없어서, 기존에 쓰던 외부 QR 생성 방식을 그대로 가져올 수 없었습니다.',
+      '동영상 업로드/재생 기능은 화면에서 재생되는 것만으로 끝내기 어려웠습니다. 실제 브라우저 재생 정책, 영상 응답에 필요한 HTTP 헤더, Range 요청에 따른 응답 범위, mp4 파일 크기와 서버 부하까지 함께 확인해야 했습니다.',
     solution:
-      '화면에서 발생한 요청이 어떤 Controller와 서비스 로직, MyBatis Mapper를 거쳐 처리되는지 먼저 따라가며 수정 범위를 확인했습니다. QR 생성은 외부 URL을 호출하거나 중계하는 방식이 아니라, QR 생성 라이브러리를 백엔드에 직접 적용해 서버에서 QR을 만들고 그 결과를 Base64 형태로 클라이언트에 반환하는 방식으로 구현했습니다. 동영상 시청 기능은 다수 사용자가 동시에 몰릴 수 있어서, 100명·150명이 2분간 동시에 시청하는 조건을 JMeter Thread Group으로 구성해 요청 파라미터를 실제 시청 요청과 맞춘 뒤 응답 시간과 오류 발생 여부를 확인했습니다.',
+      'Morpheus/MSP 기반 모바일 웹뷰 화면과 Spring Framework 기반 백엔드 기능을 함께 개발했습니다. Spring Controller에서 Range 요청에 따라 영상 데이터 응답 범위를 조절했고, 실제 영상 시청 흐름을 가정한 JMeter 테스트 환경과 시나리오를 직접 구성했습니다. 초기 버퍼링과 반복적인 Range 요청을 반영한 뒤 동시 사용자 50명·100명·150명 조건에서 응답시간, 오류 여부, Throughput(TPS)을 확인했습니다.',
     outcomes: [
-      'Spring 레거시 구조와 MyBatis Mapper를 분석해 모바일 기능 반영',
-      'PLTE 태블릿의 외부 URL 호출 제약에 맞춰 QR 생성 API를 백엔드에 구현',
-      '100명 / 150명 동시 시청 조건에서 응답 시간과 오류 발생 여부 측정',
-      '동시 시청 조건에서 응답 시간과 오류 발생 여부 확인',
+      'Morpheus/MSP 기반 모바일 웹뷰와 Spring 백엔드 기능 개발',
+      'Spring Controller 기반 영상 Range 처리 구현',
+      '동시 사용자 50명 / 100명 / 150명 조건에서 응답시간, 오류 여부, Throughput(TPS) 확인',
     ],
-    tech: ['Morpheus', 'MSP', 'Hybrid WebView', 'Spring Legacy', 'Java', 'MyBatis', 'SQL', 'QR Code Generation', 'JavaScript', 'JMeter', 'HTTP Request', 'Performance Test'],
+    tech: ['Java', 'Spring Framework', 'MyBatis', 'SQL', 'Morpheus', 'MSP', 'JavaScript', 'JMeter'],
+  },
+  {
+    title: 'MySafety 작업자 안전 지원 모바일 플랫폼',
+    category: '회사 프로젝트',
+    group: 'backend',
+    domain: 'Mobile WebView / API Integration / Store Release',
+    tags: ['Mobile', 'API Integration', 'Operations'],
+    summary:
+      '약 5,000~10,000명 규모로 사용되는 작업자 안전 지원 모바일 앱의 기능 개발과 Android/iOS 배포를 맡았습니다.',
+    highlights: [
+      'Apache Cordova 기반 모바일 웹뷰 기능 개발',
+      'REST API 연동 및 작업자 안전 기능 구현',
+      'Android / iOS 스토어 배포',
+    ],
+    role: [
+      'Apache Cordova 기반 모바일 웹뷰 기능 개발',
+      'REST API 연동 및 화면 기능 구현',
+      'Android/iOS 기능 개발 및 배포',
+      'Background Geolocation 기반 위치 수집 기능 연동',
+      'Firebase 연동 및 모바일 운영 이슈 대응',
+    ],
+    problem:
+      '산업 현장에서 사용하는 모바일 앱이라 Android와 iOS 환경 모두에서 기능이 동작해야 했고, 위치 수집과 API 연동이 실제 단말 환경에서 안정적으로 동작하는지 확인해야 했습니다.',
+    solution:
+      'Cordova 기반으로 모바일 웹뷰 기능을 개발하고, 필요한 데이터는 REST API로 연동했습니다. Android와 iOS 각각의 빌드와 배포 과정을 진행했고, Background Geolocation과 권한 관련 동작은 실제 단말 환경에서 확인하며 대응했습니다.',
+    outcomes: [
+      '작업자 안전 지원 모바일 앱 주요 기능 개발',
+      '약 5,000~10,000명 규모 사용자 대상 앱 배포',
+      'Android와 iOS 스토어 배포 진행',
+    ],
+    tech: ['Apache Cordova', 'JavaScript', 'REST API', 'Android', 'iOS', 'Background Geolocation', 'Firebase'],
   },
   {
     title: 'Slack 기반 업무 자동화 봇',
@@ -198,28 +227,24 @@ export const projects = [
     category: '개인 프로젝트',
     group: 'personal',
     domain: 'Work Tool / Schedule Management',
-    tags: ['React', 'Timeline UI', 'Work Automation'],
+    tags: ['React', 'Timeline UI', 'Codex'],
     summary:
       '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
     highlights: ['주간 체류 일정 타임라인', '인원별 이동/체류 상태 표시', '날짜 범위 조회와 상태 필터'],
     background:
-      '거제도 상주 업무 중 이번 주에 누가 내려가고 올라오는지, 누가 현장에 체류 중인지, 누가 서울 근무인지 확인하는 일이 반복됐습니다. 구두 확인이나 메신저 확인만으로는 전체 일정을 한눈에 보기 어려웠습니다.',
-    role: [
+      '한화오션 프로젝트로 거제도 현장에 상주하면서 이번 주에 누가 내려가고 올라오는지, 누가 현장에 체류 중인지, 누가 서울 근무인지 확인하는 일이 반복됐습니다. 메신저로 물어보거나 표를 따로 확인하는 방식으로는 전체 일정을 한눈에 보기 어려워 직접 타임라인 형태로 만들어봤습니다.',
+    features: [
       '인원별 이동, 체류, 휴가, 서울 근무 상태를 구분하는 화면 구성',
       '조회 기간 기준의 주간 타임라인 UI 구현',
       '일자별 현장 이동, 현장 체류, 서울 근무 인원 요약 영역 구성',
       '상태별 색상과 라벨을 사용한 일정 표시',
       '현장 상주 인원 확인을 위한 필터 및 카드형 요약 구성',
     ],
-    problem:
-      '상주 인원이 여러 명이고 이동 일정이 겹치다 보니, 이번 주 현장 체류 인원과 이동 예정자를 빠르게 확인하기 어려웠습니다. 일정이 바뀔 때마다 전체 인원 상태를 다시 확인해야 했습니다.',
-    solution:
-      '표나 목록으로 정리해봤는데 날짜가 겹치는 일정은 한눈에 들어오지 않아서, 인원별 일정을 주간 타임라인 형태로 바꿨습니다. 현장 이동, 체류, 서울 근무, 휴가는 색상과 라벨로 구분했고, 매번 타임라인을 훑기 전에 상황부터 파악할 수 있게 상단에 이동 건수·체류 인원·서울 복귀 같은 요약을 먼저 배치했습니다.',
     outcomes: [
       '누가 언제 내려가고 올라오는지 화면 하나로 확인하게 됨',
       '일정이 바뀔 때마다 전체 인원 상태를 다시 묻던 흐름이 사라짐',
     ],
-    tech: ['React', 'JavaScript', 'Timeline UI', 'State Management', 'Responsive UI'],
+    tech: ['React', 'JavaScript', 'Timeline UI', 'State Management', 'Responsive UI', 'Codex'],
   },
   {
     title: 'Proxmox 기반 홈서버 및 네트워크 인프라 구축',
@@ -228,33 +253,37 @@ export const projects = [
     domain: 'Infra / Network',
     tags: ['Infra', 'Network', 'Home Lab'],
     summary:
-      '회사에서 서버와 네트워크를 설정값으로만 접하는 게 아쉬워서, Proxmox와 pfSense로 직접 구성해본 홈랩입니다.',
-    highlights: ['Proxmox VM 구성', 'pfSense 방화벽/NAT 설정', 'DuckDNS 기반 외부 접속 구성'],
+      'Proxmox 기반 홈서버에서 내부 LAN 서비스와 외부 접속 경로를 직접 구성해본 홈랩입니다.',
+    highlights: ['Proxmox VM 구성', 'pfSense 방화벽/NAT 설정', 'Nginx Proxy Manager와 DuckDNS 연동'],
     implementations: [
       'Proxmox VE 기반 가상화 환경 구성',
       'pfSense VM을 라우터와 방화벽 역할로 설정',
-      '내부망과 외부 접속 경로 분리',
+      '내부 LAN 서비스와 외부 접속 경로 분리',
       'NAT 및 포트포워딩 규칙 설정',
+      'Nginx Proxy Manager 기반 내부 서비스 Reverse Proxy 구성',
       'DuckDNS 기반 DDNS 도메인 연결',
+      'DuckDNS 도메인에서 Nginx Proxy Manager를 거쳐 내부 LAN 서비스로 연결되는 흐름 구성',
       '외부 접속 테스트 및 네트워크 설정 확인',
     ],
     problem:
-      '클라우드를 쓰면 네트워크, 방화벽, 포트포워딩이 전부 추상화되어 있어서, 요청이 서버에 닿기까지 실제로 무슨 일이 일어나는지 알기 어려웠습니다. 이 구간을 직접 만져보고 싶었습니다.',
+      '서버를 배포할 때 DNS, 방화벽, NAT, Proxy, 내부 서비스가 어떤 순서로 연결되는지 직접 확인해보고 싶었습니다. 클라우드에서는 설정값으로 지나가는 부분이 많아서, 요청이 외부 도메인에서 내부 LAN 서비스까지 들어오는 흐름을 직접 구성해봤습니다.',
     solution:
-      '집에 있는 서버에 Proxmox VE로 VM을 나눈 뒤, pfSense를 라우터 겸 방화벽으로 세웠습니다. 가정 인터넷이라 고정 IP가 없어서 DuckDNS로 도메인을 연결했고, NAT와 포트포워딩 규칙을 직접 잡았습니다. 외부에서 접속이 안 될 때마다 방화벽 규칙 → NAT → 포트 순서로 원인을 좁혀가며 해결했습니다.',
+      'Proxmox VE 위에 VM을 구성하고 pfSense를 라우터와 방화벽 역할로 세웠습니다. 내부 LAN에 있는 서비스는 Nginx Proxy Manager로 묶고, 외부에서는 DuckDNS 도메인으로 접근하도록 구성했습니다. 요청은 DuckDNS 도메인 → 공유기/방화벽 → NAT/포트포워딩 → Nginx Proxy Manager → 내부 LAN 서비스 순서로 흐르도록 만들었습니다.',
     outcomes: [
-      '외부 도메인으로 홈서버 서비스에 접속되는 상태까지 전 구간 직접 구성',
-      '접속이 안 될 때 방화벽 → NAT → 포트 순서로 원인을 좁히는 방법을 직접 익힘',
+      '외부 도메인에서 내부 LAN 서비스까지 접속되는 흐름을 직접 구성',
+      '방화벽, NAT, 포트포워딩, Reverse Proxy, DDNS가 연결되는 구조 확인',
     ],
     tech: [
       'Proxmox VE',
       'pfSense',
+      'Nginx Proxy Manager',
       'Ubuntu',
       'Linux',
       'SSH',
       'NAT',
       'Port Forwarding',
       'Firewall Rule',
+      'Reverse Proxy',
       'DuckDNS',
     ],
   },

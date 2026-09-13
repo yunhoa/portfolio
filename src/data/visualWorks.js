@@ -60,38 +60,4 @@ export const visualWorks = [
       '공간 정보와 설비·센서 데이터를 한 화면에서 확인할 수 있는 상태로 구성했습니다.',
     tech: ['React', 'JavaScript', 'Three.js', 'Zustand', 'REST API', 'JSON', 'InfluxDB'],
   },
-  {
-    title: 'MySafety 작업자 안전 지원 모바일 플랫폼',
-    label: '한화토탈에너지스 / Mobile Operations',
-    badge: '모바일 운영 플랫폼',
-    summary:
-      '공장 작업자의 안전 관리와 비상 대응을 위한 모바일 앱 운영 작업입니다. 공지사항, 작업자 위치, 대피소 정보, 백그라운드 위치 수집 기능을 다뤘습니다.',
-    highlights: ['Cordova 기반 모바일 앱 개발', '백그라운드 위치 수집 처리', 'Google Play 배포 및 운영'],
-    details: [
-      'Apache Cordova 기반 하이브리드 모바일 앱 UI 및 기능 개발',
-      '실시간 공지사항 및 안전 정보 조회 기능 구현',
-      '지도 기반 대피소 위치 및 현장 정보 시각화',
-      '작업자 실시간 위치 추적 및 위치 데이터 처리 기능 개발',
-      'Background Geolocation 기반 백그라운드 위치 수집 및 권한 처리',
-      'REST API 연동 및 Android 플랫폼 유지보수',
-      'Google Play 배포와 운영 관리',
-    ],
-    problem:
-      'Android 버전과 제조사 정책 차이로 일부 단말에서 백그라운드 위치 수집이 정상 동작하지 않는 이슈가 있었습니다.',
-    improvement:
-      'Android Background Location 정책과 제조사별 동작 차이를 단말별로 확인해 권한 처리, Cordova 플러그인 버전, OS별 호환성을 조정했습니다.',
-    outcome:
-      '산업 현장에서 쓰이는 운영 앱을 유지보수했고, Google Play 등록과 운영을 맡았습니다. 앱은 다운로드 1만+와 사용자 평점 4.6을 유지했습니다.',
-    tech: [
-      'Apache Cordova',
-      'JavaScript',
-      'HTML / CSS',
-      'REST API',
-      'JSON',
-      'Android',
-      'Google Play Console',
-      'Background Geolocation',
-      'Firebase',
-    ],
-  },
 ];
