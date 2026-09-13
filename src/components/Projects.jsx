@@ -158,19 +158,15 @@ function ProjectDetail({ project }) {
 const projectGroups = [
   {
     key: 'backend',
-    title: '백엔드/API · 운영환경 문제 해결',
   },
   {
     key: 'ai',
-    title: '검색 API · AI 처리 파이프라인',
   },
   {
     key: 'visual',
-    title: '3D 공간 구축 · 운영 데이터 연동',
   },
   {
     key: 'personal',
-    title: '개인 프로젝트',
   },
 ];
 
@@ -182,7 +178,7 @@ function Projects() {
         <h2 className="section-title">프로젝트</h2>
       </Reveal>
 
-      <div className="mt-8 space-y-10">
+      <div className="mt-8 space-y-6">
         {projectGroups.map((group) => {
           const groupedProjects = allProjects.filter((project) => project.group === group.key);
 
@@ -191,13 +187,7 @@ function Projects() {
           }
 
           return (
-            <div key={group.key} className="space-y-4">
-              <Reveal>
-                <div className="border-l-2 border-blue-300 pl-4">
-                  <h3 className="text-2xl font-semibold text-slate-950">{group.title}</h3>
-                </div>
-              </Reveal>
-
+            <div key={group.key}>
               <div className="space-y-6">
                 {groupedProjects.map((project, groupIndex) => {
                   const projectIndex = allProjects.indexOf(project);
