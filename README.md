@@ -1,46 +1,15 @@
 # 조윤호 개발자 포트폴리오
 
-백엔드 API를 중심으로 화면, 검색, 공간 데이터, 운영 자동화 경험을 정리한 단일 페이지 포트폴리오입니다.
+Java/Spring 기반 백엔드, API 연동, 운영 시스템 유지보수, 동영상 Range 처리와 JMeter 부하테스트 경험을 중심으로 정리한 포트폴리오입니다.
+
+배포 URL: https://yunhoa.github.io/portfolio/
 
 ## 기술 스택
 
-- React
-- Vite
+- React 19
+- Vite 5
 - JavaScript
 - Tailwind CSS
-
-## 파일 구조
-
-```text
-.
-├── index.html
-├── package.json
-├── postcss.config.js
-├── tailwind.config.js
-├── vite.config.js
-├── scripts
-│   ├── build.mjs
-│   └── build-worker.mjs
-├── README.md
-└── src
-    ├── App.jsx
-    ├── index.css
-    ├── main.jsx
-    ├── components
-    │   ├── About.jsx
-    │   ├── Contact.jsx
-    │   ├── Header.jsx
-    │   ├── Hero.jsx
-    │   ├── ImageModal.jsx
-    │   ├── Projects.jsx
-    │   ├── Reveal.jsx
-    │   └── Skills.jsx
-    ├── assets
-    └── data
-        ├── projects.js
-        ├── skills.js
-        └── visualWorks.js
-```
 
 ## 실행 방법
 
@@ -49,7 +18,7 @@ npm install
 npm run dev
 ```
 
-브라우저에서 터미널에 표시되는 로컬 주소로 접속합니다. 기본값은 보통 `http://localhost:5173`입니다.
+기본 로컬 주소는 `http://localhost:5173`입니다.
 
 ## 빌드
 
@@ -57,29 +26,49 @@ npm run dev
 npm run build
 ```
 
-## 수정 포인트
+빌드 결과물은 `dist/`에 생성됩니다.
 
-- 프로젝트 내용: `src/data/projects.js`
-- 기술 스택: `src/data/skills.js`
-- 화면 작업물: `src/data/visualWorks.js`
-- 연락처 링크: `src/components/Contact.jsx`
-- 섹션 구성: `src/App.jsx`
+PowerShell 실행 정책 때문에 `npm.ps1`이 막히면 아래처럼 실행합니다.
 
-## 프로젝트 목록
+```powershell
+npm.cmd run build
+```
 
-### Projects
+## 배포
 
-1. Safety Watch 스마트검색 RAG 기반 AI 플랫폼
-2. 스마트플랜트 설비 이미지 전처리 및 메타정보 생성 프레임워크
-3. 3D 산단 디지털 플랫폼 유지관리
-4. 한화오션 안전혁신과제
-5. Slack 기반 업무 자동화 봇
-6. B2B 상주 인원 일정 관리 타임라인
-7. Proxmox 기반 홈서버 및 네트워크 인프라 구축
-8. 서울 데이트코스 추천 웹 서비스
+`main` 브랜치에 push하면 GitHub Actions가 실행되고 GitHub Pages로 배포됩니다.
 
-### Platforms
+```text
+main push
+-> .github/workflows/deploy.yml
+-> npm ci
+-> npm run build
+-> GitHub Pages deploy
+```
 
-1. 디지털 트윈 기반 병원 운영 플랫폼
-2. 반도체 제조 디지털 트윈 플랫폼
-3. MySafety 작업자 안전 지원 모바일 플랫폼
+## 주요 수정 파일
+
+- `src/components/Hero.jsx`: 첫 화면 문구, 기본 정보, 경력 한 줄
+- `src/components/About.jsx`: 개발 방식 소개
+- `src/components/Projects.jsx`: 프로젝트 정렬 및 상세 표시 방식
+- `src/components/Contact.jsx`: 연락 섹션 문구
+- `src/data/projects.js`: 프로젝트 내용
+- `src/data/skills.js`: 기술 및 경험 요약
+- `src/data/visualWorks.js`: 3D/시각화 프로젝트 데이터
+
+## 현재 포트폴리오 방향
+
+이번 개편에서는 단순히 사용 기술을 많이 나열하기보다 아래 흐름이 보이도록 정리했습니다.
+
+- SI 프로젝트에서 다양한 시스템을 빠르게 이해하고 기능을 개발한 경험
+- Spring 백엔드, MyBatis/SQL, REST API, 운영 시스템 유지보수 경험
+- 한화오션 안전혁신과제의 모바일 웹뷰, Spring 레거시 백엔드, 동영상 Range 처리, JMeter 부하테스트
+- 3D 산단 디지털 플랫폼의 추가 API, 통계 화면, 폐쇄망 Google Analytics Data API 연동
+- MySafety 모바일 앱의 Android/iOS 기능 개발 및 스토어 배포
+- 개인 프로젝트는 문제 해결 포인트보다 만든 이유와 구현한 기능 중심으로 정리
+
+## 문서
+
+로컬 작업 기록과 지원서 문서는 `wiki/` 아래에 보관합니다.
+
+`wiki/`는 `.gitignore`에 포함되어 있어 public 저장소와 GitHub Pages에는 배포하지 않습니다.
