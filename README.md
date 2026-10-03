@@ -1,6 +1,6 @@
 # 조윤호 개발자 포트폴리오
 
-Java/Spring 기반 백엔드, API 연동, 운영 시스템 유지보수, 동영상 Range 처리와 JMeter 부하테스트 경험을 중심으로 정리한 포트폴리오입니다.
+Java/Spring 기반 백엔드, API 연동, MyBatis/SQL 데이터 처리, 운영 시스템 유지보수 경험을 중심으로 정리한 포트폴리오입니다.
 
 배포 URL: https://yunhoa.github.io/portfolio/
 
@@ -62,8 +62,8 @@ main push
 
 - SI 프로젝트에서 다양한 시스템을 빠르게 이해하고 기능을 개발한 경험
 - Spring 백엔드, MyBatis/SQL, REST API, 운영 시스템 유지보수 경험
-- 한화오션 안전혁신과제의 모바일 웹뷰, Spring 레거시 백엔드, 동영상 Range 처리, JMeter 부하테스트
-- 3D 산단 디지털 플랫폼의 추가 API, 통계 화면, 폐쇄망 Google Analytics Data API 연동
+- 한화오션 안전혁신과제의 교육이력관리 시스템, Morpheus 하이브리드 웹뷰, Spring 레거시 백엔드 개발
+- 3D 산단 디지털 플랫폼의 관리자 기능, 추가 API, 통계 화면, Google Analytics Data API 연동
 - MySafety 모바일 앱의 Android/iOS 기능 개발 및 스토어 배포
 - 개인 프로젝트는 문제 해결 포인트보다 만든 이유와 구현한 기능 중심으로 정리
 

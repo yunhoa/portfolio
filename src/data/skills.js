@@ -1,7 +1,7 @@
 export const skillGroups = [
   {
     category: 'Backend',
-    items: ['Java', 'Spring Boot', 'Spring Framework', 'Spring MVC', 'MyBatis', 'REST API', 'FastAPI'],
+    items: ['Java', 'Spring Boot', 'Spring Framework', 'Spring MVC', 'JPA', 'MyBatis', 'REST API', 'FastAPI'],
   },
   {
     category: 'Data / API',
@@ -13,7 +13,7 @@ export const skillGroups = [
   },
   {
     category: 'Mobile / WebView',
-    items: ['Morpheus / MSP', 'Apache Cordova', 'Hybrid WebView', 'Android', 'iOS', 'Firebase'],
+    items: ['Morpheus', 'Apache Cordova', 'Hybrid WebView', 'Android', 'iOS', 'Firebase'],
   },
   {
     category: 'Frontend / 3D',

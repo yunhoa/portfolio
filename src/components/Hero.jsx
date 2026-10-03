@@ -1,12 +1,12 @@
 import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 
-const coreKeywords = ['Java', 'Spring', 'MyBatis', 'SQL', 'REST API', 'JMeter'];
+const coreKeywords = ['Java', 'Spring', 'MyBatis', 'SQL', 'REST API', 'PostgreSQL'];
 
 const extendedKeywords = [
   'PostgreSQL',
   'Range / Video API',
   'Apache HTTP Server',
-  'Morpheus / MSP',
+  'Morpheus',
   'FastAPI / RAG',
   'PGVector',
   'React / Three.js',
@@ -18,16 +18,15 @@ function Hero() {
       <div className="section-shell pt-14 lg:pt-20">
         <div className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-end">
           <div>
-            <p className="section-eyebrow">Backend Developer · API / Operations</p>
+            <p className="section-eyebrow">Backend Developer · Java / Spring / API</p>
             <h1 className="mt-4 text-[2.625rem] font-semibold tracking-normal text-slate-950 sm:text-[3.25rem]">조윤호</h1>
             <p className="mt-5 max-w-2xl text-[1.1875rem] leading-8 text-slate-800">
-              기능이 동작하는 것에서 끝내지 않고, 왜 그렇게 동작하는지까지 확인하려는 백엔드 개발자입니다.
+              Java/Spring 기반 서버 기능 개발과 운영 시스템 유지보수를 경험한 개발자입니다.
             </p>
             <p className="copy mt-4 max-w-2xl">
-              SI 프로젝트에서 새로운 시스템을 빠르게 파악하고 기능을 개발해왔습니다. 문제가 생기면 화면,
-              요청/응답, 서버 로직, SQL, DB, 외부 API, 네트워크 구간을 나누어 원인을 확인합니다.
-              최근에는 Spring Controller 기반 영상 Range 처리와 JMeter 부하테스트를 직접 구성하며,
-              실제 사용 흐름에서 서버가 어떻게 동작하는지 확인했습니다.
+              프로젝트마다 다른 시스템을 빠르게 파악하며 Spring Boot, Spring Framework, MyBatis, SQL,
+              REST API 기반 기능을 개발해왔습니다. 문제가 생기면 화면 결과만 보기보다 요청/응답, 서버 로직,
+              SQL, DB 값, 외부 시스템 연동을 따라가며 원인을 확인합니다.
             </p>
             <div className="mt-7 space-y-3">
               <div className="flex flex-wrap items-center gap-2">
@@ -64,14 +63,14 @@ function Hero() {
                 <dt className="meta-label">학력</dt>
                 <dd className="mt-1 leading-6 text-slate-800">
                   경민대학교 컴퓨터소프트웨어
-                  <span className="text-slate-500"> · 2019.03 – 2025.02 · 3.94 / 4.5</span>
+                  <span className="text-slate-500"> · 재학기간 2019.03 – 2025.02 · 학점 3.94 / 4.5</span>
                 </dd>
               </div>
               <div className="border-l-2 border-blue-300 pl-4">
                 <dt className="meta-label">경력</dt>
                 <dd className="mt-1 leading-6 text-slate-800">
                   올포랜드
-                  <span className="text-slate-500"> · 2025.01 – 재직 중 (1년 8개월) · SI 프로젝트 풀스택 개발 및 운영 시스템 유지보수</span>
+                  <span className="text-slate-500"> · 2025.01 – 재직 중 (1년 9개월) · Java/Spring 기반 서버 기능 개발 및 운영 시스템 유지보수</span>
                 </dd>
                 <dd className="mt-1 leading-6 text-slate-800">
                   ㈜ATC (방위산업체)

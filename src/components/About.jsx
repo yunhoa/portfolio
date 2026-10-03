@@ -5,12 +5,12 @@ function About() {
     <section id="about" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">About</p>
-        <h2 className="section-title">왜 개발에서는 되고 운영에서는 안 되는지까지 확인합니다</h2>
+        <h2 className="section-title">요청과 데이터 흐름을 따라 기능을 개발합니다</h2>
         <p className="section-description">
-          Spring Boot와 Spring Framework 기반 시스템에서 백엔드 기능 개발과 운영 유지보수를 함께 맡아왔습니다.
-          기능이 동작하면 끝이라고 보기보다, 실제 브라우저와 운영 환경에서는 어떻게 동작하는지 한 번 더 확인합니다.
-          한화오션 프로젝트에서는 동영상 재생 기능의 Range 처리와 JMeter 시나리오를 직접 구성했고,
-          3D 산단 프로젝트에서는 폐쇄망 운영 환경의 외부 API 호출 문제를 DMZ Apache Proxy로 해결했습니다.
+          Spring Boot 기반 운영 시스템과 Spring Framework 레거시 백엔드를 개발·유지보수하며
+          MyBatis, SQL, PostgreSQL, REST API 연동 업무를 맡아왔습니다. 처음 보는 시스템도 화면 결과만 보고
+          수정하기보다 요청이 어떤 로직과 데이터를 거쳐 처리되는지 따라가며 구조를 파악합니다.
+          운영 중 외부 API 연동이나 데이터 확인이 필요한 기능도 서버, DB, 네트워크 구간을 나누어 확인해왔습니다.
         </p>
       </Reveal>
     </section>
