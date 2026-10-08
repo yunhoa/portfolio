@@ -5,7 +5,7 @@ export const skillGroups = [
   },
   {
     category: 'Data / API',
-    items: ['SQL', 'PostgreSQL', 'PGVector', 'InfluxDB', 'Google Analytics Data API', 'External API Integration'],
+    items: ['SQL', 'Oracle', 'PostgreSQL', 'PGVector', 'InfluxDB', 'Google Analytics Data API', 'External API Integration'],
   },
   {
     category: 'Test / Operations',

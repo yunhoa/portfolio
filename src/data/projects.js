@@ -6,11 +6,12 @@ export const projects = [
     category: '회사 프로젝트',
     group: 'ai',
     domain: 'AI Search / Backend',
+    period: '2026.01 ~ 2026.07',
     tags: ['Backend', 'AI Search', 'RAG', 'VectorDB'],
     summary:
-      '건설·안전 관련 사내 문서를 검색하고 질문에 답하는 RAG 기반 스마트검색 API를 만드는 프로젝트입니다.',
+      '광역단위 노후 건축물 안전정보를 통합 관리하고 자연어로 검색할 수 있도록 만든 RAG 기반 스마트검색 API 프로젝트입니다.',
     highlights: [
-      'FastAPI 기반 검색 API 구현',
+      'FastAPI 기반 자연어 검색 API 구현',
       'PostgreSQL / PGVector 벡터 검색 적용',
       '질문 유형별 검색 라우팅 PoC',
     ],
@@ -23,11 +24,11 @@ export const projects = [
       '질문 유형별 검색 경로 분리를 위한 LangGraph 기반 라우팅 구조 PoC',
     ],
     problem:
-      '법령, BIM/IFC 도면 정보, 점검 데이터처럼 성격이 다른 문서를 함께 다뤄야 했고, 키워드 검색만으로는 원하는 내용을 찾기 어려웠습니다. 사내 문서를 다루는 만큼 외부 API로 내용을 보낼 수 없다는 제약도 있었습니다.',
+      '건축물 기본정보, 안전점검 이력, 실태조사, 유지보수 현황처럼 분산된 데이터를 하나의 검색 흐름에서 다뤄야 했습니다. “고양시 덕양구에 있는 20년 이상의 노후 건축물 중 안전점검 A등급 건물 찾아줘” 같은 복합 질문에 대응해야 했고, 사내망 환경이라 외부 LLM API로 데이터를 보낼 수 없다는 제약도 있었습니다.',
     solution:
       'RAG를 처음 다뤄보는 상태에서 문서 청킹, 임베딩, 벡터 저장, 검색, LLM 응답까지 단계별로 붙여 나갔습니다. 문서 대부분이 한국어라 임베딩 모델은 BAAI/bge-m3를 썼고, 벡터 저장소는 이미 쓰고 있던 PostgreSQL에 PGVector를 얹어 새 DB를 늘리지 않았습니다. 사내망 밖으로 문서를 보낼 수 없어서 LLM은 Ollama로 로컬에서 돌렸습니다. 법령 질문과 일반 질문을 같은 방식으로 검색하면 결과가 섞일 수 있어, 질문 유형별로 검색 경로를 나누는 라우팅은 LangGraph로 PoC 수준까지 검토했습니다.',
     outcomes: [
-      '법령·BIM·점검 문서를 대상으로 질문에 답하는 RAG 검색 API 구현',
+      '노후 건축물 안전정보를 대상으로 질문에 답하는 RAG 검색 API 구현',
       '외부 API 없이 사내망 안에서만 동작하는 검색 구조 적용',
       '질문 유형별 검색 경로 분리를 위한 라우팅 PoC 진행',
     ],
@@ -50,6 +51,7 @@ export const projects = [
     category: '회사 프로젝트',
     group: 'ai',
     domain: 'AI / Computer Vision / Smart Plant',
+    period: '2025.03.01 ~ 2026.02.28',
     tags: ['Backend', 'AI', 'Computer Vision', 'FastAPI', 'Smart Plant'],
     summary:
       '스마트플랜트 제조현장의 3D 가상환경 작업을 위해, 설비 이미지에서 객체 이미지와 메타정보를 만드는 모바일-서버 처리 기능을 구현했습니다.',
@@ -100,9 +102,10 @@ export const projects = [
     category: '회사 프로젝트',
     group: 'backend',
     domain: 'Backend / Platform Maintenance',
+    period: '2025.01 ~ 2025.07',
     tags: ['Backend', 'SM / 운영', 'Platform Maintenance'],
     summary:
-      '3D 산업단지 디지털 플랫폼을 유지보수하며 Spring Boot 기반 관리자 기능, 추가 API, 통계 조회 화면과 외부 API 연동을 개발했습니다.',
+      '경남 창원시 3D 산단 디지털 플랫폼을 유지관리하며 Spring Boot 기반 관리자 기능, 추가 API, 통계 조회 화면과 외부 API 연동을 개발했습니다.',
     highlights: [
       'Spring Boot 관리자 기능과 추가 API 개발',
       'JPA 기반 기능 개발 및 PostgreSQL 데이터 조회',
@@ -120,12 +123,13 @@ export const projects = [
       '운영 환경 배포 지원',
     ],
     problem:
-      '관리자 통계 기능의 일부로 Google Analytics Data API를 연동했습니다. 개발 환경에서는 정상 호출됐지만, 운영 환경은 폐쇄망이라 외부 API를 바로 호출할 수 없었습니다.',
+      '관리자 통계 기능의 일부로 Google Analytics Data API를 연동했습니다. 개발 환경에서는 정상 호출됐지만, 운영 환경은 폐쇄망이라 외부 API를 바로 호출할 수 없었습니다. 처음부터 네트워크 문제라고 단정하기보다 애플리케이션 코드, 서버 환경, 외부 통신 경로를 나누어 확인해야 했습니다.',
     solution:
-      'Spring Boot에서 통계 조회 API를 만들고 Thymeleaf 화면에서 확인할 수 있게 구성했습니다. 운영 반영 과정에서 외부 API 호출이 실패해 애플리케이션 코드만 보지 않고 폐쇄망, 방화벽, DMZ 구간까지 나누어 확인했습니다. 이후 DMZ Apache Proxy를 통한 연동 경로를 적용해 운영 환경에서도 통계 데이터를 조회할 수 있도록 구성했습니다.',
+      'Spring Boot에서 통계 조회 API를 만들고 Thymeleaf 화면에서 확인할 수 있게 구성했습니다. 운영 반영 과정에서 외부 API 호출이 실패해 애플리케이션 코드, 폐쇄망 서버, 방화벽, DMZ 구간을 나누어 확인했습니다. 이후 DMZ Apache Proxy를 통한 연동 경로를 적용해 기존 관리자 화면 구조를 크게 바꾸지 않고 운영 환경에서도 통계 데이터를 조회할 수 있도록 구성했습니다.',
     outcomes: [
       '관리자 통계 조회 API와 Thymeleaf 화면 개발',
       '폐쇄망 운영 환경에서 DMZ Proxy를 통한 Google Analytics 데이터 조회 경로 적용',
+      '기존 관리자 화면 구조를 크게 변경하지 않고 외부 API 연동 문제 해결',
       '운영 중 발생한 데이터·기능 이슈를 원인 확인부터 배포까지 처리',
     ],
     tech: ['Spring Boot', 'Java', 'JPA', 'PostgreSQL', 'Apache HTTP Server', 'Google Analytics Data API', 'JavaScript', 'Thymeleaf', 'REST API', 'SQL', 'Git'],
@@ -135,42 +139,48 @@ export const projects = [
     category: '회사 프로젝트',
     group: 'backend',
     domain: 'Backend / Mobile WebView',
+    period: '2026.06.15 ~ 2026.12 예정',
     tags: ['Backend', 'Morpheus', 'Spring Legacy', 'MyBatis'],
     summary:
-      'Spring Framework 기반 레거시 백엔드와 Morpheus 하이브리드 웹뷰를 함께 맡아 교육이력관리 시스템 기능을 개발했습니다.',
+      '한화오션 현장에서 수기로 관리되던 안전·교육·작업 관련 업무를 모바일 기반 시스템으로 전환하는 안전혁신과제입니다.',
     highlights: [
-      'Spring Framework / MyBatis 기반 백엔드 기능 개발',
-      'Morpheus 하이브리드 웹뷰와 백엔드 연계',
-      '동영상 업로드·재생 기능과 JMeter 부하테스트 시나리오 구성',
+      '교육이력 / BMSW / MSDS / 마일리지 4개 모바일 모듈 개발',
+      'Spring Framework / MyBatis / Oracle 기반 백엔드 기능 개발',
+      'Range 기반 동영상 응답과 JMeter 부하테스트 시나리오 구성',
     ],
     role: [
-      'Spring Framework 기반 레거시 백엔드 기능 개발',
-      'MyBatis 연동 및 SQL 작성으로 모바일 기능의 데이터 처리 로직 구현',
       'Morpheus 기반 하이브리드 웹뷰 기능 개발',
+      '교육이력, BMSW, MSDS, 마일리지 4개 모바일 모듈 화면 기능 구현',
+      'Spring Framework 기반 레거시 백엔드 기능 개발',
+      'MyBatis Mapper 및 Oracle SQL 작성으로 모바일 기능의 데이터 처리 로직 구현',
+      '공지, 문의, 자료, 증빙, BMSW 의견/위험요인, MSDS 조회, 마일리지 신청 기능 개발',
+      '모듈 간 화면 작성 규칙 정리',
       '동영상 업로드/재생 기능 개발',
       'Spring Controller 기반 영상 Range 처리 구현',
       'JMeter 기반 동영상 스트리밍 부하테스트 환경 및 시나리오 구성',
       '동시 사용자 50명 / 100명 / 150명 조건에서 응답시간, 오류 여부, Throughput(TPS) 확인',
     ],
     problem:
-      '교육이력관리 시스템 안에서 모바일 웹뷰와 Spring 레거시 백엔드를 함께 개발해야 했습니다. 동영상 업로드·재생 기능은 화면에서 재생되는 것만 확인하고 끝내기보다, Range 요청과 실제 시청 흐름까지 함께 확인할 필요가 있었습니다.',
+      '한화오션 현장에서 수기로 처리되던 안전·교육·작업 관련 업무를 모바일 기반 시스템으로 전환해야 했습니다. 처음 접한 Morpheus/MSP 환경과 Spring Framework 레거시 백엔드를 함께 다뤄야 했고, 일정 안에서 빠르게 기능을 구현하면서도 4개 모바일 모듈의 화면과 데이터 흐름이 같은 기준으로 동작하도록 맞춰야 했습니다.',
     solution:
-      'Morpheus 기반 모바일 화면과 Spring Framework 백엔드 기능을 함께 개발했습니다. MyBatis 연동과 SQL 작성을 통해 모바일 기능의 데이터 처리 로직을 구현했고, 동영상 업로드·재생 기능에서는 Range 요청에 따라 Spring Controller의 영상 응답 범위를 처리했습니다. 이후 실제 시청 흐름을 반영한 JMeter 부하테스트 시나리오를 직접 구성했습니다.',
+      '기존 화면 이벤트, 백엔드 API, MyBatis Mapper, Oracle SQL 흐름을 따라가며 구조를 파악했고, 교육이력·BMSW·MSDS·마일리지 모바일 기능과 백엔드 데이터 처리 로직을 구현했습니다. 화면마다 제각각 보이지 않도록 UI 팔레트와 공통 작성 규칙을 정리했습니다. 동영상 기능은 단순히 재생되는지만 보지 않고 브라우저 자동재생 정책, HTTP Header, Range 응답 범위, 파일 크기와 서버 부담을 확인한 뒤 실제 시청 흐름을 반영한 JMeter 시나리오를 구성했습니다.',
     outcomes: [
-      '교육이력관리 시스템의 모바일 웹뷰와 Spring 백엔드 기능 개발',
+      '한화오션 안전혁신과제 4개 모바일 모듈의 웹뷰와 Spring 백엔드 기능 개발',
       'Spring Controller 기반 영상 Range 처리 구현',
       '동시 사용자 50명 / 100명 / 150명 조건에서 응답시간, 오류 여부, Throughput 확인',
+      '운영 반영 후 큰 재생 오류 없이 동작',
     ],
-    tech: ['Java', 'Spring Framework', 'MyBatis', 'SQL', 'Morpheus', 'JavaScript', 'JMeter'],
+    tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus', 'JavaScript', 'JMeter'],
   },
   {
     title: 'MySafety 작업자 안전 지원 모바일 플랫폼',
     category: '회사 프로젝트',
     group: 'backend',
     domain: 'Mobile WebView / API Integration / Store Release',
+    period: '2024.09 ~ 2025.03',
     tags: ['Mobile', 'API Integration', 'Operations'],
     summary:
-      '약 5,000~10,000명 규모로 사용되는 작업자 안전 지원 모바일 앱의 기능 개발과 Android/iOS 배포를 맡았습니다.',
+      '인턴 기간부터 참여해 한화토탈에너지스 공장 작업자 안전 지원 모바일 앱의 기능 개발과 Android/iOS 배포를 맡았습니다.',
     highlights: [
       'Apache Cordova 기반 모바일 웹뷰 기능 개발',
       'REST API 연동 및 작업자 안전 기능 구현',
@@ -179,26 +189,31 @@ export const projects = [
     role: [
       'Apache Cordova 기반 모바일 웹뷰 기능 개발',
       'REST API 연동 및 화면 기능 구현',
-      'Android/iOS 기능 개발 및 배포',
+      'WebView에서 처리하기 어려운 위치 기능을 네이티브 영역과 연동',
+      'Android/iOS 기능 개발 및 스토어 배포',
+      '인증서 및 배포 설정 구성',
       'Background Geolocation 기반 위치 수집 기능 연동',
+      '스토어 정책에 맞춘 로그인 및 앱 실행 흐름 수정',
       'Firebase 연동 및 모바일 운영 이슈 대응',
     ],
     problem:
-      '산업 현장에서 사용하는 모바일 앱이라 Android와 iOS 환경 모두에서 기능이 동작해야 했고, 위치 수집과 API 연동이 실제 단말 환경에서 안정적으로 동작하는지 확인해야 했습니다.',
+      '한화토탈에너지스 공장 작업자가 공지사항, 대피소 위치, 작업자 위치 정보를 확인하는 모바일 앱입니다. 산업 현장에서 사용하는 앱이라 Android와 iOS 환경 모두에서 기능이 동작해야 했고, 위치 수집과 API 연동이 실제 단말 환경에서 안정적으로 동작하는지 확인해야 했습니다.',
     solution:
       'Cordova 기반으로 모바일 웹뷰 기능을 개발하고, 필요한 데이터는 REST API로 연동했습니다. Android와 iOS 각각의 빌드와 배포 과정을 진행했고, Background Geolocation과 권한 관련 동작은 실제 단말 환경에서 확인하며 대응했습니다.',
     outcomes: [
       '작업자 안전 지원 모바일 앱 주요 기능 개발',
+      '인턴 기간부터 실제 서비스 개발과 배포 과정 참여',
       '약 5,000~10,000명 규모 사용자 대상 앱 배포',
       'Android와 iOS 스토어 배포 진행',
     ],
-    tech: ['Apache Cordova', 'JavaScript', 'REST API', 'Android', 'iOS', 'Background Geolocation', 'Firebase'],
+    tech: ['Apache Cordova', 'JavaScript', 'REST API', 'Android', 'iOS', 'Native', 'Background Geolocation', 'Firebase'],
   },
   {
     title: 'Slack 기반 업무 자동화 봇',
     category: '개인 프로젝트',
     group: 'personal',
     domain: 'Work Automation',
+    period: '개인 프로젝트',
     tags: ['Automation', 'Slack Bot', 'Node.js'],
     summary:
       '업무 중 반복 확인하던 회의 일정, 회의실 예약, 휴가자 정보를 Slack에서 확인하도록 만든 자동화 프로젝트입니다.',
@@ -228,6 +243,7 @@ export const projects = [
     category: '개인 프로젝트',
     group: 'personal',
     domain: 'Work Tool / Schedule Management',
+    period: '개인 프로젝트',
     tags: ['React', 'Timeline UI', 'Codex'],
     summary:
       '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
@@ -252,6 +268,7 @@ export const projects = [
     category: '개인 홈랩',
     group: 'personal',
     domain: 'Infra / Network',
+    period: '개인 홈랩',
     tags: ['Infra', 'Network', 'Home Lab'],
     summary:
       'Proxmox 기반 홈서버에서 내부 LAN 서비스와 외부 접속 경로를 직접 구성해본 홈랩입니다.',

@@ -1,10 +1,11 @@
 import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 
-const coreKeywords = ['Java', 'Spring', 'MyBatis', 'SQL', 'REST API', 'PostgreSQL'];
+const coreKeywords = ['Java', 'Spring', 'MyBatis', 'SQL', 'REST API', 'Oracle'];
 
 const extendedKeywords = [
   'PostgreSQL',
   'Range / Video API',
+  'JMeter',
   'Apache HTTP Server',
   'Morpheus',
   'FastAPI / RAG',
@@ -18,15 +19,15 @@ function Hero() {
       <div className="section-shell pt-14 lg:pt-20">
         <div className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-end">
           <div>
-            <p className="section-eyebrow">Backend Developer · Java / Spring / API</p>
+            <p className="section-eyebrow">Server Developer · Java / Spring / Product</p>
             <h1 className="mt-4 text-[2.625rem] font-semibold tracking-normal text-slate-950 sm:text-[3.25rem]">조윤호</h1>
             <p className="mt-5 max-w-2xl text-[1.1875rem] leading-8 text-slate-800">
-              Java/Spring 기반 서버 기능 개발과 운영 시스템 유지보수를 경험한 개발자입니다.
+              왜 이렇게 동작하는지 확인하며 서버 기능을 개발하는 Java/Spring 개발자입니다.
             </p>
             <p className="copy mt-4 max-w-2xl">
-              프로젝트마다 다른 시스템을 빠르게 파악하며 Spring Boot, Spring Framework, MyBatis, SQL,
-              REST API 기반 기능을 개발해왔습니다. 문제가 생기면 화면 결과만 보기보다 요청/응답, 서버 로직,
-              SQL, DB 값, 외부 시스템 연동을 따라가며 원인을 확인합니다.
+              여러 SI 프로젝트와 연구 과제에서 Spring Boot, Spring Framework, MyBatis, SQL, REST API 기반
+              기능을 개발해왔습니다. 기능이 화면에서 동작하는 것에만 맞추기보다 요청/응답, 서버 로직, DB,
+              외부 API, 운영 환경까지 흐름을 나누어 확인하고 실제 사용 조건에서 어떻게 동작하는지 보려고 합니다.
             </p>
             <div className="mt-7 space-y-3">
               <div className="flex flex-wrap items-center gap-2">
@@ -54,8 +55,8 @@ function Hero() {
               <div className="border-l-2 border-blue-300 pl-4">
                 <dt className="meta-label">Email</dt>
                 <dd className="mt-1">
-                  <a href="mailto:govlxnep@naver.com" className="font-semibold text-blue-800 hover:underline">
-                    govlxnep@naver.com
+                  <a href="mailto:govlxnep@gmail.com" className="font-semibold text-blue-800 hover:underline">
+                    govlxnep@gmail.com
                   </a>
                 </dd>
               </div>

@@ -7,6 +7,7 @@ const visualProjects = visualWorks.map((work) => ({
   category: '회사 프로젝트',
   group: 'visual',
   domain: work.label,
+  period: work.period,
   tags: [work.badge],
   summary: work.summary,
   highlights: work.highlights,
@@ -65,7 +66,7 @@ function DetailList({ title, items }) {
 function ProjectMeta({ project }) {
   const metaItems = [
     project.organization && ['기관', project.organization],
-    project.period && ['기간', project.period],
+    project.period && ['참여기간', project.period],
     project.contribution && ['기여도', project.contribution],
     project.teamSize && ['팀 규모', project.teamSize],
   ].filter(Boolean);
@@ -77,7 +78,7 @@ function ProjectMeta({ project }) {
   return (
     <dl
       className={`mt-4 grid gap-2 text-[0.9375rem] text-slate-600 ${
-        metaItems.length > 1 ? 'sm:grid-cols-3' : ''
+        metaItems.length > 1 ? 'sm:grid-cols-2 lg:grid-cols-3' : ''
       }`}
     >
       {metaItems.map(([label, value]) => (
@@ -94,20 +95,13 @@ function ProjectBadges({ project }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
       <span className="rounded-full bg-slate-950 px-3 py-1 text-xs font-semibold text-white">{project.category}</span>
-      {project.tags.map((tag) => (
-        <span
-          key={tag}
-          className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700"
-        >
-          {tag}
-        </span>
-      ))}
     </div>
   );
 }
 
 function ProjectDetail({ project }) {
   const showProblemSections = project.group !== 'personal';
+  const showPersonalContext = project.group === 'personal';
 
   return (
     <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-2">
@@ -117,6 +111,9 @@ function ProjectDetail({ project }) {
             <h4 className="text-sm font-semibold text-blue-700">배경</h4>
             <p className="copy mt-3">{project.background}</p>
           </div>
+        )}
+        {showPersonalContext && project.implementations?.length > 0 && (
+          <DetailList title="구성한 내용" items={project.implementations} />
         )}
         {showProblemSections && project.problem && (
           <div>
@@ -135,7 +132,7 @@ function ProjectDetail({ project }) {
       <div className="space-y-5">
         <DetailList title="내가 맡은 부분" items={project.role} />
         <DetailList title="구현한 기능" items={project.features} />
-        <DetailList title="구현한 내용" items={project.implementations} />
+        {!showPersonalContext && <DetailList title="구현한 내용" items={project.implementations} />}
         <DetailList title="결과" items={project.outcomes} />
         <div>
           <h4 className="text-sm font-semibold text-blue-700">사용한 기술</h4>
@@ -200,8 +197,7 @@ function Projects() {
                       >
               <div className="border-b border-slate-200 p-5 sm:p-6">
                 <ProjectBadges project={project} />
-                <p className="mt-4 text-[0.9375rem] font-semibold text-blue-700">{project.domain}</p>
-                <h3 className="mt-2 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
+                <h3 className="mt-4 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
                 <ProjectMeta project={project} />
                 <p className="copy mt-4 max-w-3xl">{project.summary}</p>
                 {project.links && (

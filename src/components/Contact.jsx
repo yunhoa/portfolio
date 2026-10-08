@@ -18,7 +18,7 @@ function Contact() {
               </h2>
               <p className="copy mt-4">
                 Java / Spring 백엔드를 중심으로 API 연동, MyBatis와 SQL 기반 데이터 처리, 운영 시스템 유지보수,
-                모바일 웹뷰와 FastAPI 기반 검색 API 프로젝트를 경험했습니다.
+                Morpheus 모바일 웹뷰, Range 기반 동영상 응답, JMeter 부하테스트, FastAPI 검색 API 프로젝트를 경험했습니다.
               </p>
             </div>
 
@@ -46,11 +46,11 @@ function Contact() {
               </div>
 
               <a
-                href="mailto:govlxnep@naver.com"
+                href="mailto:govlxnep@gmail.com"
                 className="rounded-lg border border-blue-200 bg-white p-5 transition hover:-translate-y-1 hover:border-blue-300 hover:bg-blue-50 hover:shadow-xl"
               >
                 <p className="text-sm font-semibold text-blue-700">Email</p>
-                <p className="mt-2 break-all text-lg font-semibold text-slate-950">govlxnep@naver.com</p>
+                <p className="mt-2 break-all text-lg font-semibold text-slate-950">govlxnep@gmail.com</p>
               </a>
             </div>
           </div>
