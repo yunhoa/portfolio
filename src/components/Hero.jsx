@@ -4,7 +4,6 @@ const coreKeywords = ['Java', 'Spring', 'MyBatis', 'SQL', 'REST API', 'Oracle'];
 
 const extendedKeywords = [
   'PostgreSQL',
-  'Range / Video API',
   'JMeter',
   'Apache HTTP Server',
   'Morpheus',
@@ -22,7 +21,7 @@ function Hero() {
             <p className="section-eyebrow">Server Developer · Java / Spring / Product</p>
             <h1 className="mt-4 text-[2.625rem] font-semibold tracking-normal text-slate-950 sm:text-[3.25rem]">조윤호</h1>
             <p className="mt-5 max-w-2xl text-[1.1875rem] leading-8 text-slate-800">
-              왜 이렇게 동작하는지 확인하며 서버 기능을 개발하는 Java/Spring 개발자입니다.
+              요청과 데이터 흐름을 따라 문제를 확인하는 서버 개발자입니다.
             </p>
             <p className="copy mt-4 max-w-2xl">
               여러 SI 프로젝트와 연구 과제에서 Spring Boot, Spring Framework, MyBatis, SQL, REST API 기반
