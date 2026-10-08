@@ -50,36 +50,42 @@ function Hero() {
 
           <div className="panel p-5 sm:p-6">
             <h2 className="text-lg font-semibold text-slate-950">기본 정보</h2>
-            <dl className="mt-4 grid gap-4 text-[0.9375rem]">
-              <div className="border-l-2 border-blue-300 pl-4">
-                <dt className="meta-label">Email</dt>
-                <dd className="mt-1">
+            <dl className="mt-4 divide-y divide-slate-100 rounded-md border border-slate-200 text-[0.9375rem]">
+              <div className="grid gap-2 px-4 py-3 sm:grid-cols-[5.75rem_1fr] sm:gap-4">
+                <dt className="meta-label pt-0.5">Email</dt>
+                <dd className="min-w-0">
                   <a href="mailto:govlxnep@gmail.com" className="font-semibold text-blue-800 hover:underline">
                     govlxnep@gmail.com
                   </a>
                 </dd>
               </div>
-              <div className="border-l-2 border-blue-300 pl-4">
-                <dt className="meta-label">학력</dt>
-                <dd className="mt-1 leading-6 text-slate-800">
+              <div className="grid gap-2 px-4 py-3 sm:grid-cols-[5.75rem_1fr] sm:gap-4">
+                <dt className="meta-label pt-0.5">학력</dt>
+                <dd className="min-w-0 leading-6 text-slate-800">
                   경민대학교 컴퓨터소프트웨어
                   <span className="text-slate-500"> · 재학기간 2019.03 – 2025.02 · 학점 3.94 / 4.5</span>
                 </dd>
               </div>
-              <div className="border-l-2 border-blue-300 pl-4">
-                <dt className="meta-label">경력</dt>
-                <dd className="mt-1 leading-6 text-slate-800">
-                  올포랜드
-                  <span className="text-slate-500"> · 2025.01 – 재직 중 (1년 9개월) · Java/Spring 기반 서버 기능 개발 및 운영 시스템 유지보수</span>
-                </dd>
-                <dd className="mt-1 leading-6 text-slate-800">
-                  ㈜ATC (방위산업체)
-                  <span className="text-slate-500"> · 2020.08 – 2023.04 (2년 9개월) · 생산직 2교대</span>
+              <div className="grid gap-2 px-4 py-3 sm:grid-cols-[5.75rem_1fr] sm:gap-4">
+                <dt className="meta-label pt-0.5">경력</dt>
+                <dd className="min-w-0 space-y-2 leading-6 text-slate-800">
+                  <p>
+                    올포랜드
+                    <span className="text-slate-500"> · 2025.01 – 재직 중 (1년 9개월)</span>
+                    <br />
+                    <span className="text-slate-600">Java/Spring 기반 서버 기능 개발 및 운영 시스템 유지보수</span>
+                  </p>
+                  <p>
+                    ㈜ATC (방위산업체)
+                    <span className="text-slate-500"> · 2020.08 – 2023.04 (2년 9개월)</span>
+                    <br />
+                    <span className="text-slate-600">생산직 2교대</span>
+                  </p>
                 </dd>
               </div>
-              <div className="border-l-2 border-blue-300 pl-4">
-                <dt className="meta-label">논문 · 1저자</dt>
-                <dd className="mt-1 leading-6 text-slate-800">
+              <div className="grid gap-2 px-4 py-3 sm:grid-cols-[5.75rem_1fr] sm:gap-4">
+                <dt className="meta-label pt-0.5">논문 · 1저자</dt>
+                <dd className="min-w-0 leading-6 text-slate-800">
                   스마트 플랜트 가상환경 구축을 위한 모바일–서버 연동형 AI 기반 메타정보 자동 생성 프레임워크
                   <a
                     href={paperPdf}
