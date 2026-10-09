@@ -3,6 +3,7 @@ import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 const coreKeywords = ['Java', 'Spring', 'MyBatis', 'SQL', 'REST API'];
 
 const extendedKeywords = [
+  'JPA',
   'PostgreSQL',
   'Oracle',
   'JMeter',
