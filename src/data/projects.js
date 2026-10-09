@@ -8,31 +8,35 @@ export const projects = [
     domain: 'AI Search / Backend',
     period: '2026.01 ~ 2026.07',
     tags: ['Backend', 'AI Search', 'RAG', 'VectorDB'],
+    sectionLabels: {
+      problem: '질의 유형별 처리 경로',
+      solution: '질의 분류와 검색 흐름 구현',
+    },
     summary:
-      '건축물 안전정보를 대상으로 문서 검색과 RAG 응답을 처리하는 API를 개발했습니다.',
+      '건축물 안전정보 질문을 문서, 정형 데이터, BIM 질의로 나눠 처리하는 검색 API를 개발했습니다.',
     background:
       '광역단위 노후 건축물 디지털 안전워치 플랫폼에서 건축물 스마트검색 서비스를 만드는 연구과제입니다.',
     highlights: [
-      'FastAPI 기반 자연어 검색 API 구현',
-      'PostgreSQL / PGVector 벡터 검색 적용',
-      '질문 유형별 검색 라우팅 PoC',
+      '문서 질의: 질문 재작성·재질의, PGVector 검색, 리랭킹을 거쳐 LLM 응답',
+      '정형 데이터 질의: 자연어 분석, SQL 생성, DB 조회 경로 구성',
+      'BIM 질의: 객체·속성 조건 추출 후 관련 데이터 조회 경로 구성',
+      'LangGraph Supervisor 패턴으로 문서 RAG·NL2SQL·BIM 질의 라우팅',
     ],
     role: [
       '도메인 문서 전처리 및 청킹 기준 구성',
       'HuggingFace Embeddings와 BAAI/bge-m3로 문서 임베딩 처리',
       'PostgreSQL PGVector 기반 벡터 저장 구조 구현',
       'FastAPI 기반 검색 API 엔드포인트 개발',
-      'Ollama 로컬 LLM과 LangChain을 연결한 RAG 응답 처리',
-      '질문 유형별 검색 경로 분리를 위한 LangGraph 기반 라우팅 구조 PoC',
+      'LangChain으로 질문 재작성·재질의, 검색, 리랭킹, 로컬 LLM 응답 흐름 구성',
+      'LangGraph Supervisor 패턴으로 문서 RAG·NL2SQL·BIM 질의 경로 라우팅',
     ],
     problem:
-      '건축물 기본정보, 안전점검 이력, 실태조사, 유지보수 현황처럼 분산된 데이터를 하나의 검색 흐름에서 다뤄야 했습니다. “고양시 덕양구에 있는 20년 이상의 노후 건축물 중 안전점검 A등급 건물 찾아줘” 같은 복합 질문에 대응해야 했고, 사내망 환경이라 외부 LLM API로 데이터를 보낼 수 없다는 제약도 있었습니다.',
+      '건축물 관련 질문은 법령·지침 같은 문서, 건축물·점검 이력 같은 정형 데이터, BIM 객체 정보로 대상이 달랐습니다. 질문 유형에 따라 적절한 데이터를 조회하도록 처리 경로를 나눌 필요가 있었고, 사내망 환경이라 외부 LLM API를 사용할 수 없었습니다.',
     solution:
-      '처음 맡은 RAG 작업이라 문서 분할부터 임베딩, 벡터 검색, 응답 생성까지 단계를 나눠 연결했습니다. 한국어 문서에 맞춰 BAAI/bge-m3를 사용하고, 기존 PostgreSQL에 PGVector를 적용했습니다. 외부 LLM API를 쓸 수 없는 사내망 환경이라 Ollama를 연결했습니다. 질문 유형별 검색 경로를 나누는 방식은 LangGraph로 PoC를 진행했습니다.',
+      `문서 질의는 질문 재작성과 재질의, 임베딩, PGVector 검색, 리랭킹을 거쳐 Ollama 로컬 LLM이 답변하도록 구성했습니다. LangChain으로 검색과 응답 흐름을 연결했습니다.\n\n정형 데이터 질의는 자연어 질문에서 조건을 파악해 SQL을 생성하고 DB 결과를 반환합니다. BIM 질의는 질문에서 객체와 속성 조건을 추출해 관련 데이터를 조회합니다.\n\nLangGraph Supervisor 패턴으로 질문 유형을 분류하고 문서 RAG, NL2SQL, BIM 경로로 라우팅하도록 구현했습니다.`,
     outcomes: [
-      '노후 건축물 안전정보를 대상으로 질문에 답하는 RAG 검색 API 구현',
-      '외부 API 없이 사내망 안에서만 동작하는 검색 구조 적용',
-      '질문 유형별 검색 경로 분리를 위한 라우팅 PoC 진행',
+      '사내망에서 동작하는 문서 RAG 검색 API 구현',
+      'LangGraph Supervisor 패턴을 이용한 문서 RAG·NL2SQL·BIM 질의 라우팅 구현',
     ],
     tech: [
       'FastAPI',
@@ -106,6 +110,10 @@ export const projects = [
     domain: 'Backend / Platform Maintenance',
     period: '2025.01 ~ 2025.07',
     tags: ['Backend', 'SM / 운영', 'Platform Maintenance'],
+    sectionLabels: {
+      problem: '운영 환경 API 연동 문제',
+      solution: '외부 API 호출 경로 적용',
+    },
     summary:
       '경남 창원시 3D 산단 디지털 플랫폼을 유지관리하며 관리자 기능과 통계 조회 기능을 개발했습니다.',
     background:
@@ -127,7 +135,7 @@ export const projects = [
       '운영 환경 배포 지원',
     ],
     problem:
-      '관리자 통계 기능의 일부로 Google Analytics Data API를 연동했습니다. 개발 환경에서는 정상 호출됐지만, 운영 환경은 폐쇄망이라 외부 API를 바로 호출할 수 없었습니다. 처음부터 네트워크 문제라고 단정하기보다 애플리케이션 코드, 서버 환경, 외부 통신 경로를 나누어 확인해야 했습니다.',
+      '관리자 통계 기능에 Google Analytics Data API를 연동했습니다. 개발 서버에서는 정상 호출됐지만 폐쇄망 운영 서버에서는 API 호출이 실패했습니다.',
     solution:
       'Spring Boot에서 통계 조회 API를 만들고 Thymeleaf 화면에서 확인할 수 있게 구성했습니다. 운영 반영 과정에서 외부 API 호출이 실패해 애플리케이션 코드, 폐쇄망 서버, 방화벽, DMZ 구간을 나누어 확인했습니다. 이후 DMZ Apache Proxy를 통한 연동 경로를 적용해 기존 관리자 화면 구조를 크게 바꾸지 않고 운영 환경에서도 통계 데이터를 조회할 수 있도록 구성했습니다.',
     outcomes: [
@@ -147,6 +155,11 @@ export const projects = [
     tags: ['Backend', 'Morpheus', 'Spring Legacy', 'MyBatis'],
     summary:
       'Morpheus/MSP 모바일 웹뷰와 Spring 백엔드로 안전·교육·작업 기능을 개발했습니다.',
+    sectionLabels: {
+      role: '주요 개발 업무',
+      problem: '개발 범위',
+      solution: '교육 동영상·MSDS QR 구현',
+    },
     background:
       '한화오션 현장에서 수기로 처리하던 안전·교육·작업 업무를 모바일 시스템으로 전환하는 과제입니다.',
     highlights: [

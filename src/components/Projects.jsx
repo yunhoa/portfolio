@@ -109,7 +109,7 @@ function ProjectDetail({ project }) {
       <div className="space-y-5">
         {project.background && (
           <div>
-            <h4 className="text-sm font-semibold text-blue-700">배경</h4>
+            <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.background || (showPersonalContext ? '만든 이유' : '프로젝트 소개')}</h4>
             <p className="copy mt-3">{project.background}</p>
           </div>
         )}
@@ -118,25 +118,25 @@ function ProjectDetail({ project }) {
         )}
         {showProblemSections && project.problem && (
           <div>
-            <h4 className="text-sm font-semibold text-blue-700">문제</h4>
+            <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.problem || '배경 및 요구사항'}</h4>
             <p className="copy mt-3 whitespace-pre-line">{project.problem}</p>
           </div>
         )}
         {showProblemSections && project.solution && (
           <div>
-            <h4 className="text-sm font-semibold text-blue-700">문제 해결 포인트</h4>
+            <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.solution || '구현 내용'}</h4>
             <p className="copy mt-3 whitespace-pre-line">{project.solution}</p>
           </div>
         )}
       </div>
 
       <div className="space-y-5">
-        <DetailList title="내가 맡은 부분" items={project.role} />
-        <DetailList title="구현한 기능" items={project.features} />
-        {!showPersonalContext && <DetailList title="구현한 내용" items={project.implementations} />}
-        <DetailList title="결과" items={project.outcomes} />
+        <DetailList title={project.sectionLabels?.role || (showPersonalContext ? '개발 내용' : '담당 업무')} items={project.role} />
+        <DetailList title={project.sectionLabels?.features || '주요 기능'} items={project.features} />
+        {!showPersonalContext && <DetailList title={project.sectionLabels?.implementations || '구현 내용'} items={project.implementations} />}
+        <DetailList title={project.sectionLabels?.outcomes || '결과'} items={project.outcomes} />
         <div>
-          <h4 className="text-sm font-semibold text-blue-700">사용한 기술</h4>
+          <h4 className="text-sm font-semibold text-blue-700">기술</h4>
           <div className="mt-3 flex flex-wrap gap-2">
             {project.tech.map((tech) => (
               <span
