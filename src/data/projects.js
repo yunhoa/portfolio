@@ -33,7 +33,7 @@ export const projects = [
     problem:
       '건축물 관련 질문은 법령·지침 같은 문서, 건축물·점검 이력 같은 정형 데이터, BIM 객체 정보로 대상이 달랐습니다. 질문 유형에 따라 적절한 데이터를 조회하도록 처리 경로를 나눌 필요가 있었고, 사내망 환경이라 외부 LLM API를 사용할 수 없었습니다.',
     solution:
-      `문서 질의는 질문 재작성과 재질의, 임베딩, PGVector 검색, 리랭킹을 거쳐 Ollama 로컬 LLM이 답변하도록 구성했습니다. LangChain으로 검색과 응답 흐름을 연결했습니다.\n\n정형 데이터 질의는 자연어 질문에서 조건을 파악해 SQL을 생성하고 DB 결과를 반환합니다. BIM 질의는 질문에서 객체와 속성 조건을 추출해 관련 데이터를 조회합니다.\n\nLangGraph Supervisor 패턴으로 질문 유형을 분류하고 문서 RAG, NL2SQL, BIM 경로로 라우팅하도록 구현했습니다.`,
+      `건축물 관련 질문을 문서 RAG, NL2SQL, BIM 질의 세 유형으로 나누고 LangGraph Supervisor 패턴으로 해당 경로에 라우팅했습니다.\n\n문서 질의는 질문 재작성과 재질의, BAAI/bge-m3 임베딩, PGVector 검색, 리랭킹을 거쳐 Ollama 로컬 LLM이 답변하도록 구성했습니다. LangChain으로 검색과 응답 흐름을 연결했습니다.\n\n정형 데이터 질의는 자연어 질문의 조건을 SQL로 변환해 DB를 조회하고, BIM 질의는 객체와 속성 정보를 기준으로 관련 데이터를 조회하도록 구현했습니다. 외부 LLM API를 사용할 수 없는 사내망 환경을 고려해 검색과 응답은 로컬에서 처리했습니다.`,
     outcomes: [
       '사내망에서 동작하는 문서 RAG 검색 API 구현',
       'LangGraph Supervisor 패턴을 이용한 문서 RAG·NL2SQL·BIM 질의 라우팅 구현',
@@ -157,7 +157,6 @@ export const projects = [
       'Morpheus/MSP 모바일 웹뷰와 Spring 백엔드로 안전·교육·작업 기능을 개발했습니다.',
     sectionLabels: {
       role: '주요 개발 업무',
-      problem: '개발 범위',
       solution: '교육 동영상·MSDS QR 구현',
     },
     background:
@@ -173,19 +172,10 @@ export const projects = [
       'Spring Framework 백엔드 기능과 MyBatis Mapper, Oracle SQL 작성',
       '공지·문의·자료·증빙, BMSW 의견·위험요인, MSDS 조회, 마일리지 신청 기능 구현',
       '모듈 간 화면 작성 규칙 정리',
-      'MSDS QR 진입용 .do 경로를 Spring Security에서 로그인 없이 허용하고 JSP로 연결',
-      '교육 동영상 플레이어 개발 및 네이티브 기능 연동: 건너뛰기·배속 제한, 화면 이탈 시 중단, 가로 전체 화면',
-      'Spring Controller에서 Range 요청에 따른 영상 응답 범위 처리',
-      'JMeter 테스트 환경과 실제 시청 흐름 기반 시나리오 구성, 50명 / 100명 / 150명 동시 사용자 조건 확인',
     ],
-    problem:
-      `처음 다루는 Morpheus/MSP와 Spring 레거시 환경에서 교육이력·BMSW·MSDS·마일리지 4개 모듈을 개발했습니다.\n\n교육 영상 플레이어는 처음 맡은 기능이라 확인할 부분이 많았습니다. 건너뛰기와 배속을 막고, 화면을 벗어나면 재생을 멈춰야 했습니다. 가로 전체 화면에서는 상·하단 바도 숨겨야 했습니다. MSDS QR은 기본 카메라로 스캔해 로그인 없이 열려야 했습니다.`,
     solution:
-      `네 모듈의 웹뷰와 Spring 백엔드 기능을 개발하고, MyBatis Mapper와 Oracle SQL로 데이터 처리를 구현했습니다. 공지·문의·자료·증빙, MSDS 조회와 마일리지 신청 등 현장 업무 기능을 만들고 화면 작성 규칙도 정리했습니다.\n\n교육 동영상 플레이어는 처음 개발하는 기능이라 브라우저 정책과 HTTP 헤더, Range 응답 방식을 찾아보며 구현했습니다. 웹뷰와 네이티브 동작을 연결해 재생 제한과 가로 전체 화면을 적용하고, Spring Controller에서 요청 범위에 맞춰 영상 데이터를 응답하도록 했습니다. JMeter도 처음 사용해 실제 시청 흐름을 반영한 시나리오를 구성하고, 50명·100명·150명 조건에서 응답시간과 오류 여부, 처리량을 확인했습니다.\n\nMSDS QR은 앱 전용 딥링크 대신 기본 카메라가 열 수 있는 URL로 연결했습니다. 해당 .do 경로만 Spring Security에서 로그인 없이 허용하고, 기존 Morpheus 백엔드에서 JSP 페이지를 열도록 구성했습니다.`,
+      `교육 동영상 플레이어는 처음 맡은 기능이라 브라우저 정책과 HTTP 헤더, Range 응답 방식을 확인하며 구현했습니다. 건너뛰기와 배속을 제한하고 화면을 벗어나면 재생을 중단하도록 처리했습니다. 가로 전체 화면에서는 네이티브 영역과 연동해 상·하단 바를 숨겼습니다. Spring Controller에서 Range 요청에 맞춰 영상 응답 범위를 처리하고, 실제 시청 흐름을 반영한 JMeter 시나리오로 50명·100명·150명 조건의 응답시간, 오류 여부, 처리량을 확인했습니다.\n\nMSDS QR은 앱 설치나 로그인이 필요한 딥링크 대신 기본 카메라에서 열 수 있는 URL로 구성했습니다. 해당 .do 경로만 Spring Security에서 비로그인 접근을 허용하고, Morpheus 백엔드의 JSP 화면으로 연결했습니다.`,
     outcomes: [
-      '한화오션 안전혁신과제 4개 모바일 모듈의 웹뷰와 Spring 백엔드 기능 개발',
-      'Spring Controller 기반 영상 Range 처리 구현',
-      '동시 사용자 50명·100명·150명 조건에서 응답시간, 오류 여부, 처리량 확인',
       '운영 반영 후 큰 재생 오류 없이 동작',
     ],
     tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus', 'JavaScript', 'JMeter'],
