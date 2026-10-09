@@ -23,11 +23,10 @@ function Hero() {
             <p className="section-eyebrow">Server Developer · Java / Spring / Product</p>
             <h1 className="mt-4 text-[2.625rem] font-semibold tracking-normal text-slate-950 sm:text-[3.25rem]">조윤호</h1>
             <p className="mt-5 max-w-2xl text-[1.1875rem] leading-8 text-slate-800">
-              처음 보는 시스템도 흐름을 파악해 기능으로 구현해왔습니다.
+              처음 맡는 시스템도 구조부터 익혀 필요한 기능을 만들어왔습니다.
             </p>
             <p className="copy mt-4 max-w-2xl">
-              Java/Spring 백엔드 개발을 중심으로 모바일 웹뷰와 API 연동 기능도 맡아왔습니다.
-              여러 프로젝트를 경험하며 서버와 데이터 처리를 중심으로 경력을 쌓고 있습니다.
+              Java/Spring 백엔드 개발을 중심으로 웹·모바일 기능과 API 연동도 경험했습니다.
             </p>
             <div className="mt-7 space-y-3">
               <div className="flex flex-wrap items-center gap-2">
