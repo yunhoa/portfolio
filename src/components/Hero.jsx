@@ -61,9 +61,9 @@ function Hero() {
               </div>
               <div className="grid gap-2 px-4 py-3 sm:grid-cols-[5.75rem_1fr] sm:gap-4">
                 <dt className="meta-label pt-0.5">학력</dt>
-                <dd className="min-w-0 leading-6 text-slate-800">
-                  경민대학교 컴퓨터소프트웨어
-                  <span className="text-slate-500"> · 재학기간 2019.03 – 2025.02 · 학점 3.94 / 4.5</span>
+                <dd className="min-w-0 space-y-1 leading-6 text-slate-800">
+                  <p>경민대학교 · 컴퓨터소프트웨어과</p>
+                  <p className="text-slate-500">재학기간 2019.03 – 2025.02 · 학점 3.94 / 4.5</p>
                 </dd>
               </div>
               <div className="grid gap-2 px-4 py-3 sm:grid-cols-[5.75rem_1fr] sm:gap-4">
