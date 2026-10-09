@@ -137,7 +137,7 @@ export const projects = [
     problem:
       '관리자 통계 기능에 Google Analytics Data API를 연동했습니다. 개발 서버에서는 정상 호출됐지만 폐쇄망 운영 서버에서는 API 호출이 실패했습니다.',
     solution:
-      'Spring Boot에서 통계 조회 API를 만들고 Thymeleaf 화면에서 확인할 수 있게 구성했습니다. 운영 반영 과정에서 외부 API 호출이 실패해 애플리케이션 코드, 폐쇄망 서버, 방화벽, DMZ 구간을 나누어 확인했습니다. 이후 DMZ Apache Proxy를 통한 연동 경로를 적용해 기존 관리자 화면 구조를 크게 바꾸지 않고 운영 환경에서도 통계 데이터를 조회할 수 있도록 구성했습니다.',
+      'Spring Boot에서 통계 조회 API를 만들고 Thymeleaf 화면에서 확인할 수 있게 구성했습니다. 운영 반영 과정에서 외부 API 호출이 실패해 애플리케이션 코드, 폐쇄망 서버, 방화벽, DMZ 구간을 나누어 확인했습니다. DMZ Apache Proxy를 통해 외부 API 호출 경로를 구성했고, 폐쇄망 운영 서버에서도 Google Analytics 통계 데이터를 조회할 수 있도록 수정했습니다.',
     outcomes: [
       '관리자 통계 조회 API와 Thymeleaf 화면 개발',
       '폐쇄망 운영 환경에서 DMZ Proxy를 통한 Google Analytics 데이터 조회 경로 적용',

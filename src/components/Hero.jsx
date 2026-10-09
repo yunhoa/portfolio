@@ -20,7 +20,7 @@ function Hero() {
       <div className="section-shell pt-14 lg:pt-20">
         <div className="grid gap-8 lg:grid-cols-[0.98fr_1.02fr] lg:items-end">
           <div>
-            <p className="section-eyebrow">Server Developer · Java / Spring / Product</p>
+            <p className="section-eyebrow">Server Developer · Java / Spring</p>
             <h1 className="mt-4 text-[2.625rem] font-semibold tracking-normal text-slate-950 sm:text-[3.25rem]">조윤호</h1>
             <p className="mt-5 max-w-2xl text-[1.1875rem] leading-8 text-slate-800">
               Java/Spring 기반으로 서버와 API를 개발해왔습니다.
