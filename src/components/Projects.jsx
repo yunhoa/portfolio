@@ -118,13 +118,13 @@ function ProjectDetail({ project }) {
         {showProblemSections && project.problem && (
           <div>
             <h4 className="text-sm font-semibold text-blue-700">문제</h4>
-            <p className="copy mt-3">{project.problem}</p>
+            <p className="copy mt-3 whitespace-pre-line">{project.problem}</p>
           </div>
         )}
         {showProblemSections && project.solution && (
           <div>
             <h4 className="text-sm font-semibold text-blue-700">문제 해결 포인트</h4>
-            <p className="copy mt-3">{project.solution}</p>
+            <p className="copy mt-3 whitespace-pre-line">{project.solution}</p>
           </div>
         )}
       </div>

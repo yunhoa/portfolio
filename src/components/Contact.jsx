@@ -13,13 +13,7 @@ function Contact() {
           <p className="section-eyebrow">Contact</p>
           <div className="mt-4 grid gap-6">
             <div>
-              <h2 className="section-title mt-0">
-                프로젝트 이야기가 더 궁금하시다면 편하게 연락 주세요.
-              </h2>
-              <p className="copy mt-4">
-                Java / Spring 백엔드를 중심으로 API 연동, MyBatis와 SQL 기반 데이터 처리, 운영 시스템 유지보수,
-                Morpheus 모바일 웹뷰, Range 기반 동영상 응답, JMeter 부하테스트, FastAPI 검색 API 프로젝트를 경험했습니다.
-              </p>
+              <h2 className="section-title mt-0">연락은 이메일로 부탁드립니다.</h2>
             </div>
 
             <div className="grid gap-4 lg:grid-cols-[1fr_0.9fr] lg:items-start">
@@ -39,7 +33,7 @@ function Contact() {
                   <div>
                     <p className="text-sm font-semibold text-blue-700">Learning Record</p>
                     <p className="copy mt-2 text-slate-700">
-                      필요한 기술이 생기면 강의로 기본을 잡고 바로 프로젝트에 적용하는 방식으로 익혀왔습니다.
+                      프로젝트에서 필요했던 기술을 찾아 공부하고 실제 작업에 적용했습니다.
                     </p>
                   </div>
                 </div>

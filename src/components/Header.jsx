@@ -1,14 +1,44 @@
+import { useEffect, useState } from 'react';
+
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Contact', href: '#contact' },
 ];
 
 function Header() {
+  const [visible, setVisible] = useState(true);
+
+  useEffect(() => {
+    let previousY = window.scrollY;
+
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      if (currentY < 64) {
+        setVisible(true);
+        previousY = currentY;
+        return;
+      }
+
+      if (Math.abs(currentY - previousY) > 12) {
+        setVisible(currentY < previousY);
+        previousY = currentY;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
-      <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-6 lg:px-8">
+    <header
+      onFocusCapture={() => setVisible(true)}
+      className={`sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur transition-[transform,opacity] duration-300 ease-out motion-reduce:transition-none ${
+        visible ? 'translate-y-0 opacity-100' : 'pointer-events-none -translate-y-full opacity-0'
+      }`}
+    >
+      <nav aria-label="주요 메뉴" className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-5 sm:px-6 lg:px-8">
         <a href="#top" className="text-base font-semibold text-slate-950">
           조윤호
         </a>

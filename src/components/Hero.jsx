@@ -1,9 +1,10 @@
 import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
 
-const coreKeywords = ['Java', 'Spring', 'MyBatis', 'SQL', 'REST API', 'Oracle'];
+const coreKeywords = ['Java', 'Spring', 'MyBatis', 'SQL', 'REST API'];
 
 const extendedKeywords = [
   'PostgreSQL',
+  'Oracle',
   'JMeter',
   'Apache HTTP Server',
   'Morpheus',
@@ -21,12 +22,11 @@ function Hero() {
             <p className="section-eyebrow">Server Developer · Java / Spring / Product</p>
             <h1 className="mt-4 text-[2.625rem] font-semibold tracking-normal text-slate-950 sm:text-[3.25rem]">조윤호</h1>
             <p className="mt-5 max-w-2xl text-[1.1875rem] leading-8 text-slate-800">
-              요청과 데이터 흐름을 따라 문제를 확인하는 서버 개발자입니다.
+              처음 보는 시스템도 흐름을 파악해 기능으로 구현해왔습니다.
             </p>
             <p className="copy mt-4 max-w-2xl">
-              여러 SI 프로젝트와 연구 과제에서 Spring Boot, Spring Framework, MyBatis, SQL, REST API 기반
-              기능을 개발해왔습니다. 기능이 화면에서 동작하는 것에만 맞추기보다 요청/응답, 서버 로직, DB,
-              외부 API, 운영 환경까지 흐름을 나누어 확인하고 실제 사용 조건에서 어떻게 동작하는지 보려고 합니다.
+              Java/Spring 백엔드 개발을 중심으로 모바일 웹뷰와 API 연동 기능도 맡아왔습니다.
+              여러 프로젝트를 경험하며 서버와 데이터 처리를 중심으로 경력을 쌓고 있습니다.
             </p>
             <div className="mt-7 space-y-3">
               <div className="flex flex-wrap items-center gap-2">
