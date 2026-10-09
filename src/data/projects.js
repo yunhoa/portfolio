@@ -9,7 +9,9 @@ export const projects = [
     period: '2026.01 ~ 2026.07',
     tags: ['Backend', 'AI Search', 'RAG', 'VectorDB'],
     summary:
-      '노후 건축물의 안전정보를 자연어로 검색할 수 있도록 FastAPI 기반 검색 기능을 개발했습니다.',
+      '건축물 안전정보를 대상으로 문서 검색과 RAG 응답을 처리하는 API를 개발했습니다.',
+    background:
+      '광역단위 노후 건축물 디지털 안전워치 플랫폼에서 건축물 스마트검색 서비스를 만드는 연구과제입니다.',
     highlights: [
       'FastAPI 기반 자연어 검색 API 구현',
       'PostgreSQL / PGVector 벡터 검색 적용',
@@ -105,7 +107,9 @@ export const projects = [
     period: '2025.01 ~ 2025.07',
     tags: ['Backend', 'SM / 운영', 'Platform Maintenance'],
     summary:
-      '경남 창원시 3D 산단 디지털 플랫폼을 유지관리하며 Spring Boot 기반 관리자 기능, 추가 API, 통계 조회 화면과 외부 API 연동을 개발했습니다.',
+      '경남 창원시 3D 산단 디지털 플랫폼을 유지관리하며 관리자 기능과 통계 조회 기능을 개발했습니다.',
+    background:
+      '창원시 산업단지 정보를 3D 디지털 트윈으로 확인하는 플랫폼의 유지관리 프로젝트입니다.',
     highlights: [
       'Spring Boot 관리자 기능과 추가 API 개발',
       'JPA 기반 기능 개발 및 PostgreSQL 데이터 조회',
@@ -142,7 +146,9 @@ export const projects = [
     period: '2026.06.15 ~ 2026.12 예정',
     tags: ['Backend', 'Morpheus', 'Spring Legacy', 'MyBatis'],
     summary:
-      '현장에서 수기로 하던 안전·교육·작업 업무를 모바일 시스템으로 옮기는 과제입니다.',
+      'Morpheus/MSP 모바일 웹뷰와 Spring 백엔드로 안전·교육·작업 기능을 개발했습니다.',
+    background:
+      '한화오션 현장에서 수기로 처리하던 안전·교육·작업 업무를 모바일 시스템으로 전환하는 과제입니다.',
     highlights: [
       '교육이력 / BMSW / MSDS / 마일리지 4개 모바일 모듈 개발',
       'Spring Framework / MyBatis / Oracle 기반 백엔드 기능 개발',
@@ -160,7 +166,7 @@ export const projects = [
       'JMeter 테스트 환경과 실제 시청 흐름 기반 시나리오 구성, 50명 / 100명 / 150명 동시 사용자 조건 확인',
     ],
     problem:
-      `현장에서 수기로 하던 안전·교육·작업 업무를 모바일 시스템으로 옮기는 과제였습니다. 처음 다루는 Morpheus/MSP와 Spring 레거시 환경에서 교육이력·BMSW·MSDS·마일리지 4개 모듈을 개발했습니다.\n\n교육 영상 플레이어는 처음 맡은 기능이라 확인할 부분이 많았습니다. 건너뛰기와 배속을 막고, 화면을 벗어나면 재생을 멈춰야 했습니다. 가로 전체 화면에서는 상·하단 바도 숨겨야 했습니다. MSDS QR은 기본 카메라로 스캔해 로그인 없이 열려야 했습니다.`,
+      `처음 다루는 Morpheus/MSP와 Spring 레거시 환경에서 교육이력·BMSW·MSDS·마일리지 4개 모듈을 개발했습니다.\n\n교육 영상 플레이어는 처음 맡은 기능이라 확인할 부분이 많았습니다. 건너뛰기와 배속을 막고, 화면을 벗어나면 재생을 멈춰야 했습니다. 가로 전체 화면에서는 상·하단 바도 숨겨야 했습니다. MSDS QR은 기본 카메라로 스캔해 로그인 없이 열려야 했습니다.`,
     solution:
       `네 모듈의 웹뷰와 Spring 백엔드 기능을 개발하고, MyBatis Mapper와 Oracle SQL로 데이터 처리를 구현했습니다. 공지·문의·자료·증빙, MSDS 조회와 마일리지 신청 등 현장 업무 기능을 만들고 화면 작성 규칙도 정리했습니다.\n\n교육 동영상 플레이어는 처음 개발하는 기능이라 브라우저 정책과 HTTP 헤더, Range 응답 방식을 찾아보며 구현했습니다. 웹뷰와 네이티브 동작을 연결해 재생 제한과 가로 전체 화면을 적용하고, Spring Controller에서 요청 범위에 맞춰 영상 데이터를 응답하도록 했습니다. JMeter도 처음 사용해 실제 시청 흐름을 반영한 시나리오를 구성하고, 50명·100명·150명 조건에서 응답시간과 오류 여부, 처리량을 확인했습니다.\n\nMSDS QR은 앱 전용 딥링크 대신 기본 카메라가 열 수 있는 URL로 연결했습니다. 해당 .do 경로만 Spring Security에서 로그인 없이 허용하고, 기존 Morpheus 백엔드에서 JSP 페이지를 열도록 구성했습니다.`,
     outcomes: [
@@ -179,7 +185,9 @@ export const projects = [
     period: '2024.09 ~ 2025.03',
     tags: ['Mobile', 'API Integration', 'Operations'],
     summary:
-      '인턴 기간부터 참여해 한화토탈에너지스 공장 작업자 안전 지원 모바일 앱의 기능 개발과 Android/iOS 배포를 맡았습니다.',
+      'Apache Cordova 기반 모바일 기능을 개발하고 Android/iOS 앱 배포를 맡았습니다.',
+    background:
+      '한화토탈에너지스 공장 작업자가 공지사항과 대피소 위치, 작업자 위치 정보를 확인하는 안전 지원 앱입니다.',
     highlights: [
       'Apache Cordova 기반 모바일 웹뷰 기능 개발',
       'REST API 연동 및 작업자 안전 기능 구현',
@@ -196,7 +204,7 @@ export const projects = [
       'Firebase 연동 및 모바일 운영 이슈 대응',
     ],
     problem:
-      '현장 작업자가 공지사항, 대피소 위치, 작업자 위치 정보를 모바일에서 확인해야 했고, 위치 수집 기능은 WebView만으로 처리하기 어려워 Android/iOS 권한 정책과 네이티브 기능 연동이 필요했습니다.',
+      '백그라운드 위치 수집은 WebView만으로 처리하기 어려웠고, Android/iOS의 권한 정책에 맞춘 네이티브 기능 연동이 필요했습니다.',
     solution:
       'Cordova 기반으로 WebView 화면을 개발하고 REST API를 연동했습니다. 위치 수집은 Background Geolocation과 네이티브 영역을 연결해 처리했으며, Android/iOS 빌드와 스토어 배포 과정에서 인증서, 권한, 로그인 흐름, 앱 실행 이슈를 실제 단말 기준으로 확인하며 대응했습니다.',
     outcomes: [

@@ -5,7 +5,9 @@ export const visualWorks = [
     badge: '3D 공간 화면',
     period: '2025.01.01 ~ 2025.12.31',
     summary:
-      '병원 공간 데이터, GLB 3D 모델, 운영 정보, 서비스 로봇 위치 API를 연결해 로봇 위치와 상태를 화면에서 확인할 수 있게 만든 작업입니다.',
+      '실제 병원에서 운행되는 서비스 로봇의 위치 API를 연동해 3D 공간에 표시했습니다.',
+    background:
+      '외래·병동 운영 최적화를 위해 병원 공간과 운영 데이터를 디지털 트윈으로 연결하는 메디컬트윈 연구과제입니다.',
     highlights: ['서비스 로봇 API 연동', '원지도-GLB 좌표 정합', '층별·로봇 유형별 위치 보정'],
     details: [
       '병원 서비스 로봇 API 구조 분석 및 Access Token 인증 처리',
@@ -41,6 +43,8 @@ export const visualWorks = [
     period: '2025.01.01 ~ 2025.12.31',
     summary:
       'React 기반 3D 공장 화면에서 GLB 설비 모델과 InfluxDB 시계열 데이터를 연결해 설비 상태를 확인할 수 있도록 개발했습니다.',
+    background:
+      '반도체 제조공정 상태를 실시간 모니터링하고 공정 최적화를 지원하는 디지털 트윈 연구과제입니다.',
     highlights: [
       'React Three Fiber 기반 3D 공장 화면 개발',
       'InfluxDB 설비 데이터 조회 및 화면 표시',

@@ -10,6 +10,7 @@ const visualProjects = visualWorks.map((work) => ({
   period: work.period,
   tags: [work.badge],
   summary: work.summary,
+  background: work.background,
   highlights: work.highlights,
   role: work.details,
   problem: work.problem,
