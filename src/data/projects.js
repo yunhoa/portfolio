@@ -184,7 +184,7 @@ export const projects = [
     solution:
       `교육 동영상 플레이어는 처음 맡은 기능이라 브라우저 정책과 HTTP 헤더, Range 응답 방식을 확인하며 구현했습니다. 건너뛰기와 배속을 제한하고 화면을 벗어나면 재생을 중단하도록 처리했습니다. 가로 전체 화면에서는 네이티브 영역과 연동해 상·하단 바를 숨겼습니다. Spring Controller에서 Range 요청에 맞춰 영상 응답 범위를 처리하고, 실제 시청 흐름을 반영한 JMeter 시나리오로 50명·100명·150명 조건의 응답시간, 오류 여부, 처리량을 확인했습니다.\n\nMSDS QR은 앱 설치나 로그인이 필요한 딥링크 대신 기본 카메라에서 열 수 있는 URL로 구성했습니다. 해당 .do 경로만 Spring Security에서 비로그인 접근을 허용하고, Morpheus 백엔드의 JSP 화면으로 연결했습니다.`,
     outcomes: [
-      'JMeter 시나리오에서 동시 사용자 50명·100명·150명 조건별 응답시간, 오류 여부, 처리량을 확인',
+      '한화오션 협력사와 임직원이 수기로 처리하던 안전·교육·작업 업무를 모바일 앱으로 전환하고 관련 4개 모듈을 구현',
     ],
     tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus', 'JavaScript', 'JMeter'],
   },
