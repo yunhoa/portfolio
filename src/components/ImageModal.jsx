@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-function ImageModal({ image, alt, onClose }) {
+function ImageModal({ image, alt, maskBottom = false, onClose }) {
   useEffect(() => {
     if (!image) {
       return undefined;
@@ -35,7 +35,7 @@ function ImageModal({ image, alt, onClose }) {
       aria-label="이미지 확대 보기"
       onClick={onClose}
     >
-      <div className="relative max-h-full w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
+      <div className="relative max-h-full w-full max-w-6xl overflow-hidden" onClick={(event) => event.stopPropagation()}>
         <button
           type="button"
           onClick={onClose}
@@ -48,6 +48,7 @@ function ImageModal({ image, alt, onClose }) {
           alt={alt}
           className="max-h-[82vh] w-full rounded-lg border border-white/15 bg-white object-contain shadow-2xl"
         />
+        {maskBottom && <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[8%] bg-white" />}
       </div>
     </div>
   );

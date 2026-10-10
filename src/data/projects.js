@@ -13,10 +13,13 @@ import b2bOverviewSchedule from '../assets/b2b-overview-schedule.png';
 import b2bOperationsDashboard from '../assets/b2b-operations-dashboard.png';
 import mySafetyAppStore from '../assets/mysafety-app-store.png';
 import mySafetyPlayStore from '../assets/mysafety-play-store.png';
-import seoulCourseMain from '../assets/seoul-date-course-main.png';
-import seoulCoursePlace from '../assets/seoul-date-course-place.png';
-import seoulCourseRoute from '../assets/seoul-date-course-route.png';
-import seoulCourseFeed from '../assets/seoul-date-course-feed.png';
+import seoulHereDiagram from '../assets/seoulhere-aws-topology.svg';
+import seoulHereUseCases from '../assets/seoulhere-use-cases-clean.svg';
+import seoulHereDataModel from '../assets/seoulhere-data-model-clean.svg';
+import seoulHereCapture01 from '../assets/seoulhere-capture-01.png';
+import seoulHereCapture02 from '../assets/seoulhere-capture-02.png';
+import seoulHereCapture03 from '../assets/seoulhere-capture-03.png';
+import seoulHereCapture04 from '../assets/seoulhere-capture-04.png';
 
 export const projects = [
   {
@@ -364,23 +367,30 @@ export const projects = [
     ],
   },
   {
-    title: '서울 데이트코스 추천 웹 서비스',
+    title: '서울에서 뭐하고 놀지?',
     category: '캡스톤 프로젝트',
     group: 'personal',
     domain: 'Web Service / Public API',
     tags: ['Spring Boot', 'React', 'Public API'],
-    organization: '2024 관광데이터 활용 공모전',
+    period: '2024.07.01 ~ 2024.09.30',
+    organization: '첫 프로젝트 · 교내 캡스톤디자인 경진대회 동상',
+    diagram: seoulHereDiagram,
+    diagramAlt: '사용자 요청이 Nginx를 거쳐 Spring Boot로 전달되고, 내장 React 화면과 API가 AWS DB 및 EC2 파일 저장소를 사용하는 구조',
     screenshots: [
-      { label: '서울 지역과 관심 장소 선택', src: seoulCourseMain, frameClass: 'aspect-[9/16]' },
-      { label: '장소 상세와 지도', src: seoulCoursePlace, frameClass: 'aspect-[4/3]' },
-      { label: '코스 이동 경로와 소요 시간', src: seoulCourseRoute, frameClass: 'aspect-[9/16]' },
-      { label: '추천 코스 화면', src: seoulCourseFeed, frameClass: 'aspect-[9/16]' },
+      { label: '서울 지역·관심 카테고리 선택', src: seoulHereCapture01, frameClass: 'h-[320px] sm:h-[360px]', maskBottom: true },
+      { label: '장소 상세와 지도', src: seoulHereCapture02, frameClass: 'h-[320px] sm:h-[360px]' },
+      { label: '코스 이동 경로', src: seoulHereCapture03, frameClass: 'h-[320px] sm:h-[360px]', maskBottom: true },
+      { label: '사용자 코스 피드', src: seoulHereCapture04, frameClass: 'h-[320px] sm:h-[360px] max-w-[144px] mx-auto' },
+    ],
+    referenceImages: [
+      { label: '유스케이스', src: seoulHereUseCases, alt: '사용자·관리자·관광 API 기능 유스케이스' },
+      { label: '테이블 관계', src: seoulHereDataModel, alt: '회원, 코스, 장소, 리뷰와 관련 테이블 관계도' },
     ],
     summary:
       '서울의 구 단위 지역과 관심 카테고리를 기준으로 친구 또는 연인을 위한 데이트 코스를 추천하고, 사용자가 직접 만든 코스를 공유할 수 있게 만든 웹 서비스입니다.',
     highlights: ['구/카테고리 기반 코스 추천', '도보·대중교통 이동 경로 제공', '사용자 코스 공유 및 리뷰'],
     background:
-      '서울에서 새로운 데이트 코스를 찾을 때 장소를 하나씩 검색하고 이동 경로를 따로 확인해야 하는 불편함을 줄이기 위해 기획했습니다. 관광공사 데이터를 기반으로 추천 코스를 만들고, 사용자가 알고 있는 장소나 맛집을 직접 코스로 구성해 공유할 수 있도록 구성했습니다.',
+      '대학교 캡스톤으로 처음 만든 웹 프로젝트입니다. 서울에서 데이트 코스를 찾을 때 장소와 이동 경로를 따로 검색해야 하는 불편을 줄이기 위해, 관광공사 데이터를 활용한 추천과 사용자가 직접 만드는 코스 공유 기능을 기획했습니다.',
     role: [
       'Spring Boot 기반 장소 추천 및 코스 조회 API 작성',
       'JPA 기반 장소 데이터 조회 처리 구성',
@@ -391,6 +401,9 @@ export const projects = [
       'Kakao OAuth2 기반 소셜 로그인 연동',
       'JSON 데이터에서 장소명, 좌표 등 필요한 값 추출',
       '반응형 화면 및 공용 스타일 정리',
+      'React 빌드 결과물을 Spring Boot에 포함해 함께 배포',
+      'AWS EC2에서 Nginx Reverse Proxy를 구성해 context path 요청을 Spring Boot로 전달',
+      'AWS DB 연동 및 EC2 서버 파일시스템을 이용한 파일 저장',
     ],
     problem:
       '사용자는 장소 추천, 이동 경로, 소요 시간, 리뷰를 각각 다른 서비스에서 확인해야 했습니다. 또한 같은 장소라도 방문 순서에 따라 이동 시간과 코스 만족도가 달라질 수 있어, 단순 장소 목록이 아니라 실제 이동 가능한 코스 형태로 보여줄 필요가 있었습니다.',
@@ -400,6 +413,7 @@ export const projects = [
       '구/카테고리 기반 데이트 코스 추천부터 지도 경로 안내까지 동작하는 웹 서비스 완성',
       '사용자 수동 코스 구성, 저장, 공유, 리뷰 흐름 구현',
       '2024 관광데이터 활용 공모전 출품',
+      '교내 캡스톤디자인 경진대회 동상 수상',
     ],
     tech: [
       'Java',
@@ -416,6 +430,9 @@ export const projects = [
       'JSON',
       'Responsive Web',
       'UI/UX',
+      'AWS EC2',
+      'Nginx',
+      'AWS DB',
     ],
   },
 ];

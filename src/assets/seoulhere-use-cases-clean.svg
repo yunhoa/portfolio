@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="920" viewBox="0 0 1600 920" role="img" aria-labelledby="title desc">
+  <title id="title">서울에서 뭐하고 놀지? 유스케이스</title>
+  <desc id="desc">사용자, 관리자, 관광 API가 사용하는 주요 기능을 정리한 유스케이스 다이어그램</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#e6eeeb" stroke-width="1"/>
+    </pattern>
+    <marker id="uc-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M1 1L8 5L1 9" fill="none" stroke="#718783" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="920" rx="22" fill="#f5f8f6"/>
+  <rect width="1600" height="920" rx="22" fill="url(#grid)" opacity=".55"/>
+  <g font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" fill="#26383a">
+    <text x="80" y="85" font-size="22" font-weight="700" fill="#527f79">SEOUL HERE · USE CASES</text>
+    <text x="80" y="130" font-size="32" font-weight="700">서울에서 뭐하고 놀지?</text>
+    <rect x="340" y="175" width="920" height="650" rx="18" fill="#ffffff" stroke="#94aaa5" stroke-width="3"/>
+    <text x="800" y="220" text-anchor="middle" font-size="22" font-weight="700" fill="#527f79">데이트 코스 서비스</text>
+
+    <rect x="390" y="265" width="410" height="510" rx="14" fill="#f8fbf9" stroke="#dce5e1" stroke-width="2"/>
+    <text x="425" y="310" font-size="19" font-weight="700" fill="#527f79">회원 기능</text>
+    <rect x="435" y="345" width="320" height="72" rx="36" fill="#edf4f1" stroke="#aac6bf" stroke-width="2"/>
+    <text x="595" y="390" text-anchor="middle" font-size="19">회원가입 · 로그인/로그아웃</text>
+    <rect x="435" y="450" width="320" height="72" rx="36" fill="#edf4f1" stroke="#aac6bf" stroke-width="2"/>
+    <text x="595" y="495" text-anchor="middle" font-size="19">데이트 코스 작성</text>
+    <rect x="435" y="555" width="320" height="72" rx="36" fill="#edf4f1" stroke="#aac6bf" stroke-width="2"/>
+    <text x="595" y="600" text-anchor="middle" font-size="19">마이페이지 · 코스 관리</text>
+    <rect x="435" y="660" width="320" height="72" rx="36" fill="#edf4f1" stroke="#aac6bf" stroke-width="2"/>
+    <text x="595" y="705" text-anchor="middle" font-size="19">코스·장소 리뷰 작성</text>
+
+    <rect x="835" y="265" width="380" height="510" rx="14" fill="#fbf8f5" stroke="#e5d8cf" stroke-width="2"/>
+    <text x="870" y="310" font-size="19" font-weight="700" fill="#a57967">관리·연동 기능</text>
+    <rect x="875" y="365" width="300" height="82" rx="12" fill="#f8f1ec" stroke="#dec7b9" stroke-width="2"/>
+    <text x="1025" y="415" text-anchor="middle" font-size="19">회원 정보 관리</text>
+    <rect x="875" y="490" width="300" height="82" rx="12" fill="#f8f1ec" stroke="#dec7b9" stroke-width="2"/>
+    <text x="1025" y="540" text-anchor="middle" font-size="19">통계 정보 조회</text>
+    <rect x="875" y="615" width="300" height="100" rx="12" fill="#f8f1ec" stroke="#dec7b9" stroke-width="2"/>
+    <text x="1025" y="655" text-anchor="middle" font-size="18">장소 · 카테고리 관리</text>
+    <text x="1025" y="685" text-anchor="middle" font-size="15" fill="#687779">관광 데이터 연계</text>
+
+    <rect x="70" y="370" width="190" height="110" rx="14" fill="#ffffff" stroke="#cbd9d5" stroke-width="2"/>
+    <circle cx="165" cy="405" r="14" fill="#527f79"/>
+    <path d="M137 455c4-25 52-25 56 0" fill="none" stroke="#527f79" stroke-width="7" stroke-linecap="round"/>
+    <text x="165" y="510" text-anchor="middle" font-size="19" font-weight="700">사용자</text>
+
+    <rect x="1340" y="350" width="190" height="110" rx="14" fill="#ffffff" stroke="#d9c6b9" stroke-width="2"/>
+    <circle cx="1435" cy="385" r="14" fill="#bd806f"/>
+    <path d="M1407 435c4-25 52-25 56 0" fill="none" stroke="#bd806f" stroke-width="7" stroke-linecap="round"/>
+    <text x="1435" y="490" text-anchor="middle" font-size="19" font-weight="700">관리자</text>
+
+    <rect x="1340" y="610" width="190" height="110" rx="14" fill="#ffffff" stroke="#d9c6b9" stroke-width="2"/>
+    <rect x="1413" y="642" width="44" height="33" rx="4" fill="#bd806f"/>
+    <path d="M1420 650h30M1420 659h30M1420 668h20" stroke="#fff" stroke-width="2"/>
+    <text x="1435" y="750" text-anchor="middle" font-size="19" font-weight="700">관광 API</text>
+
+    <path d="M260 425H330V380H425M330 425V485H425M330 485V590H425M330 590V695H425" fill="none" stroke="#718783" stroke-width="2" marker-end="url(#uc-arrow)"/>
+    <path d="M1340 405H1285V405H1185M1285 405V530H1185" fill="none" stroke="#9a8173" stroke-width="2" marker-end="url(#uc-arrow)"/>
+    <path d="M1340 665H1285V665H1185" fill="none" stroke="#9a8173" stroke-width="2" marker-end="url(#uc-arrow)"/>
+  </g>
+</svg>

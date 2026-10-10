@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="760" viewBox="0 0 1600 760" role="img" aria-labelledby="title desc">
+  <title id="title">서울에서 뭐하고 놀지 AWS 서비스 구성</title>
+  <desc id="desc">사용자 브라우저 요청이 AWS EC2의 Nginx를 거쳐 context path 기준으로 Spring Boot에 전달된다. Spring Boot는 내장 React 화면과 API를 제공하고, 데이터는 AWS DB에, 파일은 EC2 서버 파일시스템에 저장한다.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1 1 L10 6 L1 11" fill="none" stroke="#58736f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-muted" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1 1 L10 6 L1 11" fill="none" stroke="#9a8173" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="760" fill="#fff"/>
+
+  <g font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif" fill="#26383a">
+    <rect x="45" y="300" width="205" height="150" rx="12" fill="#f5f8f6" stroke="#cbd9d5" stroke-width="2"/>
+    <text x="147" y="355" text-anchor="middle" font-size="23" font-weight="700">사용자</text>
+    <text x="147" y="393" text-anchor="middle" font-size="17" fill="#687779">웹 브라우저</text>
+    <text x="147" y="422" text-anchor="middle" font-size="15" fill="#687779">화면 요청 · 파일 업로드</text>
+
+    <rect x="330" y="90" width="910" height="575" rx="18" fill="#fbfcfb" stroke="#91aaa4" stroke-width="3"/>
+    <text x="370" y="135" font-size="21" font-weight="700" fill="#527f79">AWS EC2</text>
+    <text x="1200" y="135" text-anchor="end" font-size="15" fill="#687779">애플리케이션 실행 서버</text>
+
+    <rect x="405" y="185" width="500" height="90" rx="10" fill="#fff" stroke="#cbd9d5" stroke-width="2"/>
+    <text x="655" y="222" text-anchor="middle" font-size="19" font-weight="700">Nginx Reverse Proxy</text>
+    <text x="655" y="250" text-anchor="middle" font-size="15" fill="#687779">context path 요청을 Spring Boot로 전달</text>
+
+    <rect x="405" y="320" width="500" height="300" rx="12" fill="#edf4f1" stroke="#9bbcb5" stroke-width="2"/>
+    <text x="655" y="361" text-anchor="middle" font-size="21" font-weight="700">Spring Boot 애플리케이션</text>
+    <rect x="445" y="390" width="420" height="85" rx="9" fill="#fff" stroke="#cbd9d5" stroke-width="2"/>
+    <text x="655" y="425" text-anchor="middle" font-size="19" font-weight="700">React 정적 화면</text>
+    <text x="655" y="451" text-anchor="middle" font-size="15" fill="#687779">React 빌드 결과물을 애플리케이션에 포함</text>
+    <rect x="445" y="500" width="420" height="85" rx="9" fill="#fff" stroke="#cbd9d5" stroke-width="2"/>
+    <text x="655" y="535" text-anchor="middle" font-size="19" font-weight="700">REST API · 서비스 로직</text>
+    <text x="655" y="561" text-anchor="middle" font-size="15" fill="#687779">코스 · 장소 · 회원 · 리뷰 처리</text>
+
+    <rect x="955" y="205" width="235" height="130" rx="10" fill="#fff" stroke="#cbd9d5" stroke-width="2"/>
+    <text x="1072" y="265" text-anchor="middle" font-size="18" font-weight="700">서버 파일 저장소</text>
+    <text x="1072" y="296" text-anchor="middle" font-size="15" fill="#687779">EC2 로컬 파일시스템</text>
+    <text x="1072" y="322" text-anchor="middle" font-size="14" fill="#687779">SSH로 서버에 파일 배치</text>
+
+    <rect x="955" y="430" width="235" height="130" rx="10" fill="#fff" stroke="#cbd9d5" stroke-width="2"/>
+    <text x="1072" y="475" text-anchor="middle" font-size="18" font-weight="700">AWS DB</text>
+    <text x="1072" y="508" text-anchor="middle" font-size="15" fill="#687779">회원 · 코스 · 장소</text>
+    <text x="1072" y="534" text-anchor="middle" font-size="15" fill="#687779">리뷰 · 댓글 · 저장 정보</text>
+
+    <rect x="1320" y="260" width="235" height="235" rx="12" fill="#fbf7f3" stroke="#d9c6b9" stroke-width="2"/>
+    <text x="1437" y="305" text-anchor="middle" font-size="19" font-weight="700">외부 서비스</text>
+    <text x="1437" y="353" text-anchor="middle" font-size="15" fill="#687779">한국관광공사 API</text>
+    <text x="1437" y="385" text-anchor="middle" font-size="15" fill="#687779">Kakao 로그인</text>
+    <text x="1437" y="417" text-anchor="middle" font-size="15" fill="#687779">TMAP · 서울시 교통 API</text>
+    <text x="1437" y="457" text-anchor="middle" font-size="13" fill="#8a7770">기능별 연동</text>
+
+    <path d="M250 375 H365 V230 H435" fill="none" stroke="#58736f" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="315" y="350" text-anchor="middle" font-size="14" fill="#58736f">서비스 요청</text>
+    <path d="M655 275 V310" fill="none" stroke="#58736f" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="724" y="300" font-size="13" fill="#58736f">경로 전달</text>
+    <path d="M865 535 H930 V270 H945" fill="none" stroke="#9a8173" stroke-width="2.5" marker-end="url(#arrow-muted)"/>
+    <text x="925" y="248" text-anchor="middle" font-size="13" fill="#8a7770">파일 읽기·쓰기</text>
+    <path d="M865 545 H945" fill="none" stroke="#58736f" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <text x="905" y="533" text-anchor="middle" font-size="13" fill="#58736f">쿼리</text>
+    <path d="M1320 385 H1260 V545 H875" fill="none" stroke="#9a8173" stroke-width="2.5" stroke-dasharray="8 7" marker-end="url(#arrow-muted)"/>
+    <text x="1288" y="365" text-anchor="middle" font-size="13" fill="#8a7770">API 연동</text>
+
+    <text x="45" y="710" font-size="14" fill="#687779">Nginx가 context path 요청을 Spring Boot로 전달하고, Spring Boot가 React 화면과 REST API를 함께 제공</text>
+  </g>
+</svg>

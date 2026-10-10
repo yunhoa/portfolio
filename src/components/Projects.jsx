@@ -94,15 +94,16 @@ function ProjectMeta({ project }) {
   );
 }
 
-function ImagePreviewButton({ src, alt, className = '', imageClassName = '', onOpen }) {
+function ImagePreviewButton({ src, alt, className = '', imageClassName = '', maskBottom = false, onOpen }) {
   return (
     <button
       type="button"
-      className={`group block w-full cursor-zoom-in text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${className}`}
-      onClick={() => onOpen({ src, alt })}
+      className={`group relative block w-full cursor-zoom-in text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${className}`}
+      onClick={() => onOpen({ src, alt, maskBottom })}
       aria-label={`${alt} 크게 보기`}
     >
       <img src={src} alt={alt} className={`block h-full w-full object-contain transition group-hover:brightness-[0.97] ${imageClassName}`} loading="lazy" />
+      {maskBottom && <span aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-[8%] bg-slate-50" />}
     </button>
   );
 }
@@ -173,6 +174,32 @@ function ProjectScreenshots({ project, onOpen }) {
               src={item.src}
               alt={`${project.title} - ${item.label}`}
               className={`overflow-hidden border border-slate-200 bg-slate-50 ${item.frameClass || 'aspect-[4/3]'}`}
+              imageClassName={item.maskBottom ? 'object-cover object-top' : ''}
+              maskBottom={item.maskBottom}
+              onOpen={onOpen}
+            />
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function ProjectReferenceImages({ project, onOpen }) {
+  if (!project.referenceImages?.length) return null;
+
+  return (
+    <section className="mt-5 border-t border-slate-200 pt-5" aria-label={`${project.title} 설계 자료`}>
+      <h4 className="text-sm font-semibold text-blue-700">기능·데이터 설계</h4>
+      <div className="mt-3 space-y-5">
+        {project.referenceImages.map((item) => (
+          <figure key={item.label} className="min-w-0">
+            <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
+            <ImagePreviewButton
+              src={item.src}
+              alt={`${project.title} - ${item.alt}`}
+              className="h-auto overflow-hidden border border-slate-200 bg-slate-50"
+              imageClassName="!h-auto"
               onOpen={onOpen}
             />
           </figure>
@@ -295,7 +322,7 @@ function Projects() {
                   <figure className="mx-auto mt-5 max-w-5xl border-t border-slate-200 pt-5">
                     <ImagePreviewButton
                       src={project.diagram}
-                      alt="브라우저 접속부터 DuckDNS, Proxmox, pfSense, KT 공유기, Nginx Proxy Manager를 거쳐 내부 서비스로 연결되는 홈랩 네트워크 구성도"
+                      alt={project.diagramAlt || `${project.title} 구성도`}
                       className="block h-auto w-full"
                       onOpen={setLightboxImage}
                     />
@@ -305,6 +332,7 @@ function Projects() {
                 <p className="copy mt-4 max-w-3xl">{project.summary}</p>
                 <BotScreenshots project={project} onOpen={setLightboxImage} />
                 <ProjectScreenshots project={project} onOpen={setLightboxImage} />
+                <ProjectReferenceImages project={project} onOpen={setLightboxImage} />
                 {project.links && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.links.map((link) => (
@@ -336,6 +364,7 @@ function Projects() {
       <ImageModal
         image={lightboxImage?.src}
         alt={lightboxImage?.alt || ''}
+        maskBottom={lightboxImage?.maskBottom}
         onClose={() => setLightboxImage(null)}
       />
 
