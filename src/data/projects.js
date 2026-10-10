@@ -298,8 +298,8 @@ export const projects = [
     tags: ['React', 'Timeline UI', 'Codex'],
     summary:
       '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
-    previewImage: b2bTimelinePreview,
     screenshots: [
+      { label: '주간 이동·체류 타임라인', src: b2bTimelinePreview, frameClass: 'aspect-[4/3]' },
       { label: '항공 일정', src: b2bFlightSchedule, frameClass: 'aspect-[4/3]' },
       { label: '전체 일정·휴가', src: b2bOverviewSchedule, frameClass: 'aspect-[4/3]' },
       { label: '운영 현황', src: b2bOperationsDashboard, frameClass: 'aspect-[16/9]' },

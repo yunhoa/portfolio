@@ -165,7 +165,7 @@ function ProjectScreenshots({ project, onOpen }) {
       className={`mt-5 border-t border-slate-200 pt-5 ${project.compactScreenshots ? 'mx-auto max-w-5xl' : ''}`}
       aria-label={`${project.title} 화면 캡처`}
     >
-      <div className={`grid gap-4 sm:grid-cols-2 ${project.screenshots.length > 3 ? 'lg:grid-cols-4' : project.screenshots.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
+      <div className={`grid gap-4 sm:grid-cols-2 ${project.compactScreenshots ? 'lg:grid-cols-2' : project.screenshots.length > 3 ? 'lg:grid-cols-4' : project.screenshots.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
         {project.screenshots.map((item) => (
           <figure key={item.label} className="min-w-0">
             <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
@@ -296,16 +296,6 @@ function Projects() {
                     <ImagePreviewButton
                       src={project.diagram}
                       alt="브라우저 접속부터 DuckDNS, Proxmox, pfSense, KT 공유기, Nginx Proxy Manager를 거쳐 내부 서비스로 연결되는 홈랩 네트워크 구성도"
-                      className="block h-auto w-full"
-                      onOpen={setLightboxImage}
-                    />
-                  </figure>
-                )}
-                {project.previewImage && (
-                  <figure className="mx-auto mt-5 max-w-5xl border-t border-slate-200 pt-5">
-                    <ImagePreviewButton
-                      src={project.previewImage}
-                      alt={`${project.title} 익명 샘플 일정 화면`}
                       className="block h-auto w-full"
                       onOpen={setLightboxImage}
                     />
