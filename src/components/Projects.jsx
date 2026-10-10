@@ -109,6 +109,41 @@ function ImagePreviewButton({ src, alt, className = '', imageClassName = '', mas
   );
 }
 
+function ProjectScreenshots({ project, onOpen }) {
+  if (!project.screenshots?.length) return null;
+
+  const columns = project.compactScreenshots
+    ? 'lg:grid-cols-2'
+    : project.screenshots.length > 3
+      ? 'lg:grid-cols-4'
+      : project.screenshots.length === 3
+        ? 'lg:grid-cols-3'
+        : 'lg:grid-cols-2';
+
+  return (
+    <section
+      className={`mt-5 border-t border-slate-200 pt-5 ${project.compactScreenshots ? 'mx-auto max-w-5xl' : ''}`}
+      aria-label={`${project.title} 화면 캡처`}
+    >
+      <div className={`grid gap-4 sm:grid-cols-2 ${columns}`}>
+        {project.screenshots.map((item) => (
+          <figure key={item.label} className="min-w-0">
+            <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
+            <ImagePreviewButton
+              src={item.src}
+              alt={`${project.title} - ${item.label}`}
+              className={`overflow-hidden border border-slate-200 bg-slate-50 ${item.frameClass || 'aspect-[4/3]'}`}
+              imageClassName={item.maskBottom ? 'object-cover object-top' : ''}
+              maskBottom={item.maskBottom}
+              onOpen={onOpen}
+            />
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function BotScreenshots({ project, onOpen }) {
   if (!project.botOverview || !project.botScreenshots?.length) {
     return null;
@@ -372,13 +407,28 @@ function Projects() {
               <div className="border-b border-slate-200 p-5 sm:p-6">
                 <ProjectBadges project={project} />
                 <h3 className="mt-4 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
+                {!project.galleryCompact && project.diagram && (
+                  <figure className="mx-auto mt-5 max-w-5xl border-t border-slate-200 pt-5">
+                    <ImagePreviewButton
+                      src={project.diagram}
+                      alt={project.diagramAlt || `${project.title} 구성도`}
+                      className="block h-auto w-full"
+                      onOpen={setLightboxImage}
+                    />
+                  </figure>
+                )}
                 <ProjectMeta project={project} />
                 <p className="copy mt-4 max-w-3xl">{project.summary}</p>
-                {(project.diagram || project.botOverview || project.screenshots?.length || project.referenceImages?.length) && (
+                {project.galleryCompact ? (
                   <div className="mt-6 space-y-6 border-t border-slate-200 pt-6">
                     <BotScreenshots project={project} onOpen={setLightboxImage} />
                     <ProjectGallery project={project} onOpen={setLightboxImage} />
                   </div>
+                ) : (
+                  <>
+                    <BotScreenshots project={project} onOpen={setLightboxImage} />
+                    <ProjectScreenshots project={project} onOpen={setLightboxImage} />
+                  </>
                 )}
                 {project.links && (
                   <div className="mt-4 flex flex-wrap gap-2">

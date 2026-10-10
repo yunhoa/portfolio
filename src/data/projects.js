@@ -211,6 +211,7 @@ export const projects = [
       { label: 'App Store', src: mySafetyAppStore, frameClass: 'aspect-[4/3]' },
       { label: 'Google Play', src: mySafetyPlayStore, frameClass: 'aspect-[4/3]' },
     ],
+    compactScreenshots: true,
     tags: ['Mobile', 'API Integration', 'Operations'],
     summary:
       'Apache Cordova 기반 모바일 기능을 개발하고 Android/iOS 앱 배포를 맡았습니다.',
