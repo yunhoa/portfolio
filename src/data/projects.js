@@ -8,6 +8,14 @@ import botMeetingStart from '../assets/slack-bot-meeting-start.png';
 import botB2B from '../assets/slack-bot-b2b.png';
 import botRSS from '../assets/slack-bot-rss.png';
 import b2bTimelinePreview from '../assets/b2b-schedule-timeline.png';
+import b2bFlightSchedule from '../assets/b2b-flight-schedule.png';
+import b2bOverviewSchedule from '../assets/b2b-overview-schedule.png';
+import mySafetyAppStore from '../assets/mysafety-app-store.png';
+import mySafetyPlayStore from '../assets/mysafety-play-store.png';
+import seoulCourseMain from '../assets/seoul-date-course-main.png';
+import seoulCoursePlace from '../assets/seoul-date-course-place.png';
+import seoulCourseRoute from '../assets/seoul-date-course-route.png';
+import seoulCourseFeed from '../assets/seoul-date-course-feed.png';
 
 export const projects = [
   {
@@ -195,6 +203,10 @@ export const projects = [
     group: 'backend',
     domain: 'Mobile WebView / API Integration / Store Release',
     period: '2024.09 ~ 2025.03 (인턴 기간부터 참여)',
+    screenshots: [
+      { label: 'App Store', src: mySafetyAppStore, frameClass: 'aspect-[4/3]' },
+      { label: 'Google Play', src: mySafetyPlayStore, frameClass: 'aspect-[4/3]' },
+    ],
     tags: ['Mobile', 'API Integration', 'Operations'],
     summary:
       'Apache Cordova 기반 모바일 기능을 개발하고 Android/iOS 앱 배포를 맡았습니다.',
@@ -285,6 +297,10 @@ export const projects = [
     summary:
       '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
     previewImage: b2bTimelinePreview,
+    screenshots: [
+      { label: '항공 일정', src: b2bFlightSchedule, frameClass: 'aspect-[4/3]' },
+      { label: '전체 일정·휴가', src: b2bOverviewSchedule, frameClass: 'aspect-[4/3]' },
+    ],
     highlights: ['주간 체류 일정 타임라인', '인원별 이동/체류 상태 표시', '날짜 범위 조회와 상태 필터'],
     background:
       '한화오션 프로젝트로 거제도 현장에 상주하면서 이번 주에 누가 내려가고 올라오는지, 누가 현장에 체류 중인지, 누가 서울 근무인지 확인하는 일이 반복됐습니다. 메신저로 물어보거나 표를 따로 확인하는 방식으로는 전체 일정을 한눈에 보기 어려워 직접 타임라인 형태로 만들어봤습니다.',
@@ -350,6 +366,12 @@ export const projects = [
     domain: 'Web Service / Public API',
     tags: ['Spring Boot', 'React', 'Public API'],
     organization: '2024 관광데이터 활용 공모전',
+    screenshots: [
+      { label: '서울 지역과 관심 장소 선택', src: seoulCourseMain, frameClass: 'aspect-[9/16]' },
+      { label: '장소 상세와 지도', src: seoulCoursePlace, frameClass: 'aspect-[4/3]' },
+      { label: '코스 이동 경로와 소요 시간', src: seoulCourseRoute, frameClass: 'aspect-[9/16]' },
+      { label: '추천 코스 화면', src: seoulCourseFeed, frameClass: 'aspect-[9/16]' },
+    ],
     summary:
       '서울의 구 단위 지역과 관심 카테고리를 기준으로 친구 또는 연인을 위한 데이트 코스를 추천하고, 사용자가 직접 만든 코스를 공유할 수 있게 만든 웹 서비스입니다.',
     highlights: ['구/카테고리 기반 코스 추천', '도보·대중교통 이동 경로 제공', '사용자 코스 공유 및 리뷰'],

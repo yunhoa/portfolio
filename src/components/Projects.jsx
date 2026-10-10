@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { projects } from '../data/projects.js';
 import { visualWorks } from '../data/visualWorks.js';
+import ImageModal from './ImageModal.jsx';
 import Reveal from './Reveal.jsx';
 
 const visualProjects = visualWorks.map((work) => ({
@@ -93,7 +94,7 @@ function ProjectMeta({ project }) {
   );
 }
 
-function ImagePreviewButton({ src, alt, className = '', onOpen }) {
+function ImagePreviewButton({ src, alt, className = '', imageClassName = '', onOpen }) {
   return (
     <button
       type="button"
@@ -101,53 +102,8 @@ function ImagePreviewButton({ src, alt, className = '', onOpen }) {
       onClick={() => onOpen({ src, alt })}
       aria-label={`${alt} 크게 보기`}
     >
-      <img src={src} alt={alt} className="block h-full w-full object-contain transition group-hover:brightness-[0.97]" loading="lazy" />
+      <img src={src} alt={alt} className={`block h-full w-full object-contain transition group-hover:brightness-[0.97] ${imageClassName}`} loading="lazy" />
     </button>
-  );
-}
-
-function ImageLightbox({ image, onClose }) {
-  useEffect(() => {
-    if (!image) return undefined;
-
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') onClose();
-    };
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [image, onClose]);
-
-  if (!image) return null;
-
-  return (
-    <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 p-3 sm:p-8"
-      role="presentation"
-      onMouseDown={(event) => {
-        if (event.target === event.currentTarget) onClose();
-      }}
-    >
-      <button
-        type="button"
-        onClick={onClose}
-        className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl leading-none text-slate-900 shadow-lg hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-6 sm:top-6"
-        aria-label="이미지 확대 닫기"
-        title="닫기 (Esc)"
-      >
-        ×
-      </button>
-      <img
-        src={image.src}
-        alt={image.alt}
-        className="max-h-[calc(100dvh-2rem)] max-w-full object-contain sm:max-h-[calc(100dvh-4rem)]"
-      />
-    </div>
   );
 }
 
@@ -196,6 +152,28 @@ function BotScreenshots({ project, onOpen }) {
             </figure>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+function ProjectScreenshots({ project, onOpen }) {
+  if (!project.screenshots?.length) return null;
+
+  return (
+    <section className="mt-5 border-t border-slate-200 pt-5" aria-label={`${project.title} 화면 캡처`}>
+      <div className={`grid gap-4 sm:grid-cols-2 ${project.screenshots.length > 2 ? 'lg:grid-cols-4' : 'lg:grid-cols-2'}`}>
+        {project.screenshots.map((item) => (
+          <figure key={item.label} className="min-w-0">
+            <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
+            <ImagePreviewButton
+              src={item.src}
+              alt={`${project.title} - ${item.label}`}
+              className={`overflow-hidden border border-slate-200 bg-slate-50 ${item.frameClass || 'aspect-[4/3]'}`}
+              onOpen={onOpen}
+            />
+          </figure>
+        ))}
       </div>
     </section>
   );
@@ -333,6 +311,7 @@ function Projects() {
                 <ProjectMeta project={project} />
                 <p className="copy mt-4 max-w-3xl">{project.summary}</p>
                 <BotScreenshots project={project} onOpen={setLightboxImage} />
+                <ProjectScreenshots project={project} onOpen={setLightboxImage} />
                 {project.links && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.links.map((link) => (
@@ -361,7 +340,11 @@ function Projects() {
         })}
       </div>
 
-      <ImageLightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
+      <ImageModal
+        image={lightboxImage?.src}
+        alt={lightboxImage?.alt || ''}
+        onClose={() => setLightboxImage(null)}
+      />
 
     </section>
   );
