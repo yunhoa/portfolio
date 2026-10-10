@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { projects } from '../data/projects.js';
 import { visualWorks } from '../data/visualWorks.js';
 import Reveal from './Reveal.jsx';
@@ -92,7 +93,65 @@ function ProjectMeta({ project }) {
   );
 }
 
-function BotScreenshots({ project }) {
+function ImagePreviewButton({ src, alt, className = '', onOpen }) {
+  return (
+    <button
+      type="button"
+      className={`group block w-full cursor-zoom-in text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${className}`}
+      onClick={() => onOpen({ src, alt })}
+      aria-label={`${alt} 크게 보기`}
+    >
+      <img src={src} alt={alt} className="block h-full w-full object-contain transition group-hover:brightness-[0.97]" loading="lazy" />
+    </button>
+  );
+}
+
+function ImageLightbox({ image, onClose }) {
+  useEffect(() => {
+    if (!image) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') onClose();
+    };
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [image, onClose]);
+
+  if (!image) return null;
+
+  return (
+    <div
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/90 p-3 sm:p-8"
+      role="presentation"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white text-2xl leading-none text-slate-900 shadow-lg hover:bg-slate-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-6 sm:top-6"
+        aria-label="이미지 확대 닫기"
+        title="닫기 (Esc)"
+      >
+        ×
+      </button>
+      <img
+        src={image.src}
+        alt={image.alt}
+        className="max-h-[calc(100dvh-2rem)] max-w-full object-contain sm:max-h-[calc(100dvh-4rem)]"
+      />
+    </div>
+  );
+}
+
+function BotScreenshots({ project, onOpen }) {
   if (!project.botOverview || !project.botScreenshots?.length) {
     return null;
   }
@@ -117,21 +176,21 @@ function BotScreenshots({ project }) {
               {item.images ? (
                 <div className="grid grid-cols-2 gap-2">
                   {item.images.map((src, index) => (
-                    <img
+                    <ImagePreviewButton
                       key={src}
                       src={src}
                       alt={`${item.label} 화면 ${index + 1}`}
                       className="block h-36 w-full border border-slate-200 bg-slate-50 object-contain sm:h-40"
-                      loading="lazy"
+                      onOpen={onOpen}
                     />
                   ))}
                 </div>
               ) : (
-                <img
+                <ImagePreviewButton
                   src={item.src}
                   alt={`${item.label} Slack 화면`}
                   className="block h-36 w-full border border-slate-200 bg-slate-50 object-contain sm:h-40"
-                  loading="lazy"
+                  onOpen={onOpen}
                 />
               )}
             </figure>
@@ -219,6 +278,8 @@ const projectGroups = [
 ];
 
 function Projects() {
+  const [lightboxImage, setLightboxImage] = useState(null);
+
   return (
     <section id="projects" className="section-shell">
       <Reveal>
@@ -251,27 +312,27 @@ function Projects() {
                 <h3 className="mt-4 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
                 {project.diagram && (
                   <figure className="mt-5 border-t border-slate-200 pt-5">
-                    <img
+                    <ImagePreviewButton
                       src={project.diagram}
                       alt="브라우저 접속부터 DuckDNS, Proxmox, pfSense, KT 공유기, Nginx Proxy Manager를 거쳐 내부 서비스로 연결되는 홈랩 네트워크 구성도"
                       className="block h-auto w-full"
-                      loading="lazy"
+                      onOpen={setLightboxImage}
                     />
                   </figure>
                 )}
                 {project.previewImage && (
                   <figure className="mt-5 border-t border-slate-200 pt-5">
-                    <img
+                    <ImagePreviewButton
                       src={project.previewImage}
                       alt={`${project.title} 익명 샘플 일정 화면`}
                       className="block h-auto w-full"
-                      loading="lazy"
+                      onOpen={setLightboxImage}
                     />
                   </figure>
                 )}
                 <ProjectMeta project={project} />
                 <p className="copy mt-4 max-w-3xl">{project.summary}</p>
-                <BotScreenshots project={project} />
+                <BotScreenshots project={project} onOpen={setLightboxImage} />
                 {project.links && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.links.map((link) => (
@@ -299,6 +360,8 @@ function Projects() {
           );
         })}
       </div>
+
+      <ImageLightbox image={lightboxImage} onClose={() => setLightboxImage(null)} />
 
     </section>
   );

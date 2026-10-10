@@ -194,7 +194,7 @@ export const projects = [
     category: '회사 프로젝트',
     group: 'backend',
     domain: 'Mobile WebView / API Integration / Store Release',
-    period: '2024.09 ~ 2025.03',
+    period: '2024.09 ~ 2025.03 (인턴 기간부터 참여)',
     tags: ['Mobile', 'API Integration', 'Operations'],
     summary:
       'Apache Cordova 기반 모바일 기능을 개발하고 Android/iOS 앱 배포를 맡았습니다.',
@@ -221,7 +221,6 @@ export const projects = [
       'Cordova 기반으로 WebView 화면을 개발하고 REST API를 연동했습니다. 위치 수집은 Background Geolocation과 네이티브 영역을 연결해 처리했으며, Android/iOS 빌드와 스토어 배포 과정에서 인증서, 권한, 로그인 흐름, 앱 실행 이슈를 실제 단말 기준으로 확인하며 대응했습니다.',
     outcomes: [
       '작업자 안전 지원 모바일 앱 주요 기능 개발',
-      '인턴 기간부터 실제 서비스 개발과 배포 과정 참여',
       '약 5,000~10,000명 규모 사용자 대상 앱 배포',
       'Android와 iOS 스토어 배포 진행',
     ],
