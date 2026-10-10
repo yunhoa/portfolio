@@ -114,12 +114,16 @@
   </g>
 
   <!-- Selected FK connectors -->
-  <path d="M255 530V552M255 815V837M770 605V637M1280 575V597M1805 485H1825V730H1815" fill="none" stroke="#78908b" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#db-arrow)"/>
+  <path d="M255 530V555" fill="none" stroke="#78908b" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#db-arrow)"/>
+  <path d="M255 815V840" fill="none" stroke="#78908b" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#db-arrow)"/>
+  <path d="M770 605V642" fill="none" stroke="#78908b" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#db-arrow)"/>
+  <path d="M1280 575V602" fill="none" stroke="#78908b" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#db-arrow)"/>
+  <path d="M1600 575V590H1640V602" fill="none" stroke="#78908b" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#db-arrow)"/>
   <text x="270" y="550" class="relation">user_id</text>
   <text x="270" y="835" class="relation">login_id</text>
   <text x="785" y="630" class="relation">place_id_1..5</text>
   <text x="1295" y="598" class="relation">post_id</text>
-  <text x="1835" y="620" class="relation" transform="rotate(90 1835 620)">post_id</text>
+  <text x="1655" y="592" class="relation">post_id</text>
   <rect x="520" y="1350" width="860" height="42" rx="21" fill="#edf4f1"/>
   <text x="950" y="1377" text-anchor="middle" style="font:14px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#526168">회원·인증 → 코스·장소 → 게시물·댓글·좋아요·리뷰·저장</text>
 </svg>

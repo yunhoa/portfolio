@@ -55,12 +55,12 @@
     <text x="315" y="350" text-anchor="middle" font-size="14" fill="#58736f">서비스 요청</text>
     <path d="M655 275 V310" fill="none" stroke="#58736f" stroke-width="2.5" marker-end="url(#arrow)"/>
     <text x="724" y="300" font-size="13" fill="#58736f">경로 전달</text>
-    <path d="M865 535 H930 V270 H945" fill="none" stroke="#9a8173" stroke-width="2.5" marker-end="url(#arrow-muted)"/>
+    <path d="M865 425 H930 V270 H945" fill="none" stroke="#9a8173" stroke-width="2.5" marker-end="url(#arrow-muted)"/>
     <text x="925" y="248" text-anchor="middle" font-size="13" fill="#8a7770">파일 읽기·쓰기</text>
     <path d="M865 545 H945" fill="none" stroke="#58736f" stroke-width="2.5" marker-end="url(#arrow)"/>
     <text x="905" y="533" text-anchor="middle" font-size="13" fill="#58736f">쿼리</text>
-    <path d="M1320 385 H1260 V545 H875" fill="none" stroke="#9a8173" stroke-width="2.5" stroke-dasharray="8 7" marker-end="url(#arrow-muted)"/>
-    <text x="1288" y="365" text-anchor="middle" font-size="13" fill="#8a7770">API 연동</text>
+    <path d="M865 575 H1270 V495" fill="none" stroke="#9a8173" stroke-width="2.5" stroke-dasharray="8 7" marker-end="url(#arrow-muted)"/>
+    <text x="1080" y="565" text-anchor="middle" font-size="13" fill="#8a7770">API 연동</text>
 
     <text x="45" y="710" font-size="14" fill="#687779">Nginx가 context path 요청을 Spring Boot로 전달하고, Spring Boot가 React 화면과 REST API를 함께 제공</text>
   </g>

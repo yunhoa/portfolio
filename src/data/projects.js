@@ -16,10 +16,10 @@ import mySafetyPlayStore from '../assets/mysafety-play-store.png';
 import seoulHereDiagram from '../assets/seoulhere-aws-topology.svg';
 import seoulHereUseCases from '../assets/seoulhere-use-cases-clean.svg';
 import seoulHereDataModel from '../assets/seoulhere-data-model-clean.svg';
-import seoulHereCapture01 from '../assets/seoulhere-capture-01.png';
-import seoulHereCapture02 from '../assets/seoulhere-capture-02.png';
-import seoulHereCapture03 from '../assets/seoulhere-capture-03.png';
-import seoulHereCapture04 from '../assets/seoulhere-capture-04.png';
+import seoulHereCapture01 from '../assets/seoulhere-live-01.png';
+import seoulHereCapture02 from '../assets/seoulhere-live-02.png';
+import seoulHereCapture03 from '../assets/seoulhere-live-03.png';
+import seoulHereCapture04 from '../assets/seoulhere-live-04.png';
 
 export const projects = [
   {
@@ -374,14 +374,16 @@ export const projects = [
     tags: ['Spring Boot', 'React', 'Public API'],
     period: '2024.07.01 ~ 2024.09.30',
     organization: '첫 프로젝트 · 교내 캡스톤디자인 경진대회 동상',
+    contest: '2024 관광데이터 활용 공모전 출품',
     diagram: seoulHereDiagram,
     diagramAlt: '사용자 요청이 Nginx를 거쳐 Spring Boot로 전달되고, 내장 React 화면과 API가 AWS DB 및 EC2 파일 저장소를 사용하는 구조',
     screenshots: [
-      { label: '서울 지역·관심 카테고리 선택', src: seoulHereCapture01, frameClass: 'h-[320px] sm:h-[360px]', maskBottom: true },
-      { label: '장소 상세와 지도', src: seoulHereCapture02, frameClass: 'h-[320px] sm:h-[360px]' },
-      { label: '코스 이동 경로', src: seoulHereCapture03, frameClass: 'h-[320px] sm:h-[360px]', maskBottom: true },
-      { label: '사용자 코스 피드', src: seoulHereCapture04, frameClass: 'h-[320px] sm:h-[360px] max-w-[144px] mx-auto' },
+      { label: '서울 지역·관심 카테고리 선택', src: seoulHereCapture01, frameClass: 'aspect-[16/10]' },
+      { label: '구 선택 지도', src: seoulHereCapture02, frameClass: 'aspect-[16/10]' },
+      { label: '지역별 장소 검색', src: seoulHereCapture03, frameClass: 'aspect-[16/10]' },
+      { label: '코스 이동 경로', src: seoulHereCapture04, frameClass: 'aspect-[16/10]' },
     ],
+    compactScreenshots: true,
     referenceImages: [
       { label: '유스케이스', src: seoulHereUseCases, alt: '사용자·관리자·관광 API 기능 유스케이스' },
       { label: '테이블 관계', src: seoulHereDataModel, alt: '회원, 코스, 장소, 리뷰와 관련 테이블 관계도' },

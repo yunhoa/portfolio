@@ -53,8 +53,13 @@
     <path d="M1420 650h30M1420 659h30M1420 668h20" stroke="#fff" stroke-width="2"/>
     <text x="1435" y="750" text-anchor="middle" font-size="19" font-weight="700">관광 API</text>
 
-    <path d="M260 425H330V380H425M330 425V485H425M330 485V590H425M330 590V695H425" fill="none" stroke="#718783" stroke-width="2" marker-end="url(#uc-arrow)"/>
-    <path d="M1340 405H1285V405H1185M1285 405V530H1185" fill="none" stroke="#9a8173" stroke-width="2" marker-end="url(#uc-arrow)"/>
-    <path d="M1340 665H1285V665H1185" fill="none" stroke="#9a8173" stroke-width="2" marker-end="url(#uc-arrow)"/>
+    <path d="M260 425H315V696" fill="none" stroke="#718783" stroke-width="2"/>
+    <path d="M315 381H435" fill="none" stroke="#718783" stroke-width="2" marker-end="url(#uc-arrow)"/>
+    <path d="M315 486H435" fill="none" stroke="#718783" stroke-width="2" marker-end="url(#uc-arrow)"/>
+    <path d="M315 591H435" fill="none" stroke="#718783" stroke-width="2" marker-end="url(#uc-arrow)"/>
+    <path d="M315 696H435" fill="none" stroke="#718783" stroke-width="2" marker-end="url(#uc-arrow)"/>
+    <path d="M1340 405H1285V406H1175" fill="none" stroke="#9a8173" stroke-width="2" marker-end="url(#uc-arrow)"/>
+    <path d="M1340 405H1265V531H1175" fill="none" stroke="#9a8173" stroke-width="2" marker-end="url(#uc-arrow)"/>
+    <path d="M1175 665H1250V665H1340" fill="none" stroke="#9a8173" stroke-width="2" marker-end="url(#uc-arrow)"/>
   </g>
 </svg>

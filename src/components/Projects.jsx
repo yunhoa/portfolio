@@ -70,6 +70,7 @@ function ProjectMeta({ project }) {
   const metaItems = [
     project.organization && ['기관', project.organization],
     project.period && ['참여기간', project.period],
+    project.contest && ['공모전', project.contest],
     project.contribution && ['기여도', project.contribution],
     project.teamSize && ['팀 규모', project.teamSize],
   ].filter(Boolean);
@@ -114,7 +115,7 @@ function BotScreenshots({ project, onOpen }) {
   }
 
   return (
-    <section className="mt-5 border-t border-slate-200 pt-5" aria-label="Slack 봇 화면">
+    <section aria-label="Slack 봇 화면">
       <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)]">
         <figure className="min-w-0">
           <figcaption className="mb-2 text-sm font-semibold text-slate-700">전체 봇</figcaption>
@@ -159,15 +160,20 @@ function BotScreenshots({ project, onOpen }) {
 }
 
 function ProjectScreenshots({ project, onOpen }) {
+  const [page, setPage] = useState(0);
   if (!project.screenshots?.length) return null;
+
+  const pageSize = 2;
+  const pageCount = Math.ceil(project.screenshots.length / pageSize);
+  const visibleScreenshots = project.screenshots.slice(page * pageSize, (page + 1) * pageSize);
 
   return (
     <section
-      className={`mt-5 border-t border-slate-200 pt-5 ${project.compactScreenshots ? 'mx-auto max-w-5xl' : ''}`}
+      className={project.compactScreenshots ? 'mx-auto max-w-5xl' : ''}
       aria-label={`${project.title} 화면 캡처`}
     >
       <div className={`grid gap-4 sm:grid-cols-2 ${project.compactScreenshots ? 'lg:grid-cols-2' : project.screenshots.length > 3 ? 'lg:grid-cols-4' : project.screenshots.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
-        {project.screenshots.map((item) => (
+        {visibleScreenshots.map((item) => (
           <figure key={item.label} className="min-w-0">
             <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
             <ImagePreviewButton
@@ -181,6 +187,20 @@ function ProjectScreenshots({ project, onOpen }) {
           </figure>
         ))}
       </div>
+      {pageCount > 1 && (
+        <div className="mt-4 flex justify-center gap-2" role="group" aria-label={`${project.title} 이미지 페이지`}>
+          {Array.from({ length: pageCount }, (_, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => setPage(index)}
+              aria-label={`${index + 1}페이지 이미지`}
+              aria-current={page === index ? 'page' : undefined}
+              className={`h-2.5 w-2.5 rounded-full transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${page === index ? 'bg-blue-700' : 'bg-slate-300 hover:bg-slate-400'}`}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
@@ -189,7 +209,7 @@ function ProjectReferenceImages({ project, onOpen }) {
   if (!project.referenceImages?.length) return null;
 
   return (
-    <section className="mt-5 border-t border-slate-200 pt-5" aria-label={`${project.title} 설계 자료`}>
+    <section aria-label={`${project.title} 설계 자료`}>
       <h4 className="text-sm font-semibold text-blue-700">기능·데이터 설계</h4>
       <div className="mt-3 space-y-5">
         {project.referenceImages.map((item) => (
@@ -318,21 +338,25 @@ function Projects() {
               <div className="border-b border-slate-200 p-5 sm:p-6">
                 <ProjectBadges project={project} />
                 <h3 className="mt-4 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
-                {project.diagram && (
-                  <figure className="mx-auto mt-5 max-w-5xl border-t border-slate-200 pt-5">
-                    <ImagePreviewButton
-                      src={project.diagram}
-                      alt={project.diagramAlt || `${project.title} 구성도`}
-                      className="block h-auto w-full"
-                      onOpen={setLightboxImage}
-                    />
-                  </figure>
-                )}
                 <ProjectMeta project={project} />
                 <p className="copy mt-4 max-w-3xl">{project.summary}</p>
-                <BotScreenshots project={project} onOpen={setLightboxImage} />
-                <ProjectScreenshots project={project} onOpen={setLightboxImage} />
-                <ProjectReferenceImages project={project} onOpen={setLightboxImage} />
+                {(project.diagram || project.botOverview || project.screenshots?.length || project.referenceImages?.length) && (
+                  <div className="mt-6 space-y-6 border-t border-slate-200 pt-6">
+                    {project.diagram && (
+                      <figure className="w-full">
+                        <ImagePreviewButton
+                          src={project.diagram}
+                          alt={project.diagramAlt || `${project.title} 구성도`}
+                          className="block h-auto w-full"
+                          onOpen={setLightboxImage}
+                        />
+                      </figure>
+                    )}
+                    <BotScreenshots project={project} onOpen={setLightboxImage} />
+                    <ProjectScreenshots project={project} onOpen={setLightboxImage} />
+                    <ProjectReferenceImages project={project} onOpen={setLightboxImage} />
+                  </div>
+                )}
                 {project.links && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.links.map((link) => (
