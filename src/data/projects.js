@@ -211,7 +211,6 @@ export const projects = [
       { label: 'App Store', src: mySafetyAppStore, frameClass: 'aspect-[4/3]' },
       { label: 'Google Play', src: mySafetyPlayStore, frameClass: 'aspect-[4/3]' },
     ],
-    compactScreenshots: true,
     tags: ['Mobile', 'API Integration', 'Operations'],
     summary:
       'Apache Cordova 기반 모바일 기능을 개발하고 Android/iOS 앱 배포를 맡았습니다.',
@@ -307,7 +306,6 @@ export const projects = [
       { label: '전체 일정·휴가', src: b2bOverviewSchedule, frameClass: 'aspect-[4/3]' },
       { label: '운영 현황', src: b2bOperationsDashboard, frameClass: 'aspect-[16/9]' },
     ],
-    compactScreenshots: true,
     highlights: ['주간 체류 일정 타임라인', '인원별 이동/체류 상태 표시', '날짜 범위 조회와 상태 필터'],
     background:
       '한화오션 프로젝트로 거제도 현장에 상주하면서 이번 주에 누가 내려가고 올라오는지, 누가 현장에 체류 중인지, 누가 서울 근무인지 확인하는 일이 반복됐습니다. 메신저로 물어보거나 표를 따로 확인하는 방식으로는 전체 일정을 한눈에 보기 어려워 직접 타임라인 형태로 만들어봤습니다.',
@@ -383,7 +381,6 @@ export const projects = [
       { label: '지역별 장소 검색', src: seoulHereCapture03, frameClass: 'aspect-[16/10]' },
       { label: '코스 이동 경로', src: seoulHereCapture04, frameClass: 'aspect-[16/10]' },
     ],
-    compactScreenshots: true,
     referenceImages: [
       { label: '유스케이스', src: seoulHereUseCases, alt: '사용자·관리자·관광 API 기능 유스케이스' },
       { label: '테이블 관계', src: seoulHereDataModel, alt: '회원, 코스, 장소, 리뷰와 관련 테이블 관계도' },

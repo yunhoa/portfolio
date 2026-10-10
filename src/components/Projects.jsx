@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { projects } from '../data/projects.js';
 import { visualWorks } from '../data/visualWorks.js';
 import ImageModal from './ImageModal.jsx';
@@ -159,72 +159,106 @@ function BotScreenshots({ project, onOpen }) {
   );
 }
 
-function ProjectScreenshots({ project, onOpen }) {
-  const [page, setPage] = useState(0);
-  if (!project.screenshots?.length) return null;
+function ProjectGallery({ project, onOpen }) {
+  const trackRef = useRef(null);
+  const dragRef = useRef(null);
+  const suppressClickRef = useRef(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const items = [
+    ...(project.screenshots || []).map((item) => ({ ...item, alt: `${project.title} - ${item.label}` })),
+    ...(project.diagram ? [{ label: '서비스 구성도', src: project.diagram, alt: project.diagramAlt || `${project.title} 구성도`, naturalSize: true }] : []),
+    ...(project.referenceImages || []).map((item) => ({ ...item, alt: `${project.title} - ${item.alt}`, naturalSize: true })),
+  ];
 
-  const pageSize = 2;
-  const pageCount = Math.ceil(project.screenshots.length / pageSize);
-  const visibleScreenshots = project.screenshots.slice(page * pageSize, (page + 1) * pageSize);
+  if (!items.length) return null;
+
+  const updateActiveIndex = () => {
+    const track = trackRef.current;
+    if (!track) return;
+    const slides = [...track.children];
+    const nearest = slides.reduce((best, slide, index) =>
+      Math.abs(slide.offsetLeft - track.scrollLeft) < Math.abs(slides[best].offsetLeft - track.scrollLeft) ? index : best, 0);
+    setActiveIndex(nearest);
+  };
+
+  const goToSlide = (index) => {
+    const track = trackRef.current;
+    const slide = track?.children[index];
+    const firstSlide = track?.children[0];
+    if (track && slide && firstSlide) {
+      const distance = slide.getBoundingClientRect().left - firstSlide.getBoundingClientRect().left;
+      track.scrollTo({ left: track.scrollLeft + distance, behavior: 'smooth' });
+    }
+  };
+
+  const handleMouseDown = (event) => {
+    if (event.button !== 0) return;
+    const track = trackRef.current;
+    const drag = { startX: event.clientX, startScroll: track.scrollLeft, moved: false };
+    dragRef.current = drag;
+    const handleMove = (moveEvent) => {
+      const delta = moveEvent.clientX - drag.startX;
+      if (Math.abs(delta) > 5) drag.moved = true;
+      if (drag.moved) {
+        moveEvent.preventDefault();
+        track.scrollLeft = drag.startScroll - delta;
+      }
+    };
+    const handleUp = () => {
+      window.removeEventListener('mousemove', handleMove);
+      if (drag.moved) {
+        suppressClickRef.current = true;
+        window.setTimeout(() => { suppressClickRef.current = false; }, 50);
+      }
+      dragRef.current = null;
+      updateActiveIndex();
+    };
+    window.addEventListener('mousemove', handleMove);
+    window.addEventListener('mouseup', handleUp, { once: true });
+  };
 
   return (
-    <section
-      className={project.compactScreenshots ? 'mx-auto max-w-5xl' : ''}
-      aria-label={`${project.title} 화면 캡처`}
-    >
-      <div className={`grid gap-4 sm:grid-cols-2 ${project.compactScreenshots ? 'lg:grid-cols-2' : project.screenshots.length > 3 ? 'lg:grid-cols-4' : project.screenshots.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
-        {visibleScreenshots.map((item) => (
-          <figure key={item.label} className="min-w-0">
+    <section aria-label={`${project.title} 이미지`}>
+      <div
+        ref={trackRef}
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing touch-pan-x"
+        onScroll={updateActiveIndex}
+        onMouseDown={handleMouseDown}
+        onClickCapture={(event) => {
+          if (suppressClickRef.current) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+        }}
+      >
+        {items.map((item, index) => (
+          <figure key={`${item.label}-${index}`} className="min-w-0 basis-[88%] shrink-0 snap-start">
             <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
             <ImagePreviewButton
               src={item.src}
-              alt={`${project.title} - ${item.label}`}
-              className={`overflow-hidden border border-slate-200 bg-slate-50 ${item.frameClass || 'aspect-[4/3]'}`}
-              imageClassName={item.maskBottom ? 'object-cover object-top' : ''}
+              alt={item.alt}
+              className={`overflow-hidden border border-slate-200 bg-slate-50 ${item.frameClass || (item.naturalSize ? 'h-auto' : 'aspect-[4/3]')}`}
+              imageClassName={item.naturalSize ? '!h-auto' : item.imageClassName || (item.maskBottom ? 'object-cover object-top' : '')}
               maskBottom={item.maskBottom}
               onOpen={onOpen}
             />
           </figure>
         ))}
       </div>
-      {pageCount > 1 && (
-        <div className="mt-4 flex justify-center gap-2" role="group" aria-label={`${project.title} 이미지 페이지`}>
-          {Array.from({ length: pageCount }, (_, index) => (
+      {items.length > 1 && (
+        <div className="mt-3 flex justify-center gap-2" role="group" aria-label={`${project.title} 이미지 선택`}>
+          {items.map((item, index) => (
             <button
-              key={index}
+              key={`${item.label}-dot`}
               type="button"
-              onClick={() => setPage(index)}
-              aria-label={`${index + 1}페이지 이미지`}
-              aria-current={page === index ? 'page' : undefined}
-              className={`h-2.5 w-2.5 rounded-full transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${page === index ? 'bg-blue-700' : 'bg-slate-300 hover:bg-slate-400'}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`${index + 1}번 이미지: ${item.label}`}
+              aria-current={activeIndex === index ? 'true' : undefined}
+              className={`h-2.5 w-2.5 rounded-full transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 ${activeIndex === index ? 'bg-blue-700' : 'bg-slate-300 hover:bg-slate-400'}`}
             />
           ))}
         </div>
       )}
-    </section>
-  );
-}
-
-function ProjectReferenceImages({ project, onOpen }) {
-  if (!project.referenceImages?.length) return null;
-
-  return (
-    <section aria-label={`${project.title} 설계 자료`}>
-      <h4 className="text-sm font-semibold text-blue-700">기능·데이터 설계</h4>
-      <div className="mt-3 space-y-5">
-        {project.referenceImages.map((item) => (
-          <figure key={item.label} className="min-w-0">
-            <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
-            <ImagePreviewButton
-              src={item.src}
-              alt={`${project.title} - ${item.alt}`}
-              className="h-auto overflow-hidden border border-slate-200 bg-slate-50"
-              imageClassName="!h-auto"
-              onOpen={onOpen}
-            />
-          </figure>
-        ))}
-      </div>
     </section>
   );
 }
@@ -342,19 +376,8 @@ function Projects() {
                 <p className="copy mt-4 max-w-3xl">{project.summary}</p>
                 {(project.diagram || project.botOverview || project.screenshots?.length || project.referenceImages?.length) && (
                   <div className="mt-6 space-y-6 border-t border-slate-200 pt-6">
-                    {project.diagram && (
-                      <figure className="w-full">
-                        <ImagePreviewButton
-                          src={project.diagram}
-                          alt={project.diagramAlt || `${project.title} 구성도`}
-                          className="block h-auto w-full"
-                          onOpen={setLightboxImage}
-                        />
-                      </figure>
-                    )}
                     <BotScreenshots project={project} onOpen={setLightboxImage} />
-                    <ProjectScreenshots project={project} onOpen={setLightboxImage} />
-                    <ProjectReferenceImages project={project} onOpen={setLightboxImage} />
+                    <ProjectGallery project={project} onOpen={setLightboxImage} />
                   </div>
                 )}
                 {project.links && (
