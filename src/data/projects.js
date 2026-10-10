@@ -1,4 +1,12 @@
 import paperPdf from '../assets/paper-smart-plant-ai-metadata.pdf';
+import homeLabDiagram from '../assets/proxmox-homelab-topology.svg';
+import botOverview from '../assets/slack-bots-overview.png';
+import botLeave from '../assets/slack-bot-leave.png';
+import botFortune from '../assets/slack-bot-fortune.png';
+import botMeetingSeat from '../assets/slack-bot-meeting-seat.png';
+import botMeetingStart from '../assets/slack-bot-meeting-start.png';
+import botB2B from '../assets/slack-bot-b2b.png';
+import botRSS from '../assets/slack-bot-rss.png';
 
 export const projects = [
   {
@@ -176,7 +184,7 @@ export const projects = [
     solution:
       `교육 동영상 플레이어는 처음 맡은 기능이라 브라우저 정책과 HTTP 헤더, Range 응답 방식을 확인하며 구현했습니다. 건너뛰기와 배속을 제한하고 화면을 벗어나면 재생을 중단하도록 처리했습니다. 가로 전체 화면에서는 네이티브 영역과 연동해 상·하단 바를 숨겼습니다. Spring Controller에서 Range 요청에 맞춰 영상 응답 범위를 처리하고, 실제 시청 흐름을 반영한 JMeter 시나리오로 50명·100명·150명 조건의 응답시간, 오류 여부, 처리량을 확인했습니다.\n\nMSDS QR은 앱 설치나 로그인이 필요한 딥링크 대신 기본 카메라에서 열 수 있는 URL로 구성했습니다. 해당 .do 경로만 Spring Security에서 비로그인 접근을 허용하고, Morpheus 백엔드의 JSP 화면으로 연결했습니다.`,
     outcomes: [
-      '운영 반영 후 큰 재생 오류 없이 동작',
+      'JMeter 시나리오에서 동시 사용자 50명·100명·150명 조건별 응답시간, 오류 여부, 처리량을 확인',
     ],
     tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus', 'JavaScript', 'JMeter'],
   },
@@ -223,10 +231,17 @@ export const projects = [
     category: '개인 프로젝트',
     group: 'personal',
     domain: 'Slack Automation / Internal Tools',
-    period: '개인 프로젝트',
     tags: ['Automation', 'Slack Bot', 'Node.js'],
     summary:
       '휴가자, 회의, B2B 현장 일정, 기술 글과 오늘의 운세를 Slack으로 알려주는 사내 업무 봇입니다.',
+    botOverview,
+    botScreenshots: [
+      { label: '휴가 알림', src: botLeave },
+      { label: '오늘의 운세', src: botFortune },
+      { label: '좌석 연장 · 회의 알림', images: [botMeetingSeat, botMeetingStart] },
+      { label: 'B2B 일정 알림', src: botB2B },
+      { label: '기술 블로그 RSS', src: botRSS },
+    ],
     highlights: [
       '휴가자·회의·현장 체류·RSS 정기 알림',
       'Playwright 기반 회의실 예약 자동화',
@@ -266,7 +281,6 @@ export const projects = [
     category: '개인 프로젝트',
     group: 'personal',
     domain: 'Work Tool / Schedule Management',
-    period: '개인 프로젝트',
     tags: ['React', 'Timeline UI', 'Codex'],
     summary:
       '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
@@ -291,10 +305,10 @@ export const projects = [
     category: '개인 홈랩',
     group: 'personal',
     domain: 'Infra / Network',
-    period: '개인 홈랩',
     tags: ['Infra', 'Network', 'Home Lab'],
     summary:
       'Proxmox 기반 홈서버에서 내부 LAN 서비스와 외부 접속 경로를 직접 구성해본 홈랩입니다.',
+    diagram: homeLabDiagram,
     highlights: ['Proxmox VM 구성', 'pfSense 방화벽/NAT 설정', 'Nginx Proxy Manager와 DuckDNS 연동'],
     implementations: [
       'Proxmox VE 기반 가상화 환경 구성',
@@ -334,7 +348,6 @@ export const projects = [
     group: 'personal',
     domain: 'Web Service / Public API',
     tags: ['Spring Boot', 'React', 'Public API'],
-    period: '2024.04 ~ 2024.10',
     organization: '2024 관광데이터 활용 공모전',
     summary:
       '서울의 구 단위 지역과 관심 카테고리를 기준으로 친구 또는 연인을 위한 데이트 코스를 추천하고, 사용자가 직접 만든 코스를 공유할 수 있게 만든 웹 서비스입니다.',

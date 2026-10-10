@@ -92,6 +92,56 @@ function ProjectMeta({ project }) {
   );
 }
 
+function BotScreenshots({ project }) {
+  if (!project.botOverview || !project.botScreenshots?.length) {
+    return null;
+  }
+
+  return (
+    <section className="mt-5 border-t border-slate-200 pt-5" aria-label="Slack 봇 화면">
+      <div className="grid gap-5 lg:grid-cols-[220px_minmax(0,1fr)]">
+        <figure className="min-w-0">
+          <figcaption className="mb-2 text-sm font-semibold text-slate-700">전체 봇</figcaption>
+          <img
+            src={project.botOverview}
+            alt="Slack에서 운영 중인 봇 목록: 회의, 기술 소식, 운세, B2B 일정, 통합 알림 봇"
+            className="mx-auto block max-h-72 w-full object-contain object-top"
+            loading="lazy"
+          />
+        </figure>
+
+        <div className="grid min-w-0 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+          {project.botScreenshots.map((item) => (
+            <figure key={item.label} className="min-w-0">
+              <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
+              {item.images ? (
+                <div className="grid grid-cols-2 gap-2">
+                  {item.images.map((src, index) => (
+                    <img
+                      key={src}
+                      src={src}
+                      alt={`${item.label} 화면 ${index + 1}`}
+                      className="block h-36 w-full border border-slate-200 bg-slate-50 object-contain sm:h-40"
+                      loading="lazy"
+                    />
+                  ))}
+                </div>
+              ) : (
+                <img
+                  src={item.src}
+                  alt={`${item.label} Slack 화면`}
+                  className="block h-36 w-full border border-slate-200 bg-slate-50 object-contain sm:h-40"
+                  loading="lazy"
+                />
+              )}
+            </figure>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ProjectBadges({ project }) {
   return (
     <div className="flex flex-wrap items-center gap-2">
@@ -199,8 +249,19 @@ function Projects() {
               <div className="border-b border-slate-200 p-5 sm:p-6">
                 <ProjectBadges project={project} />
                 <h3 className="mt-4 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
+                {project.diagram && (
+                  <figure className="mt-5 border-t border-slate-200 pt-5">
+                    <img
+                      src={project.diagram}
+                      alt="브라우저 접속부터 DuckDNS, Proxmox, pfSense, KT 공유기, Nginx Proxy Manager를 거쳐 내부 서비스로 연결되는 홈랩 네트워크 구성도"
+                      className="block h-auto w-full"
+                      loading="lazy"
+                    />
+                  </figure>
+                )}
                 <ProjectMeta project={project} />
                 <p className="copy mt-4 max-w-3xl">{project.summary}</p>
+                <BotScreenshots project={project} />
                 {project.links && (
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.links.map((link) => (
