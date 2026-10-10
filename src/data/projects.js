@@ -10,6 +10,7 @@ import botRSS from '../assets/slack-bot-rss.png';
 import b2bTimelinePreview from '../assets/b2b-schedule-timeline.png';
 import b2bFlightSchedule from '../assets/b2b-flight-schedule.png';
 import b2bOverviewSchedule from '../assets/b2b-overview-schedule.png';
+import b2bOperationsDashboard from '../assets/b2b-operations-dashboard.png';
 import mySafetyAppStore from '../assets/mysafety-app-store.png';
 import mySafetyPlayStore from '../assets/mysafety-play-store.png';
 import seoulCourseMain from '../assets/seoul-date-course-main.png';
@@ -207,6 +208,7 @@ export const projects = [
       { label: 'App Store', src: mySafetyAppStore, frameClass: 'aspect-[4/3]' },
       { label: 'Google Play', src: mySafetyPlayStore, frameClass: 'aspect-[4/3]' },
     ],
+    compactScreenshots: true,
     tags: ['Mobile', 'API Integration', 'Operations'],
     summary:
       'Apache Cordova 기반 모바일 기능을 개발하고 Android/iOS 앱 배포를 맡았습니다.',
@@ -300,7 +302,9 @@ export const projects = [
     screenshots: [
       { label: '항공 일정', src: b2bFlightSchedule, frameClass: 'aspect-[4/3]' },
       { label: '전체 일정·휴가', src: b2bOverviewSchedule, frameClass: 'aspect-[4/3]' },
+      { label: '운영 현황', src: b2bOperationsDashboard, frameClass: 'aspect-[16/9]' },
     ],
+    compactScreenshots: true,
     highlights: ['주간 체류 일정 타임라인', '인원별 이동/체류 상태 표시', '날짜 범위 조회와 상태 필터'],
     background:
       '한화오션 프로젝트로 거제도 현장에 상주하면서 이번 주에 누가 내려가고 올라오는지, 누가 현장에 체류 중인지, 누가 서울 근무인지 확인하는 일이 반복됐습니다. 메신저로 물어보거나 표를 따로 확인하는 방식으로는 전체 일정을 한눈에 보기 어려워 직접 타임라인 형태로 만들어봤습니다.',

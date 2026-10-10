@@ -161,8 +161,11 @@ function ProjectScreenshots({ project, onOpen }) {
   if (!project.screenshots?.length) return null;
 
   return (
-    <section className="mt-5 border-t border-slate-200 pt-5" aria-label={`${project.title} 화면 캡처`}>
-      <div className={`grid gap-4 sm:grid-cols-2 ${project.screenshots.length > 2 ? 'lg:grid-cols-4' : 'lg:grid-cols-2'}`}>
+    <section
+      className={`mt-5 border-t border-slate-200 pt-5 ${project.compactScreenshots ? 'mx-auto max-w-5xl' : ''}`}
+      aria-label={`${project.title} 화면 캡처`}
+    >
+      <div className={`grid gap-4 sm:grid-cols-2 ${project.screenshots.length > 3 ? 'lg:grid-cols-4' : project.screenshots.length === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2'}`}>
         {project.screenshots.map((item) => (
           <figure key={item.label} className="min-w-0">
             <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
@@ -289,7 +292,7 @@ function Projects() {
                 <ProjectBadges project={project} />
                 <h3 className="mt-4 text-xl font-semibold text-slate-950 sm:text-2xl">{project.title}</h3>
                 {project.diagram && (
-                  <figure className="mt-5 border-t border-slate-200 pt-5">
+                  <figure className="mx-auto mt-5 max-w-5xl border-t border-slate-200 pt-5">
                     <ImagePreviewButton
                       src={project.diagram}
                       alt="브라우저 접속부터 DuckDNS, Proxmox, pfSense, KT 공유기, Nginx Proxy Manager를 거쳐 내부 서비스로 연결되는 홈랩 네트워크 구성도"
@@ -299,7 +302,7 @@ function Projects() {
                   </figure>
                 )}
                 {project.previewImage && (
-                  <figure className="mt-5 border-t border-slate-200 pt-5">
+                  <figure className="mx-auto mt-5 max-w-5xl border-t border-slate-200 pt-5">
                     <ImagePreviewButton
                       src={project.previewImage}
                       alt={`${project.title} 익명 샘플 일정 화면`}
