@@ -1,8 +1,10 @@
-import { useRef, useState } from 'react';
+import { lazy, Suspense, useRef, useState } from 'react';
 import { projects } from '../data/projects.js';
 import { visualWorks } from '../data/visualWorks.js';
 import ImageModal from './ImageModal.jsx';
 import Reveal from './Reveal.jsx';
+
+const SeoulRouteMap = lazy(() => import('./SeoulRouteMap.jsx'));
 
 const visualProjects = visualWorks.map((work) => ({
   title: work.title,
@@ -253,10 +255,10 @@ function ProjectGallery({ project, onOpen }) {
   };
 
   return (
-    <section className={project.galleryCompact ? 'mx-auto w-full max-w-[860px]' : ''} aria-label={`${project.title} 이미지`}>
+    <section className={project.galleryCompact ? 'mx-auto w-full max-w-[960px]' : ''} aria-label={`${project.title} 이미지`}>
       <div
         ref={trackRef}
-        className={`flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain ${project.galleryCompact ? "pb-1 after:block after:basis-[12%] after:shrink-0 after:content-['']" : 'pb-2'} [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing touch-pan-x`}
+        className={`flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain ${project.galleryCompact ? "pb-1 after:block after:basis-[12%] md:after:basis-[16%] after:shrink-0 after:content-['']" : 'pb-2'} [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing touch-pan-x`}
         onScroll={updateActiveIndex}
         onMouseDown={handleMouseDown}
         onClickCapture={(event) => {
@@ -267,16 +269,22 @@ function ProjectGallery({ project, onOpen }) {
         }}
       >
         {items.map((item, index) => (
-          <figure key={`${item.label}-${index}`} className="min-w-0 basis-[88%] shrink-0 snap-start">
+          <figure key={`${item.label}-${index}`} className="min-w-0 basis-[88%] shrink-0 snap-start md:basis-[84%]">
             <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
-            <ImagePreviewButton
-              src={item.src}
-              alt={item.alt}
-              className={`overflow-hidden border border-slate-200 bg-slate-50 ${item.frameClass || (project.galleryCompact ? 'aspect-[16/10]' : item.naturalSize ? 'h-auto' : 'aspect-[4/3]')}`}
-              imageClassName={item.naturalSize ? '!h-auto' : item.imageClassName || (item.maskBottom ? 'object-cover object-top' : '')}
-              maskBottom={item.maskBottom}
-              onOpen={onOpen}
-            />
+            {item.interactive === 'seoul-route-map' ? (
+              <Suspense fallback={<div className="h-[220px] animate-pulse bg-slate-100 sm:h-[470px]" />}>
+                <SeoulRouteMap />
+              </Suspense>
+            ) : (
+              <ImagePreviewButton
+                src={item.src}
+                alt={item.alt}
+                className={`overflow-hidden border border-slate-200 bg-slate-50 ${item.frameClass || (project.galleryCompact ? 'aspect-[16/10]' : item.naturalSize ? 'h-auto' : 'aspect-[4/3]')}`}
+                imageClassName={item.naturalSize ? '!h-auto' : item.imageClassName || (item.maskBottom ? 'object-cover object-top' : '')}
+                maskBottom={item.maskBottom}
+                onOpen={onOpen}
+              />
+            )}
           </figure>
         ))}
       </div>

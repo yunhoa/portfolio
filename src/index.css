@@ -73,3 +73,55 @@ body {
   }
 
 }
+
+.route-map-popup {
+  display: none;
+  min-width: 210px;
+  max-width: 260px;
+  padding: 12px 14px;
+  border: 1px solid #dbe3ed;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.16);
+  color: #334155;
+  pointer-events: none;
+}
+
+.route-map-popup.is-visible {
+  display: block;
+}
+
+.route-map-popup > div {
+  display: grid;
+  gap: 2px;
+}
+
+.route-map-popup strong {
+  color: #0f172a;
+  font-size: 14px;
+}
+
+.route-map-popup span:not(.route-popup-type) {
+  font-size: 12px;
+}
+
+.route-map-popup small {
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.route-map-popup .route-popup-type {
+  width: fit-content;
+  margin-bottom: 2px;
+  color: #2878d0;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.ol-zoom {
+  top: auto;
+  right: 12px;
+  bottom: 12px;
+  left: auto;
+}

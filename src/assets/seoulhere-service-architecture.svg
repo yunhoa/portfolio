@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1000" viewBox="0 0 1700 1000" role="img" aria-labelledby="title desc">
+  <title id="title">서울에서 뭐하고 놀지 서비스 구성도</title>
+  <desc id="desc">브라우저 요청은 AWS EC2의 Nginx를 통해 Spring Boot로 전달된다. Spring Boot가 React 정적 화면과 REST API를 제공하고, API는 EC2 파일시스템, AWS 데이터베이스, 외부 API와 통신한다.</desc>
+  <defs>
+    <marker id="both" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto-start-reverse"><path d="M1 1L9 5L1 9" fill="none" stroke="#55766f" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <marker id="accent" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#a67d66" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+    <style>text{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#293938}.title{font-size:30px;font-weight:700}.sub{font-size:16px;fill:#667674}.zone{font-size:19px;font-weight:700;fill:#52776f}.node{font-size:20px;font-weight:700}.detail{font-size:15px;fill:#667674}.edge{font-size:14px;fill:#55766f}.edge2{font-size:14px;fill:#98735f}</style>
+  </defs>
+  <rect width="1700" height="1000" fill="#fff"/>
+  <text x="58" y="62" class="title">서울에서 뭐하고 놀지? · 서비스 구성</text>
+  <text x="58" y="94" class="sub">브라우저 요청부터 애플리케이션, 데이터 저장소와 외부 연동까지</text>
+  <rect x="55" y="330" width="220" height="160" rx="12" fill="#f5f8f6" stroke="#c7d5d1" stroke-width="2"/>
+  <text x="165" y="378" text-anchor="middle" class="node">사용자 브라우저</text><text x="165" y="414" text-anchor="middle" class="detail">화면 요청 · API 요청</text><text x="165" y="444" text-anchor="middle" class="detail">코스/장소 이미지 업로드</text>
+  <rect x="335" y="145" width="900" height="740" rx="18" fill="#fbfcfb" stroke="#8da8a1" stroke-width="3"/>
+  <text x="370" y="188" class="zone">AWS EC2</text><text x="1200" y="188" text-anchor="end" class="detail">Nginx · Spring Boot · 파일시스템</text>
+  <rect x="395" y="265" width="290" height="120" rx="12" fill="#fff" stroke="#b8cbc5" stroke-width="2"/>
+  <text x="540" y="310" text-anchor="middle" class="node">Nginx</text><text x="540" y="341" text-anchor="middle" class="detail">Reverse Proxy</text><text x="540" y="365" text-anchor="middle" class="detail">context path 기준 전달</text>
+  <rect x="770" y="225" width="410" height="415" rx="14" fill="#edf4f1" stroke="#9bbab2" stroke-width="2"/>
+  <text x="975" y="267" text-anchor="middle" class="node">Spring Boot 애플리케이션</text>
+  <rect x="810" y="300" width="330" height="105" rx="9" fill="#fff" stroke="#c7d5d1" stroke-width="2"/>
+  <text x="975" y="341" text-anchor="middle" class="node">React 정적 리소스</text><text x="975" y="372" text-anchor="middle" class="detail">React 빌드 결과 포함</text>
+  <rect x="810" y="440" width="330" height="155" rx="9" fill="#fff" stroke="#c7d5d1" stroke-width="2"/>
+  <text x="975" y="482" text-anchor="middle" class="node">REST API · 서비스 로직</text><text x="975" y="516" text-anchor="middle" class="detail">회원 · 장소 · 코스 · 리뷰</text><text x="975" y="545" text-anchor="middle" class="detail">외부 API 요청 처리</text><text x="975" y="574" text-anchor="middle" class="detail">JPA 기반 데이터 접근</text>
+  <rect x="395" y="590" width="290" height="145" rx="12" fill="#fff" stroke="#d8c5b8" stroke-width="2"/>
+  <text x="540" y="635" text-anchor="middle" class="node">EC2 파일 저장</text><text x="540" y="668" text-anchor="middle" class="detail">서버 로컬 파일시스템</text><text x="540" y="699" text-anchor="middle" class="detail">업로드 파일 읽기/쓰기</text>
+  <text x="395" y="785" class="detail">배포: SSH 접속 · Nginx 설정 · 애플리케이션 배포</text>
+  <rect x="1370" y="265" width="275" height="190" rx="14" fill="#f4f7fa" stroke="#aebdca" stroke-width="2"/>
+  <text x="1507" y="310" text-anchor="middle" class="node">AWS DB</text><text x="1507" y="347" text-anchor="middle" class="detail">PostgreSQL</text><text x="1507" y="379" text-anchor="middle" class="detail">회원 · 코스 · 장소</text><text x="1507" y="409" text-anchor="middle" class="detail">게시물 · 리뷰 · 인증 정보</text>
+  <rect x="1370" y="590" width="275" height="230" rx="14" fill="#fbf7f3" stroke="#d9c6b9" stroke-width="2"/>
+  <text x="1507" y="632" text-anchor="middle" class="node">외부 API</text><text x="1507" y="674" text-anchor="middle" class="detail">한국관광공사</text><text x="1507" y="707" text-anchor="middle" class="detail">Kakao OAuth2</text><text x="1507" y="740" text-anchor="middle" class="detail">TMAP 경로</text><text x="1507" y="773" text-anchor="middle" class="detail">서울시 대중교통</text>
+  <path d="M275 410H395" fill="none" stroke="#55766f" stroke-width="3" marker-start="url(#both)" marker-end="url(#both)"/><text x="335" y="392" text-anchor="middle" class="edge">HTTP</text>
+  <path d="M685 310H740V350H810" fill="none" stroke="#55766f" stroke-width="2.5" marker-start="url(#both)" marker-end="url(#both)"/><text x="740" y="294" text-anchor="middle" class="edge">화면 경로</text>
+  <path d="M685 360H730V500H810" fill="none" stroke="#55766f" stroke-width="2.5" marker-start="url(#both)" marker-end="url(#both)"/><text x="730" y="480" text-anchor="middle" class="edge">API 경로</text>
+  <path d="M810 540H730V662H685" fill="none" stroke="#9a8173" stroke-width="2.5" marker-start="url(#both)" marker-end="url(#both)"/><text x="730" y="646" text-anchor="middle" class="edge2">파일 I/O</text>
+  <path d="M1140 500H1255V360H1370" fill="none" stroke="#55766f" stroke-width="2.5" marker-start="url(#both)" marker-end="url(#both)"/><text x="1307" y="340" text-anchor="middle" class="edge">SQL 조회/저장</text>
+  <path d="M1140 565H1260V700H1370" fill="none" stroke="#9a8173" stroke-width="2.5" stroke-dasharray="8 6" marker-start="url(#both)" marker-end="url(#both)"/><text x="1295" y="680" text-anchor="middle" class="edge2">API 요청/응답</text>
+  <line x1="58" y1="930" x2="110" y2="930" stroke="#55766f" stroke-width="2.5" marker-start="url(#both)" marker-end="url(#both)"/><text x="122" y="936" class="detail">요청/응답 또는 양방향 데이터</text>
+  <line x1="390" y1="930" x2="442" y2="930" stroke="#9a8173" stroke-width="2.5" stroke-dasharray="8 6" marker-start="url(#both)" marker-end="url(#both)"/><text x="454" y="936" class="detail">외부 연동</text>
+</svg>

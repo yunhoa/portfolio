@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1450" viewBox="0 0 2400 1450" role="img" aria-labelledby="title desc">
+  <title id="title">서울에서 뭐하고 놀지? JPA 엔티티 관계도</title>
+  <desc id="desc">JPA 엔티티 매핑 기준 13개 테이블과 회원, 장소, 코스, 게시물, 댓글, 리뷰, 저장, 좋아요 관계를 표시한다. 실제 운영 DDL은 별도 확인이 필요하다.</desc>
+  <defs>
+    <style>
+      text{font-family:'Consolas','Malgun Gothic','Apple SD Gothic Neo',monospace;fill:#293938}.title{font:700 29px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif}.sub{font:14px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#687875}.zone{font:700 16px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#52776f}.th{font:700 17px 'Consolas','Malgun Gothic',sans-serif}.field{font-size:13px}.type{font-size:11px;fill:#75817e}.rel{font:12px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#59736e}.card{fill:#fff;stroke:#a9bdb7;stroke-width:1.6}.row{stroke:#e5ece9;stroke-width:1}
+    </style>
+  </defs>
+  <rect width="2400" height="1450" fill="#fff"/>
+  <text x="55" y="52" class="title">서울에서 뭐하고 놀지? · JPA 엔티티 관계</text>
+  <text x="55" y="80" class="sub">Entity @Table / @JoinColumn 기준 · PK 기본 키 · FK 외래 키 · UQ 고유 제약</text>
+  <text x="2345" y="80" text-anchor="end" class="sub">운영 DDL 확정도가 아닌 객체-관계 매핑 표현</text>
+
+  <!-- FK connectors are routed through the gutters; tables are rendered above them. -->
+  <g fill="none" stroke="#718c85" stroke-width="1.8">
+    <path d="M270 420V440M270 682V720"/>
+    <path d="M480 365H560V700H620M560 700V980H620M560 700V1240H620"/>
+    <path d="M840 464V530"/>
+    <path d="M1060 405H1100V980H1060M1100 1240H1060"/>
+    <path d="M1060 660H1140V320H1220"/>
+    <path d="M1060 300H1220"/>
+    <path d="M1060 820H1170V1240H1060"/>
+    <path d="M270 150V110H1470V150M1160 110V677H1220M1160 110V935H1220"/>
+    <path d="M1470 491V560"/>
+    <path d="M1720 450H1760V935H1720M1720 650H1790V760H1720"/>
+    <path d="M270 150V110H1780V300H1840M1780 110V700H1840"/>
+    <path d="M840 150V125H2090V150M1800 125V700H1840"/>
+    <path d="M1060 820H1135V1380H1800V821H1840"/>
+  </g>
+  <g class="rel" text-anchor="middle">
+    <text x="330" y="437">user_id</text><text x="330" y="710">login_id</text>
+    <text x="560" y="680" transform="rotate(-90 560 680)">user_id · user_id</text>
+    <text x="860" y="505">place_id_1..5</text>
+    <text x="1100" y="950" transform="rotate(-90 1100 950)">place_id</text>
+    <text x="1090" y="644">course_id</text><text x="1140" y="305" text-anchor="middle">place_id</text>
+    <text x="1168" y="1225" transform="rotate(-90 1168 1225)">course_id</text>
+    <text x="1148" y="670" transform="rotate(-90 1148 670)">user_id · user_id</text>
+    <text x="1490" y="535">post_id</text>
+    <text x="1760" y="690" transform="rotate(-90 1760 690)">post_id</text>
+    <text x="1790" y="745" transform="rotate(-90 1790 745)">parent_comment_id</text>
+    <text x="1780" y="515" transform="rotate(-90 1780 515)">user_id</text>
+    <text x="1810" y="114">place_id</text><text x="1800" y="1060" transform="rotate(-90 1800 1060)">place_id</text>
+    <text x="1135" y="1360" transform="rotate(-90 1135 1360)">course_id · user_id</text>
+  </g>
+
+  <!-- Identity -->
+  <g transform="translate(60 150)">
+    <rect class="card" width="420" height="270" rx="8"/><path d="M8 0H412Q420 0 420 8V44H0V8Q0 0 8 0Z" fill="#eaf2ef"/><text x="15" y="29" class="th">user_info</text><text x="405" y="28" text-anchor="end" class="type">회원</text>
+    <path class="row" d="M0 44H420M0 72H420M0 100H420M0 128H420M0 156H420M0 184H420M0 212H420M0 240H420"/>
+    <g class="field"><text x="14" y="64">PK user_id</text><text x="14" y="92">user_name</text><text x="14" y="120">UQ user_phone_no</text><text x="14" y="148">add</text><text x="14" y="176">profil_image</text><text x="14" y="204">introduce</text><text x="14" y="232">reg_dt</text><text x="14" y="260">up_dt</text></g>
+    <g class="type" text-anchor="end"><text x="404" y="64">String</text><text x="404" y="92">String</text><text x="404" y="120">String · unique</text><text x="404" y="148">String</text><text x="404" y="176">String</text><text x="404" y="204">String</text><text x="404" y="232">LocalDateTime</text><text x="404" y="260">LocalDateTime</text></g>
+  </g>
+  <g transform="translate(60 1010)">
+    <rect class="card" width="420" height="170" rx="8"/><path d="M8 0H412Q420 0 420 8V44H0V8Q0 0 8 0Z" fill="#f3f4f2"/><text x="15" y="29" class="th">phone_verification_code</text>
+    <path class="row" d="M0 44H420M0 72H420M0 100H420M0 128H420M0 156H420"/>
+    <g class="field"><text x="14" y="64">PK id</text><text x="14" y="92">phone_number</text><text x="14" y="120">code</text><text x="14" y="148">expiration</text></g><g class="type" text-anchor="end"><text x="404" y="64">Long</text><text x="404" y="92">String</text><text x="404" y="120">String</text><text x="404" y="148">LocalDateTime</text></g>
+  </g>
+  <g transform="translate(60 440)">
+    <rect class="card" width="440" height="242" rx="8"/><path d="M8 0H432Q440 0 440 8V44H0V8Q0 0 8 0Z" fill="#eaf2ef"/><text x="15" y="29" class="th">login_info</text><text x="425" y="28" text-anchor="end" class="type">로그인 · 권한</text>
+    <path class="row" d="M0 44H440M0 72H440M0 100H440M0 128H440M0 156H440M0 184H440M0 212H440"/>
+    <g class="field"><text x="14" y="64">PK login_id</text><text x="14" y="92">FK user_id</text><text x="14" y="120">email</text><text x="14" y="148">password</text><text x="14" y="176">reg_dt</text><text x="14" y="204">up_dt</text><text x="14" y="232">role</text></g><g class="type" text-anchor="end"><text x="424" y="64">String</text><text x="424" y="92">String · NOT NULL</text><text x="424" y="120">String</text><text x="424" y="148">String</text><text x="424" y="176">LocalDateTime</text><text x="424" y="204">LocalDateTime</text><text x="424" y="232">Role · enum</text></g>
+  </g>
+  <g transform="translate(60 720)">
+    <rect class="card" width="440" height="170" rx="8"/><path d="M8 0H432Q440 0 440 8V44H0V8Q0 0 8 0Z" fill="#eaf2ef"/><text x="15" y="29" class="th">refresh_token</text>
+    <path class="row" d="M0 44H440M0 72H440M0 100H440M0 128H440M0 156H440"/>
+    <g class="field"><text x="14" y="64">PK token</text><text x="14" y="92">FK login_id</text><text x="14" y="120">expiry_date</text><text x="14" y="148">created_at</text></g><g class="type" text-anchor="end"><text x="424" y="64">String</text><text x="424" y="92">LoginInfo · NOT NULL</text><text x="424" y="120">Timestamp</text><text x="424" y="148">Timestamp</text></g>
+  </g>
+
+  <!-- Places and courses -->
+  <g transform="translate(620 530)">
+    <rect class="card" width="440" height="314" rx="8"/><path d="M8 0H432Q440 0 440 8V44H0V8Q0 0 8 0Z" fill="#edf3f8"/><text x="15" y="29" class="th">course</text><text x="425" y="28" text-anchor="end" class="type">사용자 코스</text>
+    <path class="row" d="M0 44H440M0 72H440M0 100H440M0 128H440M0 156H440M0 184H440M0 212H440M0 240H440M0 268H440M0 296H440"/>
+    <g class="field"><text x="14" y="64">PK course_id</text><text x="14" y="92">FK user_id</text><text x="14" y="120">FK place_id_1</text><text x="14" y="148">FK place_id_2</text><text x="14" y="176">FK place_id_3</text><text x="14" y="204">FK place_id_4</text><text x="14" y="232">FK place_id_5</text><text x="14" y="260">title</text><text x="14" y="288">reg_dt · up_dt</text></g><g class="type" text-anchor="end"><text x="424" y="64">String</text><text x="424" y="92">UserInfo · NOT NULL</text><text x="424" y="120">Place · optional</text><text x="424" y="148">Place · optional</text><text x="424" y="176">Place · optional</text><text x="424" y="204">Place · optional</text><text x="424" y="232">Place · optional</text><text x="424" y="260">String</text><text x="424" y="288">LocalDateTime</text></g>
+  </g>
+  <g transform="translate(620 150)">
+    <rect class="card" width="440" height="314" rx="8"/><path d="M8 0H432Q440 0 440 8V44H0V8Q0 0 8 0Z" fill="#edf3f8"/><text x="15" y="29" class="th">place</text><text x="425" y="28" text-anchor="end" class="type">관광 장소</text>
+    <path class="row" d="M0 44H440M0 72H440M0 100H440M0 128H440M0 156H440M0 184H440M0 212H440M0 240H440M0 268H440M0 296H440"/>
+    <g class="field"><text x="14" y="64">PK place_id</text><text x="14" y="92">content_type</text><text x="14" y="120">addr1</text><text x="14" y="148">title</text><text x="14" y="176">first_image</text><text x="14" y="204">first_image2</text><text x="14" y="232">map_x · map_y</text><text x="14" y="260">tel</text><text x="14" y="288">sigungu_code</text></g><g class="type" text-anchor="end"><text x="424" y="64">String</text><text x="424" y="92">String</text><text x="424" y="120">String</text><text x="424" y="148">String</text><text x="424" y="176">String</text><text x="424" y="204">String</text><text x="424" y="232">double × 2</text><text x="424" y="260">String</text><text x="424" y="288">String</text></g>
+  </g>
+  <g transform="translate(620 910)">
+    <rect class="card" width="440" height="152" rx="8"/><path d="M8 0H432Q440 0 440 8V44H0V8Q0 0 8 0Z" fill="#edf3f8"/><text x="15" y="29" class="th">favorite_place</text><text x="425" y="28" text-anchor="end" class="type">즐겨찾기 · user/place unique</text>
+    <path class="row" d="M0 44H440M0 72H440M0 100H440M0 128H440"/><g class="field"><text x="14" y="64">PK favorite_place_id</text><text x="14" y="92">FK user_id · place_id</text><text x="14" y="120">created_at</text></g><g class="type" text-anchor="end"><text x="424" y="64">String</text><text x="424" y="92">NOT NULL</text><text x="424" y="120">LocalDateTime</text></g>
+  </g>
+  <g transform="translate(620 1125)">
+    <rect class="card" width="440" height="233" rx="8"/><path d="M8 0H432Q440 0 440 8V44H0V8Q0 0 8 0Z" fill="#edf3f8"/><text x="15" y="29" class="th">save</text><text x="425" y="28" text-anchor="end" class="type">저장한 코스/장소</text>
+    <path class="row" d="M0 44H440M0 72H440M0 100H440M0 128H440M0 156H440M0 184H440M0 212H440"/><g class="field"><text x="14" y="64">PK save_id</text><text x="14" y="92">FK user_id</text><text x="14" y="120">FK course_id</text><text x="14" y="148">FK place_id</text><text x="14" y="176">type · title</text><text x="14" y="204">reg_dt · up_dt</text></g><g class="type" text-anchor="end"><text x="424" y="64">String</text><text x="424" y="92">UserInfo · NOT NULL</text><text x="424" y="120">Course · optional</text><text x="424" y="148">Place · optional</text><text x="424" y="176">String</text><text x="424" y="204">LocalDateTime</text></g>
+  </g>
+
+  <!-- Community -->
+  <g transform="translate(1220 150)">
+    <rect class="card" width="500" height="341" rx="8"/><path d="M8 0H492Q500 0 500 8V44H0V8Q0 0 8 0Z" fill="#f7f0eb"/><text x="15" y="29" class="th">posts</text><text x="485" y="28" text-anchor="end" class="type">공유 게시물</text>
+    <path class="row" d="M0 44H500M0 72H500M0 100H500M0 128H500M0 156H500M0 184H500M0 212H500M0 240H500M0 268H500M0 296H500M0 324H500"/>
+    <g class="field"><text x="14" y="64">PK post_id</text><text x="14" y="92">FK user_id</text><text x="14" y="120">FK place_id</text><text x="14" y="148">FK course_id</text><text x="14" y="176">title · category</text><text x="14" y="204">content · photos</text><text x="14" y="232">likes</text><text x="14" y="260">user_name</text><text x="14" y="288">reg_dt</text><text x="14" y="316">up_dt</text></g><g class="type" text-anchor="end"><text x="484" y="64">String</text><text x="484" y="92">UserInfo · NOT NULL</text><text x="484" y="120">Place · optional</text><text x="484" y="148">Course · optional</text><text x="484" y="176">String</text><text x="484" y="204">String</text><text x="484" y="232">Integer</text><text x="484" y="260">String</text><text x="484" y="288">LocalDateTime</text><text x="484" y="316">LocalDateTime</text></g>
+  </g>
+  <g transform="translate(1220 560)">
+    <rect class="card" width="500" height="233" rx="8"/><path d="M8 0H492Q500 0 500 8V44H0V8Q0 0 8 0Z" fill="#f7f0eb"/><text x="15" y="29" class="th">comments</text><text x="485" y="28" text-anchor="end" class="type">대댓글은 self-reference</text>
+    <path class="row" d="M0 44H500M0 72H500M0 100H500M0 128H500M0 156H500M0 184H500M0 212H500"/><g class="field"><text x="14" y="64">PK comment_id</text><text x="14" y="92">FK user_id</text><text x="14" y="120">FK post_id</text><text x="14" y="148">FK parent_comment_id</text><text x="14" y="176">content</text><text x="14" y="204">reg_dt · up_dt</text></g><g class="type" text-anchor="end"><text x="484" y="64">String</text><text x="484" y="92">UserInfo · NOT NULL</text><text x="484" y="120">Post · NOT NULL</text><text x="484" y="148">Comments · optional</text><text x="484" y="176">String</text><text x="484" y="204">LocalDateTime</text></g>
+  </g>
+  <g transform="translate(1220 860)">
+    <rect class="card" width="500" height="152" rx="8"/><path d="M8 0H492Q500 0 500 8V44H0V8Q0 0 8 0Z" fill="#f7f0eb"/><text x="15" y="29" class="th">likes</text><text x="485" y="28" text-anchor="end" class="type">게시물 좋아요</text>
+    <path class="row" d="M0 44H500M0 72H500M0 100H500M0 128H500"/><g class="field"><text x="14" y="64">PK like_id</text><text x="14" y="92">FK user_id · post_id</text><text x="14" y="120">reg_dt</text></g><g class="type" text-anchor="end"><text x="484" y="64">String</text><text x="484" y="92">NOT NULL</text><text x="484" y="120">LocalDateTime</text></g>
+  </g>
+
+  <!-- Reviews -->
+  <g transform="translate(1840 150)">
+    <rect class="card" width="500" height="260" rx="8"/><path d="M8 0H492Q500 0 500 8V44H0V8Q0 0 8 0Z" fill="#f7f0eb"/><text x="15" y="29" class="th">place_review</text><text x="485" y="28" text-anchor="end" class="type">장소 리뷰</text>
+    <path class="row" d="M0 44H500M0 72H500M0 100H500M0 128H500M0 156H500M0 184H500M0 212H500M0 240H500"/><g class="field"><text x="14" y="64">PK place_review_id</text><text x="14" y="92">FK place_id</text><text x="14" y="120">FK user_id</text><text x="14" y="148">review_title · review_text</text><text x="14" y="176">review_like</text><text x="14" y="204">reg_dt</text><text x="14" y="232">up_dt</text></g><g class="type" text-anchor="end"><text x="484" y="64">String</text><text x="484" y="92">Place · NOT NULL</text><text x="484" y="120">UserInfo · NOT NULL</text><text x="484" y="148">String</text><text x="484" y="176">Integer</text><text x="484" y="204">LocalDateTime</text><text x="484" y="232">LocalDateTime</text></g>
+  </g>
+  <g transform="translate(1840 480)">
+    <rect class="card" width="500" height="341" rx="8"/><path d="M8 0H492Q500 0 500 8V44H0V8Q0 0 8 0Z" fill="#f7f0eb"/><text x="15" y="29" class="th">review</text><text x="485" y="28" text-anchor="end" class="type">코스/장소 리뷰</text>
+    <path class="row" d="M0 44H500M0 72H500M0 100H500M0 128H500M0 156H500M0 184H500M0 212H500M0 240H500M0 268H500M0 296H500M0 324H500"/><g class="field"><text x="14" y="64">PK review_id</text><text x="14" y="92">FK place_id</text><text x="14" y="120">FK course_id</text><text x="14" y="148">FK user_id</text><text x="14" y="176">place_or_course</text><text x="14" y="204">review · review_text</text><text x="14" y="232">photo · review_like</text><text x="14" y="260">reg_dt</text><text x="14" y="288">up_dt</text></g><g class="type" text-anchor="end"><text x="484" y="64">String</text><text x="484" y="92">Place · NOT NULL</text><text x="484" y="120">Course · optional</text><text x="484" y="148">UserInfo · NOT NULL</text><text x="484" y="176">String</text><text x="484" y="204">String</text><text x="484" y="232">String · int</text><text x="484" y="260">LocalDateTime</text><text x="484" y="288">LocalDateTime</text></g>
+  </g>
+
+  <rect x="1220" y="1080" width="1120" height="260" rx="10" fill="#f4f6f4" stroke="#ccd7d2" stroke-width="1.5"/>
+  <text x="1245" y="1115" class="zone">모델 기준 및 참고</text>
+  <text x="1245" y="1150" class="sub">• JPA 엔티티에서 확인한 13개 매핑 테이블을 표시했습니다.</text>
+  <text x="1245" y="1182" class="sub">• favorite_place는 user_id + place_id 조합에 unique 제약이 있습니다.</text>
+  <text x="1245" y="1214" class="sub">• comments.parent_comment_id가 같은 테이블을 참조합니다. 별도 replies 엔티티는 없습니다.</text>
+  <text x="1245" y="1246" class="sub">• application-prod.yml은 ddl-auto: none이며, table.sql과 엔티티의 컬럼 정의가 다릅니다.</text>
+  <text x="1245" y="1278" class="sub">  따라서 이 그림은 JPA 매핑 관계도이며 운영 DB 물리 스키마를 확정한 문서는 아닙니다.</text>
+</svg>

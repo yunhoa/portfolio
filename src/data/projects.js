@@ -13,13 +13,12 @@ import b2bOverviewSchedule from '../assets/b2b-overview-schedule.png';
 import b2bOperationsDashboard from '../assets/b2b-operations-dashboard.png';
 import mySafetyAppStore from '../assets/mysafety-app-store.png';
 import mySafetyPlayStore from '../assets/mysafety-play-store.png';
-import seoulHereDiagram from '../assets/seoulhere-aws-topology.svg';
-import seoulHereUseCases from '../assets/seoulhere-use-cases-clean.svg';
-import seoulHereDataModel from '../assets/seoulhere-data-model-clean.svg';
+import seoulHereDiagram from '../assets/seoulhere-service-architecture.svg';
+import seoulHereUseCases from '../assets/seoulhere-use-cases-v2.svg';
+import seoulHereDataModel from '../assets/seoulhere-erd-jpa.svg';
 import seoulHereCapture01 from '../assets/seoulhere-live-01.png';
 import seoulHereCapture02 from '../assets/seoulhere-live-02.png';
 import seoulHereCapture03 from '../assets/seoulhere-live-03.png';
-import seoulHereCapture04 from '../assets/seoulhere-live-04.png';
 
 export const projects = [
   {
@@ -376,16 +375,16 @@ export const projects = [
     period: '2024.07.01 ~ 2024.09.30',
     contest: '2024 관광데이터 활용 공모전 출품',
     diagram: seoulHereDiagram,
-    diagramAlt: '사용자 요청이 Nginx를 거쳐 Spring Boot로 전달되고, 내장 React 화면과 API가 AWS DB 및 EC2 파일 저장소를 사용하는 구조',
+    diagramAlt: '브라우저 요청이 Nginx를 통해 Spring Boot의 React 화면과 REST API로 전달되고, API가 EC2 파일시스템, AWS PostgreSQL, 외부 API와 통신하는 구조',
     screenshots: [
       { label: '서울 지역·관심 카테고리 선택', src: seoulHereCapture01, frameClass: 'aspect-[16/10]' },
       { label: '구 선택 지도', src: seoulHereCapture02, frameClass: 'aspect-[16/10]' },
       { label: '지역별 장소 검색', src: seoulHereCapture03, frameClass: 'aspect-[16/10]' },
-      { label: '코스 이동 경로', src: seoulHereCapture04, frameClass: 'aspect-[16/10]' },
+      { label: '코스 이동 경로', interactive: 'seoul-route-map' },
     ],
     referenceImages: [
-      { label: '유스케이스', src: seoulHereUseCases, alt: '사용자·관리자·관광 API 기능 유스케이스' },
-      { label: '테이블 관계', src: seoulHereDataModel, alt: '회원, 코스, 장소, 리뷰와 관련 테이블 관계도' },
+      { label: '유스케이스', src: seoulHereUseCases, alt: '사용자·관리자와 Kakao OAuth2, 관광공사, TMAP, 서울시 교통 API 연동을 표시한 UML 유스케이스' },
+      { label: '테이블 관계', src: seoulHereDataModel, alt: 'JPA 엔티티 기준 13개 매핑 테이블의 PK, FK, 고유키와 자기참조 관계를 표시한 ERD' },
     ],
     summary:
       '서울의 구 단위 지역과 관심 카테고리를 기준으로 친구 또는 연인을 위한 데이트 코스를 추천하고, 사용자가 직접 만든 코스를 공유할 수 있게 만든 웹 서비스입니다.',
