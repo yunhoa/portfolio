@@ -301,10 +301,10 @@ export const projects = [
     summary:
       '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
     screenshots: [
-      { label: '주간 이동·체류 타임라인', src: b2bTimelinePreview, frameClass: 'aspect-[4/3]' },
-      { label: '항공 일정', src: b2bFlightSchedule, frameClass: 'aspect-[4/3]' },
-      { label: '전체 일정·휴가', src: b2bOverviewSchedule, frameClass: 'aspect-[4/3]' },
-      { label: '운영 현황', src: b2bOperationsDashboard, frameClass: 'aspect-[16/9]' },
+      { label: '주간 이동·체류 타임라인', src: b2bTimelinePreview, frameClass: 'aspect-[16/10]' },
+      { label: '항공 일정', src: b2bFlightSchedule, frameClass: 'aspect-[16/10]' },
+      { label: '전체 일정·휴가', src: b2bOverviewSchedule, frameClass: 'aspect-[16/10]' },
+      { label: '운영 현황', src: b2bOperationsDashboard, frameClass: 'aspect-[16/10]' },
     ],
     highlights: ['주간 체류 일정 타임라인', '인원별 이동/체류 상태 표시', '날짜 범위 조회와 상태 필터'],
     background:
@@ -371,7 +371,6 @@ export const projects = [
     domain: 'Web Service / Public API',
     tags: ['Spring Boot', 'React', 'Public API'],
     period: '2024.07.01 ~ 2024.09.30',
-    organization: '첫 프로젝트 · 교내 캡스톤디자인 경진대회 동상',
     contest: '2024 관광데이터 활용 공모전 출품',
     diagram: seoulHereDiagram,
     diagramAlt: '사용자 요청이 Nginx를 거쳐 Spring Boot로 전달되고, 내장 React 화면과 API가 AWS DB 및 EC2 파일 저장소를 사용하는 구조',

@@ -166,8 +166,8 @@ function ProjectGallery({ project, onOpen }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const items = [
     ...(project.screenshots || []).map((item) => ({ ...item, alt: `${project.title} - ${item.label}` })),
-    ...(project.diagram ? [{ label: '서비스 구성도', src: project.diagram, alt: project.diagramAlt || `${project.title} 구성도`, naturalSize: true }] : []),
-    ...(project.referenceImages || []).map((item) => ({ ...item, alt: `${project.title} - ${item.alt}`, naturalSize: true })),
+    ...(project.diagram ? [{ label: '서비스 구성도', src: project.diagram, alt: project.diagramAlt || `${project.title} 구성도` }] : []),
+    ...(project.referenceImages || []).map((item) => ({ ...item, alt: `${project.title} - ${item.alt}` })),
   ];
 
   if (!items.length) return null;
@@ -218,10 +218,10 @@ function ProjectGallery({ project, onOpen }) {
   };
 
   return (
-    <section aria-label={`${project.title} 이미지`}>
+    <section className="mx-auto w-full max-w-[860px]" aria-label={`${project.title} 이미지`}>
       <div
         ref={trackRef}
-        className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing touch-pan-x"
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto overscroll-x-contain pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden cursor-grab active:cursor-grabbing touch-pan-x"
         onScroll={updateActiveIndex}
         onMouseDown={handleMouseDown}
         onClickCapture={(event) => {
@@ -237,8 +237,8 @@ function ProjectGallery({ project, onOpen }) {
             <ImagePreviewButton
               src={item.src}
               alt={item.alt}
-              className={`overflow-hidden border border-slate-200 bg-slate-50 ${item.frameClass || (item.naturalSize ? 'h-auto' : 'aspect-[4/3]')}`}
-              imageClassName={item.naturalSize ? '!h-auto' : item.imageClassName || (item.maskBottom ? 'object-cover object-top' : '')}
+              className={`overflow-hidden border border-slate-200 bg-slate-50 ${item.frameClass || 'aspect-[16/10]'}`}
+              imageClassName={item.imageClassName || (item.maskBottom ? 'object-cover object-top' : '')}
               maskBottom={item.maskBottom}
               onOpen={onOpen}
             />
@@ -246,7 +246,7 @@ function ProjectGallery({ project, onOpen }) {
         ))}
       </div>
       {items.length > 1 && (
-        <div className="mt-3 flex justify-center gap-2" role="group" aria-label={`${project.title} 이미지 선택`}>
+        <div className="mt-1 flex justify-center gap-2" role="group" aria-label={`${project.title} 이미지 선택`}>
           {items.map((item, index) => (
             <button
               key={`${item.label}-dot`}
