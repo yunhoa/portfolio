@@ -296,6 +296,7 @@ export const projects = [
     title: 'B2B 상주 인원 일정 관리 타임라인',
     category: '개인 프로젝트',
     group: 'personal',
+    galleryCompact: true,
     domain: 'Work Tool / Schedule Management',
     tags: ['React', 'Timeline UI', 'Codex'],
     summary:
@@ -368,6 +369,7 @@ export const projects = [
     title: '서울에서 뭐하고 놀지?',
     category: '캡스톤 프로젝트',
     group: 'personal',
+    galleryCompact: true,
     domain: 'Web Service / Public API',
     tags: ['Spring Boot', 'React', 'Public API'],
     period: '2024.07.01 ~ 2024.09.30',
