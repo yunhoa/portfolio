@@ -259,6 +259,16 @@ function Projects() {
                     />
                   </figure>
                 )}
+                {project.previewImage && (
+                  <figure className="mt-5 border-t border-slate-200 pt-5">
+                    <img
+                      src={project.previewImage}
+                      alt={`${project.title} 익명 샘플 일정 화면`}
+                      className="block h-auto w-full"
+                      loading="lazy"
+                    />
+                  </figure>
+                )}
                 <ProjectMeta project={project} />
                 <p className="copy mt-4 max-w-3xl">{project.summary}</p>
                 <BotScreenshots project={project} />

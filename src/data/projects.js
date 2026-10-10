@@ -7,6 +7,7 @@ import botMeetingSeat from '../assets/slack-bot-meeting-seat.png';
 import botMeetingStart from '../assets/slack-bot-meeting-start.png';
 import botB2B from '../assets/slack-bot-b2b.png';
 import botRSS from '../assets/slack-bot-rss.png';
+import b2bTimelinePreview from '../assets/b2b-schedule-timeline.png';
 
 export const projects = [
   {
@@ -284,6 +285,7 @@ export const projects = [
     tags: ['React', 'Timeline UI', 'Codex'],
     summary:
       '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
+    previewImage: b2bTimelinePreview,
     highlights: ['주간 체류 일정 타임라인', '인원별 이동/체류 상태 표시', '날짜 범위 조회와 상태 필터'],
     background:
       '한화오션 프로젝트로 거제도 현장에 상주하면서 이번 주에 누가 내려가고 올라오는지, 누가 현장에 체류 중인지, 누가 서울 근무인지 확인하는 일이 반복됐습니다. 메신저로 물어보거나 표를 따로 확인하는 방식으로는 전체 일정을 한눈에 보기 어려워 직접 타임라인 형태로 만들어봤습니다.',
