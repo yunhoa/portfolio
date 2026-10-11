@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1380" viewBox="0 0 1800 1380" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1280" viewBox="0 0 1800 1280" role="img" aria-labelledby="title desc">
   <title id="title">서울에서 뭐하고 놀지? 데이터베이스 ERD</title>
   <desc id="desc">프로젝트 table.sql에 정의된 10개 PostgreSQL 테이블과 PK, FK, 고유키 및 nullable 관계를 표시한 논리 ERD.</desc>
   <defs>
@@ -6,7 +6,7 @@
       text{font-family:'Consolas','Malgun Gothic','Apple SD Gothic Neo',monospace;fill:#2d3b3a}.title{font:700 29px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif}.sub{font:14px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#687875}.zone{font:700 17px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#52776f}.th{font:700 18px 'Consolas','Malgun Gothic',sans-serif}.field{font-size:14px}.type{font-size:12px;fill:#73817e}.tag{font-size:11px;font-weight:700}.rel{font:13px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#59736e}.card{fill:#fff;stroke:#a9bdb7;stroke-width:1.7}.row{stroke:#e5ece9;stroke-width:1}
     </style>
   </defs>
-  <rect width="1800" height="1380" fill="#fff"/>
+  <rect width="1800" height="1280" fill="#fff"/>
   <text x="55" y="58" class="title">서울에서 뭐하고 놀지? · 테이블 관계</text>
   <text x="55" y="88" class="sub">PostgreSQL table.sql 기준 · PK 기본 키 · FK 외래 키 · UQ 고유 제약 · nullable FK는 0..1로 표시</text>
 
@@ -111,9 +111,4 @@
     <g class="field"><text x="16" y="66">PK  reply_id</text><text x="16" y="95">FK  comment_id</text><text x="16" y="124">    content</text><text x="16" y="153">    created_at</text><text x="16" y="182">    updated_at</text></g>
     <g class="type" text-anchor="end"><text x="444" y="66">VARCHAR(36)</text><text x="444" y="95">VARCHAR(36) NULL</text><text x="444" y="124">TEXT NOT NULL</text><text x="444" y="153">TIMESTAMP</text><text x="444" y="182">TIMESTAMP</text></g>
   </g>
-  <rect x="1280" y="1070" width="460" height="148" rx="8" fill="#f5f6f4" stroke="#cfd8d4" stroke-width="1.5"/>
-  <text x="1300" y="1102" class="zone">ERD 노트</text>
-  <text x="1300" y="1134" class="sub">실선: SQL에 선언된 외래 키 관계</text>
-  <text x="1300" y="1160" class="sub">각 참조 컬럼은 DDL 기준 nullable</text>
-  <text x="1300" y="1186" class="sub">phone_verification_code는 독립 테이블</text>
 </svg>

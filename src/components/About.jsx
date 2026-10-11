@@ -5,10 +5,10 @@ function About() {
     <section id="about" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">About</p>
-        <h2 className="section-title">서버 개발부터 운영 환경 대응까지</h2>
+        <h2 className="section-title">처음 쓰는 기술도 직접 구현하며 익혔습니다</h2>
         <p className="section-description">
-          SI 프로젝트와 연구과제에서 Java/Spring 백엔드 기능을 중심으로 모바일 웹뷰, 검색 API, 데이터 처리 기능도 개발했습니다.
-          새 시스템을 맡으면 기존 코드와 데이터 흐름을 따라가며 필요한 기능을 구현했고, 외부 연동이 운영 환경에서 실패하거나 실제 사용 상황을 확인해야 할 때는 서버와 통신 경로, 테스트 조건까지 살펴봤습니다.
+          Java/Spring 백엔드 기능을 주로 개발해왔습니다. 건축물 스마트검색과 스마트플랜트 과제에서는 Python·FastAPI로 AI 검색과 이미지 처리 API를 만들었고, 상주 인원 일정 도구는 Codex를 활용해 React 화면과 Node.js API까지 구현했습니다.
+          처음 맡은 시스템에서는 코드와 데이터 흐름을 따라 구조를 익혔고, 만든 기능은 실제 데이터와 운영 환경에서 어떻게 동작하는지 확인했습니다.
         </p>
       </Reveal>
     </section>
