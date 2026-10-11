@@ -28,15 +28,15 @@ import seoulHereMyCourses from '../assets/seoulhere-mycourses.png';
 
 export const projects = [
   {
-    title: 'Safety Watch 스마트검색 RAG 기반 AI 플랫폼',
-    category: '회사 프로젝트',
+    title: 'Safety Watch 건축물 스마트검색 플랫폼',
+    category: '연구과제',
     group: 'ai',
     domain: 'AI Search / Backend',
     period: '2026.01 ~ 2026.07',
     tags: ['Backend', 'AI Search', 'RAG', 'VectorDB'],
     sectionLabels: {
-      problem: '질의 유형별 처리 경로',
-      solution: '질의 분류와 검색 흐름 구현',
+      problem: '질문에 따라 다른 데이터 조회',
+      solution: '질문 분류와 검색 흐름',
     },
     summary:
       '건축물 안전정보 질문을 문서, 정형 데이터, BIM 질의로 나눠 처리하는 검색 API를 개발했습니다.',
@@ -80,7 +80,7 @@ export const projects = [
   },
   {
     title: '스마트플랜트 설비 이미지 전처리 및 메타정보 생성 프레임워크',
-    category: '회사 프로젝트',
+    category: '연구과제',
     group: 'ai',
     domain: 'AI / Computer Vision / Smart Plant',
     period: '2025.03.01 ~ 2026.02.28',
@@ -106,9 +106,9 @@ export const projects = [
       '프로젝트 내용을 바탕으로 스마트플랜트 AI 메타정보 자동생성 프레임워크 논문 1저자 작성',
     ],
     problem:
-      '기존 방식은 도면 수집, 3D 스캐닝, 전문가 수작업에 의존해 초기 비용과 시간이 많이 들었습니다. 실제 현장 이미지는 설비, 구조물, 배관이 함께 찍혀 있어 관심 설비만 분리하기 어려웠고, 처리 결과를 수정하거나 되돌리는 기능도 필요했습니다.',
+      '현장 촬영 이미지에서 필요한 설비를 분리하고, 태그 정보를 메타정보로 연결하는 처리가 필요했습니다. 분할 결과를 확인하고 수정할 수 있도록 모바일 앱과 서버가 함께 동작해야 했습니다.',
     solution:
-      '현장마다 설비 종류가 달라서 학습 데이터를 미리 만들어 두는 방식은 맞지 않았고, 클릭한 지점 기준으로 바로 분할되는 SAM을 사용했습니다. 현장 사진은 설비와 배관이 붙어 있어 한 번에 깔끔하게 분리되지 않는 경우가 많아서 Add / Subtract와 Undo / Redo로 고칠 수 있게 만들었습니다. 지운 자리는 LaMa 인페인팅으로 채우고, 설비 태그 ID는 PaddleOCR로 읽어 메타정보와 연결했습니다. 모바일 앱에서 같은 이미지를 여러 번 주고받으며 수정하는 구조라 요청이 겹치면 상태가 꼬일 수 있어서, 처리 결과를 이미지 UUID 기준으로 캐시하고 히스토리를 서버에서 관리했습니다.',
+      '현장마다 설비 종류가 달라 미리 학습 데이터를 준비하는 방식 대신, 클릭한 지점을 기준으로 객체를 분할하는 SAM을 사용했습니다. 한 번에 분리되지 않은 부분은 Add / Subtract와 Undo / Redo로 수정할 수 있게 했습니다. 제거한 배경은 LaMa로 채우고, PaddleOCR로 읽은 설비 태그 ID를 메타정보에 연결했습니다. 이미지 UUID를 기준으로 처리 결과를 구분해 캐시하고 작업 히스토리를 서버에서 관리했습니다.',
     outcomes: [
       '촬영한 설비 사진에서 객체 분리, 배경 제거, 태그 인식, 메타정보 생성까지 처리하는 기능 구현',
       '모바일에서 촬영한 이미지를 3D 모델링 사전 작업에 활용하도록 연결',
@@ -124,9 +124,6 @@ export const projects = [
       'PaddleOCR',
       'OpenCV',
       'React Native',
-      'Image Cache Management',
-      'Segmentation State Management',
-      'Result History Management',
     ],
   },
   {
@@ -150,26 +147,19 @@ export const projects = [
       '관리자 통계 기능에서 GA Data API 연동 경로 적용',
     ],
     role: [
-      'Spring Boot 기반 관리자 시스템 유지보수',
-      'JPA 기반 기능 개발',
-      '현업 요구사항 기반 추가 API 개발',
-      'Thymeleaf 기반 통계 조회 화면 개발',
-      'PostgreSQL 데이터 조회 및 운영 데이터 관리',
-      'SQL 작성 및 데이터 정리',
-      'Google Analytics Data API 연동',
-      '외부 API 연동 및 장애 원인 확인',
-      '운영 환경 배포 지원',
+      'Spring Boot 관리자 기능 유지보수 및 추가 API 개발',
+      'JPA와 SQL을 이용한 PostgreSQL 데이터 처리',
+      'Thymeleaf 통계 화면 및 Google Analytics Data API 연동',
     ],
     problem:
       '관리자 통계 기능에 Google Analytics Data API를 연동했습니다. 개발 서버에서는 정상 호출됐지만 폐쇄망 운영 서버에서는 API 호출이 실패했습니다.',
     solution:
-      'Spring Boot에서 통계 조회 API를 만들고 Thymeleaf 화면에서 확인할 수 있게 구성했습니다. 운영 반영 과정에서 외부 API 호출이 실패해 애플리케이션 코드, 폐쇄망 서버, 방화벽, DMZ 구간을 나누어 확인했습니다. DMZ Apache Proxy를 통해 외부 API 호출 경로를 구성했고, 폐쇄망 운영 서버에서도 Google Analytics 통계 데이터를 조회할 수 있도록 수정했습니다.',
+      '개발 서버에서는 호출되던 Google Analytics Data API가 폐쇄망 운영 서버에서 실패했습니다. 애플리케이션 코드와 서버·네트워크 통신 경로를 나누어 확인한 뒤, DMZ Apache Proxy를 통한 호출 경로를 적용해 운영 서버에서도 통계 데이터를 조회하도록 수정했습니다.',
     outcomes: [
       '관리자 통계 조회 API와 Thymeleaf 화면 개발',
       '폐쇄망 운영 환경에서 DMZ Proxy를 통한 Google Analytics 데이터 조회 경로 적용',
-      '운영 중 발생한 데이터·기능 이슈를 원인 확인부터 배포까지 처리',
     ],
-    tech: ['Spring Boot', 'Java', 'JPA', 'PostgreSQL', 'Apache HTTP Server', 'Google Analytics Data API', 'JavaScript', 'Thymeleaf', 'REST API', 'SQL', 'Git'],
+    tech: ['Java', 'Spring Boot', 'JPA', 'PostgreSQL', 'SQL', 'REST API', 'Thymeleaf', 'Apache HTTP Server / Proxy', 'Google Analytics Data API'],
   },
   {
     title: '한화오션 안전혁신과제',
@@ -199,21 +189,21 @@ export const projects = [
       '모듈 간 화면 작성 규칙 정리',
     ],
     solutionIntro:
-      '여러 업무 기능 중 교육 동영상 플레이어와 MSDS QR 조회에 특히 신경 썼습니다. 교육 영상의 시청 조건을 제어하는 일과, 현장에서 필요한 정보를 바로 열어보게 하는 일이 각각 중요했습니다.',
+      '4개 모듈을 모두 개발했고, 교육 동영상 플레이어와 MSDS QR 조회는 동작 조건을 하나씩 확인하며 구현했습니다.',
     solutionSections: [
       {
         title: '교육 동영상 플레이어와 부하테스트',
         paragraphs: [
-          '동영상 플레이어 개발도, JMeter 부하테스트도 처음이었습니다. 교육 영상이라 재생만 되면 끝나는 기능은 아니었습니다. 건너뛰기와 배속을 제한하고, 화면을 벗어나거나 창을 닫으면 재생이 중단되도록 구현했습니다.',
-          '브라우저 자동재생 정책과 HTTP 헤더를 찾아보며 동작을 맞췄고, 가로 전체 화면에서는 네이티브 영역까지 연동해 상·하단 바를 숨겼습니다. 서버에서는 Range 요청에 따라 Spring Controller가 응답할 영상 데이터 범위를 조절했습니다.',
-          '여러 사람이 동시에 시청할 때의 동작도 확인하고 싶어 JMeter 환경과 시나리오를 직접 구성했습니다. 초기 버퍼링과 반복적인 Range 요청을 반영하고, 50명·100명·150명 조건에서 응답시간, 오류 여부, Throughput을 확인했습니다.',
+          '동영상 플레이어와 JMeter 부하테스트는 처음 맡았습니다. 교육 영상은 재생만 되면 끝나는 기능이 아니어서 건너뛰기와 배속을 제한하고, 화면을 벗어나거나 창을 닫으면 재생이 멈추도록 구현했습니다.',
+          '브라우저 자동재생 정책과 HTTP 헤더를 확인했습니다. 가로 전체 화면에서는 네이티브 영역도 수정해 상·하단 바를 숨겼고, Spring Controller에서는 Range 요청에 맞춰 응답할 영상 데이터 범위를 조절했습니다.',
+          '동시 시청 상황을 확인하려고 JMeter 환경과 시나리오를 직접 구성했습니다. 초기 버퍼링 약 3초와 반복적인 Range 요청을 반영하고, 50명·100명·150명 조건에서 응답시간, 오류 여부, Throughput을 확인했습니다.',
         ],
       },
       {
         title: 'MSDS QR 비로그인 조회',
         paragraphs: [
-          '현장에서 기본 카메라로 QR을 스캔하면 앱 설치나 로그인 없이 MSDS 정보를 볼 수 있어야 했습니다. 딥링크와 인텐트 사용도 고민했지만, 이 기능은 앱을 여는 것보다 정보를 바로 보여주는 것이 목적이라 일반 URL로 연결했습니다.',
-          '기존 Morpheus 백엔드에 JSP 조회 화면을 만들고 .do 경로로 연결했습니다. Spring Security에서는 해당 조회 경로만 비로그인 접근을 허용해 기존 시스템 안에서 처리했습니다.',
+          '현장에서 기본 카메라로 QR을 스캔해 앱 설치나 로그인 없이 MSDS를 볼 수 있도록 일반 URL을 사용했습니다.',
+          'Morpheus 백엔드에 JSP 조회 화면을 만들고 `.do` 경로로 연결했습니다. Spring Security에서는 해당 조회 경로만 비로그인 접근을 허용했습니다.',
         ],
       },
     ],
@@ -320,29 +310,28 @@ export const projects = [
     group: 'personal',
     galleryCompact: true,
     domain: 'Work Tool / Schedule Management',
-    tags: ['React', 'Timeline UI', 'Codex'],
+    tags: ['React', 'Node.js', 'PostgreSQL'],
     summary:
-      '거제도 상주 인원의 이동, 체류, 휴가, 서울 근무 일정을 한 화면에서 확인하기 위해 만든 일정 관리 화면입니다.',
+      '주간 타임라인과 항공·전체 일정·운영 현황 화면에서 거제도 상주 인원의 이동과 체류 일정을 확인하는 도구입니다.',
     screenshots: [
       { label: '주간 이동·체류 타임라인', src: b2bTimelinePreview, frameClass: 'aspect-[16/10]' },
       { label: '항공 일정', src: b2bFlightSchedule, frameClass: 'aspect-[16/10]' },
       { label: '전체 일정·휴가', src: b2bOverviewSchedule, frameClass: 'aspect-[16/10]' },
       { label: '운영 현황', src: b2bOperationsDashboard, frameClass: 'aspect-[16/10]' },
     ],
-    highlights: ['주간 체류 일정 타임라인', '인원별 이동/체류 상태 표시', '날짜 범위 조회와 상태 필터'],
+    highlights: ['인원별 이동·체류 주간 타임라인', '항공·전체 일정·휴가 조회', '운영 현황 화면'],
     background:
-      '한화오션 프로젝트로 거제도 현장에 상주하면서 이번 주에 누가 내려가고 올라오는지, 누가 현장에 체류 중인지, 누가 서울 근무인지 확인하는 일이 반복됐습니다. 메신저로 물어보거나 표를 따로 확인하는 방식으로는 전체 일정을 한눈에 보기 어려워 직접 타임라인 형태로 만들어봤습니다.',
+      '상주 인원 일정을 확인할 때 메신저와 여러 표를 오가는 일이 반복돼, 이동·체류·휴가를 한곳에서 볼 수 있도록 만들었습니다.',
     features: [
-      '인원별 이동, 체류, 휴가, 서울 근무 상태를 구분하는 화면 구성',
-      '조회 기간 기준의 주간 타임라인 UI 구현',
-      '일자별 현장 이동, 현장 체류, 서울 근무 인원 요약 영역 구성',
-      '상태별 색상과 라벨을 사용한 일정 표시',
-      '현장 상주 인원 확인을 위한 필터 및 카드형 요약 구성',
+      'React 기반 주간 타임라인, 항공 일정, 전체 일정·휴가, 운영 현황 화면 개발',
+      'Node.js·Express API와 PostgreSQL 일정 데이터 연동',
+      '그룹웨어 일정 조회와 Google Calendar 연동',
+      'Playwright를 이용한 그룹웨어 일정 확인 자동화',
     ],
     outcomes: [
       '인원별 이동·체류·휴가 일정을 한 화면에서 확인',
     ],
-    tech: ['React', 'JavaScript', 'Timeline UI', 'State Management', 'Responsive UI', 'Codex'],
+    tech: ['React', 'JavaScript', 'Node.js', 'Express', 'PostgreSQL', 'Google Calendar API', 'Playwright', 'Codex'],
   },
   {
     title: 'Proxmox 기반 홈서버 및 네트워크 인프라 구축',
@@ -351,17 +340,16 @@ export const projects = [
     domain: 'Infra / Network',
     tags: ['Infra', 'Network', 'Home Lab'],
     summary:
-      'Proxmox 기반 홈서버에서 내부 LAN 서비스와 외부 접속 경로를 직접 구성해본 홈랩입니다.',
+      'Proxmox 가상머신에서 라우팅·방화벽을 나누고, 외부 도메인으로 내부 서비스를 여는 경로를 구성했습니다.',
     diagram: homeLabDiagram,
     highlights: ['Proxmox VM 구성', 'pfSense 방화벽/NAT 설정', 'Nginx Proxy Manager와 DuckDNS 연동'],
     implementations: [
       'Proxmox VE 기반 가상화 환경 구성',
-      'pfSense VM을 라우터와 방화벽 역할로 설정',
-      '내부 LAN 서비스와 외부 접속 경로 분리',
-      'NAT 및 포트포워딩 규칙 설정',
-      'Nginx Proxy Manager 기반 내부 서비스 Reverse Proxy 구성',
-      'DuckDNS 기반 DDNS 도메인 연결',
-      'DuckDNS 도메인에서 Nginx Proxy Manager를 거쳐 내부 LAN 서비스로 연결되는 흐름 구성',
+      'pfSense VM과 KT 공유기를 연결해 WAN·LAN 경로 구성',
+      '내부 LAN과 외부 접속 경로 분리 및 NAT·포트포워딩 설정',
+      'DuckDNS 도메인이 공인 IP를 가리키도록 DDNS 설정',
+      'Nginx Proxy Manager에서 도메인별 내부 IP·포트 연결',
+      'OpenSSL 인증서를 적용해 HTTPS 접속 구성',
       '외부 접속 테스트 및 네트워크 설정 확인',
     ],
     problem:
@@ -384,6 +372,7 @@ export const projects = [
       'Firewall Rule',
       'Reverse Proxy',
       'DuckDNS',
+      'OpenSSL',
     ],
   },
   {
@@ -419,7 +408,7 @@ export const projects = [
     role: [
       'Spring Boot 기반 장소 추천 및 코스 조회 API 작성',
       'JPA 기반 장소 데이터 조회 처리 구성',
-      'Spring WebFlux를 사용한 외부 API 호출 연동',
+      'RestTemplate 및 HttpURLConnection을 이용한 외부 API 연동',
       'React 기반 추천 결과, 코스 상세, 지도 화면 구현',
       '한국관광공사 국문관광정보 서비스 API와 TMAP API 연동',
       '서울시 대중교통 API 연동',
@@ -428,12 +417,12 @@ export const projects = [
       '반응형 화면 및 공용 스타일 정리',
       'React 빌드 결과물을 Spring Boot에 포함해 함께 배포',
       'AWS EC2에서 Nginx Reverse Proxy를 구성해 context path 요청을 Spring Boot로 전달',
-      'AWS DB 연동 및 EC2 서버 파일시스템을 이용한 파일 저장',
+      'AWS PostgreSQL 연동 및 EC2 서버 파일시스템을 이용한 파일 저장',
     ],
     problem:
       '사용자는 장소 추천, 이동 경로, 소요 시간, 리뷰를 각각 다른 서비스에서 확인해야 했습니다. 또한 같은 장소라도 방문 순서에 따라 이동 시간과 코스 만족도가 달라질 수 있어, 단순 장소 목록이 아니라 실제 이동 가능한 코스 형태로 보여줄 필요가 있었습니다.',
     solution:
-      '백엔드는 Spring Boot와 JPA로 구성하고, 사용자가 선택한 서울의 구와 관심 카테고리를 기준으로 관광지, 음식점, 문화시설 데이터를 조회하도록 만들었습니다. 코스 이동 경로는 TMAP API와 서울시 대중교통 API를 연동해 도보와 대중교통 기준으로 확인할 수 있게 했고, 외부 API 호출이 여러 번 발생하는 구간은 Spring WebFlux로 처리했습니다. React에서는 추천 코스, 지도 경로, 장소 상세 정보, 사용자가 만든 코스 저장·공유 화면을 구성했습니다.',
+      '백엔드는 Spring Boot와 JPA로 구성하고, 사용자가 선택한 서울의 구와 관심 카테고리를 기준으로 관광지·음식점·문화시설 데이터를 조회하도록 만들었습니다. TMAP API와 서울시 대중교통 API를 연동해 코스별 이동 경로와 시간을 제공하고, React에서는 추천 코스와 지도, 장소 상세, 코스 저장·공유 화면을 개발했습니다.',
     outcomes: [
       '구/카테고리 기반 데이트 코스 추천부터 지도 경로 안내까지 동작하는 웹 서비스 완성',
       '사용자 수동 코스 구성, 저장, 공유, 리뷰 흐름 구현',
@@ -443,7 +432,6 @@ export const projects = [
     tech: [
       'Java',
       'Spring Boot',
-      'Spring WebFlux',
       'JPA',
       'React',
       'JavaScript',
@@ -452,12 +440,9 @@ export const projects = [
       'Kakao OAuth2',
       'Seoul Public Transportation API',
       'Public Data API',
-      'JSON',
-      'Responsive Web',
-      'UI/UX',
       'AWS EC2',
       'Nginx',
-      'AWS DB',
+      'PostgreSQL',
     ],
   },
 ];

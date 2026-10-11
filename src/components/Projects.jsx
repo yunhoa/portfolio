@@ -8,7 +8,7 @@ const SeoulRouteMap = lazy(() => import('./SeoulRouteMap.jsx'));
 
 const visualProjects = visualWorks.map((work) => ({
   title: work.title,
-  category: '회사 프로젝트',
+  category: work.category || '연구과제',
   group: 'visual',
   domain: work.label,
   period: work.period,
@@ -29,7 +29,7 @@ const projectPriority = [
   '한화오션 안전혁신과제',
   '3D 산단 디지털 플랫폼 유지관리',
   '한화토탈에너지스 MySafety 작업자 안전 지원 모바일 플랫폼',
-  'Safety Watch 스마트검색 RAG 기반 AI 플랫폼',
+  'Safety Watch 건축물 스마트검색 플랫폼',
   '스마트플랜트 설비 이미지 전처리 및 메타정보 생성 프레임워크',
 ];
 

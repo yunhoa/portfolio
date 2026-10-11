@@ -1,11 +1,12 @@
 export const visualWorks = [
   {
     title: '디지털 트윈 기반 병원 운영 플랫폼',
+    category: '연구과제',
     label: 'R&D / Digital Twin',
     badge: '3D 공간 화면',
     period: '2025.01.01 ~ 2025.12.31',
     summary:
-      '실제 병원에서 운행되는 서비스 로봇의 위치 API를 연동해 3D 공간에 표시했습니다.',
+      '실제 병원에서 운행되는 로봇의 위치 API를 연동해 병원 3D 공간에 표시했습니다.',
     background:
       '외래·병동 운영 최적화를 위해 병원 공간과 운영 데이터를 디지털 트윈으로 연결하는 메디컬트윈 연구과제입니다.',
     highlights: ['서비스 로봇 API 연동', '원지도-GLB 좌표 정합', '층별·로봇 유형별 위치 보정'],
@@ -21,7 +22,7 @@ export const visualWorks = [
     problem:
       '병원 원지도 좌표, 로봇 위치 좌표, GLB 모델 좌표계가 서로 달라 단순 스케일 변환만으로는 로봇 마커가 실제 위치와 맞지 않았습니다. 층마다 원점, 회전, 스케일 기준도 달라 하나의 변환식만 적용하기 어려웠습니다.',
     improvement:
-      '단순 스케일 변환으로는 로봇이 벽 안에 박히는 문제가 계속 나와서, 기준점 4개(A/B/C/D)로 Homography 변환 행렬을 계산해 원지도 좌표를 Three.js X/Z 좌표로 옮기는 방식으로 바꿨습니다. 층마다 원점과 회전 기준이 달라 변환 설정과 offset을 층별로 분리했고, 위치 데이터 형식이 다른 로봇 유형은 변환 로직을 따로 태웠습니다.',
+      '단순 스케일 변환으로는 로봇 마커가 병원 벽 안쪽에 표시되는 현상이 남아, 기준점 4개로 Homography 변환 행렬을 계산해 원지도 좌표를 Three.js X/Z 좌표로 변환했습니다. 층마다 원점과 회전 기준이 달라 변환 설정과 offset을 층별로 분리하고, 위치 데이터 형식이 다른 로봇은 별도 변환 로직으로 처리했습니다.',
     outcome:
       '로봇 위치가 3D 병원 공간의 실제 위치에 맞게 표시되는 상태까지 구현했습니다.',
     tech: [
@@ -30,14 +31,13 @@ export const visualWorks = [
       'Three.js',
       'React Three Fiber',
       'REST API',
-      'Access Token',
       'GLB',
       'Homography',
-      'Coordinate Transform',
     ],
   },
   {
     title: '반도체 제조 디지털 트윈 플랫폼',
+    category: '연구과제',
     label: 'Fab Digital Twin / Manufacturing',
     badge: '3D 제조 화면',
     period: '2025.01.01 ~ 2025.12.31',

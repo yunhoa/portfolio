@@ -7,8 +7,8 @@ function About() {
         <p className="section-eyebrow">About</p>
         <h2 className="section-title">서버 개발부터 운영 환경 대응까지</h2>
         <p className="section-description">
-          Java/Spring 백엔드 개발과 운영 시스템 유지보수를 주로 맡았습니다. 기존 시스템에 기능을 추가하거나 외부 API를 연동할 때 서버 로직과 SQL, DB 데이터를 함께 확인했습니다.
-          운영 환경에서만 문제가 생긴 경우에는 서버 설정과 네트워크 경로까지 살펴보고 수정했습니다. 프로젝트에 따라 모바일 웹뷰, FastAPI 검색 API, 데이터 처리 기능도 개발했습니다.
+          SI 프로젝트와 연구과제에서 Java/Spring 백엔드 기능을 중심으로 모바일 웹뷰, 검색 API, 데이터 처리 기능도 개발했습니다.
+          새 시스템을 맡으면 기존 코드와 데이터 흐름을 따라가며 필요한 기능을 구현했고, 외부 연동이 운영 환경에서 실패하거나 실제 사용 상황을 확인해야 할 때는 서버와 통신 경로, 테스트 조건까지 살펴봤습니다.
         </p>
       </Reveal>
     </section>

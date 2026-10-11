@@ -1,15 +1,15 @@
 export const skillGroups = [
   {
     category: 'Backend',
-    items: ['Java', 'Spring Boot', 'Spring Framework', 'Spring MVC', 'JPA', 'MyBatis', 'REST API', 'FastAPI'],
+    items: ['Java', 'Spring Boot', 'Spring Framework', 'JPA', 'MyBatis', 'REST API', 'FastAPI'],
   },
   {
-    category: 'Data / API',
-    items: ['SQL', 'Oracle', 'PostgreSQL', 'PGVector', 'InfluxDB', 'Google Analytics Data API', 'External API Integration'],
+    category: 'Data',
+    items: ['SQL', 'Oracle', 'PostgreSQL', 'PGVector', 'InfluxDB'],
   },
   {
     category: 'Test / Operations',
-    items: ['JMeter', 'Range 기반 영상 응답', 'Apache HTTP Server / Proxy', 'Linux', 'Tomcat', 'Git'],
+    items: ['JMeter', 'Apache HTTP Server / Proxy', 'Linux', 'Tomcat'],
   },
   {
     category: 'Mobile / WebView',
@@ -21,6 +21,6 @@ export const skillGroups = [
   },
   {
     category: 'AI / Data Pipeline',
-    items: ['LangChain', 'LangGraph PoC', 'Ollama', 'HuggingFace Embeddings', 'BAAI/bge-m3', 'SAM', 'OpenCV'],
+    items: ['LangChain', 'LangGraph', 'Ollama', 'HuggingFace Embeddings', 'BAAI/bge-m3', 'SAM', 'OpenCV'],
   },
 ];
