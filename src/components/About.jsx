@@ -5,7 +5,7 @@ function About() {
     <section id="about" className="section-shell">
       <Reveal>
         <p className="section-eyebrow">About</p>
-        <h2 className="section-title">처음 쓰는 기술도 직접 구현하며 익혔습니다</h2>
+        <h2 className="section-title">요구사항에 맞춰 넓혀온 개발 경험</h2>
         <p className="section-description">
           회사에서 여러 SI 프로젝트와 연구과제에 참여하며 Java/Spring 기반 기능 개발과 유지보수를 맡았습니다. 프로젝트마다 필요한 기능이 달라 모바일 웹뷰도 개발했고, 건축물 검색과 설비 이미지 처리가 필요한 과제에서는 Python·FastAPI로 API를 구현했습니다. 처음 쓰는 기술은 필요한 기능을 직접 만들어보며 익히고, 실제 데이터를 넣어 동작을 확인했습니다.
         </p>
