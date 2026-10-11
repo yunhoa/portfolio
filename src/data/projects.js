@@ -17,6 +17,7 @@ import mySafetyPlayStore from '../assets/mysafety-play-store.png';
 import seoulHereDiagram from '../assets/seoulhere-service-architecture.svg';
 import seoulHereUseCases from '../assets/seoulhere-use-cases-v2.svg';
 import seoulHereDataModel from '../assets/seoulhere-erd-jpa.svg';
+import seoulHereSqlModel from '../assets/seoulhere-erd.svg';
 import seoulHereCapture01 from '../assets/seoulhere-live-01.png';
 import seoulHereCapture02 from '../assets/seoulhere-live-02.png';
 import seoulHereCapture03 from '../assets/seoulhere-live-03.png';
@@ -396,7 +397,8 @@ export const projects = [
     contest: '2024 관광데이터 활용 공모전 출품',
     galleryIntroImages: [
       { label: '서비스 구성도', src: seoulHereDiagram, alt: '브라우저가 React 빌드 파일을 받아 실행하고, React의 API 요청이 Nginx를 거쳐 Spring Boot REST API로 전달되는 구조. 서버는 AWS PostgreSQL, EC2 파일시스템, 외부 API와 연결됩니다.', frameClass: 'aspect-[16/10]' },
-      { label: '테이블 관계', src: seoulHereDataModel, alt: 'JPA 엔티티 기준 13개 매핑 테이블의 PK, FK, 고유키와 자기참조 관계를 표시한 ERD', frameClass: 'aspect-[16/10]' },
+      { label: 'ERD · JPA 엔티티 기준', src: seoulHereDataModel, alt: 'JPA 엔티티 기준 13개 매핑 테이블의 PK, FK, 고유키와 자기참조 관계를 표시한 ERD', frameClass: 'aspect-[16/10]' },
+      { label: 'ERD · SQL 기준', src: seoulHereSqlModel, alt: 'table.sql 기준 PostgreSQL 테이블의 컬럼과 키 관계를 표시한 ERD', frameClass: 'aspect-[16/10]' },
       { label: '유스케이스', src: seoulHereUseCases, alt: '사용자·관리자와 Kakao OAuth2, 관광공사, TMAP, 서울시 교통 API 연동을 표시한 UML 유스케이스', frameClass: 'aspect-[16/10]' },
     ],
     screenshots: [

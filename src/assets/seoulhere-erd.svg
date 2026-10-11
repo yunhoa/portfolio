@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1380" viewBox="0 0 1800 1380" role="img" aria-labelledby="title desc">
+  <title id="title">서울에서 뭐하고 놀지? 데이터베이스 ERD</title>
+  <desc id="desc">프로젝트 table.sql에 정의된 10개 PostgreSQL 테이블과 PK, FK, 고유키 및 nullable 관계를 표시한 논리 ERD.</desc>
+  <defs>
+    <style>
+      text{font-family:'Consolas','Malgun Gothic','Apple SD Gothic Neo',monospace;fill:#2d3b3a}.title{font:700 29px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif}.sub{font:14px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#687875}.zone{font:700 17px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#52776f}.th{font:700 18px 'Consolas','Malgun Gothic',sans-serif}.field{font-size:14px}.type{font-size:12px;fill:#73817e}.tag{font-size:11px;font-weight:700}.rel{font:13px 'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#59736e}.card{fill:#fff;stroke:#a9bdb7;stroke-width:1.7}.row{stroke:#e5ece9;stroke-width:1}
+    </style>
+  </defs>
+  <rect width="1800" height="1380" fill="#fff"/>
+  <text x="55" y="58" class="title">서울에서 뭐하고 놀지? · 테이블 관계</text>
+  <text x="55" y="88" class="sub">PostgreSQL table.sql 기준 · PK 기본 키 · FK 외래 키 · UQ 고유 제약 · nullable FK는 0..1로 표시</text>
+
+  <!-- Relationships: drawn first so connectors stay behind table rows. -->
+  <g fill="none" stroke="#75918a" stroke-width="2">
+    <path d="M290 432V502"/><path d="M520 282H605V255H690"/>
+    <path d="M290 722V812"/><path d="M1510 452V502"/><path d="M1510 722V812"/>
+    <path d="M920 452V502"/><path d="M920 862V1012"/><path d="M520 402H600V1122H690"/>
+    <path d="M1120 390H1280"/>
+  </g>
+  <g class="rel" text-anchor="middle">
+    <text x="318" y="468">user_id</text><text x="290" y="450">0..1</text><text x="290" y="498">0..N</text>
+    <text x="605" y="238">user_id</text><text x="535" y="272">0..1</text><text x="675" y="272">0..N</text>
+    <text x="318" y="785">login_id</text><text x="290" y="742">0..1</text><text x="290" y="808">0..N</text>
+    <text x="1560" y="484">post_id</text><text x="1510" y="466">0..1</text><text x="1510" y="498">0..N</text>
+    <text x="1570" y="778">comment_id</text><text x="1510" y="742">0..1</text><text x="1510" y="808">0..N</text>
+    <text x="985" y="484">place_id_1..5</text><text x="920" y="466">0..N</text><text x="920" y="500">0..5</text>
+    <text x="948" y="982">place_id</text><text x="920" y="880">0..1</text><text x="920" y="1008">0..N</text>
+    <text x="600" y="1105">user_id</text><text x="535" y="392">0..1</text><text x="675" y="1140">0..N</text>
+    <text x="1200" y="376">course_id</text><text x="1135" y="414">0..1</text><text x="1260" y="414">0..N</text>
+  </g>
+
+  <!-- user_info -->
+  <g transform="translate(60 150)">
+    <rect class="card" width="460" height="282" rx="8"/><path d="M8 0H452Q460 0 460 8V46H0V8Q0 0 8 0Z" fill="#eaf2ef"/>
+    <text x="16" y="30" class="th">user_info</text><text x="438" y="29" text-anchor="end" class="type">회원 프로필</text>
+    <path class="row" d="M0 46H460M0 75H460M0 104H460M0 133H460M0 162H460M0 191H460M0 220H460M0 249H460"/>
+    <g class="field"><text x="16" y="66">PK  user_id</text><text x="16" y="95">    user_name</text><text x="16" y="124">UQ  user_phone_no</text><text x="16" y="153">    address</text><text x="16" y="182">    profile_image</text><text x="16" y="211">    introduce</text><text x="16" y="240">    reg_dt</text><text x="16" y="269">    up_dt</text></g>
+    <g class="type" text-anchor="end"><text x="444" y="66">VARCHAR</text><text x="444" y="95">TEXT NOT NULL</text><text x="444" y="124">TEXT UNIQUE</text><text x="444" y="153">TEXT</text><text x="444" y="182">TEXT</text><text x="444" y="211">VARCHAR(50)</text><text x="444" y="240">TIMESTAMP</text><text x="444" y="269">TIMESTAMP</text></g>
+  </g>
+  <!-- login_info -->
+  <g transform="translate(60 502)">
+    <rect class="card" width="460" height="220" rx="8"/><path d="M8 0H452Q460 0 460 8V46H0V8Q0 0 8 0Z" fill="#eaf2ef"/>
+    <text x="16" y="30" class="th">login_info</text><text x="438" y="29" text-anchor="end" class="type">로그인 정보</text>
+    <path class="row" d="M0 46H460M0 75H460M0 104H460M0 133H460M0 162H460M0 191H460"/>
+    <g class="field"><text x="16" y="66">PK  login_id</text><text x="16" y="95">FK  user_id</text><text x="16" y="124">    email</text><text x="16" y="153">    password</text><text x="16" y="182">    reg_dt</text><text x="16" y="211">    up_dt</text></g>
+    <g class="type" text-anchor="end"><text x="444" y="66">VARCHAR</text><text x="444" y="95">VARCHAR NULL</text><text x="444" y="124">VARCHAR NOT NULL</text><text x="444" y="153">VARCHAR NOT NULL</text><text x="444" y="182">TIMESTAMP</text><text x="444" y="211">TIMESTAMP</text></g>
+  </g>
+  <!-- refresh_token -->
+  <g transform="translate(60 812)">
+    <rect class="card" width="460" height="190" rx="8"/><path d="M8 0H452Q460 0 460 8V46H0V8Q0 0 8 0Z" fill="#eaf2ef"/>
+    <text x="16" y="30" class="th">refresh_token</text><text x="438" y="29" text-anchor="end" class="type">토큰 저장</text>
+    <path class="row" d="M0 46H460M0 75H460M0 104H460M0 133H460M0 162H460"/>
+    <g class="field"><text x="16" y="66">PK  token</text><text x="16" y="95">FK  login_id</text><text x="16" y="124">    expiry_date</text><text x="16" y="153">    created_at</text></g>
+    <g class="type" text-anchor="end"><text x="444" y="66">VARCHAR(255)</text><text x="444" y="95">VARCHAR NULL</text><text x="444" y="124">TIMESTAMP</text><text x="444" y="153">TIMESTAMP</text></g>
+  </g>
+  <!-- phone verification -->
+  <g transform="translate(60 1080)">
+    <rect class="card" width="460" height="170" rx="8"/><path d="M8 0H452Q460 0 460 8V46H0V8Q0 0 8 0Z" fill="#f3f4f2"/>
+    <text x="16" y="30" class="th">phone_verification_code</text>
+    <path class="row" d="M0 46H460M0 75H460M0 104H460M0 133H460"/>
+    <g class="field"><text x="16" y="66">PK  id</text><text x="16" y="95">    phone_number</text><text x="16" y="124">    code</text><text x="16" y="153">    expiration</text></g>
+    <g class="type" text-anchor="end"><text x="444" y="66">BIGSERIAL</text><text x="444" y="95">VARCHAR(255)</text><text x="444" y="124">VARCHAR(255)</text><text x="444" y="153">TIMESTAMP</text></g>
+  </g>
+
+  <!-- course -->
+  <g transform="translate(690 150)">
+    <rect class="card" width="430" height="302" rx="8"/><path d="M8 0H422Q430 0 430 8V46H0V8Q0 0 8 0Z" fill="#eaf2ef"/>
+    <text x="16" y="30" class="th">course</text><text x="408" y="29" text-anchor="end" class="type">사용자 코스</text>
+    <path class="row" d="M0 46H430M0 75H430M0 104H430M0 133H430M0 162H430M0 191H430M0 220H430M0 249H430M0 278H430"/>
+    <g class="field"><text x="16" y="66">PK  course_id</text><text x="16" y="95">FK  user_id</text><text x="16" y="124">    title</text><text x="16" y="153">FK  place_id_1</text><text x="16" y="182">FK  place_id_2</text><text x="16" y="211">FK  place_id_3</text><text x="16" y="240">FK  place_id_4</text><text x="16" y="269">FK  place_id_5</text></g>
+    <g class="type" text-anchor="end"><text x="414" y="66">VARCHAR</text><text x="414" y="95">VARCHAR NULL</text><text x="414" y="124">VARCHAR NULL</text><text x="414" y="153">VARCHAR NULL</text><text x="414" y="182">VARCHAR NULL</text><text x="414" y="211">VARCHAR NULL</text><text x="414" y="240">VARCHAR NULL</text><text x="414" y="269">VARCHAR NULL</text></g>
+  </g>
+  <!-- place -->
+  <g transform="translate(690 502)">
+    <rect class="card" width="430" height="360" rx="8"/><path d="M8 0H422Q430 0 430 8V46H0V8Q0 0 8 0Z" fill="#eaf2ef"/>
+    <text x="16" y="30" class="th">place</text><text x="408" y="29" text-anchor="end" class="type">관광 장소</text>
+    <path class="row" d="M0 46H430M0 75H430M0 104H430M0 133H430M0 162H430M0 191H430M0 220H430M0 249H430M0 278H430M0 307H430M0 336H430"/>
+    <g class="field"><text x="16" y="66">PK  place_id</text><text x="16" y="95">    content_type</text><text x="16" y="124">    addr1</text><text x="16" y="153">    title</text><text x="16" y="182">    first_image</text><text x="16" y="211">    first_image2</text><text x="16" y="240">    map_x</text><text x="16" y="269">    map_y</text><text x="16" y="298">    tel</text><text x="16" y="327">    sigungu_code</text></g>
+    <g class="type" text-anchor="end"><text x="414" y="66">VARCHAR</text><text x="414" y="95">TEXT NOT NULL</text><text x="414" y="124">TEXT NOT NULL</text><text x="414" y="153">TEXT NOT NULL</text><text x="414" y="182">TEXT NOT NULL</text><text x="414" y="211">TEXT NOT NULL</text><text x="414" y="240">DOUBLE PRECISION</text><text x="414" y="269">DOUBLE PRECISION</text><text x="414" y="298">TEXT</text><text x="414" y="327">TEXT NOT NULL</text></g>
+  </g>
+  <!-- place_review -->
+  <g transform="translate(690 1012)">
+    <rect class="card" width="430" height="228" rx="8"/><path d="M8 0H422Q430 0 430 8V46H0V8Q0 0 8 0Z" fill="#f7f0eb"/>
+    <text x="16" y="30" class="th">place_review</text><text x="408" y="29" text-anchor="end" class="type">장소 리뷰</text>
+    <path class="row" d="M0 46H430M0 75H430M0 104H430M0 133H430M0 162H430M0 191H430"/>
+    <g class="field"><text x="16" y="66">PK  place_review_id</text><text x="16" y="95">FK  place_id</text><text x="16" y="124">FK  user_id</text><text x="16" y="153">    review_title</text><text x="16" y="182">    review_text</text><text x="16" y="211">    review_like</text></g>
+    <g class="type" text-anchor="end"><text x="414" y="66">VARCHAR</text><text x="414" y="95">VARCHAR NULL</text><text x="414" y="124">VARCHAR NULL</text><text x="414" y="153">TEXT</text><text x="414" y="182">TEXT</text><text x="414" y="211">INTEGER DEFAULT 0</text></g>
+  </g>
+
+  <!-- posts -->
+  <g transform="translate(1280 150)">
+    <rect class="card" width="460" height="302" rx="8"/><path d="M8 0H452Q460 0 460 8V46H0V8Q0 0 8 0Z" fill="#f7f0eb"/>
+    <text x="16" y="30" class="th">posts</text><text x="438" y="29" text-anchor="end" class="type">공유 게시물</text>
+    <path class="row" d="M0 46H460M0 75H460M0 104H460M0 133H460M0 162H460M0 191H460M0 220H460M0 249H460M0 278H460"/>
+    <g class="field"><text x="16" y="66">PK  post_id</text><text x="16" y="95">FK  course_id</text><text x="16" y="124">    is_review</text><text x="16" y="153">    photos</text><text x="16" y="182">    content</text><text x="16" y="211">    likes</text><text x="16" y="240">    title</text><text x="16" y="269">    created_at</text><text x="16" y="298">    updated_at</text></g>
+    <g class="type" text-anchor="end"><text x="444" y="66">VARCHAR(36)</text><text x="444" y="95">VARCHAR NULL</text><text x="444" y="124">BOOLEAN NOT NULL</text><text x="444" y="153">JSONB</text><text x="444" y="182">TEXT NOT NULL</text><text x="444" y="211">INT DEFAULT 0</text><text x="444" y="240">VARCHAR(255) NOT NULL</text><text x="444" y="269">TIMESTAMP</text><text x="444" y="298">TIMESTAMP</text></g>
+  </g>
+  <!-- comments -->
+  <g transform="translate(1280 502)">
+    <rect class="card" width="460" height="220" rx="8"/><path d="M8 0H452Q460 0 460 8V46H0V8Q0 0 8 0Z" fill="#f7f0eb"/>
+    <text x="16" y="30" class="th">comments</text><text x="438" y="29" text-anchor="end" class="type">댓글</text>
+    <path class="row" d="M0 46H460M0 75H460M0 104H460M0 133H460M0 162H460M0 191H460"/>
+    <g class="field"><text x="16" y="66">PK  comment_id</text><text x="16" y="95">FK  post_id</text><text x="16" y="124">    content</text><text x="16" y="153">    created_at</text><text x="16" y="182">    updated_at</text></g>
+    <g class="type" text-anchor="end"><text x="444" y="66">VARCHAR(36)</text><text x="444" y="95">VARCHAR(36) NULL</text><text x="444" y="124">TEXT NOT NULL</text><text x="444" y="153">TIMESTAMP</text><text x="444" y="182">TIMESTAMP</text></g>
+  </g>
+  <!-- replies -->
+  <g transform="translate(1280 812)">
+    <rect class="card" width="460" height="190" rx="8"/><path d="M8 0H452Q460 0 460 8V46H0V8Q0 0 8 0Z" fill="#f7f0eb"/>
+    <text x="16" y="30" class="th">replies</text><text x="438" y="29" text-anchor="end" class="type">대댓글</text>
+    <path class="row" d="M0 46H460M0 75H460M0 104H460M0 133H460M0 162H460"/>
+    <g class="field"><text x="16" y="66">PK  reply_id</text><text x="16" y="95">FK  comment_id</text><text x="16" y="124">    content</text><text x="16" y="153">    created_at</text><text x="16" y="182">    updated_at</text></g>
+    <g class="type" text-anchor="end"><text x="444" y="66">VARCHAR(36)</text><text x="444" y="95">VARCHAR(36) NULL</text><text x="444" y="124">TEXT NOT NULL</text><text x="444" y="153">TIMESTAMP</text><text x="444" y="182">TIMESTAMP</text></g>
+  </g>
+  <rect x="1280" y="1070" width="460" height="148" rx="8" fill="#f5f6f4" stroke="#cfd8d4" stroke-width="1.5"/>
+  <text x="1300" y="1102" class="zone">ERD 노트</text>
+  <text x="1300" y="1134" class="sub">실선: SQL에 선언된 외래 키 관계</text>
+  <text x="1300" y="1160" class="sub">각 참조 컬럼은 DDL 기준 nullable</text>
+  <text x="1300" y="1186" class="sub">phone_verification_code는 독립 테이블</text>
+</svg>
