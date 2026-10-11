@@ -3,6 +3,7 @@ import homeLabDiagram from '../assets/proxmox-homelab-topology.svg';
 import botOverview from '../assets/slack-bots-overview.png';
 import botLeave from '../assets/slack-bot-leave.png';
 import botFortune from '../assets/slack-bot-fortune.png';
+import botFortuneSettings from '../assets/slack-bot-fortune-settings.png';
 import botMeetingSeat from '../assets/slack-bot-meeting-seat.png';
 import botMeetingStart from '../assets/slack-bot-meeting-start.png';
 import botB2B from '../assets/slack-bot-b2b.png';
@@ -19,6 +20,10 @@ import seoulHereDataModel from '../assets/seoulhere-erd-jpa.svg';
 import seoulHereCapture01 from '../assets/seoulhere-live-01.png';
 import seoulHereCapture02 from '../assets/seoulhere-live-02.png';
 import seoulHereCapture03 from '../assets/seoulhere-live-03.png';
+import seoulHereBoard from '../assets/seoulhere-board.png';
+import seoulHereMyPage from '../assets/seoulhere-mypage.png';
+import seoulHereFavorites from '../assets/seoulhere-favorites.png';
+import seoulHereMyCourses from '../assets/seoulhere-mycourses.png';
 
 export const projects = [
   {
@@ -161,7 +166,6 @@ export const projects = [
     outcomes: [
       '관리자 통계 조회 API와 Thymeleaf 화면 개발',
       '폐쇄망 운영 환경에서 DMZ Proxy를 통한 Google Analytics 데이터 조회 경로 적용',
-      '기존 관리자 화면 구조를 크게 변경하지 않고 외부 API 연동 문제 해결',
       '운영 중 발생한 데이터·기능 이슈를 원인 확인부터 배포까지 처리',
     ],
     tech: ['Spring Boot', 'Java', 'JPA', 'PostgreSQL', 'Apache HTTP Server', 'Google Analytics Data API', 'JavaScript', 'Thymeleaf', 'REST API', 'SQL', 'Git'],
@@ -174,10 +178,10 @@ export const projects = [
     period: '2026.06.15 ~ 2026.12 예정',
     tags: ['Backend', 'Morpheus', 'Spring Legacy', 'MyBatis'],
     summary:
-      'Morpheus/MSP 모바일 웹뷰와 Spring 백엔드로 안전·교육·작업 기능을 개발했습니다.',
+      '교육이력·BMSW·MSDS·마일리지 4개 모듈의 모바일 화면과 Spring 백엔드 기능을 개발했습니다.',
     sectionLabels: {
       role: '주요 개발 업무',
-      solution: '교육 동영상·MSDS QR 구현',
+      solution: '특히 신경 쓴 기능',
     },
     background:
       '한화오션 현장에서 수기로 처리하던 안전·교육·작업 업무를 모바일 시스템으로 전환하는 과제입니다.',
@@ -193,15 +197,32 @@ export const projects = [
       '공지·문의·자료·증빙, BMSW 의견·위험요인, MSDS 조회, 마일리지 신청 기능 구현',
       '모듈 간 화면 작성 규칙 정리',
     ],
-    solution:
-      `교육 동영상 플레이어는 처음 맡은 기능이라 브라우저 정책과 HTTP 헤더, Range 응답 방식을 확인하며 구현했습니다. 건너뛰기와 배속을 제한하고 화면을 벗어나면 재생을 중단하도록 처리했습니다. 가로 전체 화면에서는 네이티브 영역과 연동해 상·하단 바를 숨겼습니다. Spring Controller에서 Range 요청에 맞춰 영상 응답 범위를 처리하고, 실제 시청 흐름을 반영한 JMeter 시나리오로 50명·100명·150명 조건의 응답시간, 오류 여부, 처리량을 확인했습니다.\n\nMSDS QR은 앱 설치나 로그인이 필요한 딥링크 대신 기본 카메라에서 열 수 있는 URL로 구성했습니다. 해당 .do 경로만 Spring Security에서 비로그인 접근을 허용하고, Morpheus 백엔드의 JSP 화면으로 연결했습니다.`,
+    solutionIntro:
+      '여러 업무 기능 중 교육 동영상 플레이어와 MSDS QR 조회에 특히 신경 썼습니다. 교육 영상의 시청 조건을 제어하는 일과, 현장에서 필요한 정보를 바로 열어보게 하는 일이 각각 중요했습니다.',
+    solutionSections: [
+      {
+        title: '교육 동영상 플레이어와 부하테스트',
+        paragraphs: [
+          '동영상 플레이어 개발도, JMeter 부하테스트도 처음이었습니다. 교육 영상이라 재생만 되면 끝나는 기능은 아니었습니다. 건너뛰기와 배속을 제한하고, 화면을 벗어나거나 창을 닫으면 재생이 중단되도록 구현했습니다.',
+          '브라우저 자동재생 정책과 HTTP 헤더를 찾아보며 동작을 맞췄고, 가로 전체 화면에서는 네이티브 영역까지 연동해 상·하단 바를 숨겼습니다. 서버에서는 Range 요청에 따라 Spring Controller가 응답할 영상 데이터 범위를 조절했습니다.',
+          '여러 사람이 동시에 시청할 때의 동작도 확인하고 싶어 JMeter 환경과 시나리오를 직접 구성했습니다. 초기 버퍼링과 반복적인 Range 요청을 반영하고, 50명·100명·150명 조건에서 응답시간, 오류 여부, Throughput을 확인했습니다.',
+        ],
+      },
+      {
+        title: 'MSDS QR 비로그인 조회',
+        paragraphs: [
+          '현장에서 기본 카메라로 QR을 스캔하면 앱 설치나 로그인 없이 MSDS 정보를 볼 수 있어야 했습니다. 딥링크와 인텐트 사용도 고민했지만, 이 기능은 앱을 여는 것보다 정보를 바로 보여주는 것이 목적이라 일반 URL로 연결했습니다.',
+          '기존 Morpheus 백엔드에 JSP 조회 화면을 만들고 .do 경로로 연결했습니다. Spring Security에서는 해당 조회 경로만 비로그인 접근을 허용해 기존 시스템 안에서 처리했습니다.',
+        ],
+      },
+    ],
     outcomes: [
       '한화오션 협력사와 임직원이 수기로 처리하던 안전·교육·작업 업무를 모바일 앱으로 전환하고 관련 4개 모듈을 구현',
     ],
     tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus', 'JavaScript', 'JMeter'],
   },
   {
-    title: 'MySafety 작업자 안전 지원 모바일 플랫폼',
+    title: '한화토탈에너지스 MySafety 작업자 안전 지원 모바일 플랫폼',
     category: '회사 프로젝트',
     group: 'backend',
     domain: 'Mobile WebView / API Integration / Store Release',
@@ -253,7 +274,7 @@ export const projects = [
     botOverview,
     botScreenshots: [
       { label: '휴가 알림', src: botLeave },
-      { label: '오늘의 운세', src: botFortune },
+      { label: '오늘의 운세 · 알림 설정', images: [botFortune, botFortuneSettings] },
       { label: '좌석 연장 · 회의 알림', images: [botMeetingSeat, botMeetingStart] },
       { label: 'B2B 일정 알림', src: botB2B },
       { label: '기술 블로그 RSS', src: botRSS },
@@ -274,7 +295,7 @@ export const projects = [
     ],
     features: [
       '휴가봇: 매일 오전 9시 휴가자 안내와 Slack 명령어',
-      '운세봇: 사용자별 오늘의 운세 생성 및 Slack DM',
+      '운세봇: 오늘의 운세 DM과 생년월일·발송 시각 변경, 알림 해지',
       '회의봇: 회의 시작 10분 전 알림과 Playwright 회의실 예약',
       'B2B 일정봇: 주간 일정 및 현장 체류 인원 알림',
       'RSS봇: 매일 오전 9시 GeekNews, 매주 월요일 오전 9시 30분 기술 블로그 새 글 안내',
@@ -318,8 +339,7 @@ export const projects = [
       '현장 상주 인원 확인을 위한 필터 및 카드형 요약 구성',
     ],
     outcomes: [
-      '누가 언제 내려가고 올라오는지 화면 하나로 확인하게 됨',
-      '일정이 바뀔 때마다 전체 인원 상태를 다시 묻던 흐름이 사라짐',
+      '인원별 이동·체류·휴가 일정을 한 화면에서 확인',
     ],
     tech: ['React', 'JavaScript', 'Timeline UI', 'State Management', 'Responsive UI', 'Codex'],
   },
@@ -374,17 +394,22 @@ export const projects = [
     tags: ['Spring Boot', 'React', 'Public API'],
     period: '2024.07.01 ~ 2024.09.30',
     contest: '2024 관광데이터 활용 공모전 출품',
-    diagram: seoulHereDiagram,
-    diagramAlt: '브라우저 요청이 Nginx를 통해 Spring Boot의 React 화면과 REST API로 전달되고, API가 EC2 파일시스템, AWS PostgreSQL, 외부 API와 통신하는 구조',
+    galleryIntroImages: [
+      { label: '서비스 구성도', src: seoulHereDiagram, alt: '브라우저가 React 빌드 파일을 받아 실행하고, React의 API 요청이 Nginx를 거쳐 Spring Boot REST API로 전달되는 구조. 서버는 AWS PostgreSQL, EC2 파일시스템, 외부 API와 연결됩니다.', frameClass: 'aspect-[16/10]' },
+      { label: '테이블 관계', src: seoulHereDataModel, alt: 'JPA 엔티티 기준 13개 매핑 테이블의 PK, FK, 고유키와 자기참조 관계를 표시한 ERD', frameClass: 'aspect-[16/10]' },
+    ],
     screenshots: [
       { label: '서울 지역·관심 카테고리 선택', src: seoulHereCapture01, frameClass: 'aspect-[16/10]' },
       { label: '구 선택 지도', src: seoulHereCapture02, frameClass: 'aspect-[16/10]' },
       { label: '지역별 장소 검색', src: seoulHereCapture03, frameClass: 'aspect-[16/10]' },
       { label: '코스 이동 경로', interactive: 'seoul-route-map' },
+      { label: '코스 공유 게시판', src: seoulHereBoard, frameClass: 'aspect-[16/10]' },
+      { label: '마이페이지 · 프로필과 활동', src: seoulHereMyPage, frameClass: 'aspect-[16/10]' },
+      { label: '찜한 장소', src: seoulHereFavorites, frameClass: 'aspect-[16/10]' },
+      { label: '내가 저장한 코스', src: seoulHereMyCourses, frameClass: 'aspect-[16/10]' },
     ],
     referenceImages: [
       { label: '유스케이스', src: seoulHereUseCases, alt: '사용자·관리자와 Kakao OAuth2, 관광공사, TMAP, 서울시 교통 API 연동을 표시한 UML 유스케이스' },
-      { label: '테이블 관계', src: seoulHereDataModel, alt: 'JPA 엔티티 기준 13개 매핑 테이블의 PK, FK, 고유키와 자기참조 관계를 표시한 ERD' },
     ],
     summary:
       '서울의 구 단위 지역과 관심 카테고리를 기준으로 친구 또는 연인을 위한 데이트 코스를 추천하고, 사용자가 직접 만든 코스를 공유할 수 있게 만든 웹 서비스입니다.',

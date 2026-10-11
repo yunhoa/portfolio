@@ -28,7 +28,7 @@ const groupOrder = ['backend', 'ai', 'visual', 'personal'];
 const projectPriority = [
   '한화오션 안전혁신과제',
   '3D 산단 디지털 플랫폼 유지관리',
-  'MySafety 작업자 안전 지원 모바일 플랫폼',
+  '한화토탈에너지스 MySafety 작업자 안전 지원 모바일 플랫폼',
   'Safety Watch 스마트검색 RAG 기반 AI 플랫폼',
   '스마트플랜트 설비 이미지 전처리 및 메타정보 생성 프레임워크',
 ];
@@ -202,6 +202,7 @@ function ProjectGallery({ project, onOpen }) {
   const suppressClickRef = useRef(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const items = [
+    ...(project.galleryIntroImages || []).map((item) => ({ ...item, alt: `${project.title} - ${item.alt}` })),
     ...(project.screenshots || []).map((item) => ({ ...item, alt: `${project.title} - ${item.label}` })),
     ...(project.diagram ? [{ label: '서비스 구성도', src: project.diagram, alt: project.diagramAlt || `${project.title} 구성도`, naturalSize: !project.galleryCompact, frameClass: project.galleryCompact ? 'aspect-[16/10]' : undefined }] : []),
     ...(project.referenceImages || []).map((item) => ({ ...item, alt: `${project.title} - ${item.alt}`, naturalSize: !project.galleryCompact, frameClass: project.galleryCompact ? 'aspect-[16/10]' : undefined })),
@@ -213,8 +214,9 @@ function ProjectGallery({ project, onOpen }) {
     const track = trackRef.current;
     if (!track) return;
     const slides = [...track.children];
+    const left = track.getBoundingClientRect().left;
     const nearest = slides.reduce((best, slide, index) =>
-      Math.abs(slide.offsetLeft - track.scrollLeft) < Math.abs(slides[best].offsetLeft - track.scrollLeft) ? index : best, 0);
+      Math.abs(slide.getBoundingClientRect().left - left) < Math.abs(slides[best].getBoundingClientRect().left - left) ? index : best, 0);
     setActiveIndex(nearest);
   };
 
@@ -224,12 +226,13 @@ function ProjectGallery({ project, onOpen }) {
     const firstSlide = track?.children[0];
     if (track && slide && firstSlide) {
       const distance = slide.getBoundingClientRect().left - firstSlide.getBoundingClientRect().left;
-      track.scrollTo({ left: track.scrollLeft + distance, behavior: 'smooth' });
+      track.scrollTo({ left: distance, behavior: 'smooth' });
     }
   };
 
   const handleMouseDown = (event) => {
     if (event.button !== 0) return;
+    if (event.target.closest('[data-interactive-map]')) return;
     const track = trackRef.current;
     const drag = { startX: event.clientX, startScroll: track.scrollLeft, moved: false };
     dragRef.current = drag;
@@ -272,7 +275,7 @@ function ProjectGallery({ project, onOpen }) {
           <figure key={`${item.label}-${index}`} className="min-w-0 basis-[88%] shrink-0 snap-start md:basis-[84%]">
             <figcaption className="mb-2 text-sm font-semibold text-slate-700">{item.label}</figcaption>
             {item.interactive === 'seoul-route-map' ? (
-              <Suspense fallback={<div className="h-[220px] animate-pulse bg-slate-100 sm:h-[470px]" />}>
+              <Suspense fallback={<div className="aspect-[16/10] animate-pulse bg-slate-100" />}>
                 <SeoulRouteMap />
               </Suspense>
             ) : (
@@ -320,7 +323,7 @@ function ProjectDetail({ project }) {
 
   return (
     <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-2">
-      <div className="space-y-5">
+      <div className={`space-y-5 ${project.solutionSections?.length ? 'lg:col-span-2' : ''}`}>
         {project.background && (
           <div>
             <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.background || (showPersonalContext ? '만든 이유' : '프로젝트 소개')}</h4>
@@ -344,7 +347,7 @@ function ProjectDetail({ project }) {
         )}
       </div>
 
-      <div className="space-y-5">
+      <div className={project.solutionSections?.length ? 'grid gap-5 lg:col-span-2 lg:grid-cols-2' : 'space-y-5'}>
         <DetailList title={project.sectionLabels?.role || (showPersonalContext ? '개발 내용' : '담당 업무')} items={project.role} />
         <DetailList title={project.sectionLabels?.features || '주요 기능'} items={project.features} />
         {!showPersonalContext && <DetailList title={project.sectionLabels?.implementations || '구현 내용'} items={project.implementations} />}
@@ -363,6 +366,22 @@ function ProjectDetail({ project }) {
           </div>
         </div>
       </div>
+      {project.solutionSections?.length > 0 && (
+        <section className="border-t border-slate-200 pt-5 lg:col-span-2">
+          <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.solution || '주요 구현 사례'}</h4>
+          {project.solutionIntro && <p className="copy mt-3 max-w-4xl">{project.solutionIntro}</p>}
+          <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:gap-8">
+            {project.solutionSections.map((section) => (
+              <div key={section.title} className="min-w-0">
+                <h5 className="font-semibold text-slate-900">{section.title}</h5>
+                <div className="mt-3 space-y-3">
+                  {section.paragraphs.map((paragraph) => <p key={paragraph} className="copy">{paragraph}</p>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
