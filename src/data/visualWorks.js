@@ -12,7 +12,7 @@ export const visualWorks = [
     highlights: ['서비스 로봇 API 연동', '원지도-GLB 좌표 정합', '층별·로봇 유형별 위치 보정'],
     details: [
       '병원 서비스 로봇 API 구조 분석 및 Access Token 인증 처리',
-      '로봇 위치 데이터 수집 및 화면 반영 구조 구현',
+      '로봇 위치 API를 연동해 3D 화면에 표시',
       '병원 원지도 좌표와 GLB 기반 3D 좌표계 매핑 로직 구현',
       'Homography 기반 2D 지도 좌표 → Three.js X/Z 좌표 변환 적용',
       '층별 GLB 모델 위치 오차와 마커 위치 보정값 관리',
@@ -24,7 +24,7 @@ export const visualWorks = [
     improvement:
       '단순 스케일 변환으로는 로봇 마커가 병원 벽 안쪽에 표시되는 현상이 남아, 기준점 4개로 Homography 변환 행렬을 계산해 원지도 좌표를 Three.js X/Z 좌표로 변환했습니다. 층마다 원점과 회전 기준이 달라 변환 설정과 offset을 층별로 분리하고, 위치 데이터 형식이 다른 로봇은 별도 변환 로직으로 처리했습니다.',
     outcome:
-      '로봇 위치가 3D 병원 공간의 실제 위치에 맞게 표시되는 상태까지 구현했습니다.',
+      '로봇 좌표를 병원 3D 공간에 맞게 변환해 층별 화면에서 위치를 확인할 수 있도록 했습니다.',
     tech: [
       'React',
       'JavaScript',

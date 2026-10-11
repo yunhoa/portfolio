@@ -48,20 +48,18 @@ export const projects = [
       'LangGraph Supervisor 패턴으로 문서 RAG·NL2SQL·BIM 질의 라우팅',
     ],
     role: [
-      '도메인 문서 전처리 및 청킹 기준 구성',
+      '법령·지침·매뉴얼 문서 전처리 및 청킹',
       'HuggingFace Embeddings와 BAAI/bge-m3로 문서 임베딩 처리',
-      'PostgreSQL PGVector 기반 벡터 저장 구조 구현',
+      'PostgreSQL·PGVector에 문서 임베딩 저장 및 유사도 검색 구현',
       'FastAPI 기반 검색 API 엔드포인트 개발',
-      'LangChain으로 질문 재작성·재질의, 검색, 리랭킹, 로컬 LLM 응답 흐름 구성',
-      'LangGraph Supervisor 패턴으로 문서 RAG·NL2SQL·BIM 질의 경로 라우팅',
+      '문서 검색, 자연어 SQL 조회, BIM 객체·속성 조회 기능 개발',
     ],
     problem:
       '건축물 관련 질문은 법령·지침 같은 문서, 건축물·점검 이력 같은 정형 데이터, BIM 객체 정보로 대상이 달랐습니다. 질문 유형에 따라 적절한 데이터를 조회하도록 처리 경로를 나눌 필요가 있었고, 사내망 환경이라 외부 LLM API를 사용할 수 없었습니다.',
     solution:
       `건축물 관련 질문을 문서 RAG, NL2SQL, BIM 질의 세 유형으로 나누고 LangGraph Supervisor 패턴으로 해당 경로에 라우팅했습니다.\n\n문서 질의는 질문 재작성과 재질의, BAAI/bge-m3 임베딩, PGVector 검색, 리랭킹을 거쳐 Ollama 로컬 LLM이 답변하도록 구성했습니다. LangChain으로 검색과 응답 흐름을 연결했습니다.\n\n정형 데이터 질의는 자연어 질문의 조건을 SQL로 변환해 DB를 조회하고, BIM 질의는 객체와 속성 정보를 기준으로 관련 데이터를 조회하도록 구현했습니다. 외부 LLM API를 사용할 수 없는 사내망 환경을 고려해 검색과 응답은 로컬에서 처리했습니다.`,
     outcomes: [
-      '사내망에서 동작하는 문서 RAG 검색 API 구현',
-      'LangGraph Supervisor 패턴을 이용한 문서 RAG·NL2SQL·BIM 질의 라우팅 구현',
+      '외부 LLM API 없이 사내망에서 문서, 건축물·점검 이력, BIM 정보에 대한 질문을 처리',
     ],
     tech: [
       'FastAPI',
@@ -96,12 +94,12 @@ export const projects = [
       '플랜트 산업 가상 자율제조를 위한 LoD4 수준 온디바이스 AI 기반 제조현장 3차원 모델 자동제작 기술개발 및 실증 과제에서 진행했습니다.',
     role: [
       'FastAPI 기반 AI 추론 서버 API 개발 및 React Native 앱 연동',
-      '이미지 업로드, UUID 기반 결과 캐시, 처리 히스토리 관리 구조 구현',
+      '이미지 업로드, UUID별 처리 결과 캐싱 및 작업 이력 관리',
       'SAM 기반 클릭 포인트 객체 분할과 Add / Subtract 선택 기능 구현',
       'Undo / Redo / Reset 기반 세그멘테이션 상태 관리 구현',
       'Rembg 기반 배경제거와 LaMa 기반 인페인팅 기능 연동',
       'OpenCV 기반 설비 이미지 기울기 자동 보정 구현',
-      'PaddleOCR 기반 설비 태그 ID 인식 및 메타정보 연계 구조 구현',
+      'PaddleOCR로 설비 태그 ID를 읽어 메타정보에 연결',
       '프로젝트 내용을 바탕으로 스마트플랜트 AI 메타정보 자동생성 프레임워크 논문 1저자 작성',
     ],
     problem:
@@ -153,10 +151,9 @@ export const projects = [
     problem:
       '관리자 통계 기능에 Google Analytics Data API를 연동했습니다. 개발 서버에서는 정상 호출됐지만 폐쇄망 운영 서버에서는 API 호출이 실패했습니다.',
     solution:
-      '개발 서버에서는 호출되던 Google Analytics Data API가 폐쇄망 운영 서버에서 실패했습니다. 애플리케이션 코드와 서버·네트워크 통신 경로를 나누어 확인한 뒤, DMZ Apache Proxy를 통한 호출 경로를 적용해 운영 서버에서도 통계 데이터를 조회하도록 수정했습니다.',
+      '애플리케이션 코드와 서버 설정, 외부 API 통신 경로를 나누어 확인했습니다. 폐쇄망의 외부 통신 경로를 확인한 뒤 내부 Spring Boot 서버가 DMZ Apache Proxy를 거쳐 Google API를 호출하도록 수정했습니다.',
     outcomes: [
-      '관리자 통계 조회 API와 Thymeleaf 화면 개발',
-      '폐쇄망 운영 환경에서 DMZ Proxy를 통한 Google Analytics 데이터 조회 경로 적용',
+      '폐쇄망 운영 서버에서도 Google Analytics 통계 데이터를 조회할 수 있도록 외부 연동 문제 해결',
     ],
     tech: ['Java', 'Spring Boot', 'JPA', 'PostgreSQL', 'SQL', 'REST API', 'Thymeleaf', 'Apache HTTP Server / Proxy', 'Google Analytics Data API'],
   },
@@ -188,12 +185,12 @@ export const projects = [
       '모듈 간 화면 작성 규칙 정리',
     ],
     solutionIntro:
-      '4개 모듈을 모두 개발했고, 교육 동영상 플레이어와 MSDS QR 조회는 동작 조건을 하나씩 확인하며 구현했습니다.',
+      '교육 영상은 시청 중 동작을 제어해야 했고, MSDS는 앱 설치나 로그인 없이 조회할 수 있어야 했습니다.',
     solutionSections: [
       {
         title: '교육 동영상 플레이어와 부하테스트',
         paragraphs: [
-          '동영상 플레이어와 JMeter 부하테스트는 처음 맡았습니다. 교육 영상은 재생만 되면 끝나는 기능이 아니어서 건너뛰기와 배속을 제한하고, 화면을 벗어나거나 창을 닫으면 재생이 멈추도록 구현했습니다.',
+          '동영상 플레이어와 JMeter 부하테스트는 처음 맡아 필요한 동작을 찾아가며 구현했습니다. 교육 영상의 건너뛰기와 배속을 제한하고, 화면을 벗어나거나 창을 닫으면 재생이 멈추도록 처리했습니다.',
           '브라우저 자동재생 정책과 HTTP 헤더를 확인했습니다. 가로 전체 화면에서는 네이티브 영역도 수정해 상·하단 바를 숨겼고, Spring Controller에서는 Range 요청에 맞춰 응답할 영상 데이터 범위를 조절했습니다.',
           '동시 시청 상황을 확인하려고 JMeter 환경과 시나리오를 직접 구성했습니다. 초기 버퍼링 약 3초와 반복적인 Range 요청을 반영하고, 50명·100명·150명 조건에서 응답시간, 오류 여부, Throughput을 확인했습니다.',
         ],
@@ -202,12 +199,12 @@ export const projects = [
         title: 'MSDS QR 비로그인 조회',
         paragraphs: [
           '현장에서 기본 카메라로 QR을 스캔해 앱 설치나 로그인 없이 MSDS를 볼 수 있도록 일반 URL을 사용했습니다.',
-          'Morpheus 백엔드에 JSP 조회 화면을 만들고 `.do` 경로로 연결했습니다. Spring Security에서는 해당 조회 경로만 비로그인 접근을 허용했습니다.',
+          'Morpheus 백엔드에 JSP 조회 화면을 만들고 .do 경로로 연결했습니다. Spring Security에서는 해당 조회 경로만 비로그인 접근을 허용했습니다.',
         ],
       },
     ],
     outcomes: [
-      '한화오션 협력사와 임직원이 수기로 처리하던 안전·교육·작업 업무를 모바일 앱으로 전환하고 관련 4개 모듈을 구현',
+      '한화오션 협력사와 임직원이 수기로 처리하던 교육이력, BMSW, MSDS, 마일리지 업무를 모바일 앱에서 처리하도록 전환',
     ],
     tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus', 'JavaScript', 'JMeter'],
   },
@@ -247,9 +244,7 @@ export const projects = [
     solution:
       'Cordova 기반으로 WebView 화면을 개발하고 REST API를 연동했습니다. 위치 수집은 Background Geolocation과 네이티브 영역을 연결해 처리했으며, Android/iOS 빌드와 스토어 배포 과정에서 인증서, 권한, 로그인 흐름, 앱 실행 이슈를 실제 단말 기준으로 확인하며 대응했습니다.',
     outcomes: [
-      '작업자 안전 지원 모바일 앱 주요 기능 개발',
-      '약 5,000~10,000명 규모 사용자 대상 앱 배포',
-      'Android와 iOS 스토어 배포 진행',
+      '공장 작업자가 사용하는 안전 지원 앱을 Android/iOS 양쪽 스토어에 배포',
     ],
     tech: ['Apache Cordova', 'JavaScript', 'REST API', 'Android', 'iOS', 'Native', 'Background Geolocation', 'Firebase'],
   },
@@ -324,8 +319,7 @@ export const projects = [
     features: [
       'React 기반 주간 타임라인, 항공 일정, 전체 일정·휴가, 운영 현황 화면 개발',
       'Node.js·Express API와 PostgreSQL 일정 데이터 연동',
-      '그룹웨어 일정 조회와 Google Calendar 연동',
-      'Playwright를 이용한 그룹웨어 일정 확인 자동화',
+      '그룹웨어 휴가 일정 조회 및 Google Calendar 연동',
     ],
     outcomes: [
       '인원별 이동·체류·휴가 일정을 한 화면에서 확인',
@@ -339,11 +333,12 @@ export const projects = [
     domain: 'Infra / Network',
     tags: ['Infra', 'Network', 'Home Lab'],
     summary:
-      'Proxmox 가상머신에서 라우팅·방화벽을 나누고, 외부 도메인으로 내부 서비스를 여는 경로를 구성했습니다.',
+      'Proxmox에 가상머신을 구성하고, pfSense와 Nginx Proxy Manager를 이용해 외부에서 내부 서비스에 접속하는 경로를 설정했습니다.',
     diagram: homeLabDiagram,
     highlights: ['Proxmox VM 구성', 'pfSense 방화벽/NAT 설정', 'Nginx Proxy Manager와 DuckDNS 연동'],
     implementations: [
       'Proxmox VE 기반 가상화 환경 구성',
+      'pfSense VM을 라우터와 방화벽으로 설정',
       'pfSense VM과 KT 공유기를 연결해 WAN·LAN 경로 구성',
       '내부 LAN과 외부 접속 경로 분리 및 NAT·포트포워딩 설정',
       'DuckDNS 도메인이 공인 IP를 가리키도록 DDNS 설정',
@@ -404,14 +399,10 @@ export const projects = [
     background:
       '대학교 캡스톤으로 처음 만든 웹 프로젝트입니다. 서울에서 데이트 코스를 찾을 때 장소와 이동 경로를 따로 검색해야 하는 불편을 줄이기 위해, 관광공사 데이터를 활용한 추천과 사용자가 직접 만드는 코스 공유 기능을 기획했습니다.',
     role: [
-      'Spring Boot 기반 장소 추천 및 코스 조회 API 작성',
-      'JPA 기반 장소 데이터 조회 처리 구성',
-      'RestTemplate 및 HttpURLConnection을 이용한 외부 API 연동',
+      'Spring Boot와 JPA 기반 장소 추천 및 코스 조회 API 개발',
       'React 기반 추천 결과, 코스 상세, 지도 화면 구현',
-      '한국관광공사 국문관광정보 서비스 API와 TMAP API 연동',
-      '서울시 대중교통 API 연동',
+      '관광공사 장소 정보, TMAP 도보 경로, 서울시 대중교통 API 연동',
       'Kakao OAuth2 기반 소셜 로그인 연동',
-      'JSON 데이터에서 장소명, 좌표 등 필요한 값 추출',
       '반응형 화면 및 공용 스타일 정리',
       'React 빌드 결과물을 Spring Boot에 포함해 함께 배포',
       'AWS EC2에서 Nginx Reverse Proxy를 구성해 context path 요청을 Spring Boot로 전달',
