@@ -323,7 +323,7 @@ function ProjectDetail({ project }) {
 
   return (
     <div className="grid gap-5 p-5 sm:p-6 lg:grid-cols-2">
-      <div className={`space-y-5 ${project.solutionSections?.length ? 'lg:col-span-2' : ''}`}>
+      <div className="space-y-5">
         {project.background && (
           <div>
             <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.background || (showPersonalContext ? '만든 이유' : '프로젝트 소개')}</h4>
@@ -345,9 +345,25 @@ function ProjectDetail({ project }) {
             <p className="copy mt-3 whitespace-pre-line">{project.solution}</p>
           </div>
         )}
+        {showProblemSections && project.solutionSections?.length > 0 && (
+          <section>
+            <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.solution || '주요 구현 사례'}</h4>
+            {project.solutionIntro && <p className="copy mt-3">{project.solutionIntro}</p>}
+            <div className="mt-5 space-y-5">
+              {project.solutionSections.map((section) => (
+                <div key={section.title} className="min-w-0">
+                  <h5 className="text-sm font-semibold text-slate-900">{section.title}</h5>
+                  <div className="mt-3 space-y-3">
+                    {section.paragraphs.map((paragraph) => <p key={paragraph} className="copy">{paragraph}</p>)}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
 
-      <div className={project.solutionSections?.length ? 'grid gap-5 lg:col-span-2 lg:grid-cols-2' : 'space-y-5'}>
+      <div className="space-y-5">
         <DetailList title={project.sectionLabels?.role || (showPersonalContext ? '개발 내용' : '담당 업무')} items={project.role} />
         <DetailList title={project.sectionLabels?.features || '주요 기능'} items={project.features} />
         {!showPersonalContext && <DetailList title={project.sectionLabels?.implementations || '구현 내용'} items={project.implementations} />}
@@ -366,22 +382,6 @@ function ProjectDetail({ project }) {
           </div>
         </div>
       </div>
-      {project.solutionSections?.length > 0 && (
-        <section className="border-t border-slate-200 pt-5 lg:col-span-2">
-          <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.solution || '주요 구현 사례'}</h4>
-          {project.solutionIntro && <p className="copy mt-3 max-w-4xl">{project.solutionIntro}</p>}
-          <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:gap-8">
-            {project.solutionSections.map((section) => (
-              <div key={section.title} className="min-w-0">
-                <h5 className="font-semibold text-slate-900">{section.title}</h5>
-                <div className="mt-3 space-y-3">
-                  {section.paragraphs.map((paragraph) => <p key={paragraph} className="copy">{paragraph}</p>)}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
     </div>
   );
 }

@@ -181,7 +181,7 @@ export const projects = [
       '교육이력·BMSW·MSDS·마일리지 4개 모듈의 모바일 화면과 Spring 백엔드 기능을 개발했습니다.',
     sectionLabels: {
       role: '주요 개발 업무',
-      solution: '특히 신경 쓴 기능',
+      solution: '주요 구현 사례',
     },
     background:
       '한화오션 현장에서 수기로 처리하던 안전·교육·작업 업무를 모바일 시스템으로 전환하는 과제입니다.',
@@ -397,6 +397,7 @@ export const projects = [
     galleryIntroImages: [
       { label: '서비스 구성도', src: seoulHereDiagram, alt: '브라우저가 React 빌드 파일을 받아 실행하고, React의 API 요청이 Nginx를 거쳐 Spring Boot REST API로 전달되는 구조. 서버는 AWS PostgreSQL, EC2 파일시스템, 외부 API와 연결됩니다.', frameClass: 'aspect-[16/10]' },
       { label: '테이블 관계', src: seoulHereDataModel, alt: 'JPA 엔티티 기준 13개 매핑 테이블의 PK, FK, 고유키와 자기참조 관계를 표시한 ERD', frameClass: 'aspect-[16/10]' },
+      { label: '유스케이스', src: seoulHereUseCases, alt: '사용자·관리자와 Kakao OAuth2, 관광공사, TMAP, 서울시 교통 API 연동을 표시한 UML 유스케이스', frameClass: 'aspect-[16/10]' },
     ],
     screenshots: [
       { label: '서울 지역·관심 카테고리 선택', src: seoulHereCapture01, frameClass: 'aspect-[16/10]' },
@@ -407,9 +408,6 @@ export const projects = [
       { label: '마이페이지 · 프로필과 활동', src: seoulHereMyPage, frameClass: 'aspect-[16/10]' },
       { label: '찜한 장소', src: seoulHereFavorites, frameClass: 'aspect-[16/10]' },
       { label: '내가 저장한 코스', src: seoulHereMyCourses, frameClass: 'aspect-[16/10]' },
-    ],
-    referenceImages: [
-      { label: '유스케이스', src: seoulHereUseCases, alt: '사용자·관리자와 Kakao OAuth2, 관광공사, TMAP, 서울시 교통 API 연동을 표시한 UML 유스케이스' },
     ],
     summary:
       '서울의 구 단위 지역과 관심 카테고리를 기준으로 친구 또는 연인을 위한 데이트 코스를 추천하고, 사용자가 직접 만든 코스를 공유할 수 있게 만든 웹 서비스입니다.',
