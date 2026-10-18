@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Reveal from './Reveal.jsx';
 import ImageModal from './ImageModal.jsx';
 import inflearnHistoryImage from '../assets/inflearn-history.png';
-import creditBankImage from '../assets/creditbank-record.png';
 
 function Contact() {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -20,47 +19,24 @@ function Contact() {
             </div>
 
             <div className="grid gap-4 lg:grid-cols-[1fr_0.9fr] lg:items-start">
-              <div className="grid gap-4">
-                <div className="rounded-lg border border-blue-100 bg-blue-50/70 p-4 transition hover:border-blue-300 hover:bg-white hover:shadow-xl">
-                  <div className="grid gap-4 sm:grid-cols-[0.72fr_1.28fr] sm:items-center">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedImage({ src: inflearnHistoryImage, alt: '인프런 강의 내역' })}
-                      className="group overflow-hidden rounded-md border border-slate-200 bg-slate-950 text-left"
-                    >
-                      <img
-                        src={inflearnHistoryImage}
-                        alt="인프런 강의 내역"
-                        className="h-28 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-32"
-                      />
-                    </button>
-                    <div>
-                      <p className="text-sm font-semibold text-blue-700">Learning Record</p>
-                      <p className="copy mt-2 text-slate-700">
-                        프로젝트에서 필요했던 기술을 찾아 공부하고 실제 작업에 적용했습니다.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="rounded-lg border border-blue-100 bg-blue-50/70 p-4 transition hover:border-blue-300 hover:bg-white hover:shadow-xl">
-                  <div className="grid gap-4 sm:grid-cols-[0.72fr_1.28fr] sm:items-center">
-                    <button
-                      type="button"
-                      onClick={() => setSelectedImage({ src: creditBankImage, alt: '학점은행제 학습자 기본정보' })}
-                      className="group overflow-hidden rounded-md border border-slate-200 bg-white text-left"
-                    >
-                      <img
-                        src={creditBankImage}
-                        alt="학점은행제 학습자 기본정보"
-                        className="h-28 w-full object-cover object-top transition duration-300 group-hover:scale-[1.03] sm:h-32"
-                      />
-                    </button>
-                    <div>
-                      <p className="text-sm font-semibold text-blue-700">Bachelor's Degree in Progress</p>
-                      <p className="copy mt-2 text-slate-700">
-                        컴퓨터공학 전문학사를 마친 뒤 학사 학위까지 갖추기 위해, 퇴근 후 학점은행제로 공부를 이어가고 있습니다.
-                      </p>
-                    </div>
+              <div className="rounded-lg border border-blue-100 bg-blue-50/70 p-4 transition hover:border-blue-300 hover:bg-white hover:shadow-xl">
+                <div className="grid gap-4 sm:grid-cols-[0.72fr_1.28fr] sm:items-center">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedImage({ src: inflearnHistoryImage, alt: '인프런 강의 내역' })}
+                    className="group overflow-hidden rounded-md border border-slate-200 bg-slate-950 text-left"
+                  >
+                    <img
+                      src={inflearnHistoryImage}
+                      alt="인프런 강의 내역"
+                      className="h-28 w-full object-cover transition duration-300 group-hover:scale-[1.03] sm:h-32"
+                    />
+                  </button>
+                  <div>
+                    <p className="text-sm font-semibold text-blue-700">Learning Record</p>
+                    <p className="copy mt-2 text-slate-700">
+                      프로젝트에서 필요했던 기술을 찾아 공부하고 실제 작업에 적용했습니다.
+                    </p>
                   </div>
                 </div>
               </div>
