@@ -75,13 +75,12 @@ function Hero() {
                     <br />
                     <span className="text-slate-600">Java/Spring 기반 서버 기능 개발 및 운영 시스템 유지보수</span>
                   </p>
-                </dd>
-              </div>
-              <div className="grid gap-2 px-4 py-3 sm:grid-cols-[5.75rem_1fr] sm:gap-4">
-                <dt className="meta-label pt-0.5">병역</dt>
-                <dd className="min-w-0 space-y-1 leading-6 text-slate-800">
-                  <p>군필 · ㈜ATC 방위산업체 근무</p>
-                  <p className="text-slate-500">2020.08 – 2023.04 (2년 9개월)</p>
+                  <p>
+                    ㈜ATC (방위산업체)
+                    <span className="text-slate-500"> · 2020.08 – 2023.04 (2년 9개월)</span>
+                    <br />
+                    <span className="text-slate-600">생산직 2교대</span>
+                  </p>
                 </dd>
               </div>
               <div className="grid gap-2 px-4 py-3 sm:grid-cols-[5.75rem_1fr] sm:gap-4">
