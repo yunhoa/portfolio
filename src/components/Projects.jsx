@@ -70,9 +70,9 @@ function DetailList({ title, items }) {
 
 function ProjectMeta({ project }) {
   const metaItems = [
-    project.organization && ['기관', project.organization],
     project.period && ['참여기간', project.period],
     project.contest && ['공모전', project.contest],
+    project.award && ['수상', project.award],
     project.contribution && ['기여도', project.contribution],
     project.teamSize && ['팀 규모', project.teamSize],
   ].filter(Boolean);
@@ -82,15 +82,11 @@ function ProjectMeta({ project }) {
   }
 
   return (
-    <dl
-      className={`mt-4 grid gap-2 text-[0.9375rem] text-slate-600 ${
-        metaItems.length > 1 ? 'sm:grid-cols-2 lg:grid-cols-3' : ''
-      }`}
-    >
+    <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-1 border-b border-slate-200 pb-4 text-sm text-slate-600">
       {metaItems.map(([label, value]) => (
-        <div key={label} className="rounded-md border border-slate-200 bg-slate-50 px-3 py-2">
-          <dt className="meta-label">{label}</dt>
-          <dd className="mt-1 text-slate-900">{value}</dd>
+        <div key={label} className="flex min-w-0 flex-wrap gap-x-2">
+          <dt className="font-semibold text-slate-500">{label}</dt>
+          <dd className="text-slate-900">{value}</dd>
         </div>
       ))}
     </dl>
@@ -330,9 +326,7 @@ function ProjectDetail({ project }) {
             <p className="copy mt-3">{project.background}</p>
           </div>
         )}
-        {showPersonalContext && project.implementations?.length > 0 && (
-          <DetailList title="구성한 내용" items={project.implementations} />
-        )}
+        {showPersonalContext && <DetailList title={project.features?.length ? '구현한 기능' : '개발 내용'} items={project.features?.length ? project.features : project.role} />}
         {showProblemSections && project.problem && (
           <div>
             <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.problem || '배경 및 요구사항'}</h4>
@@ -364,10 +358,11 @@ function ProjectDetail({ project }) {
       </div>
 
       <div className="space-y-5">
-        <DetailList title={project.sectionLabels?.role || (showPersonalContext ? '개발 내용' : '담당 업무')} items={project.role} />
-        <DetailList title={project.sectionLabels?.features || '주요 기능'} items={project.features} />
+        {!showPersonalContext && <DetailList title={project.sectionLabels?.role || '담당 업무'} items={project.role} />}
+        {showPersonalContext && <DetailList title="구성한 내용" items={project.implementations} />}
+        {!showPersonalContext && <DetailList title={project.sectionLabels?.features || '주요 기능'} items={project.features} />}
         {!showPersonalContext && <DetailList title={project.sectionLabels?.implementations || '구현 내용'} items={project.implementations} />}
-        <DetailList title={project.sectionLabels?.outcomes || '결과'} items={project.outcomes} />
+        {!showPersonalContext && <DetailList title={project.sectionLabels?.outcomes || '결과'} items={project.outcomes} />}
         <div>
           <h4 className="text-sm font-semibold text-blue-700">기술</h4>
           <div className="mt-3 flex flex-wrap gap-2">

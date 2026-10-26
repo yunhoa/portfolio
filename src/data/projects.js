@@ -48,19 +48,14 @@ export const projects = [
       'LangGraph Supervisor 패턴으로 문서 RAG·NL2SQL·BIM 질의 라우팅',
     ],
     role: [
-      '법령·지침·매뉴얼 문서 전처리 및 청킹',
-      'HuggingFace Embeddings와 BAAI/bge-m3로 문서 임베딩 처리',
-      'PostgreSQL·PGVector에 문서 임베딩 저장 및 유사도 검색 구현',
-      'FastAPI 기반 검색 API 엔드포인트 개발',
-      '문서 검색, 자연어 SQL 조회, BIM 객체·속성 조회 기능 개발',
+      'FastAPI 검색 API와 LangGraph Supervisor 질의 라우팅 구현',
+      '문서 전처리·청킹, bge-m3 임베딩과 PGVector 검색 구성',
+      '정형 데이터 SQL 조회와 BIM 객체·속성 조회 경로 구현',
     ],
     problem:
       '건축물 관련 질문은 법령·지침 같은 문서, 건축물·점검 이력 같은 정형 데이터, BIM 객체 정보로 대상이 달랐습니다. 질문 유형에 따라 적절한 데이터를 조회하도록 처리 경로를 나눌 필요가 있었고, 사내망 환경이라 외부 LLM API를 사용할 수 없었습니다.',
     solution:
       `건축물 관련 질문을 문서 RAG, NL2SQL, BIM 질의 세 유형으로 나누고 LangGraph Supervisor 패턴으로 해당 경로에 라우팅했습니다.\n\n문서 질의는 질문 재작성과 재질의, BAAI/bge-m3 임베딩, PGVector 검색, 리랭킹을 거쳐 Ollama 로컬 LLM이 답변하도록 구성했습니다. LangChain으로 검색과 응답 흐름을 연결했습니다.\n\n정형 데이터 질의는 자연어 질문의 조건을 SQL로 변환해 DB를 조회하고, BIM 질의는 객체와 속성 정보를 기준으로 관련 데이터를 조회하도록 구현했습니다. 외부 LLM API를 사용할 수 없는 사내망 환경을 고려해 검색과 응답은 로컬에서 처리했습니다.`,
-    outcomes: [
-      '외부 LLM API 없이 사내망에서 문서, 건축물·점검 이력, BIM 정보에 대한 질문을 처리',
-    ],
     tech: [
       'FastAPI',
       'Python',
@@ -94,23 +89,15 @@ export const projects = [
       '플랜트 산업 가상 자율제조를 위한 LoD4 수준 온디바이스 AI 기반 제조현장 3차원 모델 자동제작 기술개발 및 실증 과제에서 진행했습니다.',
     role: [
       'FastAPI 기반 AI 추론 서버 API 개발 및 React Native 앱 연동',
-      '이미지 업로드, UUID별 처리 결과 캐싱 및 작업 이력 관리',
-      'SAM 기반 클릭 포인트 객체 분할과 Add / Subtract 선택 기능 구현',
-      'Undo / Redo / Reset 기반 세그멘테이션 상태 관리 구현',
-      'Rembg 기반 배경제거와 LaMa 기반 인페인팅 기능 연동',
-      'OpenCV 기반 설비 이미지 기울기 자동 보정 구현',
-      'PaddleOCR로 설비 태그 ID를 읽어 메타정보에 연결',
+      '이미지 업로드와 UUID별 처리 결과·작업 이력 관리',
+      'SAM 객체 분할과 선택 수정, 배경제거·인페인팅 기능 구현',
+      '기울기 보정과 OCR 태그 인식을 메타정보 생성에 연결',
       '프로젝트 내용을 바탕으로 스마트플랜트 AI 메타정보 자동생성 프레임워크 논문 1저자 작성',
     ],
     problem:
       '현장 촬영 이미지에서 필요한 설비를 분리하고, 태그 정보를 메타정보로 연결하는 처리가 필요했습니다. 분할 결과를 확인하고 수정할 수 있도록 모바일 앱과 서버가 함께 동작해야 했습니다.',
     solution:
       '현장마다 설비 종류가 달라 미리 학습 데이터를 준비하는 방식 대신, 클릭한 지점을 기준으로 객체를 분할하는 SAM을 사용했습니다. 한 번에 분리되지 않은 부분은 Add / Subtract와 Undo / Redo로 수정할 수 있게 했습니다. 제거한 배경은 LaMa로 채우고, PaddleOCR로 읽은 설비 태그 ID를 메타정보에 연결했습니다. 이미지 UUID를 기준으로 처리 결과를 구분해 캐시하고 작업 히스토리를 서버에서 관리했습니다.',
-    outcomes: [
-      '촬영한 설비 사진에서 객체 분리, 배경 제거, 태그 인식, 메타정보 생성까지 처리하는 기능 구현',
-      '모바일에서 촬영한 이미지를 3D 모델링 사전 작업에 활용하도록 연결',
-      '구현 내용을 정리해 1저자 논문으로 발표',
-    ],
     tech: [
       'FastAPI',
       'Python',
@@ -152,9 +139,6 @@ export const projects = [
       '관리자 통계 기능에 Google Analytics Data API를 연동했습니다. 개발 서버에서는 정상 호출됐지만 폐쇄망 운영 서버에서는 API 호출이 실패했습니다.',
     solution:
       '애플리케이션 코드와 서버 설정, 외부 API 통신 경로를 나누어 확인했습니다. 폐쇄망의 외부 통신 경로를 확인한 뒤 내부 Spring Boot 서버가 DMZ Apache Proxy를 거쳐 Google API를 호출하도록 수정했습니다.',
-    outcomes: [
-      '폐쇄망 운영 서버에서도 Google Analytics 통계 데이터를 조회할 수 있도록 외부 연동 문제 해결',
-    ],
     tech: ['Java', 'Spring Boot', 'JPA', 'PostgreSQL', 'SQL', 'REST API', 'Thymeleaf', 'Apache HTTP Server / Proxy', 'Google Analytics Data API'],
   },
   {
@@ -181,11 +165,8 @@ export const projects = [
     role: [
       'Morpheus/MSP 기반 하이브리드 웹뷰로 교육이력·BMSW·MSDS·마일리지 4개 모듈 개발',
       'Spring Framework 백엔드 기능과 MyBatis Mapper, Oracle SQL 작성',
-      '공지·문의·자료·증빙, BMSW 의견·위험요인, MSDS 조회, 마일리지 신청 기능 구현',
       'MSDS QR 비로그인 조회 경로와 JSP 화면 구현',
     ],
-    solutionIntro:
-      '기능을 개발하면서 운영 서버의 구성에 따라 달라지는 동작과 여러 사용자가 동시에 이용하는 상황을 함께 확인했습니다.',
     solutionSections: [
       {
         title: '이중화 환경의 인증코드 조회 문제',
@@ -203,9 +184,6 @@ export const projects = [
           '전달받은 동시 사용자 조건을 바탕으로 JMeter 환경과 요청 시나리오를 직접 구성했습니다. Groovy로 사용자별 Range 범위를 계산하고 다음 요청 위치를 갱신했습니다. 초기 버퍼링을 가정한 첫 요청 전 3초 대기와 반복 요청 간격을 설정한 뒤 응답시간, 오류 여부, Throughput을 확인했습니다.',
         ],
       },
-    ],
-    outcomes: [
-      '한화오션 협력사와 임직원이 수기로 처리하던 교육이력, BMSW, MSDS, 마일리지 업무를 모바일 앱에서 처리하도록 전환',
     ],
     tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus/MSP', 'JavaScript', 'video.js', 'JMeter'],
   },
@@ -231,21 +209,10 @@ export const projects = [
       'Android / iOS 스토어 배포',
     ],
     role: [
-      'Apache Cordova 기반 모바일 웹뷰 기능 개발',
-      'REST API 연동 및 화면 기능 구현',
-      'WebView에서 처리하기 어려운 위치 기능을 네이티브 영역과 연동',
-      'Android/iOS 기능 개발 및 스토어 배포',
-      '인증서 및 배포 설정 구성',
-      'Background Geolocation 기반 위치 수집 기능 연동',
-      '스토어 정책에 맞춘 로그인 및 앱 실행 흐름 수정',
-      'Firebase 연동 및 모바일 운영 이슈 대응',
-    ],
-    problem:
-      '백그라운드 위치 수집은 WebView만으로 처리하기 어려웠고, Android/iOS의 권한 정책에 맞춘 네이티브 기능 연동이 필요했습니다.',
-    solution:
-      'Cordova 기반으로 WebView 화면을 개발하고 REST API를 연동했습니다. 위치 수집은 Background Geolocation과 네이티브 영역을 연결해 처리했으며, Android/iOS 빌드와 스토어 배포 과정에서 인증서, 권한, 로그인 흐름, 앱 실행 이슈를 실제 단말 기준으로 확인하며 대응했습니다.',
-    outcomes: [
-      '공장 작업자가 사용하는 안전 지원 앱을 Android/iOS 양쪽 스토어에 배포',
+      'Apache Cordova 웹뷰 기능 개발 및 REST API 연동',
+      'Background Geolocation과 네이티브 위치 기능 연동',
+      'Android/iOS 빌드·인증서 설정과 양쪽 스토어 배포',
+      '권한 정책, 로그인·앱 실행 관련 운영 이슈 대응',
     ],
     tech: ['Apache Cordova', 'JavaScript', 'REST API', 'Android', 'iOS', 'Native', 'Background Geolocation', 'Firebase'],
   },
@@ -287,11 +254,9 @@ export const projects = [
       'RSS봇: 매일 오전 9시 GeekNews, 매주 월요일 오전 9시 30분 기술 블로그 새 글 안내',
     ],
     implementations: [
-      '운세 생성: FastAPI에서 Ollama 로컬 LLM을 호출해 Slack 봇과 연동',
-      '개인화 설정: PostgreSQL에 사용자별 생년월일, 수신 여부, 동의 설정 저장',
-      '운세 발송: 결과 캐싱 및 한국 시간 기준 발송 스케줄 구성',
-      'RSS 발송: 새 글 이력을 관리해 중복 전송 방지',
-      '봇 운영: PM2로 프로세스 관리 및 상시 실행',
+      'Playwright로 회의실 예약 시스템을 연동하고, PM2로 봇 프로세스를 관리',
+      'FastAPI·Ollama로 운세를 생성하고 PostgreSQL에 수신 설정 저장',
+      '정기 발송 스케줄과 RSS 발송 이력 관리로 중복 알림 방지',
     ],
     outcomes: [
       '휴가·회의·현장 일정과 새 기술 글을 Slack에서 확인',
@@ -379,6 +344,7 @@ export const projects = [
     tags: ['Spring Boot', 'React', 'Public API'],
     period: '2024.07.01 ~ 2024.09.30',
     contest: '2024 관광데이터 활용 공모전 출품',
+    award: '교내 캡스톤디자인 경진대회 동상',
     galleryIntroImages: [
       { label: '서비스 구성도', src: seoulHereDiagram, alt: '브라우저가 React 빌드 파일을 받아 실행하고, React의 API 요청이 Nginx를 거쳐 Spring Boot REST API로 전달되는 구조. 서버는 AWS PostgreSQL, EC2 파일시스템, 외부 API와 연결됩니다.', frameClass: 'aspect-[16/10]' },
       { label: '데이터베이스 ERD', src: seoulHereSqlModel, alt: 'table.sql 기준 PostgreSQL 테이블의 컬럼과 키 관계를 표시한 ERD', frameClass: 'aspect-[16/10]' },
@@ -401,13 +367,10 @@ export const projects = [
       '대학교 캡스톤으로 처음 만든 웹 프로젝트입니다. 서울에서 데이트 코스를 찾을 때 장소와 이동 경로를 따로 검색해야 하는 불편을 줄이기 위해, 관광공사 데이터를 활용한 추천과 사용자가 직접 만드는 코스 공유 기능을 기획했습니다.',
     role: [
       'Spring Boot와 JPA 기반 장소 추천 및 코스 조회 API 개발',
-      'React 기반 추천 결과, 코스 상세, 지도 화면 구현',
-      '관광공사 장소 정보, TMAP 도보 경로, 서울시 대중교통 API 연동',
-      'Kakao OAuth2 기반 소셜 로그인 연동',
-      '반응형 화면 및 공용 스타일 정리',
-      'React 빌드 결과물을 Spring Boot에 포함해 함께 배포',
-      'AWS EC2에서 Nginx Reverse Proxy를 구성해 context path 요청을 Spring Boot로 전달',
-      'AWS PostgreSQL 연동 및 EC2 서버 파일시스템을 이용한 파일 저장',
+      'React 추천·지도·코스 저장·공유 화면 개발',
+      '관광공사·TMAP·서울시 대중교통 API와 Kakao OAuth2 연동',
+      'React 빌드 결과물을 Spring Boot에 포함해 AWS EC2에 배포',
+      'Nginx 프록시, AWS PostgreSQL, EC2 파일 저장 경로 구성',
     ],
     problem:
       '사용자는 장소 추천, 이동 경로, 소요 시간, 리뷰를 각각 다른 서비스에서 확인해야 했습니다. 또한 같은 장소라도 방문 순서에 따라 이동 시간과 코스 만족도가 달라질 수 있어, 단순 장소 목록이 아니라 실제 이동 가능한 코스 형태로 보여줄 필요가 있었습니다.',
