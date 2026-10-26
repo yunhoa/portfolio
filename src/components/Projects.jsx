@@ -339,22 +339,6 @@ function ProjectDetail({ project }) {
             <p className="copy mt-3 whitespace-pre-line">{project.solution}</p>
           </div>
         )}
-        {showProblemSections && project.solutionSections?.length > 0 && (
-          <section>
-            <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.solution || '주요 구현 사례'}</h4>
-            {project.solutionIntro && <p className="copy mt-3">{project.solutionIntro}</p>}
-            <div className="mt-5 space-y-5">
-              {project.solutionSections.map((section) => (
-                <div key={section.title} className="min-w-0">
-                  <h5 className="text-sm font-semibold text-slate-900">{section.title}</h5>
-                  <div className="mt-3 space-y-3">
-                    {section.paragraphs.map((paragraph) => <p key={paragraph} className="copy">{paragraph}</p>)}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
       </div>
 
       <div className="space-y-5">
@@ -377,6 +361,22 @@ function ProjectDetail({ project }) {
           </div>
         </div>
       </div>
+      {showProblemSections && project.solutionSections?.length > 0 && (
+        <section className="border-t border-slate-200 pt-5 lg:col-span-2">
+          <h4 className="text-sm font-semibold text-blue-700">{project.sectionLabels?.solution || '주요 구현 사례'}</h4>
+          {project.solutionIntro && <p className="copy mt-3">{project.solutionIntro}</p>}
+          <div className="mt-5 grid gap-6 lg:grid-cols-2">
+            {project.solutionSections.map((section) => (
+              <div key={section.title} className="min-w-0">
+                <h5 className="text-sm font-semibold text-slate-900">{section.title}</h5>
+                <div className="mt-3 space-y-3">
+                  {section.paragraphs.map((paragraph) => <p key={paragraph} className="copy">{paragraph}</p>)}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   );
 }
