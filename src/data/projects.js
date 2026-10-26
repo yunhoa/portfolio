@@ -165,7 +165,6 @@ export const projects = [
     role: [
       'Morpheus/MSP 기반 하이브리드 웹뷰로 교육이력·BMSW·MSDS·마일리지 4개 모듈 개발',
       'Spring Framework 백엔드 기능과 MyBatis Mapper, Oracle SQL 작성',
-      'MSDS QR 비로그인 조회 경로와 JSP 화면 구현',
     ],
     solutionSections: [
       {
