@@ -17,7 +17,7 @@ export const skillGroups = [
   },
   {
     category: 'Frontend / 3D',
-    items: ['React', 'JavaScript', 'Thymeleaf', 'Three.js', 'React Three Fiber', 'Zustand', 'Tailwind CSS'],
+    items: ['React', 'JavaScript', 'Thymeleaf', 'Nexacro (일부 화면·Dataset)', 'Three.js', 'React Three Fiber', 'Zustand', 'Tailwind CSS'],
   },
   {
     category: 'AI / Data Pipeline',

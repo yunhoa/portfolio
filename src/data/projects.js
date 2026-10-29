@@ -166,6 +166,7 @@ export const projects = [
       'Morpheus/MSP 기반 하이브리드 웹뷰로 교육이력·BMSW·MSDS·마일리지 4개 모듈 개발',
       'Spring Framework 백엔드 기능과 MyBatis Mapper, Oracle SQL 작성',
     ],
+    secondaryWork: '기존 Nexacro 화면에서 공통코드를 활용해 화면을 구성하고 Dataset 바인딩을 일부 작업했습니다.',
     solutionSections: [
       {
         title: '이중화 환경의 인증코드 조회 문제',
@@ -184,7 +185,7 @@ export const projects = [
         ],
       },
     ],
-    tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus/MSP', 'JavaScript', 'video.js', 'JMeter'],
+    tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus/MSP', 'Nexacro', 'JavaScript', 'video.js', 'JMeter'],
   },
   {
     title: '한화토탈에너지스 MySafety 작업자 안전 지원 모바일 플랫폼',

@@ -9,6 +9,7 @@ const extendedKeywords = [
   'JMeter',
   'Apache HTTP Server',
   'Morpheus',
+  'Nexacro',
   'FastAPI / RAG',
   'PGVector',
   'React / Three.js',

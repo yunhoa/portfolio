@@ -343,6 +343,7 @@ function ProjectDetail({ project }) {
 
       <div className="space-y-5">
         {!showPersonalContext && <DetailList title={project.sectionLabels?.role || '담당 업무'} items={project.role} />}
+        {project.secondaryWork && <p className="copy text-slate-600">{project.secondaryWork}</p>}
         {showPersonalContext && <DetailList title="구성한 내용" items={project.implementations} />}
         {!showPersonalContext && <DetailList title={project.sectionLabels?.features || '주요 기능'} items={project.features} />}
         {!showPersonalContext && <DetailList title={project.sectionLabels?.implementations || '구현 내용'} items={project.implementations} />}
