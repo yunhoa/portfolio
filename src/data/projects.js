@@ -12,9 +12,6 @@ import b2bTimelinePreview from '../assets/b2b-schedule-timeline.png';
 import b2bFlightSchedule from '../assets/b2b-flight-schedule.png';
 import b2bOverviewSchedule from '../assets/b2b-overview-schedule.png';
 import b2bOperationsDashboard from '../assets/b2b-operations-dashboard.png';
-import b2bArchitecture from '../assets/b2b-service-architecture.svg';
-import b2bErd from '../assets/b2b-schedule-erd.svg';
-import b2bSyncFlow from '../assets/b2b-sync-flow.svg';
 import mySafetyAppStore from '../assets/mysafety-app-store.png';
 import mySafetyPlayStore from '../assets/mysafety-play-store.png';
 import seoulHereDiagram from '../assets/seoulhere-service-architecture.svg';
@@ -276,11 +273,6 @@ export const projects = [
     tags: ['React', 'Node.js', 'PostgreSQL'],
     summary:
       '주간 타임라인과 항공·전체 일정·운영 현황 화면에서 거제도 상주 인원의 이동과 체류 일정을 확인하는 도구입니다.',
-    galleryIntroImages: [
-      { label: '서비스 구성도', src: b2bArchitecture, alt: 'React 화면에서 Express API를 호출하고 PostgreSQL과 그룹웨어·외부 API를 연동하는 구조', frameClass: 'aspect-[16/10]' },
-      { label: '일정 데이터 ERD', src: b2bErd, alt: '일정·외부 일정 미러·동기화 상태 5개 테이블. members와 segments는 FK 없는 논리 참조 관계', frameClass: 'aspect-[16/10]' },
-      { label: '외부 일정 동기화', src: b2bSyncFlow, alt: '수동·자동 실행으로 휴가와 캘린더를 수집하고 트랜잭션으로 DB 미러를 교체하는 흐름', frameClass: 'aspect-[16/10]' },
-    ],
     screenshots: [
       { label: '주간 이동·체류 타임라인', src: b2bTimelinePreview, frameClass: 'aspect-[16/10]' },
       { label: '항공 일정', src: b2bFlightSchedule, frameClass: 'aspect-[16/10]' },
@@ -292,19 +284,13 @@ export const projects = [
       '상주 인원 일정을 확인할 때 메신저와 여러 표를 오가는 일이 반복돼, 이동·체류·휴가를 한곳에서 볼 수 있도록 만들었습니다.',
     features: [
       'React 기반 주간 타임라인, 항공 일정, 전체 일정·휴가, 운영 현황 화면 개발',
-      'React 상태와 API 통신을 분리하고 Node.js·Express API로 PostgreSQL 일정 조회·저장',
-      '그룹웨어 휴가·Google Calendar를 수집해 전체 일정에 표시',
-    ],
-    implementations: [
-      'members·segments로 인원과 이동·체류 일정을 관리하고 트랜잭션으로 일정 상태 저장',
-      '기동 시·매일 06시·수동 요청으로 외부 일정 동기화, 소스별 성공·실패 상태 기록',
-      '진행 중인 동기화는 같은 Promise를 재사용하고 외부 일정은 트랜잭션으로 교체',
-      '운영 현황에서 DB·외부 연동·봇 상태 조회, 주기적 점검과 Slack 알림 연계',
+      'Node.js·Express API와 PostgreSQL 일정 데이터 연동',
+      '그룹웨어 휴가 일정 조회 및 Google Calendar 연동',
     ],
     outcomes: [
       '인원별 이동·체류·휴가 일정을 한 화면에서 확인',
     ],
-    tech: ['React', 'Vite', 'JavaScript', 'Node.js', 'Express', 'PostgreSQL', 'node-cron', 'Google Calendar API', 'Playwright', 'Codex'],
+    tech: ['React', 'JavaScript', 'Node.js', 'Express', 'PostgreSQL', 'Google Calendar API', 'Playwright', 'Codex'],
   },
   {
     title: 'Proxmox 기반 홈서버 및 네트워크 인프라 구축',
