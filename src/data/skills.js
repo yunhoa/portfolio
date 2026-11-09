@@ -1,7 +1,7 @@
 export const skillGroups = [
   {
     category: 'Backend',
-    items: ['Java', 'Spring Boot', 'Spring Framework', 'JPA', 'MyBatis', 'REST API', 'FastAPI', 'SAP RFC (ABAP 함수 작성·연동)'],
+    items: ['Java', 'Spring Boot', 'Spring Framework', 'JPA', 'MyBatis', 'REST API', 'FastAPI', 'SAP RFC'],
   },
   {
     category: 'Data',
@@ -21,6 +21,10 @@ export const skillGroups = [
   },
   {
     category: 'AI / Data Pipeline',
-    items: ['LangChain', 'LangGraph', 'Ollama', 'HuggingFace Embeddings', 'BAAI/bge-m3', 'SAM', 'OpenCV', 'Claude Code', 'Codex'],
+    items: ['LangChain', 'LangGraph', 'Ollama', 'HuggingFace Embeddings', 'BAAI/bge-m3', 'SAM', 'OpenCV'],
+  },
+  {
+    category: 'Dev Tools',
+    items: ['Git', 'GitHub', 'GitLab', 'Postman', 'Claude Code', 'Codex'],
   },
 ];

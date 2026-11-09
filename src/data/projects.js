@@ -149,7 +149,7 @@ export const projects = [
     period: '2026.06.15 ~ 2026.12 예정',
     tags: ['Backend', 'Morpheus', 'Spring Legacy', 'MyBatis'],
     summary:
-      '교육이력·BMSW·MSDS·마일리지 4개 모듈의 모바일 화면과 Spring 백엔드 기능을 개발했습니다.',
+      '교육이력·BMSW·MSDS·마일리지 4개 모듈의 모바일·웹 화면과 Spring 백엔드 기능을 개발했습니다.',
     sectionLabels: {
       role: '주요 개발 업무',
       solution: '주요 구현 사례',
@@ -161,15 +161,12 @@ export const projects = [
       'Spring Framework / MyBatis / Oracle 기반 백엔드 기능 개발',
       'WAS 이중화 환경의 인증코드 조회 문제를 공용 DB 저장 방식으로 해결',
       '교육영상 Range 응답·진도 저장 연계 및 JMeter 시나리오 직접 구성',
-      '처음 맡은 SAP도 AI를 활용해 RFC 함수·구조체를 직접 만들어 연동',
     ],
     role: [
       'Morpheus/MSP 기반 하이브리드 웹뷰로 교육이력·BMSW·MSDS·마일리지 4개 모듈 개발',
       'Spring Framework 백엔드 기능과 MyBatis Mapper, Oracle SQL 작성',
-      'SAP RFC 함수·구조체 작성과 JCo 연동, Nexacro 웹 화면 수정',
+      'Nexacro 웹 화면 수정과 SAP RFC 함수·구조체 작성',
     ],
-    secondaryWork:
-      'SAP·Nexacro는 처음이었지만 AI를 활용해 T-CODE부터 익히며 RFC 함수·구조체를 직접 만들어 Spring에 연동하고, Nexacro 조회 화면을 구현했습니다.',
     solutionSections: [
       {
         title: '이중화 환경의 인증코드 조회 문제',
@@ -185,6 +182,13 @@ export const projects = [
           '영상 플레이어와 JMeter 모두 처음 사용해 필요한 동작을 찾아가며 구현했습니다. Spring Controller에서 Range 요청에 맞춰 영상 응답 범위를 처리하고, 모바일에서는 시청 중·일시정지·종료 시점에 진도 저장 API를 호출하도록 연결했습니다. 저장된 진도로 이어보기와 수강 완료 후 다시보기도 구분했습니다.',
           '교육영상의 건너뛰기와 배속을 제한하고 브라우저 재생 조건을 확인했습니다. 가로 전체 화면에서는 네이티브 영역과 연동해 상·하단 바를 숨겼습니다.',
           '전달받은 동시 사용자 조건을 바탕으로 JMeter 환경과 요청 시나리오를 직접 구성했습니다. Groovy로 사용자별 Range 범위를 계산하고 다음 요청 위치를 갱신했습니다. 초기 버퍼링을 가정한 첫 요청 전 3초 대기와 반복 요청 간격을 설정한 뒤 응답시간, 오류 여부, Throughput을 확인했습니다.',
+        ],
+      },
+      {
+        title: '처음 해본 SAP RFC 함수·구조체 작성',
+        paragraphs: [
+          '교육이력 화면에서 SAP에 등록된 사내자격 이력을 조회해야 했습니다. SAP는 처음이었지만 AI를 활용해 SE11·SE37 같은 T-CODE부터 익히며 결과 구조체와 RFC 함수를 직접 만들었습니다.',
+          '조회 SQL은 DBeaver로 결과를 먼저 확인한 뒤 함수로 옮겼습니다. 자격코드 목록을 별도 함수로 받아 조회 범위를 만들던 부분은 같은 조건을 코드 테이블 JOIN에서 이미 확인하고 있어 JOIN으로 정리했습니다. 만든 RFC는 Spring에서 JCo로 호출해 Nexacro 화면의 사내자격 탭에 연결했습니다.',
         ],
       },
     ],
