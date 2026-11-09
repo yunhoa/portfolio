@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000" role="img" aria-labelledby="title"><title id="title">Safety Watch 건축물 스마트검색 LangGraph 처리 흐름</title><defs><style>
+text{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#293b38;letter-spacing:0}.title{font-size:30px;font-weight:700}.label{font-size:18px}.small{font-size:15px;fill:#647570}.node{font-size:21px;font-weight:700}.en{font-size:15px;fill:#647570}.section{font-size:19px;font-weight:700;fill:#57776e}.edge{fill:none;stroke:#718b83;stroke-width:1.8}.dash{fill:none;stroke:#8aa199;stroke-width:1.6;stroke-dasharray:6 5}.loop{fill:none;stroke:#b3684f;stroke-width:2;stroke-dasharray:9 6}.loopText{font-size:17px;fill:#9a5640;font-weight:700}
+</style><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#648279" stroke-width="1.5"/></marker><marker id="arrowLoop" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#b3684f" stroke-width="1.6"/></marker></defs>
+<rect width="1800" height="1000" fill="#fff"/>
+<text x="40" y="58" class="title">Safety Watch 건축물 스마트검색 · LangGraph 처리 흐름</text>
+
+<rect x="300" y="110" width="1460" height="860" rx="4" fill="#fbfcfb" stroke="#91aaa1" stroke-width="2"/>
+<text x="330" y="146" class="section">FastAPI 검색 API · LangGraph 노드 (사내망 로컬 처리)</text>
+
+<rect x="40" y="180" width="200" height="80" rx="4" fill="#edf2f7" stroke="#a8bcb3" stroke-width="1.7"/>
+<text x="140" y="228" class="node" text-anchor="middle">사용자 질문</text>
+
+<rect x="360" y="180" width="260" height="80" rx="4" fill="#fff" stroke="#a8bcb3" stroke-width="1.7"/>
+<text x="490" y="215" class="node" text-anchor="middle">질문 재작성</text>
+<text x="490" y="242" class="en" text-anchor="middle">Query Rewriter</text>
+
+<rect x="700" y="180" width="240" height="80" rx="4" fill="#fff" stroke="#a8bcb3" stroke-width="1.7"/>
+<text x="820" y="215" class="node" text-anchor="middle">대화 캐시 확인</text>
+<text x="820" y="242" class="en" text-anchor="middle">Chat Cache</text>
+
+<rect x="1020" y="180" width="280" height="80" rx="4" fill="#edf4f1" stroke="#7f9f94" stroke-width="2"/>
+<text x="1160" y="215" class="node" text-anchor="middle">질문 유형 분기</text>
+<text x="1160" y="242" class="en" text-anchor="middle">Router · LangGraph Supervisor</text>
+
+<path class="edge" d="M240 210H358" marker-end="url(#arrow)"/>
+<path class="edge" d="M620 220H698" marker-end="url(#arrow)"/>
+<path class="edge" d="M940 220H1018" marker-end="url(#arrow)"/>
+
+<rect x="340" y="330" width="960" height="345" rx="4" fill="#f4f8f6" stroke="#a8bcb3" stroke-width="1.7"/>
+<text x="370" y="660" class="section">Hybrid Retrieval · 3개 검색 경로</text>
+<path class="edge" d="M1160 260V296H820V328" marker-end="url(#arrow)"/>
+<path class="edge" d="M820 296H520V378" marker-end="url(#arrow)"/>
+<path class="edge" d="M820 328V378" marker-end="url(#arrow)"/>
+<path class="edge" d="M1160 296H1130V378" marker-end="url(#arrow)"/>
+
+<rect x="380" y="380" width="280" height="110" rx="4" fill="#fff" stroke="#a8bcb3" stroke-width="1.7"/>
+<text x="520" y="420" class="node" text-anchor="middle">법령 검색</text>
+<text x="520" y="447" class="en" text-anchor="middle">Vector Retriever</text>
+<text x="520" y="472" class="small" text-anchor="middle">법령·지침 문서 의미 검색</text>
+
+<rect x="690" y="380" width="260" height="110" rx="4" fill="#fff" stroke="#a8bcb3" stroke-width="1.7"/>
+<text x="820" y="420" class="node" text-anchor="middle">NL2SQL</text>
+<text x="820" y="447" class="en" text-anchor="middle">SQL Retriever</text>
+<text x="820" y="472" class="small" text-anchor="middle">자연어 조건 → SQL 조회</text>
+
+<rect x="980" y="380" width="300" height="110" rx="4" fill="#fff" stroke="#a8bcb3" stroke-width="1.7"/>
+<text x="1130" y="420" class="node" text-anchor="middle">IFC 검색</text>
+<text x="1130" y="447" class="en" text-anchor="middle">API Retriever</text>
+<text x="1130" y="472" class="small" text-anchor="middle">객체·속성 조건 추출 후 조회</text>
+
+<rect x="400" y="545" width="240" height="75" rx="4" fill="#edf2f7" stroke="#a8bcb3" stroke-width="1.5"/>
+<text x="520" y="577" class="label" text-anchor="middle">PGVector</text>
+<text x="520" y="603" class="small" text-anchor="middle">bge-m3 임베딩</text>
+<rect x="700" y="545" width="240" height="75" rx="4" fill="#edf2f7" stroke="#a8bcb3" stroke-width="1.5"/>
+<text x="820" y="577" class="label" text-anchor="middle">PostgreSQL</text>
+<text x="820" y="603" class="small" text-anchor="middle">건축물·점검 데이터</text>
+<rect x="1010" y="545" width="240" height="75" rx="4" fill="#edf2f7" stroke="#a8bcb3" stroke-width="1.5"/>
+<text x="1130" y="577" class="label" text-anchor="middle">IFC (BIM) 데이터</text>
+<text x="1130" y="603" class="small" text-anchor="middle">API 조회</text>
+<path class="dash" d="M520 545V492" marker-end="url(#arrow)"/>
+<path class="dash" d="M820 545V492" marker-end="url(#arrow)"/>
+<path class="dash" d="M1130 545V492" marker-end="url(#arrow)"/>
+
+<rect x="1390" y="380" width="320" height="80" rx="4" fill="#fff" stroke="#a8bcb3" stroke-width="1.7"/>
+<text x="1550" y="415" class="node" text-anchor="middle">리랭킹</text>
+<text x="1550" y="442" class="en" text-anchor="middle">Re-ranking</text>
+<path class="edge" d="M1300 420H1388" marker-end="url(#arrow)"/>
+
+<rect x="1390" y="520" width="320" height="90" rx="4" fill="#fbf1ec" stroke="#c99a86" stroke-width="2"/>
+<text x="1550" y="558" class="node" text-anchor="middle">관련성 검증</text>
+<text x="1550" y="586" class="en" text-anchor="middle">질문과 맞는 결과인지 판단</text>
+<path class="edge" d="M1550 460V518" marker-end="url(#arrow)"/>
+
+<rect x="1390" y="680" width="320" height="80" rx="4" fill="#fff" stroke="#a8bcb3" stroke-width="1.7"/>
+<text x="1550" y="715" class="node" text-anchor="middle">컨텍스트 구성</text>
+<text x="1550" y="742" class="en" text-anchor="middle">Context Assembler</text>
+<path class="edge" d="M1550 610V678" marker-end="url(#arrow)"/>
+<text x="1565" y="652" class="small">적합</text>
+
+<rect x="1390" y="820" width="320" height="90" rx="4" fill="#edf4f1" stroke="#7f9f94" stroke-width="2"/>
+<text x="1550" y="858" class="node" text-anchor="middle">답변 생성</text>
+<text x="1550" y="886" class="en" text-anchor="middle">Ollama 로컬 LLM</text>
+<path class="edge" d="M1550 760V818" marker-end="url(#arrow)"/>
+
+<path class="loop" d="M1390 590H1345V720H320V240H358" marker-end="url(#arrowLoop)"/>
+<text x="830" y="708" class="loopText" text-anchor="middle">부적합 → 질문을 다시 쓰고 재검색</text>
+
+<path class="edge" d="M1390 865H140V262" marker-end="url(#arrow)"/>
+<text x="760" y="852" class="label" text-anchor="middle">답변 반환</text>
+
+<text x="330" y="945" class="small">LangChain: 검색기·프롬프트·LLM 호출 연결 · LangGraph: 노드 상태에 따라 다음 단계 결정</text>
+</svg>
