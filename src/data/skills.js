@@ -1,7 +1,7 @@
 export const skillGroups = [
   {
     category: 'Backend',
-    items: ['Java', 'Spring Boot', 'Spring Framework', 'JPA', 'MyBatis', 'REST API', 'FastAPI', 'SAP RFC 연동'],
+    items: ['Java', 'Spring Boot', 'Spring Framework', 'JPA', 'MyBatis', 'REST API', 'FastAPI', 'SAP RFC (ABAP 함수 작성·연동)'],
   },
   {
     category: 'Data',
