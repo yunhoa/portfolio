@@ -1,7 +1,7 @@
 export const skillGroups = [
   {
     category: 'Backend',
-    items: ['Java', 'Spring Boot', 'Spring Framework', 'JPA', 'MyBatis', 'REST API', 'FastAPI'],
+    items: ['Java', 'Spring Boot', 'Spring Framework', 'JPA', 'MyBatis', 'REST API', 'FastAPI', 'SAP RFC 연동'],
   },
   {
     category: 'Data',
@@ -17,10 +17,10 @@ export const skillGroups = [
   },
   {
     category: 'Frontend / 3D',
-    items: ['React', 'JavaScript', 'Thymeleaf', 'Nexacro (일부 화면·Dataset)', 'Three.js', 'React Three Fiber', 'Zustand', 'Tailwind CSS'],
+    items: ['React', 'JavaScript', 'Thymeleaf', 'Nexacro', 'Three.js', 'React Three Fiber', 'Zustand', 'Tailwind CSS'],
   },
   {
     category: 'AI / Data Pipeline',
-    items: ['LangChain', 'LangGraph', 'Ollama', 'HuggingFace Embeddings', 'BAAI/bge-m3', 'SAM', 'OpenCV'],
+    items: ['LangChain', 'LangGraph', 'Ollama', 'HuggingFace Embeddings', 'BAAI/bge-m3', 'SAM', 'OpenCV', 'Claude Code', 'Codex'],
   },
 ];

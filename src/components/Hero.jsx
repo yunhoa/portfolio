@@ -72,7 +72,7 @@ function Hero() {
                 <dd className="min-w-0 space-y-2 leading-6 text-slate-800">
                   <p>
                     올포랜드
-                    <span className="text-slate-500"> · 2025.01 – 재직 중 (1년 9개월)</span>
+                    <span className="text-slate-500"> · 2025.01 – 재직 중 (1년 10개월)</span>
                     <br />
                     <span className="text-slate-600">Java/Spring 기반 서버 기능 개발 및 운영 시스템 유지보수</span>
                   </p>

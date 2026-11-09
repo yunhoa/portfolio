@@ -161,12 +161,15 @@ export const projects = [
       'Spring Framework / MyBatis / Oracle 기반 백엔드 기능 개발',
       'WAS 이중화 환경의 인증코드 조회 문제를 공용 DB 저장 방식으로 해결',
       '교육영상 Range 응답·진도 저장 연계 및 JMeter 시나리오 직접 구성',
+      'Nexacro 웹 화면·SAP RFC 연동 등 처음 맡은 업무도 AI를 활용해 처리',
     ],
     role: [
       'Morpheus/MSP 기반 하이브리드 웹뷰로 교육이력·BMSW·MSDS·마일리지 4개 모듈 개발',
       'Spring Framework 백엔드 기능과 MyBatis Mapper, Oracle SQL 작성',
+      'Nexacro 웹 화면 수정과 SAP RFC 연동 조회 기능 추가',
     ],
-    secondaryWork: '기존 Nexacro 화면에서 공통코드를 활용해 화면을 구성하고 Dataset 바인딩을 일부 작업했습니다.',
+    secondaryWork:
+      '처음 접한 Nexacro와 SAP도 AI를 활용해 구조를 파악하며 작업했습니다. SAP RFC 조회 조건을 일부 수정해 교육·자격 이력 조회를 추가하고, 설문 통계 엑셀 내보내기를 개선했습니다.',
     solutionSections: [
       {
         title: '이중화 환경의 인증코드 조회 문제',
@@ -185,7 +188,7 @@ export const projects = [
         ],
       },
     ],
-    tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus/MSP', 'Nexacro', 'JavaScript', 'video.js', 'JMeter'],
+    tech: ['Java', 'Spring Framework', 'MyBatis', 'Oracle', 'SQL', 'Morpheus/MSP', 'Nexacro', 'SAP RFC', 'JavaScript', 'video.js', 'JMeter'],
   },
   {
     title: '한화토탈에너지스 MySafety 작업자 안전 지원 모바일 플랫폼',
