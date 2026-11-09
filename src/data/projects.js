@@ -36,7 +36,7 @@ export const projects = [
     tags: ['Backend', 'AI Search', 'LangGraph', 'RAG'],
     diagram: safetyWatchFlow,
     diagramAlt:
-      '사용자 질문이 질문 재작성, 대화 캐시, LangGraph Router를 거쳐 법령 검색(PGVector), NL2SQL(PostgreSQL), IFC 검색(API) 중 하나로 분기하고, 리랭킹 후 관련성 검증에서 부적합하면 질문 재작성으로 돌아가며, 적합하면 컨텍스트를 구성해 Ollama 로컬 LLM이 답변하는 흐름',
+      '사용자 질문이 질문 재작성, 대화 캐시, LangGraph Router를 거쳐 법령 검색(PGVector), NL2SQL(PostgreSQL), IFC 검색(API) 중 하나로 분기하고, 리랭킹 후 관련성 검증에서 부적합하면 질문 재작성으로 돌아가며, 적합하면 컨텍스트를 구성해 Ollama의 gpt-oss:20b가 답변하는 흐름',
     sectionLabels: {
       problem: '질문마다 다른 데이터',
       solution: 'LangGraph 노드 구성',
@@ -51,12 +51,14 @@ export const projects = [
       'NL2SQL: 자연어 조건을 SQL로 바꿔 건축물·점검 데이터 조회',
       'IFC 검색: 객체·속성 조건을 추출해 BIM 데이터 조회',
       '검색 결과가 질문과 맞지 않으면 질문을 다시 써서 재검색',
+      'Ollama 모델을 직접 비교해 gpt-oss:20b 적용',
     ],
     role: [
       'FastAPI 검색 API와 LangGraph 노드·분기 구성',
       '법령 문서 전처리·청킹, bge-m3 임베딩과 PGVector 검색·리랭킹',
       'NL2SQL과 IFC 객체·속성 검색 경로 구현',
       '관련성 검증 노드와 질문 재작성·재검색 흐름 구현',
+      'Ollama 로컬 모델 비교 실험과 답변 모델 선정',
     ],
     problem:
       '건축물 관련 질문은 법령·지침 문서, 건축물·점검 이력 같은 정형 데이터, IFC(BIM) 객체 정보로 찾아야 할 곳이 달랐습니다. 한 가지 검색 방식으로는 맞지 않는 결과가 섞일 수 있었고, 사내망 환경이라 외부 LLM API도 사용할 수 없었습니다.',
@@ -65,13 +67,15 @@ export const projects = [
 
 분기 노드는 질문을 법령 검색, NL2SQL, IFC 검색 중 맞는 경로로 보냅니다. 법령 검색은 BAAI/bge-m3 임베딩과 PGVector로 관련 조항을 찾고 리랭킹했습니다. NL2SQL은 자연어 조건을 SQL로 바꿔 건축물·점검 데이터를 조회하고, IFC 검색은 객체와 속성 조건을 추출해 BIM 데이터를 조회했습니다.
 
-검증 노드에서 검색 결과가 질문과 맞는지 확인해, 맞지 않으면 질문 재작성 단계로 돌아가 다시 검색하게 했습니다. 맞는 결과는 컨텍스트로 묶어 Ollama 로컬 LLM이 답하도록 하고, 검색기·프롬프트·LLM 호출은 LangChain으로 연결했습니다.`,
+검증 노드에서 검색 결과가 질문과 맞는지 확인해, 맞지 않으면 질문 재작성 단계로 돌아가 다시 검색하게 했습니다. 맞는 결과는 컨텍스트로 묶어 LLM이 답하도록 하고, 검색기·프롬프트·LLM 호출은 LangChain으로 연결했습니다.
+
+외부 API를 쓸 수 없어 Ollama에서 돌릴 수 있는 모델을 직접 비교했습니다. qwen2.5:7b, llama3.1:8b 등으로 답변을 비교하고, 질문 재작성 단계는 llama3.2:3b 같은 소형 모델로도 시험했습니다. 그중 결과가 가장 좋았던 gpt-oss:20b를 최종 모델로 사용했습니다.`,
     tech: [
       'FastAPI',
       'Python',
       'LangGraph',
       'LangChain',
-      'Ollama',
+      'Ollama (gpt-oss:20b)',
       'HuggingFace Embeddings',
       'BAAI/bge-m3',
       'PostgreSQL',

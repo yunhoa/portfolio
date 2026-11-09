@@ -79,7 +79,7 @@ text{font-family:'Malgun Gothic','Apple SD Gothic Neo',sans-serif;fill:#293b38;l
 
 <rect x="1390" y="820" width="320" height="90" rx="4" fill="#edf4f1" stroke="#7f9f94" stroke-width="2"/>
 <text x="1550" y="858" class="node" text-anchor="middle">답변 생성</text>
-<text x="1550" y="886" class="en" text-anchor="middle">Ollama 로컬 LLM</text>
+<text x="1550" y="886" class="en" text-anchor="middle">Ollama · gpt-oss:20b</text>
 <path class="edge" d="M1550 760V818" marker-end="url(#arrow)"/>
 
 <path class="loop" d="M1390 590H1345V720H320V240H358" marker-end="url(#arrowLoop)"/>
